@@ -1,7 +1,7 @@
 # Email Inboxes
 An app to organize your email inboxes
 
-<b>Supports:</b>
+## Supports:
 * Gmail
 * iCloud Mail
 * Proton Mail
