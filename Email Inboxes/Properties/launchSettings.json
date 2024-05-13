@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Email Inboxes (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Email Inboxes (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

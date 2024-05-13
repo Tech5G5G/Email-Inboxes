@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+        x:Class="Email_Inboxes.Settings"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:local="using:Email_Inboxes"
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:ui="using:CommunityToolkit.WinUI"
+xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+mc:Ignorable="d">
+
+    <StackPanel Spacing="4" BorderThickness="25">
+        <TextBlock Text="Settings" FontSize="28" FontFamily="Segoe UI Variable Display" FontWeight="SemiBold" />
+        <TextBlock Text="" FontSize="10"/>
+
+        <controls:SettingsExpander Description="Icons by Icons8"
+                                     Header="Custom Icons Information"
+                                     HeaderIcon="{ui:FontIcon Glyph=&#xE946;}">
+            <HyperlinkButton Content="Icons8 Website" NavigateUri="https://icons8.com/"/>
+            <controls:SettingsExpander.Items>
+                <controls:SettingsCard Header="Circled Envelope Icon">
+                    <HyperlinkButton Content="Circled Envelope Icon on Icons8" NavigateUri="https://icons8.com/icon/YrXy82StfwT9/circled-envelope"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Header="Outlook Icon">
+                    <HyperlinkButton Content="Outlook Icon on Icons8" NavigateUri="https://icons8.com/icon/sEACKi8zoWLu/microsoft-outlook"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Header="Gmail Icon">
+                    <HyperlinkButton Content="Gmail Icon on Icons8" NavigateUri="https://icons8.com/icon/CTXHIG9M1gwW/gmail"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Header="ProtonMail Icon">
+                    <HyperlinkButton Content="ProtonMail Icon on Icons8" NavigateUri="https://icons8.com/icon/ktp56n4o2SyZ/protonmail"/>
+                </controls:SettingsCard>
+            </controls:SettingsExpander.Items>
+        </controls:SettingsExpander>
+
+        <controls:SettingsExpander Description="©️ 2024 Ignacy Tomczyk"
+                                           Header="Email Inboxes"
+                                           HeaderIcon="{ui:BitmapIcon Source=Assets/StoreLogo.png}">
+            <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                   Text="Version 2.0.0.0" />
+            <controls:SettingsExpander.Items>
+                <controls:SettingsCard Header="Created by Ignacy Tomczyk after hours of sweat and tears" Description="Thank you to Łukasz Tomczyk for your support!"/>
+            </controls:SettingsExpander.Items>
+        </controls:SettingsExpander>
+    </StackPanel>
+</Page>

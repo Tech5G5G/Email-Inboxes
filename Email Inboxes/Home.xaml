@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+       x:Class="Email_Inboxes.Home"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:local="using:Email_Inboxes"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:ui="using:CommunityToolkit.WinUI"
+   xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+   mc:Ignorable="d">
+
+    <StackPanel Spacing="4" BorderThickness="25">
+
+        <TextBlock Text="Home" FontSize="28" FontFamily="Segoe UI Variable Display" FontWeight="SemiBold" />
+        <TextBlock Text="" FontSize="10"/>
+
+        <controls:SettingsCard
+   ActionIcon="{ui:FontIcon Glyph=&#xE8A7;}"
+   ActionIconToolTip="Open Outlook"
+   Header="Outlook"
+   HeaderIcon="{ui:FontIcon Glyph=&#xE902;, FontFamily={StaticResource CustomIcons}}"
+   Click="SettingsCard_Click"
+   IsClickEnabled="True"/>
+
+        <controls:SettingsCard
+   ActionIcon="{ui:FontIcon Glyph=&#xE76C;}"
+   ActionIconToolTip="Open the Gmail page"
+   Header="Gmail"
+   Click="SettingsCard_Click_3"
+   HeaderIcon="{ui:FontIcon Glyph=&#xE900;, FontFamily={StaticResource CustomIcons}}"
+   IsClickEnabled="True"/>
+
+        <controls:SettingsCard
+   ActionIcon="{ui:FontIcon Glyph=&#xE76C;}"
+   ActionIconToolTip="Open the iCloud Mail page"
+   Header="iCloud Mail"
+   Click="SettingsCard_Click_2"
+   HeaderIcon="{ui:FontIcon Glyph=&#xE753;}"
+   IsClickEnabled="True"/>
+
+        <controls:SettingsCard
+   ActionIcon="{ui:FontIcon Glyph=&#xE76C;}"
+   ActionIconToolTip="Open the Proton Mail page"
+   Header="Proton Mail"
+   Click="SettingsCard_Click_1"
+   HeaderIcon="{ui:FontIcon Glyph=&#xE901;, FontFamily={StaticResource CustomIcons}}"
+   IsClickEnabled="True"/>
+    </StackPanel>
+</Page>
