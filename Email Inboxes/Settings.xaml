@@ -40,6 +40,9 @@ mc:Ignorable="d">
             <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                    Text="Version 2.0.0.0" />
             <controls:SettingsExpander.Items>
+                <controls:SettingsCard Header="GitHub Page">
+                    <HyperlinkButton Content="Tech5G5G/Email-Inboxes" NavigateUri="https://github.com/Tech5G5G/Email-Inboxes"/>
+                </controls:SettingsCard>    
                 <controls:SettingsCard Header="Created by Ignacy Tomczyk after hours of sweat and tears" Description="Thank you to Łukasz Tomczyk for your support!"/>
             </controls:SettingsExpander.Items>
         </controls:SettingsExpander>
