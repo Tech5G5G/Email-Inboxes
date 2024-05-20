@@ -55,9 +55,9 @@ namespace Email_Inboxes
 
         private MicaController? _micaController;
 
-        private SystemBackdropConfiguration? _configurationSource;       
+        private SystemBackdropConfiguration? _configurationSource;
 
-    public MainWindow()
+        public MainWindow()
         {
             this.InitializeComponent();
             var result = TrySetMicaBackdrop();

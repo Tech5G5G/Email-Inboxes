@@ -14,6 +14,8 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
+using Microsoft.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml.Documents;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -38,19 +40,28 @@ namespace Email_Inboxes
         private void SettingsCard_Click_1(object sender, RoutedEventArgs e)
         {
             Frame contentFrame = ((App)Application.Current).contentFrame;
-            Frame.Navigate(typeof(Proton), contentFrame);
+            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+            var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Proton");
+            mw.nvSample.SelectedItem = item;
+            Frame.Navigate(typeof(Proton), contentFrame, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
         }
 
         private void SettingsCard_Click_2(object sender, RoutedEventArgs e)
         {
             Frame contentFrame = ((App)Application.Current).contentFrame;
-            Frame.Navigate(typeof(iCloud), contentFrame);
+            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+            var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_iCloud");
+            mw.nvSample.SelectedItem = item;
+            Frame.Navigate(typeof(iCloud), contentFrame, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
         }
 
         private void SettingsCard_Click_3(object sender, RoutedEventArgs e)
         {
             Frame contentFrame = ((App)Application.Current).contentFrame;
-            Frame.Navigate(typeof(Gmail), contentFrame);
+            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+            var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Gmail");
+            mw.nvSample.SelectedItem = item;
+            Frame.Navigate(typeof(Gmail), contentFrame, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
         }
     }
 }

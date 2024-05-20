@@ -47,7 +47,7 @@ namespace Email_Inboxes
             m_window.Activate();
         }
 
-        private Window m_window;
+        public Window m_window;
 
         public Frame contentFrame { get; private set; }
     }
