@@ -45,6 +45,9 @@ namespace Email_Inboxes
         {
             m_window = new MainWindow();
             m_window.Activate();
+            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+            var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Home");
+            mw.nvSample.SelectedItem = item;
         }
 
         public Window m_window;
