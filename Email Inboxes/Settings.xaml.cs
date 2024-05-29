@@ -183,6 +183,17 @@ namespace Email_Inboxes
                 OutlookAppType.SelectedIndex = 1;
                 ExePathCard.Visibility = Visibility.Visible;
             }
+
+            string HomeEnabled = localSettings.Values["HomeEnabled"].ToString();
+
+            if (HomeEnabled is "True")
+            {
+                HomeToggle.IsOn = true;
+            }
+            else
+            {
+                HomeToggle.IsOn = false;
+            }
         }
 
         private void ToDoService_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -355,6 +366,22 @@ namespace Email_Inboxes
         private void SaveExePath_Click(object sender, RoutedEventArgs e)
         {
             localSettings.Values["OutlookExePath"] = ExePath.Text;
+        }
+
+        private void HomeToggle_Toggled(object sender, RoutedEventArgs e)
+        {
+            string IsHomeEnabled = HomeToggle.IsOn.ToString();
+            localSettings.Values["HomeEnabled"] = IsHomeEnabled;
+
+            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+            if (IsHomeEnabled is "True")
+            {
+                mw.NavItem_Home.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                mw.NavItem_Home.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

@@ -45,6 +45,9 @@ mc:Ignorable="d">
             </controls:SettingsCard>
 
             <TextBlock Text="Home page" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="14" Margin="2,24,0,4"/>
+            <controls:SettingsCard Header="Home page visibility" Description="Enable or disable the home page" HeaderIcon="{ui:FontIcon Glyph=&#xE80F;}">
+                <ToggleSwitch x:Name="HomeToggle" Toggled="HomeToggle_Toggled"/>
+            </controls:SettingsCard>
             <controls:SettingsCard Description="Choose what calendar app to display"
                                  Header="Calendar app"
                                  HeaderIcon="{ui:FontIcon Glyph=&#xE787;}">
@@ -104,10 +107,10 @@ mc:Ignorable="d">
                                        Header="Email Inboxes"
                                        HeaderIcon="{ui:BitmapIcon Source=Assets/StoreLogo.png}">
                 <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-               Text="Version 1.2.0.0" />
+               Text="Version 1.2.1.0" />
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Header="What's new">
-                        <HyperlinkButton Content="Version 1.2.0.0 on GitHub" NavigateUri="https://github.com/Tech5G5G/Email-Inboxes/releases/"/>
+                        <HyperlinkButton Content="Version 1.2.1.0 on GitHub" NavigateUri="https://github.com/Tech5G5G/Email-Inboxes/releases/"/>
                     </controls:SettingsCard>
                     <controls:SettingsCard Header="GitHub Page">
                         <HyperlinkButton Content="Tech5G5G/Email-Inboxes" NavigateUri="https://github.com/Tech5G5G/Email-Inboxes/"/>

@@ -168,6 +168,26 @@ namespace Email_Inboxes
             {
                 NavItem_Proton.Visibility = Visibility.Collapsed;
             }
+
+            string HomeEnabled = "True";
+            if (localSettings.Values.ContainsKey("HomeEnabled"))
+            {
+                HomeEnabled = localSettings.Values["HomeEnabled"].ToString();
+            }
+            else
+            {
+                localSettings.Values["HomeEnabled"] = "True";
+                HomeEnabled = localSettings.Values["HomeEnabled"].ToString();
+            }
+
+            if (HomeEnabled is "True")
+            {
+                NavItem_Home.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                NavItem_Home.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
