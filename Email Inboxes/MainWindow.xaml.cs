@@ -26,6 +26,7 @@ using Windows.UI.ApplicationSettings;
 using Windows.Media.Playback;
 using System.Security.Cryptography;
 using Windows.ApplicationModel.Core;
+using Windows.Storage;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -39,6 +40,8 @@ namespace Email_Inboxes
 
     public sealed partial class MainWindow : Window
     {
+        ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
         private AppWindow m_AppWindow;
 
         private AppWindow GetAppWindowForCurrentWindow ()
@@ -65,6 +68,106 @@ namespace Email_Inboxes
             m_AppWindow = GetAppWindowForCurrentWindow();
             Title = $"Email Inboxes";
             this.Activated += MainWindow_Activated;
+            SetTitleBar(AppTitleBar);
+            m_AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
+
+            string OutlookEnabled = "True";
+            if (localSettings.Values.ContainsKey("OutlookEnabled"))
+            {
+                OutlookEnabled = localSettings.Values["OutlookEnabled"].ToString();
+            }
+            else
+            {
+                localSettings.Values["OutlookEnabled"] = "True";
+                OutlookEnabled = localSettings.Values["OutlookEnabled"].ToString();
+            }
+
+            string OutlookAppType = "Website";
+            if (localSettings.Values.ContainsKey("OutlookAppType"))
+            {
+                OutlookAppType = localSettings.Values["OutlookAppType"].ToString();
+            }
+            else
+            {
+                localSettings.Values["OutlookAppType"] = "Website";
+                OutlookAppType = localSettings.Values["OutlookAppType"].ToString();
+            }
+
+            if (OutlookEnabled is "True")
+            {
+                if (OutlookAppType == "Website")
+                {
+                    NavItem_Outlook.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    NavItem_Outlook.Visibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                NavItem_Outlook.Visibility = Visibility.Collapsed;
+            }
+
+            string GmailEnabled = "True";
+            if (localSettings.Values.ContainsKey("GmailEnabled"))
+            {
+                GmailEnabled = localSettings.Values["GmailEnabled"].ToString();
+            }
+            else
+            {
+                localSettings.Values["GmailEnabled"] = "True";
+                GmailEnabled = localSettings.Values["GmailEnabled"].ToString();
+            }
+
+            if (GmailEnabled is "True")
+            {
+                NavItem_Gmail.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                NavItem_Gmail.Visibility = Visibility.Collapsed;
+            }
+
+            string iCloudEnabled = "True";
+            if (localSettings.Values.ContainsKey("iCloudEnabled"))
+            {
+                iCloudEnabled = localSettings.Values["iCloudEnabled"].ToString();
+            }
+            else
+            {
+                localSettings.Values["iCloudEnabled"] = "True";
+                iCloudEnabled = localSettings.Values["iCloudEnabled"].ToString();
+            }
+
+            if (iCloudEnabled is "True")
+            {
+                NavItem_iCloud.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                NavItem_iCloud.Visibility = Visibility.Collapsed;
+            }
+
+            string ProtonEnabled = "True";
+            if (localSettings.Values.ContainsKey("ProtonEnabled"))
+            {
+                ProtonEnabled = localSettings.Values["ProtonEnabled"].ToString();
+            }
+            else
+            {
+                localSettings.Values["ProtonEnabled"] = "True";
+                ProtonEnabled = localSettings.Values["ProtonEnabled"].ToString();
+            }
+
+            if (ProtonEnabled is "True")
+            {
+                NavItem_Proton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                NavItem_Proton.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
@@ -177,6 +280,9 @@ namespace Email_Inboxes
                     break;
                 case "NavItem_Proton":
                     pageType = typeof(Proton);
+                    break;
+                case "NavItem_Outlook":
+                    pageType = typeof(Outlook);
                     break;
                 default:
                     pageType = typeof (Settings);

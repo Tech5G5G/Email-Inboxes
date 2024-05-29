@@ -37,6 +37,7 @@
     <None Remove="Gmail.xaml" />
     <None Remove="Home.xaml" />
     <None Remove="iCloud.xaml" />
+    <None Remove="Outlook.xaml" />
     <None Remove="Proton.xaml" />
     <None Remove="Settings.xaml" />
   </ItemGroup>
@@ -64,6 +65,11 @@
     <Content Update="Assets\Email-Inboxes-Icons.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Outlook.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Proton.xaml">

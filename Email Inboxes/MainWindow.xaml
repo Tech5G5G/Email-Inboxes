@@ -8,28 +8,36 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="using:CommunityToolkit.WinUI"
     xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     mc:Ignorable="d">
 
     <Grid>
-        <Image Source="Assets/StoreLogo.png" 
-               Grid.Column="1"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Left"
-               Width="20" Height="20"
-               Margin="51,14,16,16"/>
-        <TextBlock x:Name="AppTitleTextBlock"
-               Text="Email Inboxes" 
-               Style="{StaticResource CaptionTextBlockStyle}" 
-               Grid.Column="1"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Left"
-               Margin="79,16,16,16"/>
+        <Border
+            x:Name="AppTitleBar"
+            Grid.Column="1"
+            Height="48"
+            Margin="51,0,0,0"
+            VerticalAlignment="Top"
+            AutomationProperties.AutomationId="AppTitleBar"
+            Canvas.ZIndex="1"
+            IsHitTestVisible="True">
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Width="15" Source="Assets/StoreLogo.png" />
+                <TextBlock
+                    x:Name="AppTitle"
+                    Margin="8,0,0,0"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    Text="Email Inboxes" />
+            </StackPanel>
+        </Border>
         <NavigationView x:FieldModifier="public" x:Name="nvSample" PaneDisplayMode="LeftCompact" IsBackButtonVisible="Collapsed" SelectionChanged="nvSample_SelectionChanged" xmlns:controls="Windows.UI.Xaml.Controls">
             <NavigationView.MenuItems>
-                <NavigationViewItem Icon="Home" Content="Home" x:Name="NavItem_Home" />
-                <NavigationViewItem Icon="{ui:FontIcon Glyph=&#xE900;, FontFamily={StaticResource CustomIcons}}" Content="Gmail"  x:Name="NavItem_Gmail" />
-                <NavigationViewItem Icon="{ui:FontIcon Glyph=&#xE753;}" Content="iCloud Mail" x:Name="NavItem_iCloud" />
-                <NavigationViewItem Icon="{ui:FontIcon Glyph=&#xE901;, FontFamily={StaticResource CustomIcons}}" Content="Proton Mail" x:Name="NavItem_Proton" />
+                <NavigationViewItem Icon="Home" Content="Home" x:Name="NavItem_Home" x:FieldModifier="public"/>
+                <NavigationViewItem Icon="{ui:FontIcon Glyph=&#xE902;, FontFamily={StaticResource CustomIcons}}" Content="Outlook"  x:Name="NavItem_Outlook" x:FieldModifier="public"/>
+                <NavigationViewItem Icon="{ui:FontIcon Glyph=&#xE900;, FontFamily={StaticResource CustomIcons}}" Content="Gmail"  x:Name="NavItem_Gmail" x:FieldModifier="public"/>
+                <NavigationViewItem Icon="{ui:FontIcon Glyph=&#xE753;}" Content="iCloud Mail" x:Name="NavItem_iCloud" x:FieldModifier="public"/>
+                <NavigationViewItem Icon="{ui:FontIcon Glyph=&#xE901;, FontFamily={StaticResource CustomIcons}}" Content="Proton Mail" x:Name="NavItem_Proton" x:FieldModifier="public"/>
             </NavigationView.MenuItems>
             <NavigationView.Resources>
                 <Thickness x:Key="NavigationViewContentMargin">0,48,0,0</Thickness>
@@ -37,7 +45,7 @@
                 <Thickness x:Key="NavigationViewContentGridBorderThickness">1,1,0,0</Thickness>
                 <CornerRadius x:Key="NavigationViewContentGridCornerRadius">8,0,0,0</CornerRadius>
             </NavigationView.Resources>
-            <Frame x:Name="contentFrame"/>
+            <Frame x:Name="contentFrame" x:FieldModifier="public"/>
         </NavigationView>
     </Grid>
 </Window>

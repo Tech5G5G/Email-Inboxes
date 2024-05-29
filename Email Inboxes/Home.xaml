@@ -7,44 +7,100 @@
    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
    xmlns:ui="using:CommunityToolkit.WinUI"
-   xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+   xmlns:controls="using:Microsoft.UI.Xaml.Controls"
    mc:Ignorable="d">
 
-    <StackPanel Spacing="4" BorderThickness="25">
-
-        <TextBlock Text="Home" FontSize="28" FontFamily="Segoe UI Variable Display" FontWeight="SemiBold" />
-        <TextBlock Text="" FontSize="10"/>
-
-        <controls:SettingsCard
-   ActionIcon="{ui:FontIcon Glyph=&#xE8A7;}"
-   ActionIconToolTip="Open Outlook"
-   Header="Outlook"
-   HeaderIcon="{ui:FontIcon Glyph=&#xE902;, FontFamily={StaticResource CustomIcons}}"
-   Click="SettingsCard_Click"
-   IsClickEnabled="True"/>
-
-        <controls:SettingsCard
-   ActionIcon="{ui:FontIcon Glyph=&#xE76C;}"
-   ActionIconToolTip="Open the Gmail page"
-   Header="Gmail"
-   Click="SettingsCard_Click_3"
-   HeaderIcon="{ui:FontIcon Glyph=&#xE900;, FontFamily={StaticResource CustomIcons}}"
-   IsClickEnabled="True"/>
-
-        <controls:SettingsCard
-   ActionIcon="{ui:FontIcon Glyph=&#xE76C;}"
-   ActionIconToolTip="Open the iCloud Mail page"
-   Header="iCloud Mail"
-   Click="SettingsCard_Click_2"
-   HeaderIcon="{ui:FontIcon Glyph=&#xE753;}"
-   IsClickEnabled="True"/>
-
-        <controls:SettingsCard
-   ActionIcon="{ui:FontIcon Glyph=&#xE76C;}"
-   ActionIconToolTip="Open the Proton Mail page"
-   Header="Proton Mail"
-   Click="SettingsCard_Click_1"
-   HeaderIcon="{ui:FontIcon Glyph=&#xE901;, FontFamily={StaticResource CustomIcons}}"
-   IsClickEnabled="True"/>
-    </StackPanel>
+    <ScrollView VerticalScrollBarVisibility="Hidden">
+        <StackPanel>
+            <TextBlock Text="Home" FontSize="28" FontFamily="Segoe UI Variable Display" FontWeight="SemiBold" Margin="25,25,25,0"/>
+            <ScrollView VerticalScrollMode="Disabled" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Hidden">
+                <StackPanel Margin="0,5,0,25" Orientation="Horizontal">
+                    <Rectangle Fill="Transparent" Height="10" Width="10"/>
+                    <ItemsControl Margin="15,15,0,0" x:Name="OutlookPageButton">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.Items>
+                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="10" RadiusY="10" Margin="0,0,0,0"/>
+                            <TextBlock Text="&#xE902;" FontFamily="{StaticResource CustomIcons}" FontSize="50" Margin="25,25,0,0"/>
+                            <TextBlock Text="Outlook" HorizontalAlignment="Left" FontFamily="Segoe UI Variable Display" FontWeight="Normal" FontSize="20" Margin="25,90,0,0"/>
+                            <TextBlock Text="Open the Outlook page" HorizontalAlignment="Left" FontFamily="Segoe UI Variable" FontWeight="Normal" FontSize="12" Foreground="{ThemeResource TextFillColorSecondary}" Margin="25,120,0,0"/>
+                            <TextBlock Text="&#xE76C;" FontFamily="Segoe Fluent Icons" FontSize="16" Margin="170,195,0,0"/>
+                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="10" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            <Button Height="225" Width="200" HorizontalAlignment="Left" Style="{StaticResource WindowCaptionButton}" CornerRadius="10" Click="OutlookNavigate"/>
+                        </ItemsControl.Items>
+                    </ItemsControl>
+                    <ItemsControl Margin="15,15,0,0" x:Name="OutlookAppButton">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.Items>
+                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="10" RadiusY="10" Margin="0,0,0,0"/>
+                            <TextBlock Text="&#xE902;" FontFamily="{StaticResource CustomIcons}" FontSize="50" Margin="25,25,0,0"/>
+                            <TextBlock Text="Outlook" HorizontalAlignment="Left" FontFamily="Segoe UI Variable Display" FontWeight="Normal" FontSize="20" Margin="25,90,0,0"/>
+                            <TextBlock Text="Open Outlook" HorizontalAlignment="Left" FontFamily="Segoe UI Variable" FontWeight="Normal" FontSize="12" Foreground="{ThemeResource TextFillColorSecondary}" Margin="25,120,0,0"/>
+                            <TextBlock Text="&#xE8A7;" FontFamily="Segoe Fluent Icons" FontSize="16" Margin="170,195,0,0"/>
+                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="10" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            <Button Height="225" Width="200" HorizontalAlignment="Left" Style="{StaticResource WindowCaptionButton}" CornerRadius="10" Click="SettingsCard_Click"/>
+                        </ItemsControl.Items>
+                    </ItemsControl>
+                    <ItemsControl Margin="15,15,0,0" x:Name="GmailButton">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.Items>
+                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="10" RadiusY="10" Margin="0,0,0,0"/>
+                            <TextBlock Text="&#xE900;" FontFamily="{StaticResource CustomIcons}" FontSize="50" Margin="25,25,0,0"/>
+                            <TextBlock Text="Gmail" HorizontalAlignment="Left" FontFamily="Segoe UI Variable Display" FontWeight="Normal" FontSize="20" Margin="25,90,0,0"/>
+                            <TextBlock Text="Open the Gmail page" HorizontalAlignment="Left" FontFamily="Segoe UI Variable" FontWeight="Normal" FontSize="12" Foreground="{ThemeResource TextFillColorSecondary}" Margin="25,120,0,0"/>
+                            <TextBlock Text="&#xE76C;" FontFamily="Segoe Fluent Icons" FontSize="16" Margin="170,195,0,0"/>
+                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="10" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            <Button Height="225" Width="200" Style="{StaticResource WindowCaptionButton}" HorizontalAlignment="Left" CornerRadius="10" Click="SettingsCard_Click_3" Margin="0,0,0,0"/>
+                        </ItemsControl.Items>
+                    </ItemsControl>
+                    <ItemsControl Margin="15,15,0,0" x:Name="iCloudButton">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.Items>
+                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="10" RadiusY="10" Margin="0,0,0,0"/>
+                            <TextBlock Text="&#xE753;" FontFamily="Segoe Fluent Icons" FontSize="50" Margin="25,25,0,0"/>
+                            <TextBlock Text="iCloud Mail" HorizontalAlignment="Left" FontFamily="Segoe UI Variable Display" FontWeight="Normal" FontSize="20" Margin="25,90,0,0"/>
+                            <TextBlock Text="Open the iCloud Mail page" HorizontalAlignment="Left" FontFamily="Segoe UI Variable" FontWeight="Normal" FontSize="12" Foreground="{ThemeResource TextFillColorSecondary}" Margin="25,120,0,0"/>
+                            <TextBlock Text="&#xE76C;" FontFamily="Segoe Fluent Icons" FontSize="16" Margin="170,195,0,0"/>
+                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="10" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            <Button Height="225" Width="200" Style="{StaticResource WindowCaptionButton}" HorizontalAlignment="Left" CornerRadius="10" Click="SettingsCard_Click_2" Margin="0,0,0,0"/>
+                        </ItemsControl.Items>
+                    </ItemsControl>
+                    <ItemsControl Margin="15,15,0,0" x:Name="ProtonButton">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.Items>
+                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="10" RadiusY="10" Margin="0,0,0,0"/>
+                            <TextBlock Text="&#xE901;" FontFamily="{StaticResource CustomIcons}" FontSize="50" Margin="25,25,0,0"/>
+                            <TextBlock Text="Proton Mail" HorizontalAlignment="Left" FontFamily="Segoe UI Variable Display" FontWeight="Normal" FontSize="20" Margin="25,90,0,0"/>
+                            <TextBlock Text="Open the Proton Mail page" HorizontalAlignment="Left" FontFamily="Segoe UI Variable" FontWeight="Normal" FontSize="12" Foreground="{ThemeResource TextFillColorSecondary}" Margin="25,120,0,0"/>
+                            <TextBlock Text="&#xE76C;" FontFamily="Segoe Fluent Icons" FontSize="16" Margin="170,195,0,0"/>
+                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="10" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            <Button Height="225" Width="200" Style="{StaticResource WindowCaptionButton}" HorizontalAlignment="Left" CornerRadius="10" Click="SettingsCard_Click_1" Margin="0,0,0,0"/>
+                        </ItemsControl.Items>
+                    </ItemsControl>
+                    <Rectangle Fill="Transparent" Height="10" Width="25"/>
+                </StackPanel>
+            </ScrollView>
+            <controls:WebView2 x:Name="CalendarWebView" x:FieldModifier="public" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="500" Margin="25,0,25,25"/>
+            <controls:WebView2 x:Name="HomeWebView" x:FieldModifier="public" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="500" Margin="25,0,25,25"/>
+        </StackPanel>
+    </ScrollView>
 </Page>

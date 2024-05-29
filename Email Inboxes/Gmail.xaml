@@ -20,7 +20,7 @@ mc:Ignorable="d">
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <controls:WebView2 x:Name="HomeWebView"  Grid.Row="1" Grid.ColumnSpan="2"
+        <controls:WebView2 x:Name="GmailWebView" x:FieldModifier="public" Grid.Row="1" Grid.ColumnSpan="2"
     Source="https://mail.google.com/mail/u/0/" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </Page>

@@ -14,9 +14,11 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.Devices.Bluetooth.Advertisement;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Services.TargetedContent;
+using Windows.Storage;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -32,6 +34,8 @@ namespace Email_Inboxes
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+        ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
         public App()
         {
             this.InitializeComponent();
@@ -45,8 +49,41 @@ namespace Email_Inboxes
         {
             m_window = new MainWindow();
             m_window.Activate();
+
+            string StartupPage = "Home";
+
+            if (localSettings.Values.ContainsKey("StartupPage"))
+            {
+                StartupPage = localSettings.Values["StartupPage"].ToString();
+            }
+            else
+            {
+                localSettings.Values["StartupPage"] = "Home";
+                StartupPage = localSettings.Values["StartupPage"].ToString();
+            }
+
+            string NavItem_StartupPage = "NavItem_Home";
+            switch (StartupPage)
+            {
+                case "Home":
+                    NavItem_StartupPage = "NavItem_Home";
+                    break;
+                case "Outlook":
+                    NavItem_StartupPage = "NavItem_Outlook";
+                    break;
+                case "Gmail":
+                    NavItem_StartupPage = "NavItem_Gmail";
+                    break;
+                case "iCloud Mail":
+                    NavItem_StartupPage = "NavItem_iCloud";
+                    break;
+                case "Proton Mail":
+                    NavItem_StartupPage = "NavItem_Proton";
+                    break;
+            }
+
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Home");
+            var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == NavItem_StartupPage);
             mw.nvSample.SelectedItem = item;
         }
 
