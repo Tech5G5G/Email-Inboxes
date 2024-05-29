@@ -10,7 +10,7 @@
   <Identity
     Name="33c1dfa2-cd84-4ef2-9f19-3f54e14753dc"
     Publisher="CN=ignac"
-    Version="1.2.0.0" />
+    Version="1.2.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="33c1dfa2-cd84-4ef2-9f19-3f54e14753dc" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
