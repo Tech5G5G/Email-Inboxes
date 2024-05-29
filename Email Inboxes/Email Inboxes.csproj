@@ -17,7 +17,7 @@
     <AppxPackageDir>C:\Users\ignac\Downloads</AppxPackageDir>
     <AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
-    <AppInstallerUri>https://google.com</AppInstallerUri>
+    <AppInstallerUri>https://github.com/Tech5G5G/Email-Inboxes</AppInstallerUri>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     <PackageCertificateThumbprint>67AD4420CFDFEBE230744523EA2A570A42325023</PackageCertificateThumbprint>
     <ApplicationIcon>Mail.ico</ApplicationIcon>
