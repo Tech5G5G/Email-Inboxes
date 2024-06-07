@@ -8,15 +8,15 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="33c1dfa2-cd84-4ef2-9f19-3f54e14753dc"
-    Publisher="CN=ignac"
+    Name="Tech5G5G.EmailInboxes"
+    Publisher="CN=6A412899-897E-4FB8-A2C7-EF01EAAF4C9B"
     Version="1.2.1.0" />
 
-  <mp:PhoneIdentity PhoneProductId="33c1dfa2-cd84-4ef2-9f19-3f54e14753dc" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="72b90042-fe83-437f-8a53-5233f451f75b" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Email Inboxes</DisplayName>
-    <PublisherDisplayName>ignac</PublisherDisplayName>
+    <PublisherDisplayName>Tech5G5G</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -39,8 +39,8 @@
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:DefaultTile/>
       </uap:VisualElements>
     </Application>
   </Applications>
