@@ -165,36 +165,36 @@ namespace Email_Inboxes
             }
 
             string CalendarServiceName = "None";
-            if (localSettings.Values.ContainsKey("CalendarServiceName"))
+            if (localSettings.Values.ContainsKey(Settings.CalendarServiceName))
             {
-                CalendarServiceName = this.localSettings.Values["CalendarServiceName"].ToString();
+                CalendarServiceName = this.localSettings.Values[Settings.CalendarServiceName].ToString();
             }
             else
             {
-                localSettings.Values["CalendarServiceName"] = "None";
-                CalendarServiceName = this.localSettings.Values["CalendarServiceName"].ToString();
+                localSettings.Values[Settings.CalendarServiceName] = "None";
+                CalendarServiceName = this.localSettings.Values[Settings.CalendarServiceName].ToString();
             }
 
             string OutlookExePath = @"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE";
-            if (localSettings.Values.ContainsKey("OutlookExePath"))
+            if (localSettings.Values.ContainsKey(Settings.OutlookExePath))
             {
-                OutlookExePath = localSettings.Values["OutlookExePath"].ToString();
+                OutlookExePath = localSettings.Values[Settings.OutlookExePath].ToString();
             }
             else
             {
-                localSettings.Values["OutlookExePath"] = @"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE";
-                OutlookExePath = localSettings.Values["OutlookExePath"].ToString();
+                localSettings.Values[Settings.OutlookExePath] = @"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE";
+                OutlookExePath = localSettings.Values[Settings.OutlookExePath].ToString();
             }
 
             string ToDoServiceName = "None";
-            if (localSettings.Values.ContainsKey("ToDoServiceName"))
+            if (localSettings.Values.ContainsKey(Settings.ToDoServiceName))
             {
-                ToDoServiceName = this.localSettings.Values["ToDoServiceName"].ToString();
+                ToDoServiceName = this.localSettings.Values[Settings.ToDoServiceName].ToString();
             }
             else
             {
-                localSettings.Values["ToDoServiceName"] = "None";
-                ToDoServiceName = this.localSettings.Values["ToDoServiceName"].ToString();
+                localSettings.Values[Settings.ToDoServiceName] = "None";
+                ToDoServiceName = this.localSettings.Values[Settings.ToDoServiceName].ToString();
             }
 
             string NavItem_StartupPage = "NavItem_Home";
