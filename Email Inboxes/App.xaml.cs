@@ -164,6 +164,39 @@ namespace Email_Inboxes
                 localSettings.Values[Settings.CalendarServiceUrl] = "disabled";
             }
 
+            string CalendarServiceName = "None";
+            if (localSettings.Values.ContainsKey("CalendarServiceName"))
+            {
+                CalendarServiceName = this.localSettings.Values["CalendarServiceName"].ToString();
+            }
+            else
+            {
+                localSettings.Values["CalendarServiceName"] = "None";
+                CalendarServiceName = this.localSettings.Values["CalendarServiceName"].ToString();
+            }
+
+            string OutlookExePath = @"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE";
+            if (localSettings.Values.ContainsKey("OutlookExePath"))
+            {
+                OutlookExePath = localSettings.Values["OutlookExePath"].ToString();
+            }
+            else
+            {
+                localSettings.Values["OutlookExePath"] = @"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE";
+                OutlookExePath = localSettings.Values["OutlookExePath"].ToString();
+            }
+
+            string ToDoServiceName = "None";
+            if (localSettings.Values.ContainsKey("ToDoServiceName"))
+            {
+                ToDoServiceName = this.localSettings.Values["ToDoServiceName"].ToString();
+            }
+            else
+            {
+                localSettings.Values["ToDoServiceName"] = "None";
+                ToDoServiceName = this.localSettings.Values["ToDoServiceName"].ToString();
+            }
+
             string NavItem_StartupPage = "NavItem_Home";
             switch (StartupPage)
             {
