@@ -56,15 +56,7 @@ namespace Email_Inboxes
 
             GmailButton.Visibility = (bool)localSettings.Values[App.Settings.GmailEnabled] ? Visibility.Visible : Visibility.Collapsed;
 
-            string iCloudEnabled = localSettings.Values["iCloudEnabled"].ToString();
-            if (iCloudEnabled is "True")
-            {
-                iCloudButton.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                iCloudButton.Visibility = Visibility.Collapsed;
-            }
+            iCloudButton.Visibility = (bool)localSettings.Values[App.Settings.iCloudEnabled] ? Visibility.Visible : Visibility.Collapsed;
 
             string ProtonEnabled = localSettings.Values["ProtonEnabled"].ToString();
             if (ProtonEnabled is "True")
