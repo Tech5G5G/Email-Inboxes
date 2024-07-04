@@ -54,15 +54,7 @@ namespace Email_Inboxes
             }
             else OutlookPageButton.Visibility = OutlookAppButton.Visibility = Visibility.Collapsed;
 
-            string GmailEnabled = localSettings.Values["GmailEnabled"].ToString();
-            if (GmailEnabled is "True")
-            {
-                GmailButton.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                GmailButton.Visibility = Visibility.Collapsed;
-            }
+            GmailButton.Visibility = (bool)localSettings.Values[App.Settings.GmailEnabled] ? Visibility.Visible : Visibility.Collapsed;
 
             string iCloudEnabled = localSettings.Values["iCloudEnabled"].ToString();
             if (iCloudEnabled is "True")
