@@ -143,6 +143,26 @@ namespace Email_Inboxes
                 OutlookAppType = localSettings.Values["OutlookAppType"].ToString();
             }
 
+            string ToDoServiceUrl = "disabled";
+            if (localSettings.Values.ContainsKey("ToDoServiceUrl"))
+            {
+                ToDoServiceUrl = localSettings.Values["ToDoServiceUrl"].ToString();
+            }
+            else
+            {
+                localSettings.Values["ToDoServiceUrl"] = "disabled";
+            }
+
+            string CalendarServiceUrl = "disabled";
+            if (localSettings.Values.ContainsKey("CalendarServiceUrl"))
+            {
+                CalendarServiceUrl = localSettings.Values["CalendarServiceUrl"].ToString();
+            }
+            else
+            {
+                localSettings.Values["CalendarServiceUrl"] = "disabled";
+            }
+
             string NavItem_StartupPage = "NavItem_Home";
             switch (StartupPage)
             {

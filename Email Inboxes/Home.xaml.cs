@@ -41,16 +41,6 @@ namespace Email_Inboxes
 
             var settingsValues = localSettings.Values;
 
-            string ToDoServiceUrl = "disabled";
-            if(localSettings.Values.ContainsKey("ToDoServiceUrl"))
-            {
-                ToDoServiceUrl = localSettings.Values["ToDoServiceUrl"].ToString();
-            }
-            else
-            {
-                localSettings.Values["ToDoServiceUrl"] = "disabled";
-            }
-
             switch (ToDoServiceUrl)
             {
                 case "disabled":
@@ -59,17 +49,6 @@ namespace Email_Inboxes
                 default:
                     HomeWebView.Source = new Uri(ToDoServiceUrl);
                     break;
-            }
-
-
-            string CalendarServiceUrl = "disabled";
-            if (localSettings.Values.ContainsKey("CalendarServiceUrl"))
-            {
-                CalendarServiceUrl = localSettings.Values["CalendarServiceUrl"].ToString();
-            }
-            else
-            {
-                localSettings.Values["CalendarServiceUrl"] = "disabled";
             }
 
             switch (CalendarServiceUrl)
