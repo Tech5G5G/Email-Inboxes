@@ -36,6 +36,22 @@ namespace Email_Inboxes
         /// </summary>
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
+        public static class Settings
+        {
+            public const string StartupPage = "StartupPage";
+            public const string HomeEnabled = "HomeEnabled";
+            public const string OutlookEnabled = "OutlookEnabled";
+            public const string ProtonEnabled = "ProtonEnabled";
+            public const string iCloudEnabled = "iCloudEnabled";
+            public const string GmailEnabled = "GmailEnabled";
+            public const string OutlookAppType = "OutlookAppType";
+            public const string ToDoServiceName = "ToDoServiceName";
+            public const string CalendarServiceName = "CalendarServiceName";
+            public const string ToDoServiceUrl = "ToDoServiceUrl";
+            public const string CalendarServiceUrl = "CalendarServiceUrl";
+            public const string OutlookExePath = "OutlookExePath";
+        }
+
         public App()
         {
             this.InitializeComponent();
@@ -52,14 +68,14 @@ namespace Email_Inboxes
 
             string StartupPage = "Home";
 
-            if (localSettings.Values.ContainsKey("StartupPage"))
+            if (localSettings.Values.ContainsKey(Settings.StartupPage))
             {
-                StartupPage = localSettings.Values["StartupPage"].ToString();
+                StartupPage = localSettings.Values[Settings.StartupPage].ToString();
             }
             else
             {
-                localSettings.Values["StartupPage"] = "Home";
-                StartupPage = localSettings.Values["StartupPage"].ToString();
+                localSettings.Values[Settings.StartupPage] = "Home";
+                StartupPage = localSettings.Values[Settings.StartupPage].ToString();
             }
 
             string NavItem_StartupPage = "NavItem_Home";
