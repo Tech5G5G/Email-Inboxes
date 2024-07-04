@@ -1,5 +1,6 @@
 # <img src=https://github.com/Tech5G5G/Email-Inboxes/assets/108637539/26532471-4a3b-4772-9bfe-f3867f2f504e width=30 height=30> Email Inboxes
-An app to organize your email inboxes
+An app to organize your email inboxes  
+**A test version to use bools instead of strings to store settings more efficiently**
 
 <a href="https://apps.microsoft.com/detail/Email%20Inboxes/9mx57pfkf3gc?mode=direct">
 	<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
