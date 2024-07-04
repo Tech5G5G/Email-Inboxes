@@ -39,14 +39,17 @@ namespace Email_Inboxes
         {
             this.InitializeComponent();
 
+            //Shows or hides the WebView that shows the user selected to do app/service
             string ToDoServiceUrl = (string)localSettings.Values[App.Settings.ToDoServiceUrl];
             if (ToDoServiceUrl == "disabled") HomeWebView.Visibility = Visibility.Collapsed;
             else HomeWebView.Source = new Uri(ToDoServiceUrl);
 
+            //Shows or hides the WebView that shows the user selected calendar app/service
             string CalendarServiceUrl = (string)localSettings.Values[App.Settings.CalendarServiceUrl];
             if (CalendarServiceUrl == "disabled") HomeWebView.Visibility = Visibility.Collapsed;
             else HomeWebView.Source = new Uri(CalendarServiceUrl);
 
+            //Shows or hides the card of the related service depending on the user's settings
             if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
             {
                 OutlookPageButton.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Visible : Visibility.Collapsed;
@@ -66,6 +69,7 @@ namespace Email_Inboxes
             Process.Start((string)localSettings.Values[App.Settings.OutlookExePath]);
         }
 
+        //All below changes the selected nvSample item with a different animation
         private void SettingsCard_Click_1(object sender, RoutedEventArgs e)
         {
             Frame contentFrame = ((App)Application.Current).contentFrame;
