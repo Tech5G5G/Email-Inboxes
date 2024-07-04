@@ -68,134 +68,42 @@ namespace Email_Inboxes
             m_window.Activate();
 
             //Settings checkers to check if settings exist
-            string StartupPage = "Home";
-            if (localSettings.Values.ContainsKey(Settings.StartupPage))
-            {
-                StartupPage = localSettings.Values[Settings.StartupPage].ToString();
-            }
-            else
-            {
-                localSettings.Values[Settings.StartupPage] = "Home";
-                StartupPage = localSettings.Values[Settings.StartupPage].ToString();
-            }
 
-            string ProtonEnabled = "True";
-            if (localSettings.Values.ContainsKey(Settings.ProtonEnabled))
-            {
-                ProtonEnabled = localSettings.Values[Settings.ProtonEnabled].ToString();
-            }
-            else
-            {
-                localSettings.Values[Settings.ProtonEnabled] = "True";
-                ProtonEnabled = localSettings.Values[Settings.ProtonEnabled].ToString();
-            }
-
-            bool HomeEnabled = true;
             if (!localSettings.Values.ContainsKey(Settings.HomeEnabled))
-            {
-                localSettings.Values[Settings.HomeEnabled] = HomeEnabled;
-            }
-            else
-            {
-                HomeEnabled = (bool)localSettings.Values[Settings.HomeEnabled];
-            }
+                localSettings.Values[Settings.HomeEnabled] = "True";
 
-            string iCloudEnabled = "True";
-            if (localSettings.Values.ContainsKey(Settings.iCloudEnabled))
-            {
-                iCloudEnabled = localSettings.Values[Settings.iCloudEnabled].ToString();
-            }
-            else
-            {
+            if (!localSettings.Values.ContainsKey(Settings.iCloudEnabled))
                 localSettings.Values[Settings.iCloudEnabled] = "True";
-                iCloudEnabled = localSettings.Values[Settings.iCloudEnabled].ToString();
-            }
 
-            string GmailEnabled = "True";
-            if (localSettings.Values.ContainsKey(Settings.GmailEnabled))
-            {
-                GmailEnabled = localSettings.Values[Settings.GmailEnabled].ToString();
-            }
-            else
-            {
+            if (!localSettings.Values.ContainsKey(Settings.GmailEnabled))
                 localSettings.Values[Settings.GmailEnabled] = "True";
-                GmailEnabled = localSettings.Values[Settings.GmailEnabled].ToString();
-            }
 
-            string OutlookEnabled = "True";
-            if (localSettings.Values.ContainsKey(Settings.OutlookEnabled))
-            {
-                OutlookEnabled = localSettings.Values[Settings.OutlookEnabled].ToString();
-            }
-            else
-            {
+            if (!localSettings.Values.ContainsKey(Settings.ProtonEnabled))
+                localSettings.Values[Settings.ProtonEnabled] = "True";
+
+            if (!localSettings.Values.ContainsKey(Settings.OutlookEnabled))
                 localSettings.Values[Settings.OutlookEnabled] = "True";
-                OutlookEnabled = localSettings.Values[Settings.OutlookEnabled].ToString();
-            }
 
-            string OutlookAppType = "Website";
-            if (localSettings.Values.ContainsKey(Settings.OutlookAppType))
-            {
-                OutlookAppType = localSettings.Values[Settings.OutlookAppType].ToString();
-            }
-            else
-            {
+            if (!localSettings.Values.ContainsKey(Settings.OutlookAppType))
                 localSettings.Values[Settings.OutlookAppType] = "Website";
-                OutlookAppType = localSettings.Values[Settings.OutlookAppType].ToString();
-            }
 
-            string ToDoServiceUrl = "disabled";
-            if (localSettings.Values.ContainsKey(Settings.ToDoServiceUrl))
-            {
-                ToDoServiceUrl = localSettings.Values[Settings.ToDoServiceUrl].ToString();
-            }
-            else
-            {
+            if (!localSettings.Values.ContainsKey(Settings.ToDoServiceUrl))
                 localSettings.Values[Settings.ToDoServiceUrl] = "disabled";
-            }
 
-            string CalendarServiceUrl = "disabled";
-            if (localSettings.Values.ContainsKey(Settings.CalendarServiceUrl))
-            {
-                CalendarServiceUrl = localSettings.Values[Settings.CalendarServiceUrl].ToString();
-            }
-            else
-            {
-                localSettings.Values[Settings.CalendarServiceUrl] = "disabled";
-            }
-
-            string CalendarServiceName = "None";
-            if (localSettings.Values.ContainsKey(Settings.CalendarServiceName))
-            {
-                CalendarServiceName = this.localSettings.Values[Settings.CalendarServiceName].ToString();
-            }
-            else
-            {
-                localSettings.Values[Settings.CalendarServiceName] = "None";
-                CalendarServiceName = this.localSettings.Values[Settings.CalendarServiceName].ToString();
-            }
-
-            string OutlookExePath = @"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE";
-            if (localSettings.Values.ContainsKey(Settings.OutlookExePath))
-            {
-                OutlookExePath = localSettings.Values[Settings.OutlookExePath].ToString();
-            }
-            else
-            {
-                localSettings.Values[Settings.OutlookExePath] = @"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE";
-                OutlookExePath = localSettings.Values[Settings.OutlookExePath].ToString();
-            }
-
-            string ToDoServiceName = "None";
             if (localSettings.Values.ContainsKey(Settings.ToDoServiceName))
-            {
-                ToDoServiceName = this.localSettings.Values[Settings.ToDoServiceName].ToString();
-            }
-            else
-            {
                 localSettings.Values[Settings.ToDoServiceName] = "None";
-                ToDoServiceName = this.localSettings.Values[Settings.ToDoServiceName].ToString();
-            }
+
+            if (!localSettings.Values.ContainsKey(Settings.CalendarServiceUrl))
+                localSettings.Values[Settings.CalendarServiceUrl] = "disabled";
+
+            if (!localSettings.Values.ContainsKey(Settings.CalendarServiceName))
+                localSettings.Values[Settings.CalendarServiceName] = "None";
+
+            if (!localSettings.Values.ContainsKey(Settings.StartupPage))
+                localSettings.Values[Settings.StartupPage] = "Home";
+
+            if (!localSettings.Values.ContainsKey(Settings.OutlookExePath))
+                localSettings.Values[Settings.OutlookExePath] = @"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE";
 
             string NavItem_StartupPage = "NavItem_Home";
             switch (StartupPage)
