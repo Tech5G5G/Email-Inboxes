@@ -36,6 +36,7 @@ namespace Email_Inboxes
         /// </summary>
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
+        //Class to store settings so they can be always spelled correctly
         public static class Settings
         {
             public const string StartupPage = "StartupPage";
@@ -66,8 +67,8 @@ namespace Email_Inboxes
             m_window = new MainWindow();
             m_window.Activate();
 
+            //Settings checkers to check if settings exist
             string StartupPage = "Home";
-
             if (localSettings.Values.ContainsKey(Settings.StartupPage))
             {
                 StartupPage = localSettings.Values[Settings.StartupPage].ToString();
