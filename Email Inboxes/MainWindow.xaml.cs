@@ -169,25 +169,22 @@ namespace Email_Inboxes
                 NavItem_Proton.Visibility = Visibility.Collapsed;
             }
 
-            string HomeEnabled = "True";
-            if (localSettings.Values.ContainsKey("HomeEnabled"))
+            bool HomeEnabled = true;
+            if (!localSettings.Values.ContainsKey(MyStringConstants.HomeEnabled))
             {
-                HomeEnabled = localSettings.Values["HomeEnabled"].ToString();
+                localSettings.Values[MyStringConstants.HomeEnabled] = HomeEnabled;
             }
             else
             {
-                localSettings.Values["HomeEnabled"] = "True";
-                HomeEnabled = localSettings.Values["HomeEnabled"].ToString();
+                HomeEnabled = (bool)localSettings.Values[MyStringConstants.HomeEnabled];
             }
 
-            if (HomeEnabled is "True")
-            {
-                NavItem_Home.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                NavItem_Home.Visibility = Visibility.Collapsed;
-            }
+            NavItem_Home.Visibility = HomeEnabled ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        class MyStringConstants
+        {
+            public const string HomeEnabled = "HomeEnabled";
         }
 
         private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
