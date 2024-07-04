@@ -32,9 +32,9 @@ namespace Email_Inboxes
         {
             this.InitializeComponent();
 
-            ExePath.Text = OutlookExePath;
-
-            switch (ToDoServiceName)
+            ExePath.Text = (string)localSettings.Values[App.Settings.OutlookExePath];
+            
+            switch ((string)localSettings.Values[App.Settings.ToDoServiceName])
             {
                 case "Apple Reminders":
                     ToDoService.SelectedIndex = 3;
@@ -61,7 +61,7 @@ namespace Email_Inboxes
                     break;
             }
 
-            switch (CalendarServiceName)
+            switch (localSettings.Values[App.Settings.CalendarServiceName])
             {
                 case "Apple Calendar":
                     CalendarService.SelectedIndex = 2;
@@ -79,51 +79,17 @@ namespace Email_Inboxes
                     break;
             }
 
-            string OutlookEnabled = localSettings.Values["OutlookEnabled"].ToString();
+            OutlookToggle.IsOn = (bool)localSettings.Values[App.Settings.OutlookEnabled];
 
-            if (OutlookEnabled is "True")
-            {
-                OutlookToggle.IsOn = true;
-            }
-            else
-            {
-                OutlookToggle.IsOn = false;
-            }
+            GmailToggle.IsOn = (bool)localSettings.Values[App.Settings.GmailEnabled];
 
-            string GmailEnabled = localSettings.Values["GmailEnabled"].ToString();
+            iCloudToggle.IsOn = (bool)localSettings.Values[App.Settings.iCloudEnabled];
 
-            if (GmailEnabled is "True")
-            {
-                GmailToggle.IsOn = true;
-            }
-            else
-            {
-                GmailToggle.IsOn = false;
-            }
+            ProtonToggle.IsOn = (bool)localSettings.Values[App.Settings.ProtonEnabled];
 
-            string iCloudEnabled = localSettings.Values["iCloudEnabled"].ToString();
-            if (iCloudEnabled is "True")
-            {
-                iCloudToggle.IsOn = true;
-            }
-            else
-            {
-                iCloudToggle.IsOn = false;
-            }
+            HomeToggle.IsOn = (bool)localSettings.Values[App.Settings.HomeEnabled];
 
-            string ProtonEnabled = localSettings.Values["ProtonEnabled"].ToString();
-            if (ProtonEnabled is "True")
-            {
-                ProtonToggle.IsOn = true;   
-            }
-            else
-            {
-                ProtonToggle.IsOn = false;
-            }
-
-            string StartupPageSelected = localSettings.Values["StartupPage"].ToString();
-
-            switch (StartupPageSelected)
+            switch ((string)localSettings.Values[App.Settings.StartupPage])
             {
                 case "Home":
                     StartupPage.SelectedIndex = 0;
@@ -142,8 +108,7 @@ namespace Email_Inboxes
                     break;
             }
 
-            string OutlookAppTypeSetting = localSettings.Values["OutlookAppType"].ToString();
-            if (OutlookAppTypeSetting is "Website")
+            if ((string)localSettings.Values[App.Settings.OutlookAppType] is "Website")
             {
                 OutlookAppType.SelectedIndex = 0;
                 ExePathCard.Visibility = Visibility.Collapsed;
@@ -153,8 +118,6 @@ namespace Email_Inboxes
                 OutlookAppType.SelectedIndex = 1;
                 ExePathCard.Visibility = Visibility.Visible;
             }
-
-            HomeToggle.IsOn = (bool)localSettings.Values["HomeEnabled"];
         }
 
         private void ToDoService_SelectionChanged(object sender, SelectionChangedEventArgs e)
