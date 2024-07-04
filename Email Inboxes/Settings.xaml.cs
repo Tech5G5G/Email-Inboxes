@@ -218,18 +218,11 @@ namespace Email_Inboxes
 
         private void iCloudToggle_Toggled(object sender, RoutedEventArgs e)
         {
-            string IsiCloudEnabled = iCloudToggle.IsOn.ToString();
-            localSettings.Values["iCloudEnabled"] = IsiCloudEnabled;
+            bool IsiCloudEnabled = iCloudToggle.IsOn;
+            localSettings.Values[App.Settings.iCloudEnabled] = IsiCloudEnabled;
 
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            if (IsiCloudEnabled is "True")
-            {
-                mw.NavItem_iCloud.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                mw.NavItem_iCloud.Visibility = Visibility.Collapsed;
-            }
+            mw.NavItem_iCloud.Visibility = IsiCloudEnabled ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void ProtonToggle_Toggled(object sender, RoutedEventArgs e)
