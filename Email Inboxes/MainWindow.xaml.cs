@@ -72,6 +72,30 @@ namespace Email_Inboxes
             SetTitleBar(AppTitleBar);
             m_AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
 
+            string NavItem_StartupPage = "NavItem_Home";
+            switch (StartupPage)
+            {
+                case "Home":
+                    NavItem_StartupPage = "NavItem_Home";
+                    break;
+                case "Outlook":
+                    NavItem_StartupPage = "NavItem_Outlook";
+                    break;
+                case "Gmail":
+                    NavItem_StartupPage = "NavItem_Gmail";
+                    break;
+                case "iCloud Mail":
+                    NavItem_StartupPage = "NavItem_iCloud";
+                    break;
+                case "Proton Mail":
+                    NavItem_StartupPage = "NavItem_Proton";
+                    break;
+            }
+
+            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+            var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == NavItem_StartupPage);
+            mw.nvSample.SelectedItem = item;
+
             if (OutlookEnabled is "True")
             {
                 if (OutlookAppType == "Website")
