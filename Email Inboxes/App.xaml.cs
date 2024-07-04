@@ -104,30 +104,6 @@ namespace Email_Inboxes
 
             if (!localSettings.Values.ContainsKey(Settings.OutlookExePath))
                 localSettings.Values[Settings.OutlookExePath] = @"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE";
-
-            string NavItem_StartupPage = "NavItem_Home";
-            switch (StartupPage)
-            {
-                case "Home":
-                    NavItem_StartupPage = "NavItem_Home";
-                    break;
-                case "Outlook":
-                    NavItem_StartupPage = "NavItem_Outlook";
-                    break;
-                case "Gmail":
-                    NavItem_StartupPage = "NavItem_Gmail";
-                    break;
-                case "iCloud Mail":
-                    NavItem_StartupPage = "NavItem_iCloud";
-                    break;
-                case "Proton Mail":
-                    NavItem_StartupPage = "NavItem_Proton";
-                    break;
-            }
-
-            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == NavItem_StartupPage);
-            mw.nvSample.SelectedItem = item;
         }
 
         public Window m_window;
