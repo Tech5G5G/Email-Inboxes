@@ -39,17 +39,9 @@ namespace Email_Inboxes
         {
             this.InitializeComponent();
 
-            var settingsValues = localSettings.Values;
-
-            switch (ToDoServiceUrl)
-            {
-                case "disabled":
-                    HomeWebView.Visibility = Visibility.Collapsed;
-                    break;
-                default:
-                    HomeWebView.Source = new Uri(ToDoServiceUrl);
-                    break;
-            }
+            string ToDoServiceUrl = (string)localSettings.Values[App.Settings.ToDoServiceUrl];
+            if (ToDoServiceUrl == "disabled") HomeWebView.Visibility = Visibility.Collapsed;
+            else HomeWebView.Source = new Uri(ToDoServiceUrl);
 
             switch (CalendarServiceUrl)
             {
