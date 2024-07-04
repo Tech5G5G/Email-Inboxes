@@ -95,9 +95,9 @@ namespace Email_Inboxes
             var item = nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == NavItem_StartupPage);
             nvSample.SelectedItem = item;
 
-            if (OutlookEnabled is "True")
+            if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
             {
-                if (OutlookAppType == "Website")
+                if ((string)localSettings.Values[App.Settings.OutlookAppType] == "Website")
                 {
                     NavItem_Outlook.Visibility = Visibility.Visible;
                 }
@@ -111,34 +111,13 @@ namespace Email_Inboxes
                 NavItem_Outlook.Visibility = Visibility.Collapsed;
             }
 
-            if (GmailEnabled is "True")
-            {
-                NavItem_Gmail.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                NavItem_Gmail.Visibility = Visibility.Collapsed;
-            }
+            NavItem_Gmail.Visibility = (bool)localSettings.Values[App.Settings.GmailEnabled] ? Visibility.Visible : Visibility.Collapsed;
 
-            if (iCloudEnabled is "True")
-            {
-                NavItem_iCloud.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                NavItem_iCloud.Visibility = Visibility.Collapsed;
-            }
+            NavItem_iCloud.Visibility = (bool)localSettings.Values[App.Settings.iCloudEnabled] ? Visibility.Visible : Visibility.Collapsed;
 
-            if (ProtonEnabled is "True")
-            {
-                NavItem_Proton.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                NavItem_Proton.Visibility = Visibility.Collapsed;
-            }
+            NavItem_Proton.Visibility = (bool)localSettings.Values[App.Settings.ProtonEnabled] ? Visibility.Visible : Visibility.Collapsed;
 
-            NavItem_Home.Visibility = HomeEnabled ? Visibility.Visible : Visibility.Collapsed;
+            NavItem_Home.Visibility = (bool)localSettings.Values[App.Settings.HomeEnabled] ? Visibility.Visible : Visibility.Collapsed;
         }
 
         class MyStringConstants
