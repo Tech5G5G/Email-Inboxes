@@ -63,8 +63,7 @@ namespace Email_Inboxes
 
         private void SettingsCard_Click(object sender, RoutedEventArgs e)
         {
-            string OutlookExePath = localSettings.Values["OutlookExePath"].ToString();
-            System.Diagnostics.Process.Start(OutlookExePath);
+            Process.Start((string)localSettings.Values[App.Settings.OutlookExePath]);
         }
 
         private void SettingsCard_Click_1(object sender, RoutedEventArgs e)
