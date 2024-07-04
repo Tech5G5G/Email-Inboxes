@@ -43,37 +43,16 @@ namespace Email_Inboxes
             if (ToDoServiceUrl == "disabled") HomeWebView.Visibility = Visibility.Collapsed;
             else HomeWebView.Source = new Uri(ToDoServiceUrl);
 
-            switch (CalendarServiceUrl)
-            {
-                case "disabled":
-                    CalendarWebView.Visibility = Visibility.Collapsed;
-                    break;
-                default:
-                    CalendarWebView.Source = new Uri(CalendarServiceUrl);
-                    break;
-            }
+            string CalendarServiceUrl = (string)localSettings.Values[App.Settings.CalendarServiceUrl];
+            if (CalendarServiceUrl == "disabled") HomeWebView.Visibility = Visibility.Collapsed;
+            else HomeWebView.Source = new Uri(CalendarServiceUrl);
 
-            string OutlookEnabled = localSettings.Values["OutlookEnabled"].ToString();
-            string OutlookAppType = localSettings.Values["OutlookAppType"].ToString();
-
-            if (OutlookEnabled is "True")
+            if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
             {
-                if (OutlookAppType == "Website")
-                {
-                    OutlookPageButton.Visibility = Visibility.Visible;
-                    OutlookAppButton.Visibility = Visibility.Collapsed;
-                }
-                else
-                {
-                    OutlookPageButton.Visibility = Visibility.Collapsed;
-                    OutlookAppButton.Visibility = Visibility.Visible;
-                }
+                OutlookPageButton.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Visible : Visibility.Collapsed;
+                OutlookAppButton.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Collapsed : Visibility.Visible;
             }
-            else
-            {
-                OutlookPageButton.Visibility = Visibility.Collapsed;
-                OutlookAppButton.Visibility = Visibility.Collapsed;
-            }
+            else OutlookPageButton.Visibility = OutlookAppButton.Visibility = Visibility.Collapsed;
 
             string GmailEnabled = localSettings.Values["GmailEnabled"].ToString();
             if (GmailEnabled is "True")
