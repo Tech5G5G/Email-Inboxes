@@ -78,6 +78,71 @@ namespace Email_Inboxes
                 StartupPage = localSettings.Values[Settings.StartupPage].ToString();
             }
 
+            string ProtonEnabled = "True";
+            if (localSettings.Values.ContainsKey("ProtonEnabled"))
+            {
+                ProtonEnabled = localSettings.Values["ProtonEnabled"].ToString();
+            }
+            else
+            {
+                localSettings.Values["ProtonEnabled"] = "True";
+                ProtonEnabled = localSettings.Values["ProtonEnabled"].ToString();
+            }
+
+            bool HomeEnabled = true;
+            if (!localSettings.Values.ContainsKey(Settings.HomeEnabled))
+            {
+                localSettings.Values[Settings.HomeEnabled] = HomeEnabled;
+            }
+            else
+            {
+                HomeEnabled = (bool)localSettings.Values[Settings.HomeEnabled];
+            }
+
+            string iCloudEnabled = "True";
+            if (localSettings.Values.ContainsKey(Settings.iCloudEnabled))
+            {
+                iCloudEnabled = localSettings.Values[Settings.iCloudEnabled].ToString();
+            }
+            else
+            {
+                localSettings.Values[Settings.iCloudEnabled] = "True";
+                iCloudEnabled = localSettings.Values[Settings.iCloudEnabled].ToString();
+            }
+
+            string GmailEnabled = "True";
+            if (localSettings.Values.ContainsKey(Settings.GmailEnabled))
+            {
+                GmailEnabled = localSettings.Values[Settings.GmailEnabled].ToString();
+            }
+            else
+            {
+                localSettings.Values[Settings.GmailEnabled] = "True";
+                GmailEnabled = localSettings.Values[Settings.GmailEnabled].ToString();
+            }
+
+            string OutlookEnabled = "True";
+            if (localSettings.Values.ContainsKey("OutlookEnabled"))
+            {
+                OutlookEnabled = localSettings.Values["OutlookEnabled"].ToString();
+            }
+            else
+            {
+                localSettings.Values["OutlookEnabled"] = "True";
+                OutlookEnabled = localSettings.Values["OutlookEnabled"].ToString();
+            }
+
+            string OutlookAppType = "Website";
+            if (localSettings.Values.ContainsKey("OutlookAppType"))
+            {
+                OutlookAppType = localSettings.Values["OutlookAppType"].ToString();
+            }
+            else
+            {
+                localSettings.Values["OutlookAppType"] = "Website";
+                OutlookAppType = localSettings.Values["OutlookAppType"].ToString();
+            }
+
             string NavItem_StartupPage = "NavItem_Home";
             switch (StartupPage)
             {

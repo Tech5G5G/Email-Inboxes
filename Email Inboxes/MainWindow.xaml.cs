@@ -27,6 +27,7 @@ using Windows.Media.Playback;
 using System.Security.Cryptography;
 using Windows.ApplicationModel.Core;
 using Windows.Storage;
+using System.Reflection.Metadata;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -71,28 +72,6 @@ namespace Email_Inboxes
             SetTitleBar(AppTitleBar);
             m_AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
 
-            string OutlookEnabled = "True";
-            if (localSettings.Values.ContainsKey("OutlookEnabled"))
-            {
-                OutlookEnabled = localSettings.Values["OutlookEnabled"].ToString();
-            }
-            else
-            {
-                localSettings.Values["OutlookEnabled"] = "True";
-                OutlookEnabled = localSettings.Values["OutlookEnabled"].ToString();
-            }
-
-            string OutlookAppType = "Website";
-            if (localSettings.Values.ContainsKey("OutlookAppType"))
-            {
-                OutlookAppType = localSettings.Values["OutlookAppType"].ToString();
-            }
-            else
-            {
-                localSettings.Values["OutlookAppType"] = "Website";
-                OutlookAppType = localSettings.Values["OutlookAppType"].ToString();
-            }
-
             if (OutlookEnabled is "True")
             {
                 if (OutlookAppType == "Website")
@@ -109,17 +88,6 @@ namespace Email_Inboxes
                 NavItem_Outlook.Visibility = Visibility.Collapsed;
             }
 
-            string GmailEnabled = "True";
-            if (localSettings.Values.ContainsKey("GmailEnabled"))
-            {
-                GmailEnabled = localSettings.Values["GmailEnabled"].ToString();
-            }
-            else
-            {
-                localSettings.Values["GmailEnabled"] = "True";
-                GmailEnabled = localSettings.Values["GmailEnabled"].ToString();
-            }
-
             if (GmailEnabled is "True")
             {
                 NavItem_Gmail.Visibility = Visibility.Visible;
@@ -127,17 +95,6 @@ namespace Email_Inboxes
             else
             {
                 NavItem_Gmail.Visibility = Visibility.Collapsed;
-            }
-
-            string iCloudEnabled = "True";
-            if (localSettings.Values.ContainsKey("iCloudEnabled"))
-            {
-                iCloudEnabled = localSettings.Values["iCloudEnabled"].ToString();
-            }
-            else
-            {
-                localSettings.Values["iCloudEnabled"] = "True";
-                iCloudEnabled = localSettings.Values["iCloudEnabled"].ToString();
             }
 
             if (iCloudEnabled is "True")
@@ -149,17 +106,6 @@ namespace Email_Inboxes
                 NavItem_iCloud.Visibility = Visibility.Collapsed;
             }
 
-            string ProtonEnabled = "True";
-            if (localSettings.Values.ContainsKey("ProtonEnabled"))
-            {
-                ProtonEnabled = localSettings.Values["ProtonEnabled"].ToString();
-            }
-            else
-            {
-                localSettings.Values["ProtonEnabled"] = "True";
-                ProtonEnabled = localSettings.Values["ProtonEnabled"].ToString();
-            }
-
             if (ProtonEnabled is "True")
             {
                 NavItem_Proton.Visibility = Visibility.Visible;
@@ -167,16 +113,6 @@ namespace Email_Inboxes
             else
             {
                 NavItem_Proton.Visibility = Visibility.Collapsed;
-            }
-
-            bool HomeEnabled = true;
-            if (!localSettings.Values.ContainsKey(MyStringConstants.HomeEnabled))
-            {
-                localSettings.Values[MyStringConstants.HomeEnabled] = HomeEnabled;
-            }
-            else
-            {
-                HomeEnabled = (bool)localSettings.Values[MyStringConstants.HomeEnabled];
             }
 
             NavItem_Home.Visibility = HomeEnabled ? Visibility.Visible : Visibility.Collapsed;
