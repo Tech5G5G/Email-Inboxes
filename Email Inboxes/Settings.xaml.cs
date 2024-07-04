@@ -227,18 +227,11 @@ namespace Email_Inboxes
 
         private void ProtonToggle_Toggled(object sender, RoutedEventArgs e)
         {
-            string IsProtonEnabled = ProtonToggle.IsOn.ToString();
-            localSettings.Values["ProtonEnabled"] = IsProtonEnabled;
+            bool IsProtonEnabled = ProtonToggle.IsOn;
+            localSettings.Values[App.Settings.ProtonEnabled] = IsProtonEnabled;
 
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            if (IsProtonEnabled is "True")
-            {
-                mw.NavItem_Proton.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                mw.NavItem_Proton.Visibility = Visibility.Collapsed;
-            }
+            mw.NavItem_Proton.Visibility = IsProtonEnabled ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void OutlookAppType_SelectionChanged(object sender, SelectionChangedEventArgs e)
