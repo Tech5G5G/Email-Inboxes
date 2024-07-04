@@ -73,7 +73,7 @@ namespace Email_Inboxes
             m_AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
 
             string NavItem_StartupPage = "NavItem_Home";
-            switch (StartupPage)
+            switch ((string)localSettings.Values[App.Settings.StartupPage])
             {
                 case "Home":
                     NavItem_StartupPage = "NavItem_Home";
@@ -92,9 +92,8 @@ namespace Email_Inboxes
                     break;
             }
 
-            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == NavItem_StartupPage);
-            mw.nvSample.SelectedItem = item;
+            var item = nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == NavItem_StartupPage);
+            nvSample.SelectedItem = item;
 
             if (OutlookEnabled is "True")
             {
