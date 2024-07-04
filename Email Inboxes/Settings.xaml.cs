@@ -163,9 +163,8 @@ namespace Email_Inboxes
 
         private void CalendarService_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string CalendarServiceName = (this.CalendarService.SelectedItem as ComboBoxItem).Content.ToString();
-
-            string CalendarServiceUrl = null;
+            string CalendarServiceName = (CalendarService.SelectedItem as ComboBoxItem).Content.ToString();
+            string CalendarServiceUrl = "disabled";
 
             switch (CalendarServiceName)
             {
@@ -183,8 +182,8 @@ namespace Email_Inboxes
                     break;
             }
 
-            localSettings.Values["CalendarServiceName"] = CalendarServiceName;
-            localSettings.Values["CalendarServiceUrl"] = CalendarServiceUrl;
+            localSettings.Values[App.Settings.CalendarServiceName] = CalendarServiceName;
+            localSettings.Values[App.Settings.CalendarServiceUrl] = CalendarServiceUrl;
         }
 
         private void OutlookToggle_Toggled(object sender, RoutedEventArgs e)
