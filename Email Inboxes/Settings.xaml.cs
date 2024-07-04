@@ -236,24 +236,14 @@ namespace Email_Inboxes
 
         private void OutlookAppType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string OutlookAppType = (this.OutlookAppType.SelectedItem as ComboBoxItem).Content.ToString();
-            localSettings.Values["OutlookAppType"] = OutlookAppType;
+            string SelectedOutlookAppType = (OutlookAppType.SelectedItem as ComboBoxItem).Content.ToString();
+            localSettings.Values[App.Settings.OutlookAppType] = SelectedOutlookAppType;
 
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            string IsOutlookEnabled = localSettings.Values["OutlookEnabled"].ToString();
-            string OtherOutlookAppType = localSettings.Values["OutlookAppType"].ToString();
-            if (IsOutlookEnabled is "True")
+            if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
             {
-                if (OtherOutlookAppType == "Website")
-                {
-                    mw.NavItem_Outlook.Visibility = Visibility.Visible;
-                    ExePathCard.Visibility = Visibility.Collapsed;
-                }
-                else
-                {
-                    mw.NavItem_Outlook.Visibility = Visibility.Collapsed;
-                    ExePathCard.Visibility = Visibility.Visible;
-                }
+                mw.NavItem_Outlook.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Visible : Visibility.Collapsed;
+                ExePathCard.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Collapsed : Visibility.Visible;
             }
             else
             {
