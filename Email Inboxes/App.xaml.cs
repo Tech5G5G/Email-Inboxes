@@ -70,19 +70,19 @@ namespace Email_Inboxes
             //Settings checkers to check if settings exist
 
             if (!localSettings.Values.ContainsKey(Settings.HomeEnabled))
-                localSettings.Values[Settings.HomeEnabled] = "True";
+                localSettings.Values[Settings.HomeEnabled] = true;
 
             if (!localSettings.Values.ContainsKey(Settings.iCloudEnabled))
-                localSettings.Values[Settings.iCloudEnabled] = "True";
+                localSettings.Values[Settings.iCloudEnabled] = true;
 
             if (!localSettings.Values.ContainsKey(Settings.GmailEnabled))
-                localSettings.Values[Settings.GmailEnabled] = "True";
+                localSettings.Values[Settings.GmailEnabled] = true;
 
             if (!localSettings.Values.ContainsKey(Settings.ProtonEnabled))
-                localSettings.Values[Settings.ProtonEnabled] = "True";
+                localSettings.Values[Settings.ProtonEnabled] = true;
 
             if (!localSettings.Values.ContainsKey(Settings.OutlookEnabled))
-                localSettings.Values[Settings.OutlookEnabled] = "True";
+                localSettings.Values[Settings.OutlookEnabled] = true;
 
             if (!localSettings.Values.ContainsKey(Settings.OutlookAppType))
                 localSettings.Values[Settings.OutlookAppType] = "Website";
