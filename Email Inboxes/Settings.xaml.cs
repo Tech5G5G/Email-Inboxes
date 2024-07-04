@@ -209,18 +209,11 @@ namespace Email_Inboxes
 
         private void GmailToggle_Toggled(object sender, RoutedEventArgs e)
         {
-            string IsGmailEnabled = GmailToggle.IsOn.ToString();
-            localSettings.Values["GmailEnabled"] = IsGmailEnabled;
+            bool IsGmailEnabled = GmailToggle.IsOn;
+            localSettings.Values[App.Settings.GmailEnabled] = IsGmailEnabled;
 
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            if (IsGmailEnabled is "True")
-            {
-                mw.NavItem_Gmail.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                mw.NavItem_Gmail.Visibility = Visibility.Collapsed;
-            }
+            mw.NavItem_Gmail.Visibility = IsGmailEnabled ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void iCloudToggle_Toggled(object sender, RoutedEventArgs e)
