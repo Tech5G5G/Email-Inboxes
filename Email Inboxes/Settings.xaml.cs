@@ -204,8 +204,7 @@ namespace Email_Inboxes
 
         private void StartupPage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string StartupPage = (this.StartupPage.SelectedItem as ComboBoxItem).Content.ToString();
-            localSettings.Values["StartupPage"] = StartupPage;
+            localSettings.Values[App.Settings.StartupPage] = (StartupPage.SelectedItem as ComboBoxItem).Content.ToString();
         }
 
         private void GmailToggle_Toggled(object sender, RoutedEventArgs e)
