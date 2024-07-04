@@ -129,9 +129,8 @@ namespace Email_Inboxes
         private void ToDoService_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            string ToDoServiceName = (this.ToDoService.SelectedItem as ComboBoxItem).Content.ToString();
-
-            string ToDoServiceUrl = null;
+            string ToDoServiceName = (ToDoService.SelectedItem as ComboBoxItem).Content.ToString();
+            string ToDoServiceUrl = "disabled";
 
             switch (ToDoServiceName)
             {
@@ -158,8 +157,8 @@ namespace Email_Inboxes
                     break;
             }
 
-            localSettings.Values["ToDoServiceName"] = ToDoServiceName;
-            localSettings.Values["ToDoServiceUrl"] = ToDoServiceUrl;
+            localSettings.Values[App.Settings.ToDoServiceName] = ToDoServiceName;
+            localSettings.Values[App.Settings.ToDoServiceUrl] = ToDoServiceUrl;
         }
 
         private void CalendarService_SelectionChanged(object sender, SelectionChangedEventArgs e)
