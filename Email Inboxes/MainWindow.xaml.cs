@@ -120,11 +120,6 @@ namespace Email_Inboxes
             NavItem_Home.Visibility = (bool)localSettings.Values[App.Settings.HomeEnabled] ? Visibility.Visible : Visibility.Collapsed;
         }
 
-        class MyStringConstants
-        {
-            public const string HomeEnabled = "HomeEnabled";
-        }
-
         private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
         {
             IntPtr windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(this);
