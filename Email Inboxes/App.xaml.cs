@@ -80,14 +80,14 @@ namespace Email_Inboxes
             }
 
             string ProtonEnabled = "True";
-            if (localSettings.Values.ContainsKey("ProtonEnabled"))
+            if (localSettings.Values.ContainsKey(Settings.ProtonEnabled))
             {
-                ProtonEnabled = localSettings.Values["ProtonEnabled"].ToString();
+                ProtonEnabled = localSettings.Values[Settings.ProtonEnabled].ToString();
             }
             else
             {
-                localSettings.Values["ProtonEnabled"] = "True";
-                ProtonEnabled = localSettings.Values["ProtonEnabled"].ToString();
+                localSettings.Values[Settings.ProtonEnabled] = "True";
+                ProtonEnabled = localSettings.Values[Settings.ProtonEnabled].ToString();
             }
 
             bool HomeEnabled = true;
@@ -123,45 +123,45 @@ namespace Email_Inboxes
             }
 
             string OutlookEnabled = "True";
-            if (localSettings.Values.ContainsKey("OutlookEnabled"))
+            if (localSettings.Values.ContainsKey(Settings.OutlookEnabled))
             {
-                OutlookEnabled = localSettings.Values["OutlookEnabled"].ToString();
+                OutlookEnabled = localSettings.Values[Settings.OutlookEnabled].ToString();
             }
             else
             {
-                localSettings.Values["OutlookEnabled"] = "True";
-                OutlookEnabled = localSettings.Values["OutlookEnabled"].ToString();
+                localSettings.Values[Settings.OutlookEnabled] = "True";
+                OutlookEnabled = localSettings.Values[Settings.OutlookEnabled].ToString();
             }
 
             string OutlookAppType = "Website";
-            if (localSettings.Values.ContainsKey("OutlookAppType"))
+            if (localSettings.Values.ContainsKey(Settings.OutlookAppType))
             {
-                OutlookAppType = localSettings.Values["OutlookAppType"].ToString();
+                OutlookAppType = localSettings.Values[Settings.OutlookAppType].ToString();
             }
             else
             {
-                localSettings.Values["OutlookAppType"] = "Website";
-                OutlookAppType = localSettings.Values["OutlookAppType"].ToString();
+                localSettings.Values[Settings.OutlookAppType] = "Website";
+                OutlookAppType = localSettings.Values[Settings.OutlookAppType].ToString();
             }
 
             string ToDoServiceUrl = "disabled";
-            if (localSettings.Values.ContainsKey("ToDoServiceUrl"))
+            if (localSettings.Values.ContainsKey(Settings.ToDoServiceUrl))
             {
-                ToDoServiceUrl = localSettings.Values["ToDoServiceUrl"].ToString();
+                ToDoServiceUrl = localSettings.Values[Settings.ToDoServiceUrl].ToString();
             }
             else
             {
-                localSettings.Values["ToDoServiceUrl"] = "disabled";
+                localSettings.Values[Settings.ToDoServiceUrl] = "disabled";
             }
 
             string CalendarServiceUrl = "disabled";
-            if (localSettings.Values.ContainsKey("CalendarServiceUrl"))
+            if (localSettings.Values.ContainsKey(Settings.CalendarServiceUrl))
             {
-                CalendarServiceUrl = localSettings.Values["CalendarServiceUrl"].ToString();
+                CalendarServiceUrl = localSettings.Values[Settings.CalendarServiceUrl].ToString();
             }
             else
             {
-                localSettings.Values["CalendarServiceUrl"] = "disabled";
+                localSettings.Values[Settings.CalendarServiceUrl] = "disabled";
             }
 
             string NavItem_StartupPage = "NavItem_Home";
