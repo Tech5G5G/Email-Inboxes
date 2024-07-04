@@ -68,7 +68,6 @@ namespace Email_Inboxes
             m_window.Activate();
 
             //Settings checkers to check if settings exist
-
             if (!localSettings.Values.ContainsKey(Settings.HomeEnabled))
                 localSettings.Values[Settings.HomeEnabled] = true;
 
