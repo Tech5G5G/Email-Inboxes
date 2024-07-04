@@ -188,21 +188,13 @@ namespace Email_Inboxes
 
         private void OutlookToggle_Toggled(object sender, RoutedEventArgs e)
         {
-            string IsOutlookEnabled = OutlookToggle.IsOn.ToString();
-            localSettings.Values["OutlookEnabled"] = IsOutlookEnabled;
+            bool IsOutlookEnabled = OutlookToggle.IsOn;
+            localSettings.Values[App.Settings.OutlookEnabled] = IsOutlookEnabled;
 
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            string OutlookAppType = localSettings.Values["OutlookAppType"].ToString();
-            if (IsOutlookEnabled is "True")
+            if (IsOutlookEnabled)
             {
-                if (OutlookAppType == "Website")
-                {
-                    mw.NavItem_Outlook.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    mw.NavItem_Outlook.Visibility = Visibility.Collapsed;
-                }
+                mw.NavItem_Outlook.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Visible : Visibility.Collapsed;
             }
             else
             {
