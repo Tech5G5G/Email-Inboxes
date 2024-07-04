@@ -58,15 +58,7 @@ namespace Email_Inboxes
 
             iCloudButton.Visibility = (bool)localSettings.Values[App.Settings.iCloudEnabled] ? Visibility.Visible : Visibility.Collapsed;
 
-            string ProtonEnabled = localSettings.Values["ProtonEnabled"].ToString();
-            if (ProtonEnabled is "True")
-            {
-                ProtonButton.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                ProtonButton.Visibility = Visibility.Collapsed;
-            }
+            ProtonButton.Visibility = (bool)localSettings.Values[App.Settings.ProtonEnabled] ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void SettingsCard_Click(object sender, RoutedEventArgs e)
