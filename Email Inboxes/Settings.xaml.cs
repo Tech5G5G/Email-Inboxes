@@ -34,6 +34,7 @@ namespace Email_Inboxes
 
             ExePath.Text = (string)localSettings.Values[App.Settings.OutlookExePath];
             
+            //Switch to determine which to do service the user has selected and display it
             switch ((string)localSettings.Values[App.Settings.ToDoServiceName])
             {
                 case "Apple Reminders":
@@ -61,6 +62,7 @@ namespace Email_Inboxes
                     break;
             }
 
+            //Switch to determine which calendar service the user has selected and display it
             switch (localSettings.Values[App.Settings.CalendarServiceName])
             {
                 case "Apple Calendar":
@@ -79,6 +81,7 @@ namespace Email_Inboxes
                     break;
             }
 
+            //Enables or disables toggles depending on user's setting 
             OutlookToggle.IsOn = (bool)localSettings.Values[App.Settings.OutlookEnabled];
 
             GmailToggle.IsOn = (bool)localSettings.Values[App.Settings.GmailEnabled];
@@ -89,6 +92,7 @@ namespace Email_Inboxes
 
             HomeToggle.IsOn = (bool)localSettings.Values[App.Settings.HomeEnabled];
 
+            //Switch to determine which startup page the user has selected and display it
             switch ((string)localSettings.Values[App.Settings.StartupPage])
             {
                 case "Home":
@@ -108,6 +112,8 @@ namespace Email_Inboxes
                     break;
             }
 
+            //If statement to determine which Outlook app type the user has selected and display it.
+            //Also shows or hides a card depending on the user's setting.
             if ((string)localSettings.Values[App.Settings.OutlookAppType] is "Website")
             {
                 OutlookAppType.SelectedIndex = 0;
