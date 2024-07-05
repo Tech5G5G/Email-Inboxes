@@ -72,6 +72,7 @@ namespace Email_Inboxes
             SetTitleBar(AppTitleBar);
             m_AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
 
+            //Changes the selected item of the nvSample NavigationView to the user's selected startup page
             string NavItem_StartupPage = "NavItem_Home";
             switch ((string)localSettings.Values[App.Settings.StartupPage])
             {
@@ -95,6 +96,7 @@ namespace Email_Inboxes
             var item = nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == NavItem_StartupPage);
             nvSample.SelectedItem = item;
 
+            //Hides or shows the related nvSample NavItem depending on the user's settings
             if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
             {
                 if ((string)localSettings.Values[App.Settings.OutlookAppType] == "Website")
@@ -128,6 +130,7 @@ namespace Email_Inboxes
             appWindow.SetIcon("Mail.ico");
         }
 
+        //Code to show mica as the backdrop of the window
         private bool TrySetMicaBackdrop()
         {
             if (MicaController.IsSupported() is true)
@@ -208,6 +211,7 @@ namespace Email_Inboxes
 
         private void nvSample_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
+            //Changes the content of the contentFrame related to the users selection
             FrameNavigationOptions navOptions = new FrameNavigationOptions();
             navOptions.TransitionInfoOverride = args.RecommendedNavigationTransitionInfo;
             if (sender.PaneDisplayMode == NavigationViewPaneDisplayMode.Top)
