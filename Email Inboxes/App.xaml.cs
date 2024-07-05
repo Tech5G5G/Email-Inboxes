@@ -112,6 +112,10 @@ namespace Email_Inboxes
                 localSettings.Values[Settings.OutlookEnabled] = (string)localSettings.Values[Settings.OutlookEnabled] == "True";
             }
 
+            //Creates setting to prevent backwards compatibility code from running in the future
+            if (!((string)localSettings.Values[Settings.VersionNumber] == "1.3"))
+                localSettings.Values[Settings.VersionNumber] = "1.3";
+
             m_window = new MainWindow();
             m_window.Activate();
         }
