@@ -13,7 +13,7 @@
     <ScrollView VerticalScrollBarVisibility="Auto">
         <StackPanel>
             <TextBlock Text="Home" FontSize="28" FontFamily="Segoe UI Variable Display" FontWeight="SemiBold" Margin="25,25,25,0"/>
-            <ScrollView VerticalScrollMode="Disabled" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Hidden">
+            <ScrollView VerticalScrollMode="Disabled" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto">
                 <StackPanel Margin="0,5,0,25" Orientation="Horizontal">
                     <Rectangle Fill="Transparent" Height="10" Width="10"/>
                     <ItemsControl Margin="15,15,0,0" x:Name="OutlookPageButton">
