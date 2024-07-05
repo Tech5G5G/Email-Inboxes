@@ -105,5 +105,14 @@ namespace Email_Inboxes
             mw.nvSample.SelectedItem = item;
             Frame.Navigate(typeof(Outlook), contentFrame, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
         }
+
+        private void YahooNavigate(object sender, RoutedEventArgs e)
+        {
+            Frame contentFrame = ((App)Application.Current).contentFrame;
+            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+            var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Yahoo");
+            mw.nvSample.SelectedItem = item;
+            Frame.Navigate(typeof(Outlook), contentFrame, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+        }
     }
 }
