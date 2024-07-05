@@ -58,6 +58,7 @@ namespace Email_Inboxes
                 case "Disabled":
                     ToDoService.SelectedIndex = 6;
                     break;
+                //Backwards compatiblity code
                 case "None":
                     ToDoService.SelectedIndex = 6;
                     break;
@@ -78,6 +79,7 @@ namespace Email_Inboxes
                 case "Disabled":
                     CalendarService.SelectedIndex = 3;
                     break;
+                //Backwards compatiblity code
                 case "None":
                     CalendarService.SelectedIndex = 3;
                     break;
