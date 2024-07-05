@@ -80,6 +80,9 @@ namespace Email_Inboxes
             if (!localSettings.Values.ContainsKey(Settings.ProtonEnabled))
                 localSettings.Values[Settings.ProtonEnabled] = true;
 
+            if (!localSettings.Values.ContainsKey(Settings.YahooEnabled))
+                localSettings.Values[Settings.YahooEnabled] = true;
+
             if (!localSettings.Values.ContainsKey(Settings.OutlookEnabled))
                 localSettings.Values[Settings.OutlookEnabled] = true;
 
