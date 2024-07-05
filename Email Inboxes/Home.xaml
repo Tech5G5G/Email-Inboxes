@@ -10,7 +10,7 @@
    xmlns:controls="using:Microsoft.UI.Xaml.Controls"
    mc:Ignorable="d">
 
-    <ScrollView VerticalScrollBarVisibility="Hidden">
+    <ScrollView VerticalScrollBarVisibility="Auto">
         <StackPanel>
             <TextBlock Text="Home" FontSize="28" FontFamily="Segoe UI Variable Display" FontWeight="SemiBold" Margin="25,25,25,0"/>
             <ScrollView VerticalScrollMode="Disabled" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Hidden">

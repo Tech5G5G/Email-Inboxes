@@ -10,7 +10,7 @@ xmlns:ui="using:CommunityToolkit.WinUI"
 xmlns:controls="using:CommunityToolkit.WinUI.Controls"
 mc:Ignorable="d">
 
-    <ScrollView VerticalScrollBarVisibility="Hidden">
+    <ScrollView VerticalScrollBarVisibility="Auto">
         <StackPanel Spacing="4" BorderThickness="25">
             <TextBlock Text="Settings" FontSize="28" FontFamily="Segoe UI Variable Display" FontWeight="SemiBold" Margin="0,0,0,18"/>
 
