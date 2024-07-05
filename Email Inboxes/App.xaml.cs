@@ -102,6 +102,16 @@ namespace Email_Inboxes
             if (!localSettings.Values.ContainsKey(Settings.OutlookExePath))
                 localSettings.Values[Settings.OutlookExePath] = @"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE";
 
+            //Backwards compatibility code that updates the values of Home, iCloud, Gmail, Proton, & Outlook Enabled settings from strings to booleans
+            if (!localSettings.Values.ContainsKey(Settings.VersionNumber))
+            {
+                localSettings.Values[Settings.HomeEnabled] = (string)localSettings.Values[Settings.HomeEnabled] == "True";
+                localSettings.Values[Settings.iCloudEnabled] = (string)localSettings.Values[Settings.iCloudEnabled] == "True";
+                localSettings.Values[Settings.GmailEnabled] = (string)localSettings.Values[Settings.GmailEnabled] == "True";
+                localSettings.Values[Settings.ProtonEnabled] = (string)localSettings.Values[Settings.ProtonEnabled] == "True";
+                localSettings.Values[Settings.OutlookEnabled] = (string)localSettings.Values[Settings.OutlookEnabled] == "True";
+            }
+
             m_window = new MainWindow();
             m_window.Activate();
         }
