@@ -10,7 +10,7 @@
   <Identity
     Name="Tech5G5G.EmailInboxes"
     Publisher="CN=6A412899-897E-4FB8-A2C7-EF01EAAF4C9B"
-    Version="1.2.1.0" />
+    Version="1.3.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="72b90042-fe83-437f-8a53-5233f451f75b" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
