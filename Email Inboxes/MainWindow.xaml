@@ -40,6 +40,7 @@
                 <NavigationViewItem Icon="Home" Content="Home" x:Name="NavItem_Home" x:FieldModifier="public"/>
                 <NavigationViewItem Icon="{ui:FontIcon Glyph=&#xE902;, FontFamily={StaticResource CustomIcons}}" Content="Outlook"  x:Name="NavItem_Outlook" x:FieldModifier="public"/>
                 <NavigationViewItem Icon="{ui:FontIcon Glyph=&#xE900;, FontFamily={StaticResource CustomIcons}}" Content="Gmail"  x:Name="NavItem_Gmail" x:FieldModifier="public"/>
+                <NavigationViewItem Icon="{ui:FontIcon Glyph=&#xE903;, FontFamily={StaticResource CustomIcons}}" Content="Yahoo Mail" x:Name="NavItem_Yahoo" x:FieldModifier="public"/>
                 <NavigationViewItem Icon="{ui:FontIcon Glyph=&#xE753;}" Content="iCloud Mail" x:Name="NavItem_iCloud" x:FieldModifier="public"/>
                 <NavigationViewItem Icon="{ui:FontIcon Glyph=&#xE901;, FontFamily={StaticResource CustomIcons}}" Content="Proton Mail" x:Name="NavItem_Proton" x:FieldModifier="public"/>
             </NavigationView.MenuItems>
