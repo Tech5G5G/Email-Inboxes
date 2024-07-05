@@ -111,6 +111,7 @@ namespace Email_Inboxes
 
         private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
         {
+            //Code to set the icon of the window to the app logo in ICO form
             IntPtr windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(this);
             WindowId windowId = Win32Interop.GetWindowIdFromWindow(windowHandle);
             AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
