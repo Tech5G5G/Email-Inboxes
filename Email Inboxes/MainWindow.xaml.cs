@@ -64,7 +64,6 @@ namespace Email_Inboxes
         public MainWindow()
         {
             this.InitializeComponent();
-            var result = TrySetMicaBackdrop();
             ExtendsContentIntoTitleBar = true;
             m_AppWindow = GetAppWindowForCurrentWindow();
             Title = $"Email Inboxes";
@@ -116,85 +115,6 @@ namespace Email_Inboxes
             WindowId windowId = Win32Interop.GetWindowIdFromWindow(windowHandle);
             AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
             appWindow.SetIcon("Mail.ico");
-        }
-
-        //Code to show mica as the backdrop of the window
-        private bool TrySetMicaBackdrop()
-        {
-            if (MicaController.IsSupported() is true)
-            {
-                _wsdqHelper = new WindowsSystemDispatcherQueueHelper();
-                _wsdqHelper.EnsureWindowsSystemDispatcherQueueController();
-
-                // Hooking up the policy object
-                _configurationSource = new SystemBackdropConfiguration();
-                this.Activated += Window_Activated;
-                this.Closed += Window_Closed;
-                ((FrameworkElement)this.Content).ActualThemeChanged += Window_ThemeChanged;
-
-                // Initial configuration state.
-                _configurationSource.IsInputActive = true;
-                SetConfigurationSourceTheme();
-
-                _micaController = new MicaController();
-
-                // Enable the system backdrop.
-                // Note: Be sure to have "using WinRT;" to support the Window.As<...>() call.
-                _micaController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
-                _micaController.SetSystemBackdropConfiguration(_configurationSource);
-                return true; // succeeded
-            }
-
-            return false; // Mica is not supported on this system
-        }
-
-        private void Window_Activated(object sender, WindowActivatedEventArgs args)
-        {
-            if (_configurationSource is not null)
-            {
-                _configurationSource.IsInputActive = args.WindowActivationState != WindowActivationState.Deactivated;
-            }
-        }
-
-        private void Window_Closed(object sender, WindowEventArgs args)
-        {
-            // Make sure any Mica/Acrylic controller is disposed so it doesn't try to
-            // use this closed window.
-            if (_acrylicController is not null)
-            {
-                _acrylicController.Dispose();
-                _acrylicController = null;
-            }
-
-            this.Activated -= Window_Activated;
-            _configurationSource = null;
-        }
-
-        private void Window_ThemeChanged(FrameworkElement sender, object args)
-        {
-            if (_configurationSource is not null)
-            {
-                SetConfigurationSourceTheme();
-            }
-        }
-
-        private void SetConfigurationSourceTheme()
-        {
-            if (_configurationSource is not null)
-            {
-                switch (((FrameworkElement)this.Content).ActualTheme)
-                {
-                    case ElementTheme.Dark:
-                        _configurationSource.Theme = SystemBackdropTheme.Dark;
-                        break;
-                    case ElementTheme.Light:
-                        _configurationSource.Theme = SystemBackdropTheme.Light;
-                        break;
-                    case ElementTheme.Default:
-                        _configurationSource.Theme = SystemBackdropTheme.Default;
-                        break;
-                }
-            }
         }
 
         private void nvSample_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
