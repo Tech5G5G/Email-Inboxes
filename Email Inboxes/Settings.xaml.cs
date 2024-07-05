@@ -59,6 +59,7 @@ namespace Email_Inboxes
                     ToDoService.SelectedIndex = 6;
                     break;
                 case "None":
+                    ToDoService.SelectedIndex = 6;
                     break;
             }
 
@@ -78,6 +79,7 @@ namespace Email_Inboxes
                     CalendarService.SelectedIndex = 3;
                     break;
                 case "None":
+                    CalendarService.SelectedIndex = 3;
                     break;
             }
 
