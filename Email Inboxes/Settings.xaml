@@ -109,6 +109,9 @@ mc:Ignorable="d">
                     <controls:SettingsCard Header="ProtonMail Icon">
                         <HyperlinkButton Content="ProtonMail Icon by Icons8" NavigateUri="https://icons8.com/icon/ktp56n4o2SyZ/protonmail"/>
                     </controls:SettingsCard>
+                    <controls:SettingsCard Header="Yahoo Mail Icon">
+                        <TextBlock Text="Created by Ignacy Tomczyk. No icon URL available" Foreground="{ThemeResource AccentAAFillColorSecondaryBrush}"/>
+                    </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
 
