@@ -87,14 +87,14 @@ namespace Email_Inboxes
             if (!localSettings.Values.ContainsKey(Settings.ToDoServiceUrl))
                 localSettings.Values[Settings.ToDoServiceUrl] = "disabled";
 
-            if (localSettings.Values.ContainsKey(Settings.ToDoServiceName))
-                localSettings.Values[Settings.ToDoServiceName] = "None";
+            if (!localSettings.Values.ContainsKey(Settings.ToDoServiceName))
+                localSettings.Values[Settings.ToDoServiceName] = "Disabled";
 
             if (!localSettings.Values.ContainsKey(Settings.CalendarServiceUrl))
                 localSettings.Values[Settings.CalendarServiceUrl] = "disabled";
 
             if (!localSettings.Values.ContainsKey(Settings.CalendarServiceName))
-                localSettings.Values[Settings.CalendarServiceName] = "None";
+                localSettings.Values[Settings.CalendarServiceName] = "Disabled";
 
             if (!localSettings.Values.ContainsKey(Settings.StartupPage))
                 localSettings.Values[Settings.StartupPage] = "Home";
