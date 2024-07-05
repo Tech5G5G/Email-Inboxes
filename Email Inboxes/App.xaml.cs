@@ -46,6 +46,7 @@ namespace Email_Inboxes
             public const string ProtonEnabled = "ProtonEnabled";
             public const string iCloudEnabled = "iCloudEnabled";
             public const string GmailEnabled = "GmailEnabled";
+            public const string YahooEnabled = "YahooEnabled";
             public const string OutlookAppType = "OutlookAppType";
             public const string ToDoServiceName = "ToDoServiceName";
             public const string CalendarServiceName = "CalendarServiceName";
