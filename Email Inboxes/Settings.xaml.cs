@@ -128,7 +128,7 @@ namespace Email_Inboxes
 
         private void ToDoService_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //Saves the to do service name and URL
             string ToDoServiceName = (ToDoService.SelectedItem as ComboBoxItem).Content.ToString();
             string ToDoServiceUrl = "disabled";
 
@@ -163,6 +163,7 @@ namespace Email_Inboxes
 
         private void CalendarService_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Saves the calendar service name and URL
             string CalendarServiceName = (CalendarService.SelectedItem as ComboBoxItem).Content.ToString();
             string CalendarServiceUrl = "disabled";
 
@@ -188,6 +189,7 @@ namespace Email_Inboxes
 
         private void OutlookToggle_Toggled(object sender, RoutedEventArgs e)
         {
+            //Saves and updates the UI when the OutlookToggle is toggled
             bool IsOutlookEnabled = OutlookToggle.IsOn;
             localSettings.Values[App.Settings.OutlookEnabled] = IsOutlookEnabled;
 
@@ -204,11 +206,13 @@ namespace Email_Inboxes
 
         private void StartupPage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Saves the value of StartupPage when its selection is changed
             localSettings.Values[App.Settings.StartupPage] = (StartupPage.SelectedItem as ComboBoxItem).Content.ToString();
         }
 
         private void GmailToggle_Toggled(object sender, RoutedEventArgs e)
         {
+            //Saves and updates the UI when the GmailToggle is toggled
             bool IsGmailEnabled = GmailToggle.IsOn;
             localSettings.Values[App.Settings.GmailEnabled] = IsGmailEnabled;
 
@@ -218,6 +222,7 @@ namespace Email_Inboxes
 
         private void iCloudToggle_Toggled(object sender, RoutedEventArgs e)
         {
+            //Saves and updates the UI when the iCloudToggle is toggled
             bool IsiCloudEnabled = iCloudToggle.IsOn;
             localSettings.Values[App.Settings.iCloudEnabled] = IsiCloudEnabled;
 
@@ -227,6 +232,7 @@ namespace Email_Inboxes
 
         private void ProtonToggle_Toggled(object sender, RoutedEventArgs e)
         {
+            //Saves and updates the UI when the ProtonToggle is toggled
             bool IsProtonEnabled = ProtonToggle.IsOn;
             localSettings.Values[App.Settings.ProtonEnabled] = IsProtonEnabled;
 
@@ -236,6 +242,7 @@ namespace Email_Inboxes
 
         private void OutlookAppType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Saves and updates the UI when the selection of OutlookAppType is changed
             string SelectedOutlookAppType = (OutlookAppType.SelectedItem as ComboBoxItem).Content.ToString();
             localSettings.Values[App.Settings.OutlookAppType] = SelectedOutlookAppType;
 
@@ -253,11 +260,13 @@ namespace Email_Inboxes
 
         private void SaveExePath_Click(object sender, RoutedEventArgs e)
         {
+            //Saves the OutlookExePath when the save button is clicked
             localSettings.Values["OutlookExePath"] = ExePath.Text;
         }
 
         private void HomeToggle_Toggled(object sender, RoutedEventArgs e)
         {
+            //Saves and updates the UI when the HomeToggle is toggled
             bool isHomeEnabled = HomeToggle.IsOn;
             localSettings.Values["HomeEnabled"] = isHomeEnabled;
 
