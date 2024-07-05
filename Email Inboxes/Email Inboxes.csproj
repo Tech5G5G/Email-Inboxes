@@ -32,7 +32,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="App.xaml" />
-    <None Remove="Assets\Email-Inboxes-Icons.ttf" />
+    <None Remove="Assets\Email-Inboxes-Icons.otf" />
     <None Remove="Assets\SplashScreen.scale-200.png" />
     <None Remove="Assets\Square44x44Logo.scale-200.png" />
     <None Remove="Gmail.xaml" />
@@ -63,7 +63,7 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
-    <Content Update="Assets\Email-Inboxes-Icons.ttf">
+    <Content Update="Assets\Email-Inboxes-Icons.otf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
