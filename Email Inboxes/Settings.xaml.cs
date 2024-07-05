@@ -277,5 +277,10 @@ namespace Email_Inboxes
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             mw.NavItem_Home.Visibility = isHomeEnabled ? Visibility.Visible : Visibility.Collapsed;
         }
+
+        private void WindowBackdrop_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
