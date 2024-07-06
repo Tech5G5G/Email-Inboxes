@@ -146,8 +146,11 @@ namespace Email_Inboxes
                 case "NavItem_Outlook":
                     pageType = typeof(Outlook);
                     break;
+                case "SettingsItem":
+                    pageType = typeof(Settings);
+                    break;
                 default:
-                    pageType = typeof (Settings);
+                    pageType = typeof(Home);
                     break;
             }
             _ = contentFrame.Navigate(pageType);
