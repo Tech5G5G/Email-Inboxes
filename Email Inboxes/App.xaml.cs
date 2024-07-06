@@ -53,6 +53,7 @@ namespace Email_Inboxes
             public const string ToDoServiceUrl = "ToDoServiceUrl";
             public const string CalendarServiceUrl = "CalendarServiceUrl";
             public const string OutlookExePath = "OutlookExePath";
+            public const string Backdrop = "Backdrop";
             public const string VersionNumber = "VersionNumber";
         }
 
