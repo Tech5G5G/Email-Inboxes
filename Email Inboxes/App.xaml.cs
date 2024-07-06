@@ -55,6 +55,7 @@ namespace Email_Inboxes
             public const string OutlookExePath = "OutlookExePath";
             public const string Backdrop = "Backdrop";
             public const string VersionNumber = "VersionNumber";
+            public const bool settingsChangable = false;
         }
 
         public App()
