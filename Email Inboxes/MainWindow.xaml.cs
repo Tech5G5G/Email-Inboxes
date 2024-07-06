@@ -63,6 +63,22 @@ namespace Email_Inboxes
             m_AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
             m_AppWindow.SetIcon("Mail.ico");
 
+            //Sets the backdrop of the window based on the user's preference
+            SystemBackdrop backdropToSet = null;
+            switch ((string)localSettings.Values[App.Settings.Backdrop])
+            {
+                case "Mica":
+                    backdropToSet = new MicaBackdrop() { Kind = MicaKind.Base };
+                    break;
+                case "Mica Alt":
+                    backdropToSet = new MicaBackdrop() { Kind = MicaKind.BaseAlt };
+                    break;
+                case "Acrylic":
+                    backdropToSet = new DesktopAcrylicBackdrop();
+                    break;
+            }
+            mainwindow.SystemBackdrop = backdropToSet;
+
             //Changes the selected item of the nvSample NavigationView to the user's selected startup page
             string NavItem_StartupPage = "NavItem_Home";
             switch ((string)localSettings.Values[App.Settings.StartupPage])
