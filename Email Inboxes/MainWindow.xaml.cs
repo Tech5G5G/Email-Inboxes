@@ -28,6 +28,7 @@ using System.Security.Cryptography;
 using Windows.ApplicationModel.Core;
 using Windows.Storage;
 using System.Reflection.Metadata;
+using Windows.UI.WindowManagement;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -43,13 +44,13 @@ namespace Email_Inboxes
     {
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
-        private AppWindow m_AppWindow;
+        private Microsoft.UI.Windowing.AppWindow m_AppWindow;
 
-        private AppWindow GetAppWindowForCurrentWindow ()
+        private Microsoft.UI.Windowing.AppWindow GetAppWindowForCurrentWindow ()
         {
-        IntPtr hWnd = WindowNative.GetWindowHandle(this);
-        WindowId wndId = Win32Interop.GetWindowIdFromWindow(hWnd);
-        return AppWindow.GetFromWindowId(wndId);
+            IntPtr hWnd = WindowNative.GetWindowHandle(this);
+            WindowId wndId = Win32Interop.GetWindowIdFromWindow(hWnd);
+            return Microsoft.UI.Windowing.AppWindow.GetFromWindowId(wndId);
         }
 
         public MainWindow()
@@ -58,9 +59,9 @@ namespace Email_Inboxes
             ExtendsContentIntoTitleBar = true;
             m_AppWindow = GetAppWindowForCurrentWindow();
             Title = $"Email Inboxes";
-            this.Activated += MainWindow_Activated;
             SetTitleBar(AppTitleBar);
             m_AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
+            m_AppWindow.SetIcon("Mail.ico");
 
             //Changes the selected item of the nvSample NavigationView to the user's selected startup page
             string NavItem_StartupPage = "NavItem_Home";
@@ -98,15 +99,6 @@ namespace Email_Inboxes
             NavItem_Proton.Visibility = (bool)localSettings.Values[App.Settings.ProtonEnabled] ? Visibility.Visible : Visibility.Collapsed;
 
             NavItem_Home.Visibility = (bool)localSettings.Values[App.Settings.HomeEnabled] ? Visibility.Visible : Visibility.Collapsed;
-        }
-
-        private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
-        {
-            //Code to set the icon of the window to the app logo in ICO form
-            IntPtr windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(this);
-            WindowId windowId = Win32Interop.GetWindowIdFromWindow(windowHandle);
-            AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
-            appWindow.SetIcon("Mail.ico");
         }
 
         private void nvSample_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
