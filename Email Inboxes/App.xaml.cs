@@ -136,6 +136,7 @@ namespace Email_Inboxes
             if (!((string)localSettings.Values[Settings.VersionNumber] == "1.3"))
                 localSettings.Values[Settings.VersionNumber] = "1.3";
 
+            //Creates and activates MainWindow
             m_window = new MainWindow();
             m_window.Activate();
         }
