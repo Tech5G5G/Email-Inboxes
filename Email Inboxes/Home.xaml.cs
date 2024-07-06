@@ -46,8 +46,8 @@ namespace Email_Inboxes
 
             //Shows or hides the WebView that shows the user selected calendar app/service
             string CalendarServiceUrl = (string)localSettings.Values[App.Settings.CalendarServiceUrl];
-            if (CalendarServiceUrl == "disabled") HomeWebView.Visibility = Visibility.Collapsed;
-            else HomeWebView.Source = new Uri(CalendarServiceUrl);
+            if (CalendarServiceUrl == "disabled") CalendarWebView.Visibility = Visibility.Collapsed;
+            else CalendarWebView.Source = new Uri(CalendarServiceUrl);
 
             //Shows or hides the card of the related service depending on the user's settings
             if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
