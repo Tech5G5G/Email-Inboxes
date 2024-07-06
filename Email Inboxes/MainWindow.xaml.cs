@@ -52,15 +52,6 @@ namespace Email_Inboxes
         return AppWindow.GetFromWindowId(wndId);
         }
 
-        private WindowsSystemDispatcherQueueHelper? _wsdqHelper;
-
-        // See separate sample below for implementation
-        private DesktopAcrylicController? _acrylicController;
-
-        private MicaController? _micaController;
-
-        private SystemBackdropConfiguration? _configurationSource;
-
         public MainWindow()
         {
             this.InitializeComponent();
