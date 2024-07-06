@@ -129,6 +129,20 @@ namespace Email_Inboxes
                 OutlookAppType.SelectedIndex = 1;
                 ExePathCard.Visibility = Visibility.Visible;
             }
+
+            //Loads the user's setting for window backdrop
+            switch ((string)localSettings.Values[App.Settings.Backdrop])
+            {
+                case "Mica":
+                    WindowBackdrop.SelectedIndex = 0;
+                    break;
+                case "Mica Alt":
+                    WindowBackdrop.SelectedIndex = 1;
+                    break;
+                case "Acrylic":
+                    WindowBackdrop.SelectedIndex = 2;
+                    break;
+            }
         }
 
         private void ToDoService_SelectionChanged(object sender, SelectionChangedEventArgs e)
