@@ -15,6 +15,7 @@ using Microsoft.UI.Xaml.Navigation;
 using Windows.Storage;
 using Windows.Devices.SmartCards;
 using Windows.ApplicationModel.Core;
+using Microsoft.UI.Composition.SystemBackdrops;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -280,7 +281,26 @@ namespace Email_Inboxes
 
         private void WindowBackdrop_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Saves the user's selection for the window backdrop
+            var windowBackdrop = (WindowBackdrop.SelectedItem as ComboBoxItem).Content.ToString();
+            localSettings.Values[App.Settings.Backdrop] = windowBackdrop;
 
+            //Updates the UI accordingly
+            SystemBackdrop backdropToSet = null;
+            switch (windowBackdrop)
+            {
+                case "Mica":
+                    backdropToSet = new MicaBackdrop() { Kind = MicaKind.Base };
+                    break;
+                case "Mica Alt":
+                    backdropToSet = new MicaBackdrop() { Kind = MicaKind.BaseAlt };
+                    break;
+                case "Acrylic":
+                    backdropToSet = new DesktopAcrylicBackdrop();
+                    break;
+            }
+            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+            mw.mainwindow.SystemBackdrop = backdropToSet;
         }
     }
 }
