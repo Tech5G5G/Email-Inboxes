@@ -129,7 +129,7 @@ namespace Email_Inboxes
                 localSettings.Values[Settings.OutlookEnabled] = (string)localSettings.Values[Settings.OutlookEnabled] == "True";
             }
 
-            //Creates setting to prevent backwards compatibility code from running in the future
+            //Creates setting to prevent backwards compatibility code from running in the future and to store version of application
             if (!((string)localSettings.Values[Settings.VersionNumber] == "1.3"))
                 localSettings.Values[Settings.VersionNumber] = "1.3";
 
