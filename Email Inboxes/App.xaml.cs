@@ -108,6 +108,9 @@ namespace Email_Inboxes
             if (!localSettings.Values.ContainsKey(Settings.OutlookExePath))
                 localSettings.Values[Settings.OutlookExePath] = @"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE";
 
+            if (!localSettings.Values.ContainsKey(Settings.Backdrop))
+                localSettings.Values[Settings.Backdrop] = "Mica";
+
             //Backwards compatibility code that updates the values of Home, iCloud, Gmail, Proton, & Outlook Enabled settings from strings to booleans
             if (!localSettings.Values.ContainsKey(Settings.VersionNumber))
             {
