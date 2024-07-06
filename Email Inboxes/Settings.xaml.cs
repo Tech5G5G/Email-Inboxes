@@ -130,7 +130,7 @@ namespace Email_Inboxes
                 ExePathCard.Visibility = Visibility.Visible;
             }
 
-            //Loads the user's setting for window backdrop
+            //Shows the user's setting for window backdrop
             switch ((string)localSettings.Values[App.Settings.Backdrop])
             {
                 case "Mica":
@@ -300,6 +300,7 @@ namespace Email_Inboxes
             localSettings.Values[App.Settings.Backdrop] = windowBackdrop;
 
             //Updates the UI accordingly
+            //Make this so it doesn't work during startup of the settings page (make key/string in App.cs and run this depending on its value)
             SystemBackdrop backdropToSet = null;
             switch (windowBackdrop)
             {
