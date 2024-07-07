@@ -143,179 +143,225 @@ namespace Email_Inboxes
                     WindowBackdrop.SelectedIndex = 2;
                     break;
             }
+
+            App.Settings.SettingsChangable = true;
         }
 
         private void ToDoService_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Saves the to do service name and URL
-            string ToDoServiceName = (ToDoService.SelectedItem as ComboBoxItem).Content.ToString();
-            string ToDoServiceUrl = "disabled";
-
-            switch (ToDoServiceName)
+            //Only allows settings to be changed once the settings page has completely loaded in
+            if (App.Settings.SettingsChangable)
             {
-                case "Apple Reminders":
-                    ToDoServiceUrl = "https://icloud.com/reminders";
-                    break;
-                case "Todoist":
-                    ToDoServiceUrl = "https://todoist.com";
-                    break;
-                case "TickTick":
-                    ToDoServiceUrl = "https://ticktick.com";
-                    break;
-                case "Microsoft To Do":
-                    ToDoServiceUrl = "https://to-do.live.com";
-                    break;
-                case "Google Tasks":
-                    ToDoServiceUrl = "https://tasks.google.com";
-                    break;
-                case "Any.do":
-                    ToDoServiceUrl = "https://any.do";
-                    break;
-                case "Disabled":
-                    ToDoServiceUrl = "disabled";
-                    break;
-            }
+                //Saves the to do service name and URL
+                string ToDoServiceName = (ToDoService.SelectedItem as ComboBoxItem).Content.ToString();
+                string ToDoServiceUrl = "disabled";
 
-            localSettings.Values[App.Settings.ToDoServiceName] = ToDoServiceName;
-            localSettings.Values[App.Settings.ToDoServiceUrl] = ToDoServiceUrl;
+                switch (ToDoServiceName)
+                {
+                    case "Apple Reminders":
+                        ToDoServiceUrl = "https://icloud.com/reminders";
+                        break;
+                    case "Todoist":
+                        ToDoServiceUrl = "https://todoist.com";
+                        break;
+                    case "TickTick":
+                        ToDoServiceUrl = "https://ticktick.com";
+                        break;
+                    case "Microsoft To Do":
+                        ToDoServiceUrl = "https://to-do.live.com";
+                        break;
+                    case "Google Tasks":
+                        ToDoServiceUrl = "https://tasks.google.com";
+                        break;
+                    case "Any.do":
+                        ToDoServiceUrl = "https://any.do";
+                        break;
+                    case "Disabled":
+                        ToDoServiceUrl = "disabled";
+                        break;
+                }
+
+                localSettings.Values[App.Settings.ToDoServiceName] = ToDoServiceName;
+                localSettings.Values[App.Settings.ToDoServiceUrl] = ToDoServiceUrl;
+            }
         }
 
         private void CalendarService_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Saves the calendar service name and URL
-            string CalendarServiceName = (CalendarService.SelectedItem as ComboBoxItem).Content.ToString();
-            string CalendarServiceUrl = "disabled";
-
-            switch (CalendarServiceName)
+            //Only allows settings to be changed once the settings page has completely loaded in
+            if (App.Settings.SettingsChangable)
             {
-                case "Apple Calendar":
-                    CalendarServiceUrl = "https://www.icloud.com/calendar/";
-                    break;
-                case "Outlook Calendar":
-                    CalendarServiceUrl = "https://outlook.live.com/calendar/";
-                    break;
-                case "Google Calendar":
-                    CalendarServiceUrl = "https://calendar.google.com/";
-                    break;
-                case "Disabled":
-                    CalendarServiceUrl = "disabled";
-                    break;
-            }
+                //Saves the calendar service name and URL
+                string CalendarServiceName = (CalendarService.SelectedItem as ComboBoxItem).Content.ToString();
+                string CalendarServiceUrl = "disabled";
 
-            localSettings.Values[App.Settings.CalendarServiceName] = CalendarServiceName;
-            localSettings.Values[App.Settings.CalendarServiceUrl] = CalendarServiceUrl;
+                switch (CalendarServiceName)
+                {
+                    case "Apple Calendar":
+                        CalendarServiceUrl = "https://www.icloud.com/calendar/";
+                        break;
+                    case "Outlook Calendar":
+                        CalendarServiceUrl = "https://outlook.live.com/calendar/";
+                        break;
+                    case "Google Calendar":
+                        CalendarServiceUrl = "https://calendar.google.com/";
+                        break;
+                    case "Disabled":
+                        CalendarServiceUrl = "disabled";
+                        break;
+                }
+
+                localSettings.Values[App.Settings.CalendarServiceName] = CalendarServiceName;
+                localSettings.Values[App.Settings.CalendarServiceUrl] = CalendarServiceUrl;
+            }
         }
 
         private void OutlookToggle_Toggled(object sender, RoutedEventArgs e)
         {
-            //Saves and updates the UI when the OutlookToggle is toggled
-            bool IsOutlookEnabled = OutlookToggle.IsOn;
-            localSettings.Values[App.Settings.OutlookEnabled] = IsOutlookEnabled;
+            //Only allows settings to be changed once the settings page has completely loaded in
+            if (App.Settings.SettingsChangable)
+            {
+                //Saves and updates the UI when the OutlookToggle is toggled
+                bool IsOutlookEnabled = OutlookToggle.IsOn;
+                localSettings.Values[App.Settings.OutlookEnabled] = IsOutlookEnabled;
 
-            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            if (IsOutlookEnabled)
-            {
-                mw.NavItem_Outlook.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Visible : Visibility.Collapsed;
-            }
-            else
-            {
-                mw.NavItem_Outlook.Visibility = Visibility.Collapsed;
+                MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+                if (IsOutlookEnabled)
+                {
+                    mw.NavItem_Outlook.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Visible : Visibility.Collapsed;
+                }
+                else
+                {
+                    mw.NavItem_Outlook.Visibility = Visibility.Collapsed;
+                }
             }
         }
 
         private void StartupPage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Saves the value of StartupPage when its selection is changed
-            localSettings.Values[App.Settings.StartupPage] = (StartupPage.SelectedItem as ComboBoxItem).Content.ToString();
+            //Only allows settings to be changed once the settings page has completely loaded in
+            if (App.Settings.SettingsChangable)
+            {
+                //Saves the value of StartupPage when its selection is changed
+                localSettings.Values[App.Settings.StartupPage] = (StartupPage.SelectedItem as ComboBoxItem).Content.ToString();
+            }
         }
 
         private void GmailToggle_Toggled(object sender, RoutedEventArgs e)
         {
-            //Saves and updates the UI when the GmailToggle is toggled
-            bool IsGmailEnabled = GmailToggle.IsOn;
-            localSettings.Values[App.Settings.GmailEnabled] = IsGmailEnabled;
+            //Only allows settings to be changed once the settings page has completely loaded in
+            if (App.Settings.SettingsChangable)
+            {
+                //Saves and updates the UI when the GmailToggle is toggled
+                bool IsGmailEnabled = GmailToggle.IsOn;
+                localSettings.Values[App.Settings.GmailEnabled] = IsGmailEnabled;
 
-            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            mw.NavItem_Gmail.Visibility = IsGmailEnabled ? Visibility.Visible : Visibility.Collapsed;
+                MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+                mw.NavItem_Gmail.Visibility = IsGmailEnabled ? Visibility.Visible : Visibility.Collapsed;
+            }
         }
 
         private void iCloudToggle_Toggled(object sender, RoutedEventArgs e)
         {
-            //Saves and updates the UI when the iCloudToggle is toggled
-            bool IsiCloudEnabled = iCloudToggle.IsOn;
-            localSettings.Values[App.Settings.iCloudEnabled] = IsiCloudEnabled;
+            //Only allows settings to be changed once the settings page has completely loaded in
+            if (App.Settings.SettingsChangable)
+            {
+                //Saves and updates the UI when the iCloudToggle is toggled
+                bool IsiCloudEnabled = iCloudToggle.IsOn;
+                localSettings.Values[App.Settings.iCloudEnabled] = IsiCloudEnabled;
 
-            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            mw.NavItem_iCloud.Visibility = IsiCloudEnabled ? Visibility.Visible : Visibility.Collapsed;
+                MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+                mw.NavItem_iCloud.Visibility = IsiCloudEnabled ? Visibility.Visible : Visibility.Collapsed;
+            }
         }
 
         private void ProtonToggle_Toggled(object sender, RoutedEventArgs e)
         {
-            //Saves and updates the UI when the ProtonToggle is toggled
-            bool IsProtonEnabled = ProtonToggle.IsOn;
-            localSettings.Values[App.Settings.ProtonEnabled] = IsProtonEnabled;
+            //Only allows settings to be changed once the settings page has completely loaded in
+            if (App.Settings.SettingsChangable)
+            {
+                //Saves and updates the UI when the ProtonToggle is toggled
+                bool IsProtonEnabled = ProtonToggle.IsOn;
+                localSettings.Values[App.Settings.ProtonEnabled] = IsProtonEnabled;
 
-            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            mw.NavItem_Proton.Visibility = IsProtonEnabled ? Visibility.Visible : Visibility.Collapsed;
+                MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+                mw.NavItem_Proton.Visibility = IsProtonEnabled ? Visibility.Visible : Visibility.Collapsed;
+            }
         }
 
         private void OutlookAppType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Saves and updates the UI when the selection of OutlookAppType is changed
-            string SelectedOutlookAppType = (OutlookAppType.SelectedItem as ComboBoxItem).Content.ToString();
-            localSettings.Values[App.Settings.OutlookAppType] = SelectedOutlookAppType;
+            //Only allows settings to be changed once the settings page has completely loaded in
+            if (App.Settings.SettingsChangable)
+            {
+                //Saves and updates the UI when the selection of OutlookAppType is changed
+                string SelectedOutlookAppType = (OutlookAppType.SelectedItem as ComboBoxItem).Content.ToString();
+                localSettings.Values[App.Settings.OutlookAppType] = SelectedOutlookAppType;
 
-            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
-            {
-                mw.NavItem_Outlook.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Visible : Visibility.Collapsed;
-                ExePathCard.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Collapsed : Visibility.Visible;
-            }
-            else
-            {
-                mw.NavItem_Outlook.Visibility = Visibility.Collapsed;
+                MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+                if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
+                {
+                    mw.NavItem_Outlook.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Visible : Visibility.Collapsed;
+                    ExePathCard.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Collapsed : Visibility.Visible;
+                }
+                else
+                {
+                    mw.NavItem_Outlook.Visibility = Visibility.Collapsed;
+                }
             }
         }
 
         private void SaveExePath_Click(object sender, RoutedEventArgs e)
         {
-            //Saves the OutlookExePath when the save button is clicked
-            localSettings.Values["OutlookExePath"] = ExePath.Text;
+            //Only allows settings to be changed once the settings page has completely loaded in
+            if (App.Settings.SettingsChangable)
+            {
+                //Saves the OutlookExePath when the save button is clicked
+                localSettings.Values[App.Settings.OutlookExePath] = ExePath.Text;
+            }
         }
 
         private void HomeToggle_Toggled(object sender, RoutedEventArgs e)
         {
-            //Saves and updates the UI when the HomeToggle is toggled
-            bool isHomeEnabled = HomeToggle.IsOn;
-            localSettings.Values["HomeEnabled"] = isHomeEnabled;
+            //Only allows settings to be changed once the settings page has completely loaded in
+            if (App.Settings.SettingsChangable)
+            {
+                //Saves and updates the UI when the HomeToggle is toggled
+                bool isHomeEnabled = HomeToggle.IsOn;
+                localSettings.Values["HomeEnabled"] = isHomeEnabled;
 
-            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            mw.NavItem_Home.Visibility = isHomeEnabled ? Visibility.Visible : Visibility.Collapsed;
+                MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+                mw.NavItem_Home.Visibility = isHomeEnabled ? Visibility.Visible : Visibility.Collapsed;
+            }
         }
 
         private void WindowBackdrop_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Saves the user's selection for the window backdrop
-            var windowBackdrop = (WindowBackdrop.SelectedItem as ComboBoxItem).Content.ToString();
-            localSettings.Values[App.Settings.Backdrop] = windowBackdrop;
-
-            //Updates the UI accordingly
-            //Make this so it doesn't work during startup of the settings page (make key/string in App.cs and run this depending on its value)
-            SystemBackdrop backdropToSet = null;
-            switch (windowBackdrop)
+            //Only allows settings to be changed once the settings page has completely loaded in
+            if (App.Settings.SettingsChangable)
             {
-                case "Mica":
-                    backdropToSet = new MicaBackdrop() { Kind = MicaKind.Base };
-                    break;
-                case "Mica Alt":
-                    backdropToSet = new MicaBackdrop() { Kind = MicaKind.BaseAlt };
-                    break;
-                case "Acrylic":
-                    backdropToSet = new DesktopAcrylicBackdrop();
-                    break;
+                //Saves the user's selection for the window backdrop
+                var windowBackdrop = (WindowBackdrop.SelectedItem as ComboBoxItem).Content.ToString();
+                localSettings.Values[App.Settings.Backdrop] = windowBackdrop;
+
+                //Updates the UI accordingly
+                //Make this so it doesn't work during startup of the settings page (make key/string in App.cs and run this depending on its value)
+                SystemBackdrop backdropToSet = null;
+                switch (windowBackdrop)
+                {
+                    case "Mica":
+                        backdropToSet = new MicaBackdrop() { Kind = MicaKind.Base };
+                        break;
+                    case "Mica Alt":
+                        backdropToSet = new MicaBackdrop() { Kind = MicaKind.BaseAlt };
+                        break;
+                    case "Acrylic":
+                        backdropToSet = new DesktopAcrylicBackdrop();
+                        break;
+                }
+                MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+                mw.mainwindow.SystemBackdrop = backdropToSet;
             }
-            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-            mw.mainwindow.SystemBackdrop = backdropToSet;
         }
     }
 }
