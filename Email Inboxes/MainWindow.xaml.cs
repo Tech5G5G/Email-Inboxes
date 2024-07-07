@@ -44,47 +44,47 @@ namespace Email_Inboxes
     {
         public static class Pages
         {
-            public static Page homePage
+            public static Page HomePage
             {
-                get { return HomePage; }
+                get { return homePage; }
             }
 
-            private static Page HomePage = new Home();
+            private static Page homePage = new Home();
 
-            public static Page gmailPage
+            public static Page GmailPage
             {
-                get { return GmailPage; }
+                get { return gmailPage; }
             }
 
-            private static Page GmailPage = new Gmail();
+            private static Page gmailPage = new Gmail();
 
-            public static Page iCloudPage
+            public static Page IcloudPage
             {
-                get { return IcloudPage; }
+                get { return iCloudPage; }
             }
 
-            private static Page IcloudPage = new iCloud();
+            private static Page iCloudPage = new iCloud();
 
-            public static Page outlookPage
+            public static Page OutlookPage
             {
-                get { return OutlookPage; }
+                get { return outlookPage; }
             }
 
-            private static Page OutlookPage = new Outlook();
+            private static Page outlookPage = new Outlook();
 
-            public static Page protonPage
+            public static Page ProtonPage
             {
-                get { return ProtonPage; }
+                get { return protonPage; }
             }
 
-            private static Page ProtonPage = new Proton();
+            private static Page protonPage = new Proton();
 
-            public static Page settingsPage
+            public static Page SettingsPage
             {
-                get { return SettingsPage; }
+                get { return settingsPage; }
             }
 
-            private static Page SettingsPage = new Settings();
+            private static Page settingsPage = new Settings();
         }
 
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
