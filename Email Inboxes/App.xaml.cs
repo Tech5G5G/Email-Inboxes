@@ -69,6 +69,9 @@ namespace Email_Inboxes
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
+            //Sets the value of SettingsChangable so that settings aren't changable within the application
+            Settings.SettingsChangable = false;
+
             //Settings checkers to check if settings exist
             if (!localSettings.Values.ContainsKey(Settings.HomeEnabled))
                 localSettings.Values[Settings.HomeEnabled] = true;
