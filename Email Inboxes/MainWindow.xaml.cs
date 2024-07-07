@@ -177,24 +177,30 @@ namespace Email_Inboxes
             switch (selectedItem.Name)
             {
                 case "NavItem_Home":
+                    App.Settings.SettingsChangable = false;
                     pageType = typeof(Home);
                     break;
                 case "NavItem_Gmail":
+                    App.Settings.SettingsChangable = false;
                     pageType = typeof(Gmail);
                     break;
                 case "NavItem_iCloud":
+                    App.Settings.SettingsChangable = false;
                     pageType = typeof(iCloud);
                     break;
                 case "NavItem_Proton":
+                    App.Settings.SettingsChangable = false;
                     pageType = typeof(Proton);
                     break;
                 case "NavItem_Outlook":
+                    App.Settings.SettingsChangable = false;
                     pageType = typeof(Outlook);
                     break;
                 case "SettingsItem":
                     pageType = typeof(Settings);
                     break;
                 default:
+                    App.Settings.SettingsChangable = false;
                     pageType = typeof(Home);
                     break;
             }
