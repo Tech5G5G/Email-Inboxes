@@ -160,7 +160,7 @@ namespace Email_Inboxes
             {
                 navOptions.IsNavigationStackEnabled = false;
             }
-            Page page = Pages.HomePage;
+            Page page = null;
 
             var selectedItem = (NavigationViewItem)args.SelectedItem;
             switch (selectedItem.Name)
