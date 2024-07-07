@@ -46,12 +46,6 @@ namespace Email_Inboxes
     {
         public static class Pages
         {
-            public static Page HomePage
-            {
-                get { return homePage; }
-            }
-
-            private static Page homePage = new Home();
 
             public static Page GmailPage
             {
@@ -80,13 +74,6 @@ namespace Email_Inboxes
             }
 
             private static Page protonPage = new Proton();
-
-            public static Page SettingsPage
-            {
-                get { return settingsPage; }
-            }
-
-            private static Page settingsPage = new Settings();
         }
 
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
