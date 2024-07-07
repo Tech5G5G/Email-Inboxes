@@ -167,24 +167,30 @@ namespace Email_Inboxes
             {
                 case "NavItem_Home":
                     page = new Home();
+                    App.Settings.SettingsChangable = false;
                     break;
                 case "NavItem_Gmail":
                     page = Pages.GmailPage;
+                    App.Settings.SettingsChangable = false;
                     break;
                 case "NavItem_iCloud":
                     page = Pages.IcloudPage;
+                    App.Settings.SettingsChangable = false;
                     break;
                 case "NavItem_Proton":
                     page = Pages.ProtonPage;
+                    App.Settings.SettingsChangable = false;
                     break;
                 case "NavItem_Outlook":
                     page = Pages.OutlookPage;
+                    App.Settings.SettingsChangable = false;
                     break;
                 case "SettingsItem":
                     page = new Settings();
                     break;
                 default:
                     page = new Home();
+                    App.Settings.SettingsChangable = false;
                     break;
             }
             contentFrame.ContentTransitions = new TransitionCollection { new EntranceThemeTransition() { FromVerticalOffset = 1000 } };
