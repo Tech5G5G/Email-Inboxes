@@ -42,6 +42,51 @@ namespace Email_Inboxes
 
     public sealed partial class MainWindow : Window
     {
+        public static class Pages
+        {
+            public static Page homePage
+            {
+                get { return HomePage; }
+            }
+
+            private static Page HomePage = new Home();
+
+            public static Page gmailPage
+            {
+                get { return GmailPage; }
+            }
+
+            private static Page GmailPage = new Gmail();
+
+            public static Page iCloudPage
+            {
+                get { return IcloudPage; }
+            }
+
+            private static Page IcloudPage = new iCloud();
+
+            public static Page outlookPage
+            {
+                get { return OutlookPage; }
+            }
+
+            private static Page OutlookPage = new Outlook();
+
+            public static Page protonPage
+            {
+                get { return ProtonPage; }
+            }
+
+            private static Page ProtonPage = new Proton();
+
+            public static Page settingsPage
+            {
+                get { return SettingsPage; }
+            }
+
+            private static Page SettingsPage = new Settings();
+        }
+
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         private Microsoft.UI.Windowing.AppWindow m_AppWindow;
