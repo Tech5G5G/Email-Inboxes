@@ -72,47 +72,42 @@ namespace Email_Inboxes
         //All below changes the selected nvSample item with a different animation
         private void SettingsCard_Click_1(object sender, RoutedEventArgs e)
         {
-            Frame contentFrame = ((App)Application.Current).contentFrame;
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Proton");
             mw.nvSample.SelectedItem = item;
-            Frame.Navigate(typeof(Proton), contentFrame, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+            mw.contentFrame.ContentTransitions = new TransitionCollection { new EntranceThemeTransition() { FromHorizontalOffset = 1000, FromVerticalOffset = 0 } };
         }
 
         private void SettingsCard_Click_2(object sender, RoutedEventArgs e)
         {
-            Frame contentFrame = ((App)Application.Current).contentFrame;
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_iCloud");
             mw.nvSample.SelectedItem = item;
-            Frame.Navigate(typeof(iCloud), contentFrame, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+            mw.contentFrame.ContentTransitions = new TransitionCollection { new EntranceThemeTransition() { FromHorizontalOffset = 1000, FromVerticalOffset = 0 } };
         }
 
         private void SettingsCard_Click_3(object sender, RoutedEventArgs e)
         {
-            Frame contentFrame = ((App)Application.Current).contentFrame;
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Gmail");
             mw.nvSample.SelectedItem = item;
-            Frame.Navigate(typeof(Gmail), contentFrame, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+            mw.contentFrame.ContentTransitions = new TransitionCollection { new EntranceThemeTransition() { FromHorizontalOffset = 1000, FromVerticalOffset = 0 } };
         }
 
         private void OutlookNavigate(object sender, RoutedEventArgs e)
         {
-            Frame contentFrame = ((App)Application.Current).contentFrame;
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Outlook");
             mw.nvSample.SelectedItem = item;
-            Frame.Navigate(typeof(Outlook), contentFrame, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+            mw.contentFrame.ContentTransitions = new TransitionCollection { new EntranceThemeTransition() { FromHorizontalOffset = 1000, FromVerticalOffset = 0 } };
         }
 
         private void YahooNavigate(object sender, RoutedEventArgs e)
         {
-            Frame contentFrame = ((App)Application.Current).contentFrame;
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Yahoo");
             mw.nvSample.SelectedItem = item;
-            Frame.Navigate(typeof(Outlook), contentFrame, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+            mw.contentFrame.ContentTransitions = new TransitionCollection { new EntranceThemeTransition() { FromHorizontalOffset = 1000, FromVerticalOffset = 0 } };
         }
     }
 }
