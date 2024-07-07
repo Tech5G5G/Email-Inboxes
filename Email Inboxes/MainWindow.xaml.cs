@@ -29,6 +29,7 @@ using Windows.ApplicationModel.Core;
 using Windows.Storage;
 using System.Reflection.Metadata;
 using Windows.UI.WindowManagement;
+using Microsoft.UI.Xaml.Media.Animation;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -171,40 +172,34 @@ namespace Email_Inboxes
             {
                 navOptions.IsNavigationStackEnabled = false;
             }
-            Type pageType = typeof(Home);
+            Page page = Pages.HomePage;
 
             var selectedItem = (NavigationViewItem)args.SelectedItem;
             switch (selectedItem.Name)
             {
                 case "NavItem_Home":
-                    App.Settings.SettingsChangable = false;
-                    pageType = typeof(Home);
+                    page = Pages.HomePage;
                     break;
                 case "NavItem_Gmail":
-                    App.Settings.SettingsChangable = false;
-                    pageType = typeof(Gmail);
+                    page = Pages.GmailPage;
                     break;
                 case "NavItem_iCloud":
-                    App.Settings.SettingsChangable = false;
-                    pageType = typeof(iCloud);
+                    page = Pages.IcloudPage;
                     break;
                 case "NavItem_Proton":
-                    App.Settings.SettingsChangable = false;
-                    pageType = typeof(Proton);
+                    page = Pages.ProtonPage;
                     break;
                 case "NavItem_Outlook":
-                    App.Settings.SettingsChangable = false;
-                    pageType = typeof(Outlook);
+                    page = Pages.OutlookPage;
                     break;
                 case "SettingsItem":
-                    pageType = typeof(Settings);
+                    page = Pages.SettingsPage;
                     break;
                 default:
-                    App.Settings.SettingsChangable = false;
-                    pageType = typeof(Home);
+                    page = Pages.HomePage;
                     break;
             }
-            _ = contentFrame.Navigate(pageType);
+            _ = contentFrame.Content = page;
         }
     }
 }
