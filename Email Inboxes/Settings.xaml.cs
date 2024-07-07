@@ -16,6 +16,7 @@ using Windows.Storage;
 using Windows.Devices.SmartCards;
 using Windows.ApplicationModel.Core;
 using Microsoft.UI.Composition.SystemBackdrops;
+using Windows.ApplicationModel.VoiceCommands;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -144,7 +145,7 @@ namespace Email_Inboxes
                     break;
             }
 
-            App.Settings.SettingsChangable = true;
+            MakeSettingsChangeable();
         }
 
         private void ToDoService_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -361,6 +362,11 @@ namespace Email_Inboxes
                 MainWindow mw = (MainWindow)((App)Application.Current).m_window;
                 mw.mainwindow.SystemBackdrop = backdropToSet;
             }
+        }
+
+        private void MakeSettingsChangeable()
+        {
+            App.Settings.SettingsChangable = true;
         }
     }
 }
