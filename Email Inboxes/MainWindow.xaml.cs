@@ -30,6 +30,7 @@ using Windows.Storage;
 using System.Reflection.Metadata;
 using Windows.UI.WindowManagement;
 using Microsoft.UI.Xaml.Media.Animation;
+using CommunityToolkit.WinUI;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -199,6 +200,8 @@ namespace Email_Inboxes
                     page = new Home();
                     break;
             }
+            contentFrame.ContentTransitions = new TransitionCollection { new EntranceThemeTransition() { FromVerticalOffset = 1000 } };
+
             _ = contentFrame.Content = page;
         }
     }
