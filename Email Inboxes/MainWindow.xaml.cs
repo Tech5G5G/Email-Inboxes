@@ -178,7 +178,7 @@ namespace Email_Inboxes
             switch (selectedItem.Name)
             {
                 case "NavItem_Home":
-                    page = Pages.HomePage;
+                    page = new Home();
                     break;
                 case "NavItem_Gmail":
                     page = Pages.GmailPage;
@@ -193,10 +193,10 @@ namespace Email_Inboxes
                     page = Pages.OutlookPage;
                     break;
                 case "SettingsItem":
-                    page = Pages.SettingsPage;
+                    page = new Settings();
                     break;
                 default:
-                    page = Pages.HomePage;
+                    page = new Home();
                     break;
             }
             _ = contentFrame.Content = page;
