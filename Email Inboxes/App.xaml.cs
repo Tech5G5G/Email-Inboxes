@@ -146,7 +146,5 @@ namespace Email_Inboxes
         }
 
         public Window m_window;
-
-        public Frame contentFrame { get; private set; }
     }
 }
