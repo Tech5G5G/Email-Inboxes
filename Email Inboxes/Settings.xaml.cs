@@ -345,7 +345,6 @@ namespace Email_Inboxes
                 localSettings.Values[App.Settings.Backdrop] = windowBackdrop;
 
                 //Updates the UI accordingly
-                //Make this so it doesn't work during startup of the settings page (make key/string in App.cs and run this depending on its value)
                 SystemBackdrop backdropToSet = null;
                 switch (windowBackdrop)
                 {
