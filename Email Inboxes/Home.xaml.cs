@@ -63,6 +63,8 @@ namespace Email_Inboxes
             iCloudButton.Visibility = (bool)localSettings.Values[App.Settings.iCloudEnabled] ? Visibility.Visible : Visibility.Collapsed;
 
             ProtonButton.Visibility = (bool)localSettings.Values[App.Settings.ProtonEnabled] ? Visibility.Visible : Visibility.Collapsed;
+
+            YahooButton.Visibility = (bool)localSettings.Values[App.Settings.YahooEnabled] ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void SettingsCard_Click(object sender, RoutedEventArgs e)
