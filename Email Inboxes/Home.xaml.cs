@@ -53,8 +53,9 @@ namespace Email_Inboxes
             //Shows or hides the card of the related service depending on the user's settings
             if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
             {
-                OutlookPageButton.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Visible : Visibility.Collapsed;
-                OutlookAppButton.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Collapsed : Visibility.Visible;
+                string outlookAppType = (string)localSettings.Values[App.Settings.OutlookAppType];
+                OutlookPageButton.Visibility = outlookAppType == "Website" || outlookAppType == "Business website" ? Visibility.Visible : Visibility.Collapsed;
+                OutlookAppButton.Visibility = outlookAppType == "Website" || outlookAppType == "Business website" ? Visibility.Collapsed : Visibility.Visible;
             }
             else OutlookPageButton.Visibility = OutlookAppButton.Visibility = Visibility.Collapsed;
 
