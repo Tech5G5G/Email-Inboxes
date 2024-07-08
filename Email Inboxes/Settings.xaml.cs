@@ -160,11 +160,14 @@ namespace Email_Inboxes
                 case "Gmail":
                     StartupPage.SelectedIndex = 2;
                     break;
-                case "iCloud Mail":
+                case "Yahoo Mail":
                     StartupPage.SelectedIndex = 3;
                     break;
-                case "Proton Mail":
+                case "iCloud Mail":
                     StartupPage.SelectedIndex = 4;
+                    break;
+                case "Proton Mail":
+                    StartupPage.SelectedIndex = 5;
                     break;
             }
 
