@@ -122,17 +122,6 @@ namespace Email_Inboxes
             //Backwards compatibility code that updates the values of Home, iCloud, Gmail, Proton, & Outlook Enabled settings from strings to booleans
             if (!localSettings.Values.ContainsKey(Settings.VersionNumber))
             {
-                //object homeEnabledSetting = localSettings.Values[Settings.HomeEnabled];
-                //string homeEnabledString = homeEnabledSetting as string;
-                //bool homeEnabled = true;
-
-                //if (string.IsNullOrWhiteSpace(homeEnabledString))
-                //{
-                //    if(!bool.TryParse(homeEnabledString, out homeEnabled))
-                //    {
-                //        homeEnabled = true;
-                //    }
-                //}
                 localSettings.Values[Settings.HomeEnabled] = (string)localSettings.Values[Settings.HomeEnabled] == "True";
                 localSettings.Values[Settings.iCloudEnabled] = (string)localSettings.Values[Settings.iCloudEnabled] == "True";
                 localSettings.Values[Settings.GmailEnabled] = (string)localSettings.Values[Settings.GmailEnabled] == "True";
