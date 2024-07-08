@@ -96,6 +96,9 @@ namespace Email_Inboxes
             m_AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
             m_AppWindow.SetIcon("Mail.ico");
 
+            //Sets the value of OutlookPage to a new instance of Outlook
+            Pages.OutlookPage = new Outlook();
+
             //Sets the backdrop of the window based on the user's preference
             SystemBackdrop backdropToSet = null;
             switch ((string)localSettings.Values[App.Settings.Backdrop])
