@@ -29,6 +29,7 @@ mc:Ignorable="d">
                     <controls:SettingsCard ContentAlignment="Left" x:Name="ExePathCard">
                         <StackPanel Orientation="Horizontal">
                             <TextBox PlaceholderText="Outlook executable location" x:Name="ExePath"/>
+                            <Button Content="{ui:FontIcon Glyph=&#xE8E5;}" Margin="8,0,0,0" Click="openExePathFilePicker_Click" x:Name="openExePathFilePicker"/>
                             <Button Content="{ui:FontIcon Glyph=&#xE74E;}" Margin="8,0,0,0" Click="SaveExePath_Click" x:Name="SaveExePath"/>
                         </StackPanel>
                     </controls:SettingsCard>
