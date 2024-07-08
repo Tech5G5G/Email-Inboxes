@@ -75,7 +75,7 @@ namespace Email_Inboxes
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Proton");
             mw.nvSample.SelectedItem = item;
-            mw.contentFrame.ContentTransitions = new TransitionCollection { new EntranceThemeTransition() { FromHorizontalOffset = 1000, FromVerticalOffset = 0 } };
+            mw.contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { HorizontalOffset = 1000, VerticalOffset = 0 } };
         }
 
         private void SettingsCard_Click_2(object sender, RoutedEventArgs e)
@@ -83,7 +83,7 @@ namespace Email_Inboxes
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_iCloud");
             mw.nvSample.SelectedItem = item;
-            mw.contentFrame.ContentTransitions = new TransitionCollection { new EntranceThemeTransition() { FromHorizontalOffset = 1000, FromVerticalOffset = 0 } };
+            mw.contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { HorizontalOffset = 1000, VerticalOffset = 0 } };
         }
 
         private void SettingsCard_Click_3(object sender, RoutedEventArgs e)
@@ -91,7 +91,7 @@ namespace Email_Inboxes
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Gmail");
             mw.nvSample.SelectedItem = item;
-            mw.contentFrame.ContentTransitions = new TransitionCollection { new EntranceThemeTransition() { FromHorizontalOffset = 1000, FromVerticalOffset = 0 } };
+            mw.contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { HorizontalOffset = 1000, VerticalOffset = 0 } };
         }
 
         private void OutlookNavigate(object sender, RoutedEventArgs e)
@@ -99,7 +99,7 @@ namespace Email_Inboxes
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Outlook");
             mw.nvSample.SelectedItem = item;
-            mw.contentFrame.ContentTransitions = new TransitionCollection { new EntranceThemeTransition() { FromHorizontalOffset = 1000, FromVerticalOffset = 0 } };
+            mw.contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { HorizontalOffset = 1000, VerticalOffset = 0 } };
         }
 
         private void YahooNavigate(object sender, RoutedEventArgs e)
@@ -107,7 +107,7 @@ namespace Email_Inboxes
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Yahoo");
             mw.nvSample.SelectedItem = item;
-            mw.contentFrame.ContentTransitions = new TransitionCollection { new EntranceThemeTransition() { FromHorizontalOffset = 1000, FromVerticalOffset = 0 } };
+            mw.contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { HorizontalOffset = 1000, VerticalOffset = 0 } };
         }
     }
 }

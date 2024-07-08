@@ -193,7 +193,7 @@ namespace Email_Inboxes
                     App.Settings.SettingsChangable = false;
                     break;
             }
-            contentFrame.ContentTransitions = new TransitionCollection { new EntranceThemeTransition() { FromVerticalOffset = 1000 } };
+            contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { VerticalOffset = 1000 } };
 
             _ = contentFrame.Content = page;
         }
