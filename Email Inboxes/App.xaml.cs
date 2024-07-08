@@ -54,6 +54,7 @@ namespace Email_Inboxes
             public const string CalendarServiceUrl = "CalendarServiceUrl";
             public const string OutlookExePath = "OutlookExePath";
             public const string Backdrop = "Backdrop";
+            public const string PaneDisplayMode = "PaneDisplayMode";
             public const string VersionNumber = "VersionNumber";
             public static bool SettingsChangable { get; set; }
         }
