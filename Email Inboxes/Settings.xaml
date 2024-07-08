@@ -20,10 +20,10 @@ mc:Ignorable="d">
                     <ToggleSwitch Toggled="OutlookToggle_Toggled" x:Name="OutlookToggle" x:FieldModifier="public"/>
                 </StackPanel>
                 <controls:SettingsExpander.Items>
-                    <controls:SettingsCard Header="App type" Description="Switch between the Outlook website, business website or desktop app (exe)" x:Name="appTypeCard">
+                    <controls:SettingsCard Header="App type" Description="Use the Outlook website, business website or desktop app (exe)" x:Name="appTypeCard">
                         <ComboBox SelectionChanged="OutlookAppType_SelectionChanged" x:Name="OutlookAppType">
                             <ComboBoxItem Content="Website"/>
-                            <ComboBoxItem Content="Business Website"/>
+                            <ComboBoxItem Content="Business website"/>
                             <ComboBoxItem Content="exe"/>
                         </ComboBox>
                     </controls:SettingsCard>
