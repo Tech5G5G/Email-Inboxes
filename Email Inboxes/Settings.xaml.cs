@@ -98,7 +98,7 @@ namespace Email_Inboxes
 
             HomeToggle.IsOn = (bool)localSettings.Values[App.Settings.HomeEnabled];
 
-            //Switch to determine which startup page the user has selected and display it
+            //Switch to determine which pane display mode the user has selected and display it
             switch ((string)localSettings.Values[App.Settings.PaneDisplayMode])
             {
                 case "Auto":
@@ -145,8 +145,8 @@ namespace Email_Inboxes
                     break;
             }
 
-            //Switch to determine which pane display mode the user has selected and display it
-            switch ((string)localSettings.Values[App.Settings.PaneDisplayMode])
+            //Switch to determine which startup page the user has selected and display it
+            switch ((string)localSettings.Values[App.Settings.StartupPage])
             {
                 case "Home":
                     StartupPage.SelectedIndex = 0;
