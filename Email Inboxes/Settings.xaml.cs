@@ -451,7 +451,16 @@ namespace Email_Inboxes
 
         private void YahooToggle_Toggled(object sender, RoutedEventArgs e)
         {
+            //Only allows settings to be changed once the settings page has completely loaded in
+            if (App.Settings.SettingsChangable)
+            {
+                //Saves and updates the UI when the yahooToggle is toggled
+                bool isYahooEnabled = yahooToggle.IsOn;
+                localSettings.Values[App.Settings.YahooEnabled] = isYahooEnabled;
 
+                MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+                mw.NavItem_Yahoo.Visibility = isYahooEnabled ? Visibility.Visible : Visibility.Collapsed;
+            }
         }
 
         private void MakeSettingsChangeable()
