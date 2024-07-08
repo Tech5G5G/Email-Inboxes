@@ -10,8 +10,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Search;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using static System.Net.WebRequestMethods;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -23,9 +26,20 @@ namespace Email_Inboxes
     /// </summary>
     public sealed partial class Outlook : Page
     {
+        ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
         public Outlook()
         {
             this.InitializeComponent();
+
+            //Sets the source of OutlookWebView depending on the user's setting
+            string outlookWebViewSource = "https://https://outlook.live.com"
+            if ((string)localSettings.Values[App.Settings.OutlookAppType] == "Website")
+                outlookWebViewSource = "https://https://outlook.live.com";
+            else
+                outlookWebViewSource = "https://outlook.office.com";
+
+            OutlookWebView.Source = new Uri(outlookWebViewSource);
         }
     }
 }
