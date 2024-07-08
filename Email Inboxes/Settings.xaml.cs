@@ -87,8 +87,8 @@ namespace Email_Inboxes
                     break;
             }
 
-            //Enables or disables toggles depending on user's setting 
-            OutlookToggle.IsOn = (bool)localSettings.Values[App.Settings.OutlookEnabled];
+            //Enables or disables toggles & two cards depending on user's setting 
+            OutlookToggle.IsOn = ExePathCard.IsEnabled = appTypeCard.IsEnabled = (bool)localSettings.Values[App.Settings.OutlookEnabled];
 
             GmailToggle.IsOn = (bool)localSettings.Values[App.Settings.GmailEnabled];
 
