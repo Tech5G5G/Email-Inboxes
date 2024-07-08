@@ -323,14 +323,14 @@ namespace Email_Inboxes
             if (App.Settings.SettingsChangable)
             {
                 //Saves and updates the UI when the selection of OutlookAppType is changed
-                string SelectedOutlookAppType = (OutlookAppType.SelectedItem as ComboBoxItem).Content.ToString();
-                localSettings.Values[App.Settings.OutlookAppType] = SelectedOutlookAppType;
+                string outlookAppType = (OutlookAppType.SelectedItem as ComboBoxItem).Content.ToString();
+                localSettings.Values[App.Settings.OutlookAppType] = outlookAppType;
 
                 MainWindow mw = (MainWindow)((App)Application.Current).m_window;
                 if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
                 {
-                    mw.NavItem_Outlook.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Visible : Visibility.Collapsed;
-                    ExePathCard.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Collapsed : Visibility.Visible;
+                    mw.NavItem_Outlook.Visibility = outlookAppType == "Website" || outlookAppType == "Business website" ? Visibility.Visible : Visibility.Collapsed;
+                    ExePathCard.Visibility = outlookAppType == "Website" || outlookAppType == "Business website" ? Visibility.Collapsed : Visibility.Visible;
                 }
                 else
                 {
