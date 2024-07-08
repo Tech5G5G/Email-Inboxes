@@ -16,6 +16,7 @@
     <Grid>
         <Border
             x:Name="AppTitleBar"
+            x:FieldModifier="public"
             Grid.Column="1"
             Height="48"
             Margin="51,0,0,0"
