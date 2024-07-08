@@ -34,7 +34,7 @@
                     Text="Email Inboxes" />
             </StackPanel>
         </Border>
-        <NavigationView x:FieldModifier="public" x:Name="nvSample" IsBackButtonVisible="Collapsed" SelectionChanged="nvSample_SelectionChanged" xmlns:controls="Windows.UI.Xaml.Controls">
+        <NavigationView x:FieldModifier="public" x:Name="nvSample" OpenPaneLength="300" IsBackButtonVisible="Collapsed" SelectionChanged="nvSample_SelectionChanged" xmlns:controls="Windows.UI.Xaml.Controls">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Home" Content="Home" x:Name="NavItem_Home" x:FieldModifier="public"/>
                 <NavigationViewItem Icon="{ui:FontIcon Glyph=&#xE902;, FontFamily={StaticResource CustomIcons}}" Content="Outlook"  x:Name="NavItem_Outlook" x:FieldModifier="public"/>
