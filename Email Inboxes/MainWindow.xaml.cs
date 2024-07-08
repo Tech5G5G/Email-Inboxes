@@ -60,11 +60,7 @@ namespace Email_Inboxes
             }
             private static Page iCloudPage = new iCloud();
 
-            public static Page OutlookPage
-            {
-                get { return outlookPage; }
-            }
-            private static Page outlookPage = new Outlook();
+            public static Page OutlookPage { get; set; }
 
             public static Page ProtonPage
             {
