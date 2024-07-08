@@ -365,6 +365,11 @@ namespace Email_Inboxes
             }
         }
 
+        private void PaneDisplayMode_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
         private void MakeSettingsChangeable()
         {
             App.Settings.SettingsChangable = true;
