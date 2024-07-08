@@ -138,6 +138,28 @@ namespace Email_Inboxes
             var item = nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == NavItem_StartupPage);
             nvSample.SelectedItem = item;
 
+            //Changes the pane display mode depending on the user's setting for PaneDisplayMode
+            var displayModeToSet = NavigationViewPaneDisplayMode.Left;
+            switch (localSettings.Values[App.Settings.PaneDisplayMode])
+            {
+                case "Auto":
+                    displayModeToSet = NavigationViewPaneDisplayMode.Auto;
+                    break;
+                case "Left":
+                    displayModeToSet = NavigationViewPaneDisplayMode.Left;
+                    break;
+                case "Compact":
+                    displayModeToSet = NavigationViewPaneDisplayMode.LeftCompact;
+                    break;
+                case "Minimal":
+                    displayModeToSet = NavigationViewPaneDisplayMode.LeftMinimal;
+                    break;
+                case "Top":
+                    displayModeToSet = NavigationViewPaneDisplayMode.Top;
+                    break;
+            }
+            nvSample.PaneDisplayMode = displayModeToSet;
+
             //Hides or shows the related nvSample NavItem depending on the user's settings
             if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
                 NavItem_Outlook.Visibility = ((string)localSettings.Values[App.Settings.OutlookAppType] == "Website") ? Visibility.Visible : Visibility.Collapsed;
