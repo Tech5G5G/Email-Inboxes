@@ -127,6 +127,9 @@ namespace Email_Inboxes
                 case "Gmail":
                     NavItem_StartupPage = "NavItem_Gmail";
                     break;
+                case "Yahoo Mail":
+                    NavItem_StartupPage = "NavItem_Yahoo";
+                    break;
                 case "iCloud Mail":
                     NavItem_StartupPage = "NavItem_iCloud";
                     break;
