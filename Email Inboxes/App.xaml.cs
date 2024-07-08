@@ -116,6 +116,9 @@ namespace Email_Inboxes
             if (!localSettings.Values.ContainsKey(Settings.Backdrop))
                 localSettings.Values[Settings.Backdrop] = "Mica";
 
+            if (!localSettings.Values.ContainsKey(Settings.PaneDisplayMode))
+                localSettings.Values[Settings.PaneDisplayMode] = "Auto";
+
             //Backwards compatibility code that updates the values of Home, iCloud, Gmail, Proton, & Outlook Enabled settings from strings to booleans
             if (!localSettings.Values.ContainsKey(Settings.VersionNumber))
             {
