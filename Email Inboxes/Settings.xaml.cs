@@ -367,7 +367,33 @@ namespace Email_Inboxes
 
         private void PaneDisplayMode_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Only allows settings to be changed once the settings page has completely loaded in
+            if (App.Settings.SettingsChangable)
+            {
+                //Saves the user's selection for the pane display mode
+                var paneDisplayMode = (PaneDisplayMode.SelectedItem as ComboBoxItem).Content.ToString();
+                localSettings.Values[App.Settings.PaneDisplayMode] = paneDisplayMode;
 
+                //Updates the UI accordingly
+                var displayModeToSet = NavigationViewPaneDisplayMode.Left;
+                switch (paneDisplayMode)
+                {
+                    case "Auto":
+                        displayModeToSet = NavigationViewPaneDisplayMode.Auto;
+                        break;
+                    case "Compact":
+                        displayModeToSet = NavigationViewPaneDisplayMode.LeftCompact;
+                        break;
+                    case "Minimal":
+                        displayModeToSet = NavigationViewPaneDisplayMode.LeftMinimal;
+                        break;
+                    case "Top":
+                        displayModeToSet = NavigationViewPaneDisplayMode.Top;
+                        break;
+                }
+                MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+                mw.nvSample.PaneDisplayMode = displayModeToSet;
+            }
         }
 
         private void MakeSettingsChangeable()
