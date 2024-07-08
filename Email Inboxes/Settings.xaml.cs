@@ -121,17 +121,22 @@ namespace Email_Inboxes
                     break;
             }
 
-            //If statement to determine which Outlook app type the user has selected and display it.
+            //Switch to determine which Outlook app type the user has selected and display it.
             //Also shows or hides a card depending on the user's setting.
-            if ((string)localSettings.Values[App.Settings.OutlookAppType] is "Website")
+            switch ((string)localSettings.Values[App.Settings.OutlookAppType])
             {
-                OutlookAppType.SelectedIndex = 0;
-                ExePathCard.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                OutlookAppType.SelectedIndex = 1;
-                ExePathCard.Visibility = Visibility.Visible;
+                case "Website":
+                    OutlookAppType.SelectedIndex = 0;
+                    ExePathCard.Visibility = Visibility.Collapsed;
+                    break;
+                case "Business website":
+                    OutlookAppType.SelectedIndex = 1;
+                    ExePathCard.Visibility = Visibility.Collapsed;
+                    break;
+                case "exe":
+                    OutlookAppType.SelectedIndex = 2;
+                    ExePathCard.Visibility = Visibility.Visible;
+                    break;
             }
 
             //Shows the user's setting for window backdrop
