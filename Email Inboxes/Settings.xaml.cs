@@ -224,6 +224,7 @@ namespace Email_Inboxes
             {
                 //Saves and updates the UI when the OutlookToggle is toggled
                 bool IsOutlookEnabled = OutlookToggle.IsOn;
+                ExePathCard.IsEnabled = appTypeCard.IsEnabled = IsOutlookEnabled;
                 localSettings.Values[App.Settings.OutlookEnabled] = IsOutlookEnabled;
 
                 MainWindow mw = (MainWindow)((App)Application.Current).m_window;
