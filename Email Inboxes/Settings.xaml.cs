@@ -336,6 +336,8 @@ namespace Email_Inboxes
                 {
                     mw.NavItem_Outlook.Visibility = outlookAppType == "Website" || outlookAppType == "Business website" ? Visibility.Visible : Visibility.Collapsed;
                     ExePathCard.Visibility = outlookAppType == "Website" || outlookAppType == "Business website" ? Visibility.Collapsed : Visibility.Visible;
+                    //Refreshes the OutlookPage to reflect changes
+                    if (outlookAppType == "Website" || outlookAppType == "Business website") MainWindow.Pages.OutlookPage = new Outlook();
                 }
                 else
                 {
