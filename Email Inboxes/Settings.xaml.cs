@@ -99,22 +99,22 @@ namespace Email_Inboxes
             HomeToggle.IsOn = (bool)localSettings.Values[App.Settings.HomeEnabled];
 
             //Switch to determine which startup page the user has selected and display it
-            switch ((string)localSettings.Values[App.Settings.StartupPage])
+            switch ((string)localSettings.Values[App.Settings.PaneDisplayMode])
             {
-                case "Home":
-                    StartupPage.SelectedIndex = 0;
+                case "Auto":
+                    PaneDisplayMode.SelectedIndex = 0;
                     break;
-                case "Outlook":
-                    StartupPage.SelectedIndex = 1;
+                case "Left":
+                    PaneDisplayMode.SelectedIndex = 1;
                     break;
-                case "Gmail":
-                    StartupPage.SelectedIndex = 2;
+                case "Compact":
+                    PaneDisplayMode.SelectedIndex = 2;
                     break;
-                case "iCloud Mail":
-                    StartupPage.SelectedIndex = 3;
+                case "Minimal":
+                    PaneDisplayMode.SelectedIndex = 3;
                     break;
-                case "Proton Mail":
-                    StartupPage.SelectedIndex = 4;
+                case "Top":
+                    PaneDisplayMode.SelectedIndex = 4;
                     break;
             }
 
@@ -142,6 +142,26 @@ namespace Email_Inboxes
                     break;
                 case "Acrylic":
                     WindowBackdrop.SelectedIndex = 2;
+                    break;
+            }
+
+            //Switch to determine which pane display mode the user has selected and display it
+            switch ((string)localSettings.Values[App.Settings.PaneDisplayMode])
+            {
+                case "Home":
+                    StartupPage.SelectedIndex = 0;
+                    break;
+                case "Outlook":
+                    StartupPage.SelectedIndex = 1;
+                    break;
+                case "Gmail":
+                    StartupPage.SelectedIndex = 2;
+                    break;
+                case "iCloud Mail":
+                    StartupPage.SelectedIndex = 3;
+                    break;
+                case "Proton Mail":
+                    StartupPage.SelectedIndex = 4;
                     break;
             }
 
