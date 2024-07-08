@@ -33,7 +33,7 @@ namespace Email_Inboxes
             this.InitializeComponent();
 
             //Sets the source of OutlookWebView depending on the user's setting
-            string outlookWebViewSource = "https://https://outlook.live.com"
+            string outlookWebViewSource = "https://https://outlook.live.com";
             if ((string)localSettings.Values[App.Settings.OutlookAppType] == "Website")
                 outlookWebViewSource = "https://https://outlook.live.com";
             else
