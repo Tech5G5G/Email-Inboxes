@@ -82,6 +82,17 @@ mc:Ignorable="d">
                     <ComboBoxItem Content="Acrylic"/>
                 </ComboBox>
             </controls:SettingsCard>
+            <controls:SettingsCard Description="Choose how to display the navigation view pane"
+                                 Header="Pane Display Mode"
+                                 HeaderIcon="{ui:FontIcon Glyph=&#xE90C;}">
+                <ComboBox x:Name="PaneDisplayMode" SelectionChanged="PaneDisplayMode_SelectionChanged" x:FieldModifier="public" PlaceholderText="Display Mode">
+                    <ComboBoxItem Content="Auto"/>
+                    <ComboBoxItem Content="Left"/>
+                    <ComboBoxItem Content="Left (Compact)"/>
+                    <ComboBoxItem Content="Left (Minimal)"/>
+                    <ComboBoxItem Content="Top"/>
+                </ComboBox>
+            </controls:SettingsCard>
             <controls:SettingsCard Description="Choose what page to display on startup"
                                  Header="Startup page"
                                  HeaderIcon="{ui:FontIcon Glyph=&#xE7E8;}">
