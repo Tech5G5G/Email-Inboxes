@@ -33,22 +33,22 @@
                     Style="{StaticResource CaptionTextBlockStyle}"
                     Text="Email Inboxes" />
                 <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" x:Name="CommandBar">
-                    <AppBarButton Icon="Home" Label="Home">
+                    <AppBarButton Icon="Home" Label="Home" Click="HomeButton_Click">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control"  Key="R" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton Icon="Refresh" Label="Refresh">
+                    <AppBarButton Icon="Refresh" Label="Refresh" Click="RefreshButton_Click">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="R" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton Icon="Back" Label="Back">
+                    <AppBarButton Icon="Back" Label="Back" Click="BackButton_Click">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Menu" Key="Left" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton Icon="Forward" Label="Forward">
+                    <AppBarButton Icon="Forward" Label="Forward" Click="ForwardButton_Click">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Menu" Key="Right" />
                         </AppBarButton.KeyboardAccelerators>

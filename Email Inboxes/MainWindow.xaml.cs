@@ -297,5 +297,25 @@ namespace Email_Inboxes
             await Task.Delay(500);
             contentFrame.ContentTransitions = null;
         }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ForwardButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
