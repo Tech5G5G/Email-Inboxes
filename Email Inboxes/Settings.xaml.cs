@@ -17,6 +17,7 @@ using Windows.Devices.SmartCards;
 using Windows.ApplicationModel.Core;
 using Microsoft.UI.Composition.SystemBackdrops;
 using Windows.ApplicationModel.VoiceCommands;
+using Windows.Storage.Pickers;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -427,6 +428,25 @@ namespace Email_Inboxes
                 }
                 mw.nvSample.PaneDisplayMode = displayModeToSet;
             }
+        }
+
+        private async void openExePathFilePicker_Click(object sender, RoutedEventArgs e)
+        {
+            var openPicker = new FileOpenPicker();
+
+            var window = (MainWindow)((App)Application.Current).m_window;
+
+            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
+
+            WinRT.Interop.InitializeWithWindow.Initialize(openPicker, hWnd);
+
+            openPicker.ViewMode = PickerViewMode.List;
+            openPicker.SuggestedStartLocation = PickerLocationId.ComputerFolder;
+            openPicker.FileTypeFilter.Add(".exe");
+
+            var file = await openPicker.PickSingleFileAsync();
+            if (file != null)
+                ExePath.Text = file.Path;
         }
 
         private void MakeSettingsChangeable()
