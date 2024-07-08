@@ -104,6 +104,7 @@ mc:Ignorable="d">
                     <ComboBoxItem Content="Home"/>
                     <ComboBoxItem Content="Outlook"/>
                     <ComboBoxItem Content="Gmail"/>
+                    <ComboBoxItem Content="Yahoo Mail"/>
                     <ComboBoxItem Content="iCloud Mail"/>
                     <ComboBoxItem Content="Proton Mail"/>
                 </ComboBox>
