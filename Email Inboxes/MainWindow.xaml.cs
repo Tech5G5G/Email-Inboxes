@@ -224,6 +224,10 @@ namespace Email_Inboxes
                     page = Pages.OutlookPage;
                     App.Settings.SettingsChangable = false;
                     break;
+                case "NavItem_Yahoo":
+                    page = Pages.YahooPage;
+                    App.Settings.SettingsChangable = false;
+                    break;
                 case "SettingsItem":
                     page = new Settings();
                     break;
