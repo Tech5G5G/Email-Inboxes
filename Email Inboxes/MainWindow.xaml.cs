@@ -32,6 +32,7 @@ using Windows.UI.WindowManagement;
 using Microsoft.UI.Xaml.Media.Animation;
 using CommunityToolkit.WinUI;
 using System.Threading.Tasks;
+using Email_Inboxes.Services;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -75,6 +76,13 @@ namespace Email_Inboxes
             }
 
             private static Page protonPage = new Proton();
+
+            public static Page YahooPage
+            {
+                get { return yahooPage; }
+            }
+
+            private static Page yahooPage = new Yahoo();
         }
 
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
