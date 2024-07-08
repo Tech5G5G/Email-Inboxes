@@ -381,6 +381,9 @@ namespace Email_Inboxes
                     case "Auto":
                         displayModeToSet = NavigationViewPaneDisplayMode.Auto;
                         break;
+                    case "Left":
+                        displayModeToSet = NavigationViewPaneDisplayMode.Left;
+                        break;
                     case "Compact":
                         displayModeToSet = NavigationViewPaneDisplayMode.LeftCompact;
                         break;
