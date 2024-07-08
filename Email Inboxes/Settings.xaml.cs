@@ -99,6 +99,8 @@ namespace Email_Inboxes
 
             HomeToggle.IsOn = (bool)localSettings.Values[App.Settings.HomeEnabled];
 
+            yahooToggle.IsOn = (bool)localSettings.Values[App.Settings.YahooEnabled];
+
             //Switch to determine which pane display mode the user has selected and display it
             switch ((string)localSettings.Values[App.Settings.PaneDisplayMode])
             {
