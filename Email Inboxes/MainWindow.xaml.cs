@@ -48,40 +48,34 @@ namespace Email_Inboxes
     {
         public static class Pages
         {
-
             public static Page GmailPage
             {
                 get { return gmailPage; }
             }
-
             private static Page gmailPage = new Gmail();
 
             public static Page IcloudPage
             {
                 get { return iCloudPage; }
             }
-
             private static Page iCloudPage = new iCloud();
 
             public static Page OutlookPage
             {
                 get { return outlookPage; }
             }
-
             private static Page outlookPage = new Outlook();
 
             public static Page ProtonPage
             {
                 get { return protonPage; }
             }
-
             private static Page protonPage = new Proton();
 
             public static Page YahooPage
             {
                 get { return yahooPage; }
             }
-
             private static Page yahooPage = new Yahoo();
         }
 
