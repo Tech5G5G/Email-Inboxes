@@ -40,6 +40,7 @@
     <None Remove="iCloud.xaml" />
     <None Remove="Outlook.xaml" />
     <None Remove="Proton.xaml" />
+    <None Remove="Services\Yahoo.xaml" />
     <None Remove="Settings.xaml" />
   </ItemGroup>
 
@@ -103,7 +104,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
+    <Page Update="Services\Yahoo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <!-- 
