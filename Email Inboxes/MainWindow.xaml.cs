@@ -33,6 +33,7 @@ using Microsoft.UI.Xaml.Media.Animation;
 using CommunityToolkit.WinUI;
 using System.Threading.Tasks;
 using Email_Inboxes.Services;
+using Microsoft.UI.Input;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -86,6 +87,53 @@ namespace Email_Inboxes
             return Microsoft.UI.Windowing.AppWindow.GetFromWindowId(wndId);
         }
 
+        private void SetRegionsForCustomTitleBar()
+        {
+            // Specify the interactive regions of the title bar.
+
+            double scaleAdjustment = AppTitleBar.XamlRoot.RasterizationScale;
+
+            GeneralTransform transform = CommandBar.TransformToVisual(null);
+            Rect bounds = transform.TransformBounds(new Rect(0, 0,
+                                                             CommandBar.ActualWidth,
+                                                             CommandBar.ActualHeight));
+            Windows.Graphics.RectInt32 commandBarRect = GetRect(bounds, scaleAdjustment);
+
+            var rectArray = new Windows.Graphics.RectInt32[] { commandBarRect };
+
+            InputNonClientPointerSource nonClientInputSrc =
+                InputNonClientPointerSource.GetForWindowId(this.AppWindow.Id);
+            nonClientInputSrc.SetRegionRects(NonClientRegionKind.Passthrough, rectArray);
+        }
+
+        private Windows.Graphics.RectInt32 GetRect(Rect bounds, double scale)
+        {
+            return new Windows.Graphics.RectInt32(
+                _X: (int)Math.Round(bounds.X * scale),
+                _Y: (int)Math.Round(bounds.Y * scale),
+                _Width: (int)Math.Round(bounds.Width * scale),
+                _Height: (int)Math.Round(bounds.Height * scale)
+            );
+        }
+
+        private void AppTitleBar_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (ExtendsContentIntoTitleBar == true)
+            {
+                // Set the initial interactive regions.
+                SetRegionsForCustomTitleBar();
+            }
+        }
+
+        private void AppTitleBar_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (ExtendsContentIntoTitleBar == true)
+            {
+                // Update interactive regions if the size of the window changes.
+                SetRegionsForCustomTitleBar();
+            }
+        }
+
         public MainWindow()
         {
             this.InitializeComponent();
@@ -95,6 +143,10 @@ namespace Email_Inboxes
             SetTitleBar(AppTitleBar);
             m_AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
             m_AppWindow.SetIcon("Mail.ico");
+
+            //Changes the size of the interactable area in the app title bar
+            AppTitleBar.Loaded += AppTitleBar_Loaded;
+            AppTitleBar.SizeChanged += AppTitleBar_SizeChanged;
 
             //Sets the value of OutlookPage to a new instance of Outlook
             Pages.OutlookPage = new Outlook();
