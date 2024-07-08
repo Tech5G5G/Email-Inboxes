@@ -88,8 +88,8 @@ mc:Ignorable="d">
                 <ComboBox x:Name="PaneDisplayMode" SelectionChanged="PaneDisplayMode_SelectionChanged" x:FieldModifier="public" PlaceholderText="Display Mode">
                     <ComboBoxItem Content="Auto"/>
                     <ComboBoxItem Content="Left"/>
-                    <ComboBoxItem Content="Left (Compact)"/>
-                    <ComboBoxItem Content="Left (Minimal)"/>
+                    <ComboBoxItem Content="Compact"/>
+                    <ComboBoxItem Content="Minimal"/>
                     <ComboBoxItem Content="Top"/>
                 </ComboBox>
             </controls:SettingsCard>
