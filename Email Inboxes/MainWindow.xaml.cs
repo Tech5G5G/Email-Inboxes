@@ -176,7 +176,10 @@ namespace Email_Inboxes
 
             //Hides or shows the related nvSample NavItem depending on the user's settings
             if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
-                NavItem_Outlook.Visibility = ((string)localSettings.Values[App.Settings.OutlookAppType] == "Website") ? Visibility.Visible : Visibility.Collapsed;
+            {
+                string outlookAppType = (string)localSettings.Values[App.Settings.OutlookAppType];
+                NavItem_Outlook.Visibility = (outlookAppType == "Website" || outlookAppType == "Business website") ? Visibility.Visible : Visibility.Collapsed;
+            }
             else NavItem_Outlook.Visibility = Visibility.Collapsed;
 
             NavItem_Gmail.Visibility = (bool)localSettings.Values[App.Settings.GmailEnabled] ? Visibility.Visible : Visibility.Collapsed;
