@@ -449,6 +449,11 @@ namespace Email_Inboxes
                 ExePath.Text = file.Path;
         }
 
+        private void YahooToggle_Toggled(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void MakeSettingsChangeable()
         {
             App.Settings.SettingsChangable = true;
