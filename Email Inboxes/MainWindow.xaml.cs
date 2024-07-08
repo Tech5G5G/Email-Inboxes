@@ -31,6 +31,7 @@ using System.Reflection.Metadata;
 using Windows.UI.WindowManagement;
 using Microsoft.UI.Xaml.Media.Animation;
 using CommunityToolkit.WinUI;
+using System.Threading.Tasks;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -151,7 +152,7 @@ namespace Email_Inboxes
             NavItem_Home.Visibility = (bool)localSettings.Values[App.Settings.HomeEnabled] ? Visibility.Visible : Visibility.Collapsed;
         }
 
-        private void nvSample_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        private async void nvSample_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             //Changes the content of the contentFrame related to the users selection
             FrameNavigationOptions navOptions = new FrameNavigationOptions();
@@ -196,6 +197,9 @@ namespace Email_Inboxes
             contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { VerticalOffset = 1000 } };
 
             _ = contentFrame.Content = page;
+
+            await Task.Delay(500);
+            contentFrame.ContentTransitions = null;
         }
     }
 }
