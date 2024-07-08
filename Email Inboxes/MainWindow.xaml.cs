@@ -115,31 +115,30 @@ namespace Email_Inboxes
             mainwindow.SystemBackdrop = backdropToSet;
 
             //Changes the selected item of the nvSample NavigationView to the user's selected startup page
-            string NavItem_StartupPage = "NavItem_Home";
+            NavigationViewItem navItem_StartupPage = NavItem_Home;
             switch ((string)localSettings.Values[App.Settings.StartupPage])
             {
                 case "Home":
-                    NavItem_StartupPage = "NavItem_Home";
+                    navItem_StartupPage = NavItem_Home;
                     break;
                 case "Outlook":
-                    NavItem_StartupPage = "NavItem_Outlook";
+                    navItem_StartupPage = NavItem_Outlook;
                     break;
                 case "Gmail":
-                    NavItem_StartupPage = "NavItem_Gmail";
+                    navItem_StartupPage = NavItem_Gmail;
                     break;
                 case "Yahoo Mail":
-                    NavItem_StartupPage = "NavItem_Yahoo";
+                    navItem_StartupPage = NavItem_Yahoo;
                     break;
                 case "iCloud Mail":
-                    NavItem_StartupPage = "NavItem_iCloud";
+                    navItem_StartupPage = NavItem_iCloud;
                     break;
                 case "Proton Mail":
-                    NavItem_StartupPage = "NavItem_Proton";
+                    navItem_StartupPage = NavItem_Proton;
                     break;
             }
 
-            var item = nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == NavItem_StartupPage);
-            nvSample.SelectedItem = item;
+            nvSample.SelectedItem = navItem_StartupPage;
 
             //Changes the pane display mode depending on the user's setting for PaneDisplayMode
             var displayModeToSet = NavigationViewPaneDisplayMode.Left;
