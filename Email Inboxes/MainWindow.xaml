@@ -32,6 +32,30 @@
                     VerticalAlignment="Center"
                     Style="{StaticResource CaptionTextBlockStyle}"
                     Text="Email Inboxes" />
+                <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" x:Name="CommandBar">
+                    <AppBarButton Icon="Home" Label="Home">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control"  Key="R" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                    <AppBarButton Icon="Refresh" Label="Refresh">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="R" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                    <AppBarButton Icon="Back" Label="Back">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Menu" Key="Left" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                    <AppBarButton Icon="Forward" Label="Forward">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Menu" Key="Right" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                    <CommandBar.SecondaryCommands>
+                    </CommandBar.SecondaryCommands>
+                </CommandBar>
             </StackPanel>
         </Border>
         <NavigationView x:FieldModifier="public" x:Name="nvSample" OpenPaneLength="280" IsBackButtonVisible="Collapsed" SelectionChanged="nvSample_SelectionChanged" xmlns:controls="Windows.UI.Xaml.Controls">
