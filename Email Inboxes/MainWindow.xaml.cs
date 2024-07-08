@@ -143,18 +143,28 @@ namespace Email_Inboxes
             switch (localSettings.Values[App.Settings.PaneDisplayMode])
             {
                 case "Auto":
+                    nvSample.Margin = new Thickness() { Top = 0 };
+                    AppTitleBar.Margin = new Thickness() { Left = 51 };
                     displayModeToSet = NavigationViewPaneDisplayMode.Auto;
                     break;
                 case "Left":
+                    nvSample.Margin = new Thickness() { Top = 0 };
+                    AppTitleBar.Margin = new Thickness() { Left = 51 };
                     displayModeToSet = NavigationViewPaneDisplayMode.Left;
                     break;
                 case "Compact":
+                    nvSample.Margin = new Thickness() { Top = 0 };
+                    AppTitleBar.Margin = new Thickness() { Left = 51 };
                     displayModeToSet = NavigationViewPaneDisplayMode.LeftCompact;
                     break;
                 case "Minimal":
+                    nvSample.Margin = new Thickness() { Top = 0 };
+                    AppTitleBar.Margin = new Thickness() { Left = 51 };
                     displayModeToSet = NavigationViewPaneDisplayMode.LeftMinimal;
                     break;
                 case "Top":
+                    nvSample.Margin = new Thickness() { Top = 48 };
+                    AppTitleBar.Margin = new Thickness() { Left = 16 };
                     displayModeToSet = NavigationViewPaneDisplayMode.Top;
                     break;
             }

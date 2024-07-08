@@ -396,25 +396,35 @@ namespace Email_Inboxes
 
                 //Updates the UI accordingly
                 var displayModeToSet = NavigationViewPaneDisplayMode.Left;
+                MainWindow mw = (MainWindow)((App)Application.Current).m_window;
                 switch (paneDisplayMode)
                 {
                     case "Auto":
+                        mw.nvSample.Margin = new Thickness() { Top = 0 };
+                        mw.AppTitleBar.Margin = new Thickness() { Left = 51 };
                         displayModeToSet = NavigationViewPaneDisplayMode.Auto;
                         break;
                     case "Left":
+                        mw.nvSample.Margin = new Thickness() { Top = 0 };
+                        mw.AppTitleBar.Margin = new Thickness() { Left = 51 };
                         displayModeToSet = NavigationViewPaneDisplayMode.Left;
                         break;
                     case "Compact":
+                        mw.nvSample.Margin = new Thickness() { Top = 0 };
+                        mw.AppTitleBar.Margin = new Thickness() { Left = 51 };
                         displayModeToSet = NavigationViewPaneDisplayMode.LeftCompact;
                         break;
                     case "Minimal":
+                        mw.nvSample.Margin = new Thickness() { Top = 0 };
+                        mw.AppTitleBar.Margin = new Thickness() { Left = 51 };
                         displayModeToSet = NavigationViewPaneDisplayMode.LeftMinimal;
                         break;
                     case "Top":
+                        mw.nvSample.Margin = new Thickness() { Top = 48 };
+                        mw.AppTitleBar.Margin = new Thickness() { Left = 16 };
                         displayModeToSet = NavigationViewPaneDisplayMode.Top;
                         break;
                 }
-                MainWindow mw = (MainWindow)((App)Application.Current).m_window;
                 mw.nvSample.PaneDisplayMode = displayModeToSet;
             }
         }
