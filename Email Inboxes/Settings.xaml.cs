@@ -353,7 +353,7 @@ namespace Email_Inboxes
             {
                 //Saves and updates the UI when the HomeToggle is toggled
                 bool isHomeEnabled = HomeToggle.IsOn;
-                localSettings.Values["HomeEnabled"] = isHomeEnabled;
+                localSettings.Values[App.Settings.HomeEnabled] = isHomeEnabled;
 
                 MainWindow mw = (MainWindow)((App)Application.Current).m_window;
                 mw.NavItem_Home.Visibility = isHomeEnabled ? Visibility.Visible : Visibility.Collapsed;
