@@ -39,7 +39,7 @@ mc:Ignorable="d">
                 <ToggleSwitch x:Name="GmailToggle" Toggled="GmailToggle_Toggled"/>
             </controls:SettingsCard>
             <controls:SettingsCard Header="Yahoo Mail" HeaderIcon="{ui:FontIcon FontFamily={StaticResource CustomIcons}, Glyph=&#xE903;}">
-                <ToggleSwitch x:Name="yahooToggle" Toggled="yahooToggle_Toggled"/>
+                <ToggleSwitch x:Name="yahooToggle" Toggled="YahooToggle_Toggled"/>
             </controls:SettingsCard>
             <controls:SettingsCard Header="iCloud Mail" HeaderIcon="{ui:FontIcon Glyph=&#xE753;}">
                 <ToggleSwitch x:Name="iCloudToggle" Toggled="iCloudToggle_Toggled"/>
