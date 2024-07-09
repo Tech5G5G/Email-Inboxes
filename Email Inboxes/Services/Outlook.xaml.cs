@@ -52,7 +52,7 @@ namespace Email_Inboxes
         private void CoreWebView2Initialized(WebView2 sender, CoreWebView2InitializedEventArgs args)
         {
             //Allows links to be opened in the default browser
-            OutlookWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;;
+            OutlookWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
         }
 
         private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
