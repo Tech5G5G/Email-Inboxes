@@ -262,12 +262,6 @@ namespace Email_Inboxes
         private async void nvSample_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             //Changes the content of the contentFrame related to the users selection
-            FrameNavigationOptions navOptions = new FrameNavigationOptions();
-            navOptions.TransitionInfoOverride = args.RecommendedNavigationTransitionInfo;
-            if (sender.PaneDisplayMode == NavigationViewPaneDisplayMode.Top)
-            {
-                navOptions.IsNavigationStackEnabled = false;
-            }
             Page page = null;
 
             var selectedItem = (NavigationViewItem)args.SelectedItem;
