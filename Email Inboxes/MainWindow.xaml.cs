@@ -253,40 +253,40 @@ namespace Email_Inboxes
             {
                 navOptions.IsNavigationStackEnabled = false;
             }
-            Page page = null;
+            Type page = null;
 
             var selectedItem = (NavigationViewItem)args.SelectedItem;
             switch (selectedItem.Name)
             {
                 case "NavItem_Home":
-                    page = new Home();
+                    page = typeof(Home);
                     App.Settings.SettingsChangable = false;
                     break;
                 case "NavItem_Gmail":
-                    page = Pages.GmailPage;
+                    page = typeof(Gmail);
                     App.Settings.SettingsChangable = false;
                     break;
                 case "NavItem_iCloud":
-                    page = Pages.IcloudPage;
+                    page = typeof(iCloud);
                     App.Settings.SettingsChangable = false;
                     break;
                 case "NavItem_Proton":
-                    page = Pages.ProtonPage;
+                    page = typeof(Proton);
                     App.Settings.SettingsChangable = false;
                     break;
                 case "NavItem_Outlook":
-                    page = Pages.OutlookPage;
+                    page = typeof(Outlook);
                     App.Settings.SettingsChangable = false;
                     break;
                 case "NavItem_Yahoo":
-                    page = Pages.YahooPage;
+                    page = typeof(Yahoo);
                     App.Settings.SettingsChangable = false;
                     break;
                 case "SettingsItem":
-                    page = new Settings();
+                    page = typeof(Settings);
                     break;
                 default:
-                    page = new Home();
+                    page = typeof(Home);
                     App.Settings.SettingsChangable = false;
                     break;
             }
@@ -300,7 +300,11 @@ namespace Email_Inboxes
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-
+            switch ((string)nvSample.SelectedItem)
+            {
+                case "NavItem_Home":
+                    break;
+            }
         }
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
