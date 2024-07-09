@@ -49,35 +49,40 @@ namespace Email_Inboxes
     {
         public static class Pages
         {
-            public static Page GmailPage
+            public static Gmail GmailPage
             {
                 get { return gmailPage; }
+                set { gmailPage = value; }
             }
-            private static Page gmailPage = new Gmail();
+            private static Gmail gmailPage = new Gmail();
 
-            public static Page IcloudPage
+            public static iCloud IcloudPage
             {
                 get { return iCloudPage; }
+                set { iCloudPage = value; }
             }
-            private static Page iCloudPage = new iCloud();
+            private static iCloud iCloudPage = new iCloud();
 
-            public static Page OutlookPage
+            public static Outlook OutlookPage
             {
                 get { return outlookPage; }
+                set { outlookPage = value; }
             }
-            private static Page outlookPage = new Outlook();
+            private static Outlook outlookPage = new Outlook();
 
-            public static Page ProtonPage
+            public static Proton ProtonPage
             {
                 get { return protonPage; }
+                set {  protonPage = value; }
             }
-            private static Page protonPage = new Proton();
+            private static Proton protonPage = new Proton();
 
-            public static Page YahooPage
+            public static Yahoo YahooPage
             {
                 get { return yahooPage; }
+                set {  yahooPage = value; }
             }
-            private static Page yahooPage = new Yahoo();
+            private static Yahoo yahooPage = new Yahoo();
         }
 
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
