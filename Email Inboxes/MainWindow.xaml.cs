@@ -246,7 +246,7 @@ namespace Email_Inboxes
 
         private async void nvSample_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            //Changes the content of the contentFrame related to the users selection
+            //Navigates to a page using the contentFrame based to the users selection
             FrameNavigationOptions navOptions = new FrameNavigationOptions();
             navOptions.TransitionInfoOverride = args.RecommendedNavigationTransitionInfo;
             if (sender.PaneDisplayMode == NavigationViewPaneDisplayMode.Top)
@@ -290,12 +290,7 @@ namespace Email_Inboxes
                     App.Settings.SettingsChangable = false;
                     break;
             }
-            contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { VerticalOffset = 1000 } };
-
-            _ = contentFrame.Content = page;
-
-            await Task.Delay(500);
-            contentFrame.ContentTransitions = null;
+            _ = contentFrame.Navigate(page);
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
