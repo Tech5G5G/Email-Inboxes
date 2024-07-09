@@ -223,6 +223,13 @@ namespace Email_Inboxes
 
         private void AppTitleBar_Loaded(object sender, RoutedEventArgs e)
         {
+            //Hides the CommandBar if it disabled
+            if (!(bool)localSettings.Values[App.Settings.CommandBarEnabled])
+            {
+                CommandBar.Visibility = Visibility.Collapsed;
+                SetRegionsForCustomTitleBar();
+            }
+
             //Changes the selected item of the nvSample NavigationView to the user's selected startup page
             NavigationViewItem navItem_StartupPage = NavItem_Home;
             switch ((string)localSettings.Values[App.Settings.StartupPage])
