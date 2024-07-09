@@ -44,5 +44,12 @@ namespace Email_Inboxes
 
             OutlookWebView.Source = new Uri(outlookWebViewSource);
         }
+
+        private void CoreWebView2Initialized(WebView2 sender, CoreWebView2InitializedEventArgs args)
+        {
+            //Allows links to be opened in the default browser
+            OutlookWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;;
+        }
+
     }
 }
