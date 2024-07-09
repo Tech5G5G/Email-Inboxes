@@ -5,11 +5,15 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Microsoft.Web.WebView2.Core;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Appointments.DataProvider;
+using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Search;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -51,5 +55,19 @@ namespace Email_Inboxes
             OutlookWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;;
         }
 
+        private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
+        {
+            //If link isn't a Outlook URL, it opens it in an external browser
+            if (args.Uri.Contains("https://outlook.live.com") || args.Uri.Contains("https://outlook.office.com"))
+            {
+                args.Handled = true;
+                OutlookWebView.Source = new Uri(args.Uri);
+            }
+            else
+            {
+                args.Handled = true;
+                Process.Start(new ProcessStartInfo(args.Uri) { UseShellExecute = true });
+            }
+        }
     }
 }
