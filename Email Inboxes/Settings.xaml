@@ -78,6 +78,11 @@ mc:Ignorable="d">
             </controls:SettingsCard>
 
             <TextBlock Text="Additional options" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="14" Margin="2,24,0,4"/>
+            <controls:SettingsCard Description="Enable (on supported pages) or disable the command bar entirely"
+                     Header="Command bar visibility"
+                     HeaderIcon="{ui:FontIcon Glyph=&#xF596;}">
+                <ToggleSwitch Toggled="CommandBarToggle_Toggled" x:Name="CommandBarToggle"/>
+            </controls:SettingsCard>
             <controls:SettingsCard Description="Choose what material to show as the window backdrop"
                                  Header="Backdrop"
                                  HeaderIcon="{ui:FontIcon Glyph=&#xE727;}">
