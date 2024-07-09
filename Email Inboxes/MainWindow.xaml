@@ -50,6 +50,8 @@
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
                     <CommandBar.SecondaryCommands>
+                        <AppBarButton Icon="{ui:FontIcon Glyph=&#xEC7A;}" Label="DevTools" Click="DevToolsButton_Click"/>
+                        <AppBarButton Icon="{ui:FontIcon Glyph=&#xE9D9;}" Label="Task manager" Click="TaskManagerButton_Click"/>
                     </CommandBar.SecondaryCommands>
                 </CommandBar>
             </StackPanel>
