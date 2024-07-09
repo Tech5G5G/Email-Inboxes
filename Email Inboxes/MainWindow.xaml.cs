@@ -234,11 +234,31 @@ namespace Email_Inboxes
 
         private void AppTitleBar_Loaded(object sender, RoutedEventArgs e)
         {
-            if (ExtendsContentIntoTitleBar == true)
+            //Changes the selected item of the nvSample NavigationView to the user's selected startup page
+            NavigationViewItem navItem_StartupPage = NavItem_Home;
+            switch ((string)localSettings.Values[App.Settings.StartupPage])
             {
-                // Set the initial interactive regions.
-                SetRegionsForCustomTitleBar();
+                case "Home":
+                    navItem_StartupPage = NavItem_Home;
+                    break;
+                case "Outlook":
+                    navItem_StartupPage = NavItem_Outlook;
+                    break;
+                case "Gmail":
+                    navItem_StartupPage = NavItem_Gmail;
+                    break;
+                case "Yahoo Mail":
+                    navItem_StartupPage = NavItem_Yahoo;
+                    break;
+                case "iCloud Mail":
+                    navItem_StartupPage = NavItem_iCloud;
+                    break;
+                case "Proton Mail":
+                    navItem_StartupPage = NavItem_Proton;
+                    break;
             }
+
+            nvSample.SelectedItem = navItem_StartupPage;
         }
 
         private void AppTitleBar_SizeChanged(object sender, SizeChangedEventArgs e)
