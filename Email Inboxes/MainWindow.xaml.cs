@@ -61,7 +61,11 @@ namespace Email_Inboxes
             }
             private static Page iCloudPage = new iCloud();
 
-            public static Page OutlookPage { get; set; }
+            public static Page OutlookPage
+            {
+                get { return outlookPage; }
+            }
+            private static Page outlookPage = new Outlook();
 
             public static Page ProtonPage
             {
@@ -100,9 +104,6 @@ namespace Email_Inboxes
             //Changes the size of the interactable area in the app title bar
             AppTitleBar.Loaded += AppTitleBar_Loaded;
             AppTitleBar.SizeChanged += AppTitleBar_SizeChanged;
-
-            //Sets the value of OutlookPage to a new instance of Outlook
-            Pages.OutlookPage = new Outlook();
 
             //Sets the backdrop of the window based on the user's preference
             SystemBackdrop backdropToSet = null;
