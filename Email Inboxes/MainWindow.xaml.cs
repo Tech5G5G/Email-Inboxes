@@ -49,6 +49,13 @@ namespace Email_Inboxes
     {
         public static class Pages
         {
+            public static Home HomePage
+            {
+                get {  return homePage; }
+                set { homePage = value; }
+            }
+            private static Home homePage = new Home();
+
             public static Gmail GmailPage
             {
                 get { return gmailPage; }
