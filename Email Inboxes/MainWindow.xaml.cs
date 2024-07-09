@@ -87,53 +87,6 @@ namespace Email_Inboxes
             return Microsoft.UI.Windowing.AppWindow.GetFromWindowId(wndId);
         }
 
-        private void SetRegionsForCustomTitleBar()
-        {
-            // Specify the interactive regions of the title bar.
-
-            double scaleAdjustment = AppTitleBar.XamlRoot.RasterizationScale;
-
-            GeneralTransform transform = CommandBar.TransformToVisual(null);
-            Rect bounds = transform.TransformBounds(new Rect(0, 0,
-                                                             CommandBar.ActualWidth,
-                                                             CommandBar.ActualHeight));
-            Windows.Graphics.RectInt32 commandBarRect = GetRect(bounds, scaleAdjustment);
-
-            var rectArray = new Windows.Graphics.RectInt32[] { commandBarRect };
-
-            InputNonClientPointerSource nonClientInputSrc =
-                InputNonClientPointerSource.GetForWindowId(this.AppWindow.Id);
-            nonClientInputSrc.SetRegionRects(NonClientRegionKind.Passthrough, rectArray);
-        }
-
-        private Windows.Graphics.RectInt32 GetRect(Rect bounds, double scale)
-        {
-            return new Windows.Graphics.RectInt32(
-                _X: (int)Math.Round(bounds.X * scale),
-                _Y: (int)Math.Round(bounds.Y * scale),
-                _Width: (int)Math.Round(bounds.Width * scale),
-                _Height: (int)Math.Round(bounds.Height * scale)
-            );
-        }
-
-        private void AppTitleBar_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (ExtendsContentIntoTitleBar == true)
-            {
-                // Set the initial interactive regions.
-                SetRegionsForCustomTitleBar();
-            }
-        }
-
-        private void AppTitleBar_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (ExtendsContentIntoTitleBar == true)
-            {
-                // Update interactive regions if the size of the window changes.
-                SetRegionsForCustomTitleBar();
-            }
-        }
-
         public MainWindow()
         {
             this.InitializeComponent();
@@ -242,6 +195,53 @@ namespace Email_Inboxes
             NavItem_Home.Visibility = (bool)localSettings.Values[App.Settings.HomeEnabled] ? Visibility.Visible : Visibility.Collapsed;
 
             NavItem_Yahoo.Visibility = (bool)localSettings.Values[App.Settings.YahooEnabled] ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private void SetRegionsForCustomTitleBar()
+        {
+            // Specify the interactive regions of the title bar.
+
+            double scaleAdjustment = AppTitleBar.XamlRoot.RasterizationScale;
+
+            GeneralTransform transform = CommandBar.TransformToVisual(null);
+            Rect bounds = transform.TransformBounds(new Rect(0, 0,
+                                                             CommandBar.ActualWidth,
+                                                             CommandBar.ActualHeight));
+            Windows.Graphics.RectInt32 commandBarRect = GetRect(bounds, scaleAdjustment);
+
+            var rectArray = new Windows.Graphics.RectInt32[] { commandBarRect };
+
+            InputNonClientPointerSource nonClientInputSrc =
+                InputNonClientPointerSource.GetForWindowId(this.AppWindow.Id);
+            nonClientInputSrc.SetRegionRects(NonClientRegionKind.Passthrough, rectArray);
+        }
+
+        private Windows.Graphics.RectInt32 GetRect(Rect bounds, double scale)
+        {
+            return new Windows.Graphics.RectInt32(
+                _X: (int)Math.Round(bounds.X * scale),
+                _Y: (int)Math.Round(bounds.Y * scale),
+                _Width: (int)Math.Round(bounds.Width * scale),
+                _Height: (int)Math.Round(bounds.Height * scale)
+            );
+        }
+
+        private void AppTitleBar_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (ExtendsContentIntoTitleBar == true)
+            {
+                // Set the initial interactive regions.
+                SetRegionsForCustomTitleBar();
+            }
+        }
+
+        private void AppTitleBar_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (ExtendsContentIntoTitleBar == true)
+            {
+                // Update interactive regions if the size of the window changes.
+                SetRegionsForCustomTitleBar();
+            }
         }
 
         private async void nvSample_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
