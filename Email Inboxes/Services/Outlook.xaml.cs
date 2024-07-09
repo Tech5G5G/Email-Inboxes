@@ -32,6 +32,9 @@ namespace Email_Inboxes
         {
             this.InitializeComponent();
 
+            //Runs method CoreWebView2Intitialized once the title suggests is done 
+            OutlookWebView.CoreWebView2Initialized += CoreWebView2Initialized;
+
             //Sets the source of OutlookWebView depending on the user's setting
             string outlookWebViewSource = "https://https://outlook.live.com";
             if ((string)localSettings.Values[App.Settings.OutlookAppType] == "Website")
