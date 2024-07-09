@@ -223,6 +223,12 @@ namespace Email_Inboxes
                 InputNonClientPointerSource.GetForWindowId(this.AppWindow.Id);
             nonClientInputSrc.SetRegionRects(NonClientRegionKind.Passthrough, rectArray);
         }
+            else
+            {
+                InputNonClientPointerSource nonClientInputSrc = InputNonClientPointerSource.GetForWindowId(this.AppWindow.Id);
+                nonClientInputSrc.ClearRegionRects(NonClientRegionKind.Passthrough);
+            }
+        }
 
         private Windows.Graphics.RectInt32 GetRect(Rect bounds, double scale)
         {
