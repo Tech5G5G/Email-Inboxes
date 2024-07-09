@@ -203,7 +203,7 @@ namespace Email_Inboxes
             InputNonClientPointerSource nonClientInputSrc =
                 InputNonClientPointerSource.GetForWindowId(this.AppWindow.Id);
             nonClientInputSrc.SetRegionRects(NonClientRegionKind.Passthrough, rectArray);
-        }
+            }
             else
             {
                 InputNonClientPointerSource nonClientInputSrc = InputNonClientPointerSource.GetForWindowId(this.AppWindow.Id);
