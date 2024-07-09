@@ -475,6 +475,20 @@ namespace Email_Inboxes
             }
         }
 
+        private void CommandBarToggle_Toggled(object sender, RoutedEventArgs e)
+        {
+            //Only allows settings to be changed once the settings page has completely loaded in
+            if (App.Settings.SettingsChangable)
+            {
+                //Saves and updates the UI when the comman21dBarToggle is toggled
+                bool isCommandBarEnabled = commandBarToggle.IsOn;
+                localSettings.Values[App.Settings.CommandBarEnabled] = isCommandBarEnabled;
+
+                MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+                mw.CommandBar.Visibility = isCommandBarEnabled ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+
         private void MakeSettingsChangeable()
         {
             App.Settings.SettingsChangable = true;
