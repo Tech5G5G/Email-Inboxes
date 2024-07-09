@@ -287,38 +287,48 @@ namespace Email_Inboxes
                 case "NavItem_Home":
                     page = new Home();
                     App.Settings.SettingsChangable = false;
+                    CommandBar.Visibility = Visibility.Collapsed;
                     break;
                 case "NavItem_Gmail":
                     page = Pages.GmailPage;
                     App.Settings.SettingsChangable = false;
+                    CommandBar.Visibility = Visibility.Visible;
                     break;
                 case "NavItem_iCloud":
                     page = Pages.IcloudPage;
                     App.Settings.SettingsChangable = false;
+                    CommandBar.Visibility = Visibility.Visible;
                     break;
                 case "NavItem_Proton":
                     page = Pages.ProtonPage;
                     App.Settings.SettingsChangable = false;
+                    CommandBar.Visibility = Visibility.Visible;
                     break;
                 case "NavItem_Outlook":
                     page = Pages.OutlookPage;
                     App.Settings.SettingsChangable = false;
+                    CommandBar.Visibility = Visibility.Visible;
                     break;
                 case "NavItem_Yahoo":
                     page = Pages.YahooPage;
                     App.Settings.SettingsChangable = false;
+                    CommandBar.Visibility = Visibility.Visible;
                     break;
                 case "SettingsItem":
                     page = new Settings();
+                    CommandBar.Visibility = Visibility.Collapsed;
                     break;
                 default:
                     page = new Home();
                     App.Settings.SettingsChangable = false;
+                    CommandBar.Visibility = Visibility.Collapsed;
                     break;
             }
             contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { VerticalOffset = 1000 } };
 
             _ = contentFrame.Content = page;
+
+            SetRegionsForCustomTitleBar();
 
             await Task.Delay(500);
             contentFrame.ContentTransitions = null;
