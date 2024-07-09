@@ -20,7 +20,7 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <controls:WebView2 x:Name="HomeWebView"  Grid.Row="1" Grid.ColumnSpan="2"
+        <controls:WebView2 x:Name="ProtonWebView" x:FieldModifier="public" Grid.Row="1" Grid.ColumnSpan="2"
 Source="https://mail.proton.me/" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </Page>
