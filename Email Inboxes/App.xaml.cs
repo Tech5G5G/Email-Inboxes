@@ -93,6 +93,9 @@ namespace Email_Inboxes
             if (!localSettings.Values.ContainsKey(Settings.OutlookEnabled))
                 localSettings.Values[Settings.OutlookEnabled] = true;
 
+            if (!localSettings.Values.ContainsKey(Settings.CommandBarEnabled))
+                localSettings.Values[Settings.CommandBarEnabled] = true;
+
             if (!localSettings.Values.ContainsKey(Settings.OutlookAppType))
                 localSettings.Values[Settings.OutlookAppType] = "Website";
 
