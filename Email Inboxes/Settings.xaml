@@ -81,7 +81,7 @@ mc:Ignorable="d">
             <controls:SettingsCard Description="Enable (on supported pages) or disable the command bar entirely"
                      Header="Command bar visibility"
                      HeaderIcon="{ui:FontIcon Glyph=&#xF596;}">
-                <ToggleSwitch Toggled="CommandBarToggle_Toggled" x:Name="CommandBarToggle"/>
+                <ToggleSwitch Toggled="CommandBarToggle_Toggled" x:Name="commandBarToggle"/>
             </controls:SettingsCard>
             <controls:SettingsCard Description="Choose what material to show as the window backdrop"
                                  Header="Backdrop"
