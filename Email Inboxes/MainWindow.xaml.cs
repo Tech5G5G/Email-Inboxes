@@ -274,7 +274,7 @@ namespace Email_Inboxes
             switch (selectedItem.Name)
             {
                 case "NavItem_Home":
-                    page = new Home();
+                    page = Pages.HomePage;
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Visible)
                     {
@@ -336,7 +336,7 @@ namespace Email_Inboxes
                     }
                     break;
                 default:
-                    page = new Home();
+                    page = Pages.HomePage;
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Visible)
                     {
