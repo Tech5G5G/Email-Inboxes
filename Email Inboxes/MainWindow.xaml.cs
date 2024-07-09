@@ -445,5 +445,51 @@ namespace Email_Inboxes
                     break;
             }
         }
+
+        private void DevToolsButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationViewItem selectedItem = (NavigationViewItem)nvSample.SelectedItem;
+            switch (selectedItem.Name)
+            {
+                case "NavItem_Outlook":
+                    Pages.OutlookPage.OutlookWebView.CoreWebView2.OpenDevToolsWindow();
+                    break;
+                case "NavItem_Gmail":
+                    Pages.GmailPage.GmailWebView.CoreWebView2.OpenDevToolsWindow();
+                    break;
+                case "NavItem_Yahoo":
+                    Pages.YahooPage.YahooWebView.CoreWebView2.OpenDevToolsWindow();
+                    break;
+                case "NavItem_iCloud":
+                    Pages.IcloudPage.IcloudWebView.CoreWebView2.OpenDevToolsWindow();
+                    break;
+                case "NavItem_Proton":
+                    Pages.ProtonPage.ProtonWebView.CoreWebView2.OpenDevToolsWindow();
+                    break;
+            }
+        }
+
+        private void TaskManagerButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationViewItem selectedItem = (NavigationViewItem)nvSample.SelectedItem;
+            switch (selectedItem.Name)
+            {
+                case "NavItem_Outlook":
+                    Pages.OutlookPage.OutlookWebView.CoreWebView2.OpenTaskManagerWindow();
+                    break;
+                case "NavItem_Gmail":
+                    Pages.GmailPage.GmailWebView.CoreWebView2.OpenTaskManagerWindow();
+                    break;
+                case "NavItem_Yahoo":
+                    Pages.YahooPage.YahooWebView.CoreWebView2.OpenTaskManagerWindow();
+                    break;
+                case "NavItem_iCloud":
+                    Pages.IcloudPage.IcloudWebView.CoreWebView2.OpenTaskManagerWindow();
+                    break;
+                case "NavItem_Proton":
+                    Pages.ProtonPage.ProtonWebView.CoreWebView2.OpenTaskManagerWindow();
+                    break;
+            }
+        }
     }
 }
