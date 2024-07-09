@@ -205,6 +205,8 @@ namespace Email_Inboxes
 
         private void SetRegionsForCustomTitleBar()
         {
+            if (CommandBar.Visibility == Visibility.Visible)
+            {
             // Specify the interactive regions of the title bar.
 
             double scaleAdjustment = AppTitleBar.XamlRoot.RasterizationScale;
