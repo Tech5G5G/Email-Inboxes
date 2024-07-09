@@ -5,8 +5,10 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Microsoft.Web.WebView2.Core;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -26,6 +28,30 @@ namespace Email_Inboxes.Services
         public Yahoo()
         {
             this.InitializeComponent();
+
+            //Runs method CoreWebView2Intitialized once the title suggests is done 
+            YahooWebView.CoreWebView2Initialized += CoreWebView2Initialized;
+        }
+
+        private void CoreWebView2Initialized(WebView2 sender, CoreWebView2InitializedEventArgs args)
+        {
+            //Allows links to be opened in the default browser
+            YahooWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
+        }
+
+        private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
+        {
+            //If link isn't a Outlook URL, it opens it in an external browser
+            if (args.Uri.Contains("https://mail.yahoo.com"))
+            {
+                args.Handled = true;
+                YahooWebView.Source = new Uri(args.Uri);
+            }
+            else
+            {
+                args.Handled = true;
+                Process.Start(new ProcessStartInfo(args.Uri) { UseShellExecute = true });
+            }
         }
     }
 }
