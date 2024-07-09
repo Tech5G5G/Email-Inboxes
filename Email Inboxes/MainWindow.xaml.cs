@@ -277,7 +277,7 @@ namespace Email_Inboxes
                 case "NavItem_Home":
                     page = Pages.HomePage;
                     App.Settings.SettingsChangable = false;
-                    if (CommandBar.Visibility == Visibility.Visible)
+                    if (CommandBar.Visibility == Visibility.Visible && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Collapsed;
                         SetRegionsForCustomTitleBar();
@@ -286,7 +286,7 @@ namespace Email_Inboxes
                 case "NavItem_Gmail":
                     page = Pages.GmailPage;
                     App.Settings.SettingsChangable = false;
-                    if (CommandBar.Visibility == Visibility.Collapsed)
+                    if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
@@ -295,7 +295,7 @@ namespace Email_Inboxes
                 case "NavItem_iCloud":
                     page = Pages.IcloudPage;
                     App.Settings.SettingsChangable = false;
-                    if (CommandBar.Visibility == Visibility.Collapsed)
+                    if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
@@ -304,7 +304,7 @@ namespace Email_Inboxes
                 case "NavItem_Proton":
                     page = Pages.ProtonPage;
                     App.Settings.SettingsChangable = false;
-                    if (CommandBar.Visibility == Visibility.Collapsed)
+                    if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
@@ -313,7 +313,7 @@ namespace Email_Inboxes
                 case "NavItem_Outlook":
                     page = Pages.OutlookPage;
                     App.Settings.SettingsChangable = false;
-                    if (CommandBar.Visibility == Visibility.Collapsed)
+                    if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
@@ -322,7 +322,7 @@ namespace Email_Inboxes
                 case "NavItem_Yahoo":
                     page = Pages.YahooPage;
                     App.Settings.SettingsChangable = false;
-                    if (CommandBar.Visibility == Visibility.Collapsed)
+                    if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
@@ -330,7 +330,7 @@ namespace Email_Inboxes
                     break;
                 case "SettingsItem":
                     page = new Settings();
-                    if (CommandBar.Visibility == Visibility.Visible)
+                    if (CommandBar.Visibility == Visibility.Visible && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Collapsed;
                         SetRegionsForCustomTitleBar();
@@ -339,7 +339,7 @@ namespace Email_Inboxes
                 default:
                     page = Pages.HomePage;
                     App.Settings.SettingsChangable = false;
-                    if (CommandBar.Visibility == Visibility.Visible)
+                    if (CommandBar.Visibility == Visibility.Visible && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Collapsed;
                         SetRegionsForCustomTitleBar();
