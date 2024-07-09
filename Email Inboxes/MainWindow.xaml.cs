@@ -306,22 +306,94 @@ namespace Email_Inboxes
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationViewItem selectedItem = (NavigationViewItem)nvSample.SelectedItem;
+            switch (selectedItem.Name)
+            {
+                case "NavItem_Outlook":
+                    Pages.OutlookPage.OutlookWebView.Source = new Uri("https://outlook.live.com");
+                    break;
+                case "NavItem_Gmail":
+                    Pages.GmailPage.GmailWebView.Source = new Uri("https://mail.google.com/mail/u/0/");
+                    break;
+                case "NavItem_Yahoo":
+                    Pages.YahooPage.YahooWebView.Source = new Uri("https://mail.yahoo.com");
+                    break;
+                case "NavItem_iCloud":
+                    Pages.IcloudPage.IcloudWebView.Source = new Uri("https://www.icloud.com/mail");
+                    break;
+                case "NavItem_Proton":
+                    Pages.ProtonPage.ProtonWebView.Source = new Uri("https://mail.proton.me/");
+                    break;
+            }
         }
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationViewItem selectedItem = (NavigationViewItem)nvSample.SelectedItem;
+            switch (selectedItem.Name)
+            {
+                case "NavItem_Outlook":
+                    Pages.OutlookPage.OutlookWebView.Reload();
+                    break;
+                case "NavItem_Gmail":
+                    Pages.GmailPage.GmailWebView.Reload();
+                    break;
+                case "NavItem_Yahoo":
+                    Pages.YahooPage.YahooWebView.Reload();
+                    break;
+                case "NavItem_iCloud":
+                    Pages.IcloudPage.IcloudWebView.Reload();
+                    break;
+                case "NavItem_Proton":
+                    Pages.ProtonPage.ProtonWebView.Reload();
+                    break;
+            }
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationViewItem selectedItem = (NavigationViewItem)nvSample.SelectedItem;
+            switch (selectedItem.Name)
+            {
+                case "NavItem_Outlook":
+                    Pages.OutlookPage.OutlookWebView.GoBack();
+                    break;
+                case "NavItem_Gmail":
+                    Pages.GmailPage.GmailWebView.GoBack();
+                    break;
+                case "NavItem_Yahoo":
+                    Pages.YahooPage.YahooWebView.GoBack();
+                    break;
+                case "NavItem_iCloud":
+                    Pages.IcloudPage.IcloudWebView.GoBack();
+                    break;
+                case "NavItem_Proton":
+                    Pages.ProtonPage.ProtonWebView.GoBack();
+                    break;
+            }
         }
 
         private void ForwardButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationViewItem selectedItem = (NavigationViewItem)nvSample.SelectedItem;
+            switch (selectedItem.Name)
+            {
+                case "NavItem_Outlook":
+                    Pages.OutlookPage.OutlookWebView.GoForward();
+                    break;
+                case "NavItem_Gmail":
+                    Pages.GmailPage.GmailWebView.GoForward();
+                    break;
+                case "NavItem_Yahoo":
+                    Pages.YahooPage.YahooWebView.GoForward();
+                    break;
+                case "NavItem_iCloud":
+                    Pages.IcloudPage.IcloudWebView.GoForward();
+                    break;
+                case "NavItem_Proton":
+                    Pages.ProtonPage.ProtonWebView.GoForward();
+                    break;
+            }
         }
     }
 }
