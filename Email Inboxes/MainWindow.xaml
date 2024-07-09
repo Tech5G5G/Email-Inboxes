@@ -33,11 +33,7 @@
                     Style="{StaticResource CaptionTextBlockStyle}"
                     Text="Email Inboxes" />
                 <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" x:Name="CommandBar">
-                    <AppBarButton Icon="Home" Label="Home" Click="HomeButton_Click">
-                        <AppBarButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control"  Key="R" />
-                        </AppBarButton.KeyboardAccelerators>
-                    </AppBarButton>
+                    <AppBarButton Icon="Home" Label="Home" Click="HomeButton_Click"/>
                     <AppBarButton Icon="Refresh" Label="Refresh" Click="RefreshButton_Click">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="R" />
