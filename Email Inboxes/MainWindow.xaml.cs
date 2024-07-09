@@ -106,10 +106,6 @@ namespace Email_Inboxes
             m_AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
             m_AppWindow.SetIcon("Mail.ico");
 
-            //Changes the size of the interactable area in the app title bar
-            AppTitleBar.Loaded += AppTitleBar_Loaded;
-            AppTitleBar.SizeChanged += AppTitleBar_SizeChanged;
-
             //Sets the backdrop of the window based on the user's preference
             SystemBackdrop backdropToSet = null;
             switch ((string)localSettings.Values[App.Settings.Backdrop])
@@ -175,6 +171,10 @@ namespace Email_Inboxes
             NavItem_Home.Visibility = (bool)localSettings.Values[App.Settings.HomeEnabled] ? Visibility.Visible : Visibility.Collapsed;
 
             NavItem_Yahoo.Visibility = (bool)localSettings.Values[App.Settings.YahooEnabled] ? Visibility.Visible : Visibility.Collapsed;
+
+            //Changes the size of the interactable area in the app title bar
+            AppTitleBar.Loaded += AppTitleBar_Loaded;
+            AppTitleBar.SizeChanged += AppTitleBar_SizeChanged;
         }
 
         private void SetRegionsForCustomTitleBar()
