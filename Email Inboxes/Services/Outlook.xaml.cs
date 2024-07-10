@@ -34,6 +34,8 @@ namespace Email_Inboxes
     {
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
+        MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+
         public Outlook()
         {
             this.InitializeComponent();
@@ -62,7 +64,6 @@ namespace Email_Inboxes
 
         private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
         {
-            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             mw.BackButton.IsEnabled = OutlookWebView.CanGoBack;
             mw.ForwardButton.IsEnabled = OutlookWebView.CanGoForward;
         }

@@ -26,6 +26,8 @@ namespace Email_Inboxes.Services
     /// </summary>
     public sealed partial class Yahoo : Page
     {
+        MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+
         public Yahoo()
         {
             this.InitializeComponent();
@@ -45,7 +47,6 @@ namespace Email_Inboxes.Services
 
         private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
         {
-            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             mw.BackButton.IsEnabled = YahooWebView.CanGoBack;
             mw.ForwardButton.IsEnabled = YahooWebView.CanGoForward;
         }

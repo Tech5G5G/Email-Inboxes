@@ -25,6 +25,8 @@ namespace Email_Inboxes
     /// </summary>
     public sealed partial class iCloud : Page
     {
+        MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+
         public iCloud()
         {
             this.InitializeComponent();
@@ -44,7 +46,6 @@ namespace Email_Inboxes
 
         private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
         {
-            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             mw.BackButton.IsEnabled = IcloudWebView.CanGoBack;
             mw.ForwardButton.IsEnabled = IcloudWebView.CanGoForward;
         }
