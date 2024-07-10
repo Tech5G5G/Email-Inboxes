@@ -356,6 +356,9 @@ namespace Email_Inboxes
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
+            //Makes the forward and back buttons disabled
+            ForwardButton.IsEnabled = BackButton.IsEnabled = false;
+
             NavigationViewItem selectedItem = (NavigationViewItem)nvSample.SelectedItem;
             switch (selectedItem.Name)
             {
