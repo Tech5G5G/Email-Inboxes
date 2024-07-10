@@ -407,28 +407,18 @@ namespace Email_Inboxes
             {
                 case "NavItem_Outlook":
                     Pages.OutlookPage.OutlookWebView.GoBack();
-                    backButton.IsEnabled = Pages.OutlookPage.OutlookWebView.CanGoBack;
-                    forwardButton.IsEnabled = Pages.OutlookPage.OutlookWebView.CanGoForward;
                     break;
                 case "NavItem_Gmail":
                     Pages.GmailPage.GmailWebView.GoBack();
-                    backButton.IsEnabled = Pages.GmailPage.GmailWebView.CanGoBack;
-                    forwardButton.IsEnabled = Pages.GmailPage.GmailWebView.CanGoForward;
                     break;
                 case "NavItem_Yahoo":
                     Pages.YahooPage.YahooWebView.GoBack();
-                    backButton.IsEnabled = Pages.YahooPage.YahooWebView.CanGoBack;
-                    forwardButton.IsEnabled = Pages.YahooPage.YahooWebView.CanGoForward;
                     break;
                 case "NavItem_iCloud":
                     Pages.IcloudPage.IcloudWebView.GoBack();
-                    backButton.IsEnabled = Pages.IcloudPage.IcloudWebView.CanGoBack;
-                    forwardButton.IsEnabled = Pages.IcloudPage.IcloudWebView.CanGoForward;
                     break;
                 case "NavItem_Proton":
                     Pages.ProtonPage.ProtonWebView.GoBack();
-                    backButton.IsEnabled = Pages.ProtonPage.ProtonWebView.CanGoBack;
-                    forwardButton.IsEnabled = Pages.ProtonPage.ProtonWebView.CanGoForward;
                     break;
             }
         }
@@ -440,28 +430,18 @@ namespace Email_Inboxes
             {
                 case "NavItem_Outlook":
                     Pages.OutlookPage.OutlookWebView.GoForward();
-                    forwardButton.IsEnabled = Pages.OutlookPage.OutlookWebView.CanGoForward;
-                    backButton.IsEnabled = Pages.OutlookPage.OutlookWebView.CanGoBack;
                     break;
                 case "NavItem_Gmail":
                     Pages.GmailPage.GmailWebView.GoForward();
-                    forwardButton.IsEnabled = Pages.GmailPage.GmailWebView.CanGoForward;
-                    backButton.IsEnabled = Pages.GmailPage.GmailWebView.CanGoBack;
                     break;
                 case "NavItem_Yahoo":
                     Pages.YahooPage.YahooWebView.GoForward();
-                    forwardButton.IsEnabled = Pages.YahooPage.YahooWebView.CanGoForward;
-                    backButton.IsEnabled = Pages.YahooPage.YahooWebView.CanGoBack;
                     break;
                 case "NavItem_iCloud":
                     Pages.IcloudPage.IcloudWebView.GoForward();
-                    forwardButton.IsEnabled = Pages.IcloudPage.IcloudWebView.CanGoForward;
-                    backButton.IsEnabled = Pages.IcloudPage.IcloudWebView.CanGoBack;
                     break;
                 case "NavItem_Proton":
                     Pages.ProtonPage.ProtonWebView.GoForward();
-                    forwardButton.IsEnabled = Pages.IcloudPage.IcloudWebView.CanGoForward;
-                    backButton.IsEnabled = Pages.IcloudPage.IcloudWebView.CanGoBack;
                     break;
             }
         }
