@@ -294,6 +294,8 @@ namespace Email_Inboxes
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
                     }
+                    BackButton.IsEnabled = Pages.GmailPage.GmailWebView.CanGoBack;
+                    ForwardButton.IsEnabled = Pages.GmailPage.GmailWebView.CanGoForward;
                     break;
                 case "NavItem_iCloud":
                     page = Pages.IcloudPage;
@@ -303,6 +305,8 @@ namespace Email_Inboxes
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
                     }
+                    BackButton.IsEnabled = Pages.IcloudPage.IcloudWebView.CanGoBack;
+                    ForwardButton.IsEnabled = Pages.IcloudPage.IcloudWebView.CanGoForward;
                     break;
                 case "NavItem_Proton":
                     page = Pages.ProtonPage;
@@ -312,6 +316,8 @@ namespace Email_Inboxes
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
                     }
+                    BackButton.IsEnabled = Pages.ProtonPage.ProtonWebView.CanGoBack;
+                    ForwardButton.IsEnabled = Pages.ProtonPage.ProtonWebView.CanGoForward;
                     break;
                 case "NavItem_Outlook":
                     page = Pages.OutlookPage;
@@ -321,6 +327,8 @@ namespace Email_Inboxes
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
                     }
+                    BackButton.IsEnabled = Pages.OutlookPage.OutlookWebView.CanGoBack;
+                    ForwardButton.IsEnabled = Pages.OutlookPage.OutlookWebView.CanGoForward;
                     break;
                 case "NavItem_Yahoo":
                     page = Pages.YahooPage;
@@ -330,6 +338,8 @@ namespace Email_Inboxes
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
                     }
+                    BackButton.IsEnabled = Pages.YahooPage.YahooWebView.CanGoBack;
+                    ForwardButton.IsEnabled = Pages.YahooPage.YahooWebView.CanGoForward;
                     break;
                 case "SettingsItem":
                     page = new Settings();
