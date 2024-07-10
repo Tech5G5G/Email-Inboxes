@@ -39,12 +39,12 @@
                             <KeyboardAccelerator Modifiers="Control" Key="R" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton Icon="Back" Label="Back" Click="BackButton_Click">
+                    <AppBarButton Icon="Back" Label="Back" x:Name="backButton" Click="BackButton_Click">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Menu" Key="Left" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton Icon="Forward" Label="Forward" Click="ForwardButton_Click">
+                    <AppBarButton Icon="Forward" Label="Forward" x:Name="forwardButton" Click="ForwardButton_Click">
                         <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Menu" Key="Right" />
                         </AppBarButton.KeyboardAccelerators>
