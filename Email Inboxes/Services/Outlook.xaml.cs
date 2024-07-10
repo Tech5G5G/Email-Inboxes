@@ -64,8 +64,12 @@ namespace Email_Inboxes
 
         private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
         {
-            mw.BackButton.IsEnabled = OutlookWebView.CanGoBack;
-            mw.ForwardButton.IsEnabled = OutlookWebView.CanGoForward;
+            NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
+            if (selectedItem.Name == "NavItem_Outlook")
+            {
+                mw.BackButton.IsEnabled = OutlookWebView.CanGoBack;
+                mw.ForwardButton.IsEnabled = OutlookWebView.CanGoForward;
+            }
         }
 
         private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
