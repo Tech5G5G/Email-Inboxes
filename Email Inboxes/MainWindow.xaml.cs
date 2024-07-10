@@ -373,7 +373,12 @@ namespace Email_Inboxes
             switch (selectedItem.Name)
             {
                 case "NavItem_Outlook":
-                    Pages.OutlookPage.OutlookWebView.Source = new Uri("https://outlook.live.com");
+                    string outlookWebViewSource = "https://https://outlook.live.com";
+                    if ((string)localSettings.Values[App.Settings.OutlookAppType] == "Website")
+                    { outlookWebViewSource = "https://outlook.live.com"; }
+                    else
+                    { outlookWebViewSource = "https://outlook.office.com"; }
+                    Pages.OutlookPage.OutlookWebView.Source = new Uri(outlookWebViewSource);
                     break;
                 case "NavItem_Gmail":
                     Pages.GmailPage.GmailWebView.Source = new Uri("https://mail.google.com/mail/u/0/");
