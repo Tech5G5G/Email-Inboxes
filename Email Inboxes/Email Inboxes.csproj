@@ -43,6 +43,7 @@
     <None Remove="Proton.xaml" />
     <None Remove="Services\Yahoo.xaml" />
     <None Remove="Settings.xaml" />
+    <None Remove="TabWindow.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,6 +69,11 @@
     <Content Update="Assets\Email-Inboxes-Icons.otf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="TabWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Outlook.xaml">
