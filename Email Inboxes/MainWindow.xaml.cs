@@ -388,9 +388,6 @@ namespace Email_Inboxes
                     Pages.ProtonPage.ProtonWebView.Source = new Uri("https://mail.proton.me/");
                     break;
             }
-
-            //Makes the forward and back buttons disabled
-            ForwardButton.IsEnabled = BackButton.IsEnabled = false;
         }
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
