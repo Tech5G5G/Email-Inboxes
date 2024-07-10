@@ -15,9 +15,11 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.Appointments.DataProvider;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Search;
+using Windows.ApplicationModel.VoiceCommands;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using static Email_Inboxes.MainWindow;
 using static System.Net.WebRequestMethods;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -53,6 +55,16 @@ namespace Email_Inboxes
         {
             //Allows links to be opened in the default browser
             OutlookWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
+
+            //Enables navigation buttons based on page navigation status
+            OutlookWebView.CoreWebView2.SourceChanged += SourceChanged;
+        }
+
+        private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
+        {
+            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+            mw.BackButton.IsEnabled = OutlookWebView.CanGoBack;
+            mw.ForwardButton.IsEnabled = OutlookWebView.CanGoForward;
         }
 
         private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
