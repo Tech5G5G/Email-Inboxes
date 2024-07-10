@@ -46,8 +46,12 @@ namespace Email_Inboxes
 
         private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
         {
-            mw.BackButton.IsEnabled = GmailWebView.CanGoBack;
-            mw.ForwardButton.IsEnabled = GmailWebView.CanGoForward;
+            NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
+            if (selectedItem.Name == "NavItem_Gmail")
+            {
+                mw.BackButton.IsEnabled = GmailWebView.CanGoBack;
+                mw.ForwardButton.IsEnabled = GmailWebView.CanGoForward;
+            }
         }
 
         private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)

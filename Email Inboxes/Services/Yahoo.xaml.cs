@@ -47,8 +47,12 @@ namespace Email_Inboxes.Services
 
         private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
         {
-            mw.BackButton.IsEnabled = YahooWebView.CanGoBack;
-            mw.ForwardButton.IsEnabled = YahooWebView.CanGoForward;
+            NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
+            if (selectedItem.Name == "NavItem_Yahoo")
+            {
+                mw.BackButton.IsEnabled = YahooWebView.CanGoBack;
+                mw.ForwardButton.IsEnabled = YahooWebView.CanGoForward;
+            }
         }
 
         private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)

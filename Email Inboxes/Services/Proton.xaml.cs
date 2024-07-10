@@ -46,8 +46,12 @@ namespace Email_Inboxes
 
         private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
         {
-            mw.BackButton.IsEnabled = ProtonWebView.CanGoBack;
-            mw.ForwardButton.IsEnabled = ProtonWebView.CanGoForward;
+            NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
+            if (selectedItem.Name == "NavItem_Proton")
+            {
+                mw.BackButton.IsEnabled = ProtonWebView.CanGoBack;
+                mw.ForwardButton.IsEnabled = ProtonWebView.CanGoForward;
+            }
         }
 
         private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)

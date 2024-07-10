@@ -46,8 +46,12 @@ namespace Email_Inboxes
 
         private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
         {
-            mw.BackButton.IsEnabled = IcloudWebView.CanGoBack;
-            mw.ForwardButton.IsEnabled = IcloudWebView.CanGoForward;
+            NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
+            if (selectedItem.Name == "NavItem_iCloud")
+            {
+                mw.BackButton.IsEnabled = IcloudWebView.CanGoBack;
+                mw.ForwardButton.IsEnabled = IcloudWebView.CanGoForward;
+            }
         }
 
         private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
