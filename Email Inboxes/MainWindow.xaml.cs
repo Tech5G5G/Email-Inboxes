@@ -255,6 +255,9 @@ namespace Email_Inboxes
             }
 
             nvSample.SelectedItem = navItem_StartupPage;
+
+            //Makes the forward and back buttons disabled
+            ForwardButton.IsEnabled = BackButton.IsEnabled = false;
         }
 
         private void AppTitleBar_SizeChanged(object sender, SizeChangedEventArgs e)
