@@ -373,24 +373,29 @@ namespace Email_Inboxes
             switch (selectedItem.Name)
             {
                 case "NavItem_Outlook":
-                    string outlookWebViewSource = "https://https://outlook.live.com";
-                    if ((string)localSettings.Values[App.Settings.OutlookAppType] == "Website")
-                    { outlookWebViewSource = "https://outlook.live.com"; }
-                    else
-                    { outlookWebViewSource = "https://outlook.office.com"; }
-                    Pages.OutlookPage.OutlookWebView.Source = new Uri(outlookWebViewSource);
+                    Pages.OutlookPage.OutlookWebView.Close();
+                    Pages.OutlookPage = new Outlook();
+                    contentFrame.Content = Pages.OutlookPage;
                     break;
                 case "NavItem_Gmail":
-                    Pages.GmailPage.GmailWebView.Source = new Uri("https://mail.google.com/mail/u/0/");
+                    Pages.GmailPage.GmailWebView.Close();
+                    Pages.GmailPage = new Gmail();
+                    contentFrame.Content = Pages.GmailPage;
                     break;
                 case "NavItem_Yahoo":
-                    Pages.YahooPage.YahooWebView.Source = new Uri("https://mail.yahoo.com");
+                    Pages.YahooPage.YahooWebView.Close();
+                    Pages.YahooPage = new Yahoo();
+                    contentFrame.Content = Pages.YahooPage;
                     break;
                 case "NavItem_iCloud":
-                    Pages.IcloudPage.IcloudWebView.Source = new Uri("https://www.icloud.com/mail");
+                    Pages.IcloudPage.IcloudWebView.Close();
+                    Pages.IcloudPage = new iCloud();
+                    contentFrame.Content = Pages.IcloudPage;
                     break;
                 case "NavItem_Proton":
-                    Pages.ProtonPage.ProtonWebView.Source = new Uri("https://mail.proton.me/");
+                    Pages.ProtonPage.ProtonWebView.Close();
+                    Pages.ProtonPage = new Proton();
+                    contentFrame.Content = Pages.ProtonPage;
                     break;
             }
         }
