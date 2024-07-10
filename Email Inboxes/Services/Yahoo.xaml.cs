@@ -14,6 +14,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using static Email_Inboxes.MainWindow;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -37,6 +38,16 @@ namespace Email_Inboxes.Services
         {
             //Allows links to be opened in the default browser
             YahooWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
+
+            //Enables navigation buttons based on page navigation status
+            YahooWebView.CoreWebView2.SourceChanged += SourceChanged;
+        }
+
+        private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
+        {
+            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+            mw.BackButton.IsEnabled = YahooWebView.CanGoBack;
+            mw.ForwardButton.IsEnabled = YahooWebView.CanGoForward;
         }
 
         private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)

@@ -37,6 +37,16 @@ namespace Email_Inboxes
         {
             //Allows links to be opened in the default browser
             GmailWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
+
+            //Enables navigation buttons based on page navigation status
+            GmailWebView.CoreWebView2.SourceChanged += SourceChanged;
+        }
+
+        private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
+        {
+            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+            mw.BackButton.IsEnabled = GmailWebView.CanGoBack;
+            mw.ForwardButton.IsEnabled = GmailWebView.CanGoForward;
         }
 
         private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
