@@ -121,6 +121,9 @@ namespace Email_Inboxes
             if (!localSettings.Values.ContainsKey(Settings.Backdrop))
                 localSettings.Values[Settings.Backdrop] = "Mica";
 
+            if (!localSettings.Values.ContainsKey(Settings.FirstBootScreenPassed))
+                localSettings.Values[Settings.FirstBootScreenPassed] = false;
+
             if (!localSettings.Values.ContainsKey(Settings.PaneDisplayMode))
                 localSettings.Values[Settings.PaneDisplayMode] = "Auto";
 
