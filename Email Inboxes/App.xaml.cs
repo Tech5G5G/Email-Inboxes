@@ -141,9 +141,20 @@ namespace Email_Inboxes
             if (!((string)localSettings.Values[Settings.VersionNumber] == "1.3"))
                 localSettings.Values[Settings.VersionNumber] = "1.3";
 
-            //Creates and activates MainWindow
+            //Creates MainWindow
             m_window = new MainWindow();
-            m_window.Activate();
+
+            //Checks for value of FirstBootScreenPassed
+            if ((bool)localSettings.Values[Settings.FirstBootScreenPassed])
+                //If true, it activates the MainWindow
+                m_window.Activate();
+            else
+            {
+                //If not, it creates and activates FirstBootWindow
+                Window firstBootWindow = new FirstBootWindow();
+                firstBootWindow.Activate();
+            }
+
         }
 
         public Window m_window;
