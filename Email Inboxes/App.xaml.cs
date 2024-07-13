@@ -151,7 +151,7 @@ namespace Email_Inboxes
             else
             {
                 //If not, it creates and activates FirstBootWindow
-                Window firstBootWindow = new FirstBootWindow();
+                firstBootWindow = new FirstBootWindow();
                 var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(firstBootWindow);
                 Microsoft.UI.WindowId windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
                 Microsoft.UI.Windowing.AppWindow appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
@@ -172,5 +172,7 @@ namespace Email_Inboxes
         }
 
         public Window m_window;
+
+        public Window firstBootWindow;
     }
 }
