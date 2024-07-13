@@ -69,6 +69,7 @@ namespace Email_Inboxes
             logoAnimation.TryStart(logoEnd);
             await Task.Delay(100); 
             logoMid.Visibility = Visibility.Collapsed;
+            SetTitleBar(AppTitleBar);
         }
 
         private void LogoAnimation2Completed(ConnectedAnimation sender, object e)
