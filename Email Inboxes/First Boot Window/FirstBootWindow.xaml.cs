@@ -77,6 +77,7 @@ namespace Email_Inboxes
 
         private void LogoAnimation2Completed(ConnectedAnimation sender, object e)
         {
+            firstBootFrame.Visibility = Visibility.Visible;
             firstBootFrame.Navigate(typeof(Welcome), null, null);
         }
     }
