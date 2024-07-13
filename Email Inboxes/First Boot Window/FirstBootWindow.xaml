@@ -13,6 +13,22 @@
     </Window.SystemBackdrop>
 
     <Grid>
-
+        <Border
+            x:Name="AppTitleBar"
+            x:FieldModifier="public"
+            Grid.Column="1"
+            Height="32"
+            Margin="16,0,0,0"
+            VerticalAlignment="Top"
+            AutomationProperties.AutomationId="AppTitleBar"
+            Canvas.ZIndex="1"
+            IsHitTestVisible="True">
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Width="15" x:Name="logoEnd" Source="ms-appx:///Assets/StoreLogo.png" Visibility="Collapsed" />
+            </StackPanel>
+        </Border>
+        <Image Width="150" x:Name="logoMid" Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image Width="25" x:Name="logoStart" Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Frame x:Name="firstBootFrame"/>
     </Grid>
 </Window>
