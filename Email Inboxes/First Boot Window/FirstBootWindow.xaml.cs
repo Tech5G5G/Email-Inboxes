@@ -39,6 +39,8 @@ namespace Email_Inboxes
             presenter.IsMinimizable = false;
 
             logoStart.Loaded += StartAnimation;
+
+            firstBootFrame.Translation += new Vector3(0, 0, 32);
         }
 
         private OverlappedPresenter GetAppWindowAndPresenter()
