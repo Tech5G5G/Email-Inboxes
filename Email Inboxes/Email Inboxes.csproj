@@ -36,6 +36,7 @@
     <None Remove="Assets\SplashScreen.scale-200.png" />
     <None Remove="Assets\Square44x44Logo.scale-200.png" />
     <None Remove="desktop.ini" />
+    <None Remove="First Boot Window\Inboxes.xaml" />
     <None Remove="First Boot Window\Welcome.xaml" />
     <None Remove="FirstBootWindow.xaml" />
     <None Remove="Gmail.xaml" />
@@ -70,6 +71,11 @@
     <Content Update="Assets\Email-Inboxes-Icons.otf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="First Boot Window\Inboxes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="FirstBootWindow.xaml">
