@@ -33,6 +33,8 @@ namespace Email_Inboxes
             var presenter = GetAppWindowAndPresenter();
             presenter.IsMaximizable = false;
             presenter.IsMinimizable = false;
+
+            logoStart.Loaded += StartAnimation;
         }
 
         private OverlappedPresenter GetAppWindowAndPresenter()
