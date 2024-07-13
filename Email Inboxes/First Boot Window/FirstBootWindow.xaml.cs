@@ -14,6 +14,9 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using Microsoft.UI.Windowing;
 using Microsoft.UI;
+using Microsoft.UI.Xaml.Media.Animation;
+using System.Threading.Tasks;
+using Email_Inboxes.First_Boot_Window;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
