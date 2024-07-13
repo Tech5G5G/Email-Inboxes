@@ -40,7 +40,7 @@ namespace Email_Inboxes
 
             logoStart.Loaded += StartAnimation;
 
-            firstBootFrame.Translation += new Vector3(0, 0, 32);
+            FirstBootFrame.Translation += new Vector3(0, 0, 32);
         }
 
         private OverlappedPresenter GetAppWindowAndPresenter()
@@ -77,8 +77,8 @@ namespace Email_Inboxes
 
         private void LogoAnimation2Completed(ConnectedAnimation sender, object e)
         {
-            firstBootFrame.Visibility = Visibility.Visible;
-            firstBootFrame.Navigate(typeof(Welcome), null, null);
+            FirstBootFrame.Visibility = Visibility.Visible;
+            FirstBootFrame.Navigate(typeof(Welcome), null, null);
         }
     }
 }
