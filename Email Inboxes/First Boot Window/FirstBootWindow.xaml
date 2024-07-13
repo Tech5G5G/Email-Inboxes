@@ -29,6 +29,10 @@
         </Border>
         <Image Width="150" x:Name="logoMid" Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Image Width="25" x:Name="logoStart" Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-        <Frame x:Name="firstBootFrame"/>
+        <Frame x:Name="firstBootFrame" Background="{ThemeResource LayerOnMicaBaseAltFillColorDefault}" CornerRadius="8" Height="498" Width="810" Visibility="Collapsed">
+            <Frame.Shadow>
+                <ThemeShadow />
+            </Frame.Shadow>
+        </Frame>
     </Grid>
 </Window>
