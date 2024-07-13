@@ -64,7 +64,7 @@ namespace Email_Inboxes
 
         private async void LogoAnimationCompleted(ConnectedAnimation sender, object e)
         {
-            await Task.Delay(2000);
+            await Task.Delay(1000);
             logoEnd.Visibility = Visibility.Visible;
             ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("logoAnimation2", logoMid);
             var logoAnimation = ConnectedAnimationService.GetForCurrentView().GetAnimation("logoAnimation2");
