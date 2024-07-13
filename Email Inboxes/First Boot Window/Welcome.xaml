@@ -9,7 +9,10 @@
     xmlns:ui="using:CommunityToolkit.WinUI"
     mc:Ignorable="d">
 
-    <Grid>
+    <StackPanel VerticalAlignment="Center">
+        <TextBlock Text="Welcome" HorizontalAlignment="Center" Style="{ThemeResource DisplayTextBlockStyle}"/>
+        <TextBlock Text="to Email Inboxes" HorizontalAlignment="Center" Style="{ThemeResource TitleTextBlockStyle}"/>
 
-    </Grid>
+        <Button Content="{ui:FontIcon Glyph=&#xE72A;}" HorizontalAlignment="Center" Margin="0,16,0,0"/>
+    </StackPanel>
 </Page>
