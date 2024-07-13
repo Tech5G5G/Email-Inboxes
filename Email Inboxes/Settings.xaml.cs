@@ -342,8 +342,17 @@ namespace Email_Inboxes
                     //Refreshes the OutlookPage to reflect changes
                     if (outlookAppType == "Website" || outlookAppType == "Business website")
                     {
+                        MainWindow.Pages.HomePage.HomeWebView.Close();
+                        MainWindow.Pages.HomePage.CalendarWebView.Close();
+                        MainWindow.Pages.HomePage = new Home();
                         MainWindow.Pages.OutlookPage.OutlookWebView.Close();
                         MainWindow.Pages.OutlookPage = new Outlook();
+                    }
+                    else
+                    {
+                        MainWindow.Pages.HomePage.HomeWebView.Close();
+                        MainWindow.Pages.HomePage.CalendarWebView.Close();
+                        MainWindow.Pages.HomePage = new Home();
                     }
                 }
                 else
