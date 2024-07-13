@@ -42,5 +42,33 @@ namespace Email_Inboxes
             var _apw = AppWindow.GetFromWindowId(myWndId);
             return _apw.Presenter as OverlappedPresenter;
         }
+
+        private async void StartAnimation(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(100);
+            logoMid.Visibility = Visibility.Visible;
+            ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("logoAnimation", logoStart);
+            var logoAnimation = ConnectedAnimationService.GetForCurrentView().GetAnimation("logoAnimation");
+            logoAnimation.Completed += LogoAnimationCompleted;
+            logoAnimation.TryStart(logoMid);
+            logoStart.Visibility = Visibility.Collapsed;
+        }
+
+        private async void LogoAnimationCompleted(ConnectedAnimation sender, object e)
+        {
+            await Task.Delay(2000);
+            logoEnd.Visibility = Visibility.Visible;
+            ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("logoAnimation2", logoMid);
+            var logoAnimation = ConnectedAnimationService.GetForCurrentView().GetAnimation("logoAnimation2");
+            logoAnimation.Completed += LogoAnimation2Completed;
+            logoAnimation.TryStart(logoEnd);
+            await Task.Delay(100); 
+            logoMid.Visibility = Visibility.Collapsed;
+        }
+
+        private void LogoAnimation2Completed(ConnectedAnimation sender, object e)
+        {
+            firstBootFrame.Navigate(typeof(Welcome), null, null);
+        }
     }
 }
