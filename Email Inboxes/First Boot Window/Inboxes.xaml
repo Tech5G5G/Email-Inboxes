@@ -11,7 +11,7 @@
     mc:Ignorable="d">
 
     <Grid>
-        <StackPanel BorderThickness="48" Width="429" VerticalAlignment="Center" HorizontalAlignment="Left">
+        <StackPanel Margin="0,40,0,0" BorderThickness="48" Width="429" VerticalAlignment="Top" HorizontalAlignment="Left">
             <TextBlock Text="1 out of 3" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
             <TextBlock Text="Choose your inboxes" Style="{ThemeResource TitleLargeTextBlockStyle}"/>
             <TextBlock Text="Choose which inboxes to enable and show around the app" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
