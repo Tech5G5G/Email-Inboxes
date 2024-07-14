@@ -16,7 +16,16 @@
             <TextBlock Text="Choose your inboxes" Style="{ThemeResource TitleLargeTextBlockStyle}"/>
             <TextBlock Text="Choose which inboxes to enable and show around the app" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
         </StackPanel>
-        <Grid Width="385" HorizontalAlignment="Right" x:Name="mainWindowInboxes">
+        <StackPanel BorderThickness="48" Width="429" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+            <Button Content="{ui:FontIcon Glyph=&#xE72B;}" IsEnabled="False"/>
+            <Button Margin="8,0,0,0" Style="{ThemeResource AccentButtonStyle}">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xE72A;"/>
+                    <TextBlock Margin="8,0,0,0" Text="Next"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Grid Width="385" HorizontalAlignment="Right">
             <Border BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" CornerRadius="16" Height="500"  Margin="0,48,0,0" Width="400" VerticalAlignment="Top"/>
             <Rectangle Fill="{ThemeResource LayerOnMicaBaseAltFillColorSecondaryBrush}" RadiusX="16" RadiusY="16" Height="500"  Margin="0,48,0,0" Width="400" VerticalAlignment="Top"/>
             <StackPanel Margin="16,65,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
