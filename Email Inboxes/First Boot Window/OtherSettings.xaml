@@ -12,6 +12,47 @@
     NavigationCacheMode="Enabled">
 
     <Grid>
-
+        <StackPanel Margin="0,40,0,0" BorderThickness="48" Width="429" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="2 out of 3" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
+            <TextBlock Text="Customize your home" Style="{ThemeResource TitleLargeTextBlockStyle}"/>
+            <TextBlock Text="Change settings related to the home page" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
+        </StackPanel>
+        <StackPanel BorderThickness="48" Width="429" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+            <Button Content="{ui:FontIcon Glyph=&#xE72B;}" Click="BackClick"/>
+            <Button Margin="8,0,0,0" Style="{ThemeResource AccentButtonStyle}" Click="NextClick">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xE72A;"/>
+                    <TextBlock Margin="8,0,0,0" Text="Next"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <StackPanel BorderThickness="48" Width="429" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <controls:SettingsCard Header="Home page visibility" Description="Enable or disable the home page" HeaderIcon="{ui:FontIcon Glyph=&#xE80F;}">
+                <ToggleSwitch x:Name="HomeToggle"/>
+            </controls:SettingsCard>
+            <controls:SettingsCard Description="Choose what calendar app to display"
+                                 Header="Calendar app"
+                                 HeaderIcon="{ui:FontIcon Glyph=&#xE787;}">
+                <ComboBox x:Name="CalendarService" x:FieldModifier="public" PlaceholderText="Service">
+                    <ComboBoxItem Content="Google Calendar"/>
+                    <ComboBoxItem Content="Outlook Calendar"/>
+                    <ComboBoxItem Content="Apple Calendar"/>
+                    <ComboBoxItem Content="Disabled"/>
+                </ComboBox>
+            </controls:SettingsCard>
+            <controls:SettingsCard Description="Choose what to do app to display"
+                                 Header="To do app"
+                                 HeaderIcon="{ui:FontIcon Glyph=&#xEB50;}">
+                <ComboBox x:Name="ToDoService" x:FieldModifier="public" PlaceholderText="Service">
+                    <ComboBoxItem Content="Todoist"/>
+                    <ComboBoxItem Content="TickTick"/>
+                    <ComboBoxItem Content="Microsoft To Do"/>
+                    <ComboBoxItem Content="Apple Reminders"/>
+                    <ComboBoxItem Content="Google Tasks"/>
+                    <ComboBoxItem Content="Any.do"/>
+                    <ComboBoxItem Content="Disabled"/>
+                </ComboBox>
+            </controls:SettingsCard>
+        </StackPanel>
     </Grid>
 </Page>
