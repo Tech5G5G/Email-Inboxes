@@ -21,7 +21,7 @@
             <Button Content="{ui:FontIcon Glyph=&#xE72B;}" Click="BackClick"/>
             <Button Margin="8,0,0,0" Style="{ThemeResource AccentButtonStyle}" Click="NextClick">
                 <StackPanel Orientation="Horizontal">
-                    <FontIcon Glyph="&#xE72A;"/>
+                    <FontIcon Glyph="&#xE73E;"/>
                     <TextBlock Margin="8,0,0,0" Text="Finish"/>
                 </StackPanel>
             </Button>
