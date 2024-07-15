@@ -22,7 +22,7 @@
             <Button Margin="8,0,0,0" Style="{ThemeResource AccentButtonStyle}" Click="NextClick">
                 <StackPanel Orientation="Horizontal">
                     <FontIcon Glyph="&#xE72A;"/>
-                    <TextBlock Margin="8,0,0,0" Text="Next"/>
+                    <TextBlock Margin="8,0,0,0" Text="Finish"/>
                 </StackPanel>
             </Button>
         </StackPanel>
