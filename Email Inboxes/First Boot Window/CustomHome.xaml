@@ -25,7 +25,33 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        <Grid Width="385" HorizontalAlignment="Right">
-        </Grid>
+        <StackPanel BorderThickness="48" Width="429" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <controls:SettingsCard Header="Home page visibility" Description="Enable or disable the home page" HeaderIcon="{ui:FontIcon Glyph=&#xE80F;}">
+                <ToggleSwitch x:Name="HomeToggle"/>
+            </controls:SettingsCard>
+            <controls:SettingsCard Description="Choose what calendar app to display"
+                                 Header="Calendar app"
+                                 HeaderIcon="{ui:FontIcon Glyph=&#xE787;}">
+                <ComboBox x:Name="CalendarService" x:FieldModifier="public" PlaceholderText="Service">
+                    <ComboBoxItem Content="Google Calendar"/>
+                    <ComboBoxItem Content="Outlook Calendar"/>
+                    <ComboBoxItem Content="Apple Calendar"/>
+                    <ComboBoxItem Content="Disabled"/>
+                </ComboBox>
+            </controls:SettingsCard>
+            <controls:SettingsCard Description="Choose what to do app to display"
+                                 Header="To do app"
+                                 HeaderIcon="{ui:FontIcon Glyph=&#xEB50;}">
+                <ComboBox x:Name="ToDoService" x:FieldModifier="public" PlaceholderText="Service">
+                    <ComboBoxItem Content="Todoist"/>
+                    <ComboBoxItem Content="TickTick"/>
+                    <ComboBoxItem Content="Microsoft To Do"/>
+                    <ComboBoxItem Content="Apple Reminders"/>
+                    <ComboBoxItem Content="Google Tasks"/>
+                    <ComboBoxItem Content="Any.do"/>
+                    <ComboBoxItem Content="Disabled"/>
+                </ComboBox>
+            </controls:SettingsCard>
+        </StackPanel>
     </Grid>
 </Page>
