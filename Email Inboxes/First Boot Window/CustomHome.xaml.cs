@@ -12,6 +12,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml.Media.Animation;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -26,6 +27,12 @@ namespace Email_Inboxes.First_Boot_Window
         public CustomHome()
         {
             this.InitializeComponent();
+        }
+
+        private void NextClick(object sender, RoutedEventArgs e)
+        {
+            FirstBootWindow fbw = (FirstBootWindow)((App)Application.Current).firstBootWindow;
+            //fbw.FirstBootFrame.Navigate(typeof(CustomHome), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
         }
     }
 }
