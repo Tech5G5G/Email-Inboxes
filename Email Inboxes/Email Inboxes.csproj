@@ -38,6 +38,7 @@
     <None Remove="desktop.ini" />
     <None Remove="First Boot Window\CustomHome.xaml" />
     <None Remove="First Boot Window\Inboxes.xaml" />
+    <None Remove="First Boot Window\OtherSettings.xaml" />
     <None Remove="First Boot Window\Welcome.xaml" />
     <None Remove="FirstBootWindow.xaml" />
     <None Remove="Gmail.xaml" />
@@ -72,6 +73,11 @@
     <Content Update="Assets\Email-Inboxes-Icons.otf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="First Boot Window\OtherSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="First Boot Window\CustomHome.xaml">
