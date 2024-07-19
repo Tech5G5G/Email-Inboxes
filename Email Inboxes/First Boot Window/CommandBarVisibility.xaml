@@ -42,41 +42,6 @@
                     FontSize="32"
                     Text="Email Inboxes" />
             </StackPanel>
-            <ScrollView Margin="16,182,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" CornerRadius="0">
-                <StackPanel>
-                    <ToggleButton Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
-                        <StackPanel Orientation="Horizontal" Margin="18,0,0,0">
-                            <FontIcon Glyph="&#xE902;" FontFamily="{StaticResource CustomIcons}" FontSize="40"/>
-                            <TextBlock Text="Outlook" Margin="34,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="34"/>
-                        </StackPanel>
-                    </ToggleButton>
-                    <ToggleButton Margin="0,16,0,0" Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
-                        <StackPanel Orientation="Horizontal" Margin="18,0,0,0">
-                            <FontIcon Glyph="&#xE900;" FontFamily="{StaticResource CustomIcons}" FontSize="40"/>
-                            <TextBlock Text="Gmail" Margin="34,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="34"/>
-                        </StackPanel>
-                    </ToggleButton>
-                    <ToggleButton Margin="0,16,0,0" Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
-                        <StackPanel Orientation="Horizontal" Margin="18,0,0,0">
-                            <FontIcon Glyph="&#xE903;" FontFamily="{StaticResource CustomIcons}" FontSize="40"/>
-                            <TextBlock Text="Yahoo Mail" Margin="34,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="34"/>
-                        </StackPanel>
-                    </ToggleButton>
-                    <ToggleButton Margin="0,16,0,0" Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
-                        <StackPanel Orientation="Horizontal" Margin="18,0,0,0">
-                            <FontIcon Glyph="&#xE753;" FontSize="40"/>
-                            <TextBlock Text="iCloud Mail" Margin="34,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="34"/>
-                        </StackPanel>
-                    </ToggleButton>
-                    <ToggleButton Margin="0,16,0,0" Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
-                        <StackPanel Orientation="Horizontal" Margin="18,0,0,0">
-                            <FontIcon Glyph="&#xE901;" FontFamily="{StaticResource CustomIcons}" FontSize="40"/>
-                            <TextBlock Text="Proton Mail" Margin="34,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="34"/>
-                        </StackPanel>
-                    </ToggleButton>
-                    <Rectangle Height="16" Fill="Transparent"/>
-                </StackPanel>
-            </ScrollView>
         </Grid>
     </Grid>
 </Page>
