@@ -104,7 +104,7 @@ mc:Ignorable="d">
             <controls:SettingsCard Description="Clear unneeded browser cache to reduce app size"
                                  Header="Clear cache"
                                  HeaderIcon="{ui:FontIcon Glyph=&#xE7B8;}">
-                <Button Content="Clear cache" Click="ClearWebViewCache"/>
+                <Button Content="{ui:FontIcon Glyph=&#xE74D;}" Click="ClearWebViewCache"/>
             </controls:SettingsCard>
             <controls:SettingsCard Description="The command bar allows you to control any page"
                      Header="Command bar visibility"
