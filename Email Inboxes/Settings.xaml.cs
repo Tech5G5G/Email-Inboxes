@@ -79,12 +79,15 @@ namespace Email_Inboxes
                 case "Outlook Calendar":
                     CalendarService.SelectedIndex = 1;
                     break;
-                case "Disabled":
+                case "Basic Calendar":
                     CalendarService.SelectedIndex = 3;
+                    break;
+                case "Disabled":
+                    CalendarService.SelectedIndex = 4;
                     break;
                 //Backwards compatiblity code
                 case "None":
-                    CalendarService.SelectedIndex = 3;
+                    CalendarService.SelectedIndex = 4;
                     break;
             }
 
@@ -239,6 +242,9 @@ namespace Email_Inboxes
                         break;
                     case "Google Calendar":
                         CalendarServiceUrl = "https://calendar.google.com/";
+                        break;
+                    case "Basic Calendar":
+                        CalendarServiceUrl = "basiccalendar";
                         break;
                     case "Disabled":
                         CalendarServiceUrl = "disabled";
