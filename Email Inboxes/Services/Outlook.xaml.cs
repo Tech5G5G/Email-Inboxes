@@ -75,7 +75,7 @@ namespace Email_Inboxes
         private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
         {
             //If link isn't a Outlook URL, it opens it in an external browser
-            if (args.Uri.Contains("https://outlook.live.com") || args.Uri.Contains("https://outlook.office.com"))
+            if (args.Uri.Contains("https://outlook.live.com") || args.Uri.Contains("https://outlook.office.com") || args.Uri.Contains("https://go.microsoft.com"))
             {
                 args.Handled = true;
                 OutlookWebView.Source = new Uri(args.Uri);
