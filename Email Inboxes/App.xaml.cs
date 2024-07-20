@@ -80,19 +80,19 @@ namespace Email_Inboxes
                 localSettings.Values[Settings.HomeEnabled] = true;
 
             if (!localSettings.Values.ContainsKey(Settings.iCloudEnabled))
-                localSettings.Values[Settings.iCloudEnabled] = true;
+                localSettings.Values[Settings.iCloudEnabled] = false;
 
             if (!localSettings.Values.ContainsKey(Settings.GmailEnabled))
-                localSettings.Values[Settings.GmailEnabled] = true;
+                localSettings.Values[Settings.GmailEnabled] = false;
 
             if (!localSettings.Values.ContainsKey(Settings.ProtonEnabled))
-                localSettings.Values[Settings.ProtonEnabled] = true;
+                localSettings.Values[Settings.ProtonEnabled] = false;
 
             if (!localSettings.Values.ContainsKey(Settings.YahooEnabled))
-                localSettings.Values[Settings.YahooEnabled] = true;
+                localSettings.Values[Settings.YahooEnabled] = false;
 
             if (!localSettings.Values.ContainsKey(Settings.OutlookEnabled))
-                localSettings.Values[Settings.OutlookEnabled] = true;
+                localSettings.Values[Settings.OutlookEnabled] = false;
 
             if (!localSettings.Values.ContainsKey(Settings.CommandBarEnabled))
                 localSettings.Values[Settings.CommandBarEnabled] = true;
