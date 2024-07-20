@@ -23,13 +23,13 @@
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.Items>
-                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="10" RadiusY="10" Margin="0,0,0,0"/>
+                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="8" RadiusY="8" Margin="0,0,0,0"/>
                             <FontIcon Glyph="&#xE902;" FontFamily="{StaticResource CustomIcons}" FontSize="50" Margin="25,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             <TextBlock Text="Outlook" HorizontalAlignment="Left" FontFamily="Segoe UI Variable Display" FontWeight="Normal" FontSize="20" Margin="25,90,0,0"/>
                             <TextBlock Text="Open the Outlook page" HorizontalAlignment="Left" FontFamily="Segoe UI Variable" FontWeight="Normal" FontSize="12" Foreground="{ThemeResource TextFillColorSecondary}" Margin="25,120,0,0"/>
                             <FontIcon Glyph="&#xE76C;" FontSize="16" Margin="155,180,0,0"/>
-                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="10" HorizontalAlignment="Left" Margin="0,0,0,0"/>
-                            <Button Height="225" Width="200" HorizontalAlignment="Left" BorderBrush="Transparent" Background="Transparent" CornerRadius="10" Click="OutlookNavigate"/>
+                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="8" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            <Button Height="225" Width="200" HorizontalAlignment="Left" BorderBrush="Transparent" Background="Transparent" CornerRadius="8" Click="OutlookNavigate"/>
                         </ItemsControl.Items>
                     </ItemsControl>
                     <ItemsControl Margin="15,15,0,0" x:Name="OutlookAppButton">
@@ -39,13 +39,13 @@
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.Items>
-                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="10" RadiusY="10" Margin="0,0,0,0"/>
+                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="8" RadiusY="8" Margin="0,0,0,0"/>
                             <FontIcon Glyph="&#xE902;" FontFamily="{StaticResource CustomIcons}" FontSize="50" Margin="25,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             <TextBlock Text="Outlook" HorizontalAlignment="Left" FontFamily="Segoe UI Variable Display" FontWeight="Normal" FontSize="20" Margin="25,90,0,0"/>
                             <TextBlock Text="Open Outlook" HorizontalAlignment="Left" FontFamily="Segoe UI Variable" FontWeight="Normal" FontSize="12" Foreground="{ThemeResource TextFillColorSecondary}" Margin="25,120,0,0"/>
                             <FontIcon Glyph="&#xE8A7;" FontSize="16" Margin="155,180,0,0"/>
-                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="10" HorizontalAlignment="Left" Margin="0,0,0,0"/>
-                            <Button Height="225" Width="200" HorizontalAlignment="Left" BorderBrush="Transparent" Background="Transparent" CornerRadius="10" Click="SettingsCard_Click"/>
+                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="8" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            <Button Height="225" Width="200" HorizontalAlignment="Left" BorderBrush="Transparent" Background="Transparent" CornerRadius="8" Click="SettingsCard_Click"/>
                         </ItemsControl.Items>
                     </ItemsControl>
                     <ItemsControl Margin="15,15,0,0" x:Name="GmailButton">
@@ -55,13 +55,13 @@
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.Items>
-                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="10" RadiusY="10" Margin="0,0,0,0"/>
+                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="8" RadiusY="8" Margin="0,0,0,0"/>
                             <FontIcon Glyph="&#xE900;" FontFamily="{StaticResource CustomIcons}" FontSize="50" Margin="25,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             <TextBlock Text="Gmail" HorizontalAlignment="Left" FontFamily="Segoe UI Variable Display" FontWeight="Normal" FontSize="20" Margin="25,90,0,0"/>
                             <TextBlock Text="Open the Gmail page" HorizontalAlignment="Left" FontFamily="Segoe UI Variable" FontWeight="Normal" FontSize="12" Foreground="{ThemeResource TextFillColorSecondary}" Margin="25,120,0,0"/>
                             <FontIcon Glyph="&#xE76C;" FontSize="16" Margin="155,180,0,0"/>
-                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="10" HorizontalAlignment="Left" Margin="0,0,0,0"/>
-                            <Button Height="225" Width="200" BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Left" CornerRadius="10" Click="SettingsCard_Click_3" Margin="0,0,0,0"/>
+                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="8" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            <Button Height="225" Width="200" BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Left" CornerRadius="8" Click="SettingsCard_Click_3" Margin="0,0,0,0"/>
                         </ItemsControl.Items>
                     </ItemsControl>
                     <ItemsControl Margin="15,15,0,0" x:Name="YahooButton">
@@ -71,13 +71,13 @@
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.Items>
-                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="10" RadiusY="10" Margin="0,0,0,0"/>
+                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="8" RadiusY="8" Margin="0,0,0,0"/>
                             <FontIcon Glyph="&#xE903;" FontFamily="{StaticResource CustomIcons}" FontSize="50" Margin="25,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             <TextBlock Text="Yahoo Mail" HorizontalAlignment="Left" FontFamily="Segoe UI Variable Display" FontWeight="Normal" FontSize="20" Margin="25,90,0,0"/>
                             <TextBlock Text="Open the Yahoo Mail page" HorizontalAlignment="Left" FontFamily="Segoe UI Variable" FontWeight="Normal" FontSize="12" Foreground="{ThemeResource TextFillColorSecondary}" Margin="25,120,0,0"/>
                             <FontIcon Glyph="&#xE76C;" FontSize="16" Margin="155,180,0,0"/>
-                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="10" HorizontalAlignment="Left" Margin="0,0,0,0"/>
-                            <Button Height="225" Width="200" BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Left" CornerRadius="10" Click="YahooNavigate" Margin="0,0,0,0"/>
+                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="8" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            <Button Height="225" Width="200" BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Left" CornerRadius="8" Click="YahooNavigate" Margin="0,0,0,0"/>
                         </ItemsControl.Items>
                     </ItemsControl>
                     <ItemsControl Margin="15,15,0,0" x:Name="iCloudButton">
@@ -87,13 +87,13 @@
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.Items>
-                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="10" RadiusY="10" Margin="0,0,0,0"/>
+                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="8" RadiusY="8" Margin="0,0,0,0"/>
                             <FontIcon Glyph="&#xE753;" FontSize="50" Margin="25,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             <TextBlock Text="iCloud Mail" HorizontalAlignment="Left" FontFamily="Segoe UI Variable Display" FontWeight="Normal" FontSize="20" Margin="25,90,0,0"/>
                             <TextBlock Text="Open the iCloud Mail page" HorizontalAlignment="Left" FontFamily="Segoe UI Variable" FontWeight="Normal" FontSize="12" Foreground="{ThemeResource TextFillColorSecondary}" Margin="25,120,0,0"/>
                             <FontIcon Glyph="&#xE76C;" FontSize="16" Margin="155,180,0,0"/>
-                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="10" HorizontalAlignment="Left" Margin="0,0,0,0"/>
-                            <Button Height="225" Width="200" BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Left" CornerRadius="10" Click="SettingsCard_Click_2" Margin="0,0,0,0"/>
+                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="8" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            <Button Height="225" Width="200" BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Left" CornerRadius="8" Click="SettingsCard_Click_2" Margin="0,0,0,0"/>
                         </ItemsControl.Items>
                     </ItemsControl>
                     <ItemsControl Margin="15,15,0,0" x:Name="ProtonButton">
@@ -103,13 +103,13 @@
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.Items>
-                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="10" RadiusY="10" Margin="0,0,0,0"/>
+                            <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="8" RadiusY="8" Margin="0,0,0,0"/>
                             <FontIcon Glyph="&#xE901;" FontFamily="{StaticResource CustomIcons}" FontSize="50" Margin="25,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             <TextBlock Text="Proton Mail" HorizontalAlignment="Left" FontFamily="Segoe UI Variable Display" FontWeight="Normal" FontSize="20" Margin="25,90,0,0"/>
                             <TextBlock Text="Open the Proton Mail page" HorizontalAlignment="Left" FontFamily="Segoe UI Variable" FontWeight="Normal" FontSize="12" Foreground="{ThemeResource TextFillColorSecondary}" Margin="25,120,0,0"/>
                             <FontIcon Glyph="&#xE76C;" FontSize="16" Margin="155,180,0,0"/>
-                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="10" HorizontalAlignment="Left" Margin="0,0,0,0"/>
-                            <Button Height="225" Width="200" BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Left" CornerRadius="10" Click="SettingsCard_Click_1" Margin="0,0,0,0"/>
+                            <Border Opacity="1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" Height="225" Width="200" CornerRadius="8" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            <Button Height="225" Width="200" BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Left" CornerRadius="8" Click="SettingsCard_Click_1" Margin="0,0,0,0"/>
                         </ItemsControl.Items>
                     </ItemsControl>
                     <Rectangle Fill="Transparent" Height="10" Width="25"/>
