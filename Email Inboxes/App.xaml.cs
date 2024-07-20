@@ -127,21 +127,17 @@ namespace Email_Inboxes
             if (!localSettings.Values.ContainsKey(Settings.PaneDisplayMode))
                 localSettings.Values[Settings.PaneDisplayMode] = "Auto";
 
-            //Backwards compatibility code that updates the values of Home, iCloud, Gmail, Proton, & Outlook Enabled settings from strings to booleans & sets FirstBootScreenPassed to true
-            if (!localSettings.Values.ContainsKey(Settings.VersionNumber))
+            //Backwards compatibility code that updates the values of Home, iCloud, Gmail, Proton, & Outlook Enabled from strings to booleans & sets YahooEnabled and FirstBootScreenPassed to true
+            if (localSettings.Values[Settings.HomeEnabled] is string)
             {
-                if (localSettings.Values[Settings.HomeEnabled] is string)
-                {
-                    localSettings.Values[Settings.HomeEnabled] = (string)localSettings.Values[Settings.HomeEnabled] == "True";
-                    localSettings.Values[Settings.iCloudEnabled] = (string)localSettings.Values[Settings.iCloudEnabled] == "True";
-                    localSettings.Values[Settings.GmailEnabled] = (string)localSettings.Values[Settings.GmailEnabled] == "True";
-                    localSettings.Values[Settings.ProtonEnabled] = (string)localSettings.Values[Settings.ProtonEnabled] == "True";
-                    localSettings.Values[Settings.OutlookEnabled] = (string)localSettings.Values[Settings.OutlookEnabled] == "True";
-                    localSettings.Values[Settings.FirstBootScreenPassed] = true;
-                }
+                localSettings.Values[Settings.HomeEnabled] = (string)localSettings.Values[Settings.HomeEnabled] == "True";
+                localSettings.Values[Settings.iCloudEnabled] = (string)localSettings.Values[Settings.iCloudEnabled] == "True";
+                localSettings.Values[Settings.GmailEnabled] = (string)localSettings.Values[Settings.GmailEnabled] == "True";
+                localSettings.Values[Settings.ProtonEnabled] = (string)localSettings.Values[Settings.ProtonEnabled] == "True";
+                localSettings.Values[Settings.OutlookEnabled] = (string)localSettings.Values[Settings.OutlookEnabled] == "True";
+                localSettings.Values[Settings.FirstBootScreenPassed] = localSettings.Values[Settings.YahooEnabled] = true;
             }
 
-            //Creates setting to prevent backwards compatibility code from running in the future and to store version of application
             if (!((string)localSettings.Values[Settings.VersionNumber] == "1.3"))
                 localSettings.Values[Settings.VersionNumber] = "1.3";
 
