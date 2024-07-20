@@ -99,6 +99,18 @@ mc:Ignorable="d">
                     <ComboBoxItem Content="Top"/>
                 </ComboBox>
             </controls:SettingsCard>
+            
+            <TextBlock Text="Additional options" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="14" Margin="2,24,0,4"/>
+            <controls:SettingsCard Description="Clear unneeded browser cache to reduce app size"
+                                 Header="Clear cache"
+                                 HeaderIcon="{ui:FontIcon Glyph=&#xE7B8;}">
+                <Button Content="Clear cache" Click="ClearWebViewCache"/>
+            </controls:SettingsCard>
+            <controls:SettingsCard Description="The command bar allows you to control any page"
+                     Header="Command bar visibility"
+                     HeaderIcon="{ui:FontIcon Glyph=&#xF596;}">
+                <ToggleSwitch Toggled="CommandBarToggle_Toggled" x:Name="commandBarToggle"/>
+            </controls:SettingsCard>
             <controls:SettingsCard Description="Choose what page to display on startup"
                                  Header="Startup page"
                                  HeaderIcon="{ui:FontIcon Glyph=&#xE7E8;}">
