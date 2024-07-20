@@ -220,6 +220,11 @@ namespace Email_Inboxes
 
                 localSettings.Values[App.Settings.ToDoServiceName] = ToDoServiceName;
                 localSettings.Values[App.Settings.ToDoServiceUrl] = ToDoServiceUrl;
+
+                //Refreshes home page to relfect changes
+                MainWindow.Pages.HomePage.HomeWebView.Close();
+                MainWindow.Pages.HomePage.CalendarWebView.Close();
+                MainWindow.Pages.HomePage = new Home();
             }
         }
 
@@ -253,6 +258,11 @@ namespace Email_Inboxes
 
                 localSettings.Values[App.Settings.CalendarServiceName] = CalendarServiceName;
                 localSettings.Values[App.Settings.CalendarServiceUrl] = CalendarServiceUrl;
+
+                //Refreshes home page to relfect changes
+                MainWindow.Pages.HomePage.HomeWebView.Close();
+                MainWindow.Pages.HomePage.CalendarWebView.Close();
+                MainWindow.Pages.HomePage = new Home();
             }
         }
 
