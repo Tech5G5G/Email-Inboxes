@@ -60,6 +60,7 @@ mc:Ignorable="d">
                     <ComboBoxItem Content="Google Calendar"/>
                     <ComboBoxItem Content="Outlook Calendar"/>
                     <ComboBoxItem Content="Apple Calendar"/>
+                    <ComboBoxItem Content="Basic Calendar"/>
                     <ComboBoxItem Content="Disabled"/>
                 </ComboBox>
             </controls:SettingsCard>
