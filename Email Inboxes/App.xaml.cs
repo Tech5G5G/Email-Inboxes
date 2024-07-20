@@ -127,7 +127,7 @@ namespace Email_Inboxes
             if (!localSettings.Values.ContainsKey(Settings.PaneDisplayMode))
                 localSettings.Values[Settings.PaneDisplayMode] = "Auto";
 
-            //Backwards compatibility code that updates the values of Home, iCloud, Gmail, Proton, & Outlook Enabled settings from strings to booleans
+            //Backwards compatibility code that updates the values of Home, iCloud, Gmail, Proton, & Outlook Enabled settings from strings to booleans & sets FirstBootScreenPassed to true
             if (!localSettings.Values.ContainsKey(Settings.VersionNumber))
             {
                 localSettings.Values[Settings.HomeEnabled] = (string)localSettings.Values[Settings.HomeEnabled] == "True";
@@ -135,6 +135,7 @@ namespace Email_Inboxes
                 localSettings.Values[Settings.GmailEnabled] = (string)localSettings.Values[Settings.GmailEnabled] == "True";
                 localSettings.Values[Settings.ProtonEnabled] = (string)localSettings.Values[Settings.ProtonEnabled] == "True";
                 localSettings.Values[Settings.OutlookEnabled] = (string)localSettings.Values[Settings.OutlookEnabled] == "True";
+                localSettings.Values[Settings.FirstBootScreenPassed] = true;
             }
 
             //Creates setting to prevent backwards compatibility code from running in the future and to store version of application
