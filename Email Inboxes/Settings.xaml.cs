@@ -18,6 +18,8 @@ using Windows.ApplicationModel.Core;
 using Microsoft.UI.Composition.SystemBackdrops;
 using Windows.ApplicationModel.VoiceCommands;
 using Windows.Storage.Pickers;
+using Microsoft.Web.WebView2.Core;
+using System.Threading.Tasks;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -515,6 +517,16 @@ namespace Email_Inboxes
                 //Saves the status of commandBarToggle when it is toggled
                 localSettings.Values[App.Settings.CommandBarEnabled] = commandBarToggle.IsOn;
             }
+        }
+
+        private async void ClearWebViewCache(object sender, RoutedEventArgs e)
+        {
+            WebView2 webView2 = new WebView2() { Source = new Uri("https://www.example.com") };
+            await Task.Delay(100);
+            CoreWebView2Profile profile = webView2.CoreWebView2.Profile;
+            CoreWebView2BrowsingDataKinds dataKinds = (CoreWebView2BrowsingDataKinds.DiskCache | CoreWebView2BrowsingDataKinds.CacheStorage | CoreWebView2BrowsingDataKinds.IndexedDb | CoreWebView2BrowsingDataKinds.WebSql | CoreWebView2BrowsingDataKinds.FileSystems);
+            await profile.ClearBrowsingDataAsync(dataKinds);
+            webView2.Close();
         }
 
         private void MakeSettingsChangeable()
