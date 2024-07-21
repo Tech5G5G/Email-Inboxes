@@ -339,7 +339,6 @@ namespace Email_Inboxes
                     ForwardButton.IsEnabled = WebViews.OutlookWebView.CanGoForward;
                     break;
                 case "NavItem_Yahoo":
-                    page = Pages.YahooPage;
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
@@ -378,29 +377,24 @@ namespace Email_Inboxes
             switch (selectedItem.Name)
             {
                 case "NavItem_Outlook":
-                    Pages.OutlookPage.OutlookWebView.Close();
-                    Pages.OutlookPage = new Outlook();
-                    contentFrame.Content = Pages.OutlookPage;
+                    string outlookWebViewSource = "https://https://outlook.live.com";
+                    if ((string)localSettings.Values[App.Settings.OutlookAppType] == "Website")
+                        outlookWebViewSource = "https://outlook.live.com";
+                    else
+                        outlookWebViewSource = "https://outlook.office.com";
+                    WebViews.OutlookWebView.Source = new Uri(outlookWebViewSource);
                     break;
                 case "NavItem_Gmail":
-                    Pages.GmailPage.GmailWebView.Close();
-                    Pages.GmailPage = new Gmail();
-                    contentFrame.Content = Pages.GmailPage;
+                    WebViews.GmailWebView.Source = new Uri("https://mail.google.com/mail/u/0/");
                     break;
                 case "NavItem_Yahoo":
-                    Pages.YahooPage.YahooWebView.Close();
-                    Pages.YahooPage = new Yahoo();
-                    contentFrame.Content = Pages.YahooPage;
+                    WebViews.YahooWebView.Source = new Uri("https://mail.yahoo.com");
                     break;
                 case "NavItem_iCloud":
-                    Pages.IcloudPage.IcloudWebView.Close();
-                    Pages.IcloudPage = new iCloud();
-                    contentFrame.Content = Pages.IcloudPage;
+                    WebViews.IcloudWebView.Source = new Uri("https://www.icloud.com/mail");
                     break;
                 case "NavItem_Proton":
-                    Pages.ProtonPage.ProtonWebView.Close();
-                    Pages.ProtonPage = new Proton();
-                    contentFrame.Content = Pages.ProtonPage;
+                    WebViews.ProtonWebView.Source = new Uri("https://mail.proton.me/");
                     break;
             }
         }
@@ -411,19 +405,19 @@ namespace Email_Inboxes
             switch (selectedItem.Name)
             {
                 case "NavItem_Outlook":
-                    Pages.OutlookPage.OutlookWebView.Reload();
+                    WebViews.OutlookWebView.Reload();
                     break;
                 case "NavItem_Gmail":
-                    Pages.GmailPage.GmailWebView.Reload();
+                    WebViews.GmailWebView.Reload();
                     break;
                 case "NavItem_Yahoo":
-                    Pages.YahooPage.YahooWebView.Reload();
+                    WebViews.YahooWebView.Reload();
                     break;
                 case "NavItem_iCloud":
-                    Pages.IcloudPage.IcloudWebView.Reload();
+                    WebViews.IcloudWebView.Reload();
                     break;
                 case "NavItem_Proton":
-                    Pages.ProtonPage.ProtonWebView.Reload();
+                    WebViews.ProtonWebView.Reload();
                     break;
             }
         }
@@ -434,19 +428,19 @@ namespace Email_Inboxes
             switch (selectedItem.Name)
             {
                 case "NavItem_Outlook":
-                    Pages.OutlookPage.OutlookWebView.GoBack();
+                    WebViews.OutlookWebView.GoBack();
                     break;
                 case "NavItem_Gmail":
-                    Pages.GmailPage.GmailWebView.GoBack();
+                    WebViews.GmailWebView.GoBack();
                     break;
                 case "NavItem_Yahoo":
-                    Pages.YahooPage.YahooWebView.GoBack();
+                    WebViews.YahooWebView.GoBack();
                     break;
                 case "NavItem_iCloud":
-                    Pages.IcloudPage.IcloudWebView.GoBack();
+                    WebViews.IcloudWebView.GoBack();
                     break;
                 case "NavItem_Proton":
-                    Pages.ProtonPage.ProtonWebView.GoBack();
+                    WebViews.ProtonWebView.GoBack();
                     break;
             }
         }
@@ -457,19 +451,19 @@ namespace Email_Inboxes
             switch (selectedItem.Name)
             {
                 case "NavItem_Outlook":
-                    Pages.OutlookPage.OutlookWebView.GoForward();
+                    WebViews.OutlookWebView.GoForward();
                     break;
                 case "NavItem_Gmail":
-                    Pages.GmailPage.GmailWebView.GoForward();
+                    WebViews.GmailWebView.GoForward();
                     break;
                 case "NavItem_Yahoo":
-                    Pages.YahooPage.YahooWebView.GoForward();
+                    WebViews.YahooWebView.GoForward();
                     break;
                 case "NavItem_iCloud":
-                    Pages.IcloudPage.IcloudWebView.GoForward();
+                    WebViews.IcloudWebView.GoForward();
                     break;
                 case "NavItem_Proton":
-                    Pages.ProtonPage.ProtonWebView.GoForward();
+                    WebViews.ProtonWebView.GoForward();
                     break;
             }
         }
@@ -480,19 +474,19 @@ namespace Email_Inboxes
             switch (selectedItem.Name)
             {
                 case "NavItem_Outlook":
-                    Pages.OutlookPage.OutlookWebView.CoreWebView2.OpenDevToolsWindow();
+                    WebViews.OutlookWebView.CoreWebView2.OpenDevToolsWindow();
                     break;
                 case "NavItem_Gmail":
-                    Pages.GmailPage.GmailWebView.CoreWebView2.OpenDevToolsWindow();
+                    WebViews.GmailWebView.CoreWebView2.OpenDevToolsWindow();
                     break;
                 case "NavItem_Yahoo":
-                    Pages.YahooPage.YahooWebView.CoreWebView2.OpenDevToolsWindow();
+                    WebViews.YahooWebView.CoreWebView2.OpenDevToolsWindow();
                     break;
                 case "NavItem_iCloud":
-                    Pages.IcloudPage.IcloudWebView.CoreWebView2.OpenDevToolsWindow();
+                    WebViews.IcloudWebView.CoreWebView2.OpenDevToolsWindow();
                     break;
                 case "NavItem_Proton":
-                    Pages.ProtonPage.ProtonWebView.CoreWebView2.OpenDevToolsWindow();
+                    WebViews.ProtonWebView.CoreWebView2.OpenDevToolsWindow();
                     break;
             }
         }
@@ -503,19 +497,19 @@ namespace Email_Inboxes
             switch (selectedItem.Name)
             {
                 case "NavItem_Outlook":
-                    Pages.OutlookPage.OutlookWebView.CoreWebView2.OpenTaskManagerWindow();
+                    WebViews.OutlookWebView.CoreWebView2.OpenTaskManagerWindow();
                     break;
                 case "NavItem_Gmail":
-                    Pages.GmailPage.GmailWebView.CoreWebView2.OpenTaskManagerWindow();
+                    WebViews.GmailWebView.CoreWebView2.OpenTaskManagerWindow();
                     break;
                 case "NavItem_Yahoo":
-                    Pages.YahooPage.YahooWebView.CoreWebView2.OpenTaskManagerWindow();
+                    WebViews.YahooWebView.CoreWebView2.OpenTaskManagerWindow();
                     break;
                 case "NavItem_iCloud":
-                    Pages.IcloudPage.IcloudWebView.CoreWebView2.OpenTaskManagerWindow();
+                    WebViews.IcloudWebView.CoreWebView2.OpenTaskManagerWindow();
                     break;
                 case "NavItem_Proton":
-                    Pages.ProtonPage.ProtonWebView.CoreWebView2.OpenTaskManagerWindow();
+                    WebViews.ProtonWebView.CoreWebView2.OpenTaskManagerWindow();
                     break;
             }
         }
