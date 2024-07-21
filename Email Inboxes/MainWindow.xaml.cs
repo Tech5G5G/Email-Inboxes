@@ -47,6 +47,58 @@ namespace Email_Inboxes
 
     public sealed partial class MainWindow : Window
     {
+        public static class WebViews
+        {
+            public static WebView2 OutlookWebView
+            {
+                get { return outlookWebView; }
+                set { outlookWebView = value; }
+            }
+            private static WebView2 outlookWebView;
+
+            public static WebView2 GmailWebView
+            {
+                get { return gmailWebView; } 
+                set {  gmailWebView = value; }
+            }
+            private static WebView2 gmailWebView;
+
+            public static WebView2 YahooWebView
+            {
+                get { return yahooWebView; }
+                set { yahooWebView = value; }
+            }
+            private static WebView2 yahooWebView;
+
+            public static WebView2 IcloudWebView
+            {
+                get { return iCloudWebView; }
+                set { iCloudWebView = value; }
+            }
+            private static WebView2 iCloudWebView;
+
+            public static WebView2 ProtonWebView
+            {
+                get { return protonWebView; }
+                set { protonWebView = value; }
+            }
+            private static WebView2 protonWebView;
+
+            public static WebView2 ToDoWebView
+            {
+                get { return toDoWebView; }
+                set { toDoWebView = value; }
+            }
+            private static WebView2 toDoWebView;
+
+            public static WebView2 CalendarWebView
+            {
+                get { return calendarWebView; }
+                set { calendarWebView = value; }
+            }
+            private static WebView2 calendarWebView;
+        }
+
         public static class Pages
         {
             public static Home HomePage
