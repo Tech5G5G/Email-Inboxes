@@ -276,66 +276,67 @@ namespace Email_Inboxes
             }
         }
 
-        private async void nvSample_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        private void nvSample_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             //Changes the content of the contentFrame related to the users selection
-            Page page = null;
+            Type pageType = typeof(Home);
 
             var selectedItem = (NavigationViewItem)args.SelectedItem;
             switch (selectedItem.Name)
             {
                 case "NavItem_Home":
-                    page = Pages.HomePage;
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Visible && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Collapsed;
                         SetRegionsForCustomTitleBar();
                     }
+                    pageType = typeof(Home);
                     break;
                 case "NavItem_Gmail":
-                    page = Pages.GmailPage;
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
                     }
-                    BackButton.IsEnabled = Pages.GmailPage.GmailWebView.CanGoBack;
-                    ForwardButton.IsEnabled = Pages.GmailPage.GmailWebView.CanGoForward;
+                    pageType = typeof(Gmail);
+                    BackButton.IsEnabled = WebViews.GmailWebView.CanGoBack;
+                    ForwardButton.IsEnabled = WebViews.GmailWebView.CanGoForward;
                     break;
                 case "NavItem_iCloud":
-                    page = Pages.IcloudPage;
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
                     }
-                    BackButton.IsEnabled = Pages.IcloudPage.IcloudWebView.CanGoBack;
-                    ForwardButton.IsEnabled = Pages.IcloudPage.IcloudWebView.CanGoForward;
+                    pageType = typeof(iCloud);
+                    BackButton.IsEnabled = WebViews.IcloudWebView.CanGoBack;
+                    ForwardButton.IsEnabled = WebViews.IcloudWebView.CanGoForward;
                     break;
                 case "NavItem_Proton":
-                    page = Pages.ProtonPage;
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
                     }
-                    BackButton.IsEnabled = Pages.ProtonPage.ProtonWebView.CanGoBack;
-                    ForwardButton.IsEnabled = Pages.ProtonPage.ProtonWebView.CanGoForward;
+                    pageType = typeof(Proton);
+                    BackButton.IsEnabled = WebViews.ProtonWebView.CanGoBack;
+                    ForwardButton.IsEnabled = WebViews.ProtonWebView.CanGoForward;
                     break;
                 case "NavItem_Outlook":
-                    page = Pages.OutlookPage;
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
                     }
-                    BackButton.IsEnabled = Pages.OutlookPage.OutlookWebView.CanGoBack;
-                    ForwardButton.IsEnabled = Pages.OutlookPage.OutlookWebView.CanGoForward;
+                    pageType = typeof(Outlook);
+                    contentFrame.Navigate(typeof(Outlook), null, null);
+                    BackButton.IsEnabled = WebViews.OutlookWebView.CanGoBack;
+                    ForwardButton.IsEnabled = WebViews.OutlookWebView.CanGoForward;
                     break;
                 case "NavItem_Yahoo":
                     page = Pages.YahooPage;
@@ -345,33 +346,30 @@ namespace Email_Inboxes
                         CommandBar.Visibility = Visibility.Visible;
                         SetRegionsForCustomTitleBar();
                     }
-                    BackButton.IsEnabled = Pages.YahooPage.YahooWebView.CanGoBack;
-                    ForwardButton.IsEnabled = Pages.YahooPage.YahooWebView.CanGoForward;
+                    pageType = typeof(Yahoo);
+                    BackButton.IsEnabled = WebViews.YahooWebView.CanGoBack;
+                    ForwardButton.IsEnabled = WebViews.YahooWebView.CanGoForward;
                     break;
                 case "SettingsItem":
-                    page = new Settings();
                     if (CommandBar.Visibility == Visibility.Visible && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Collapsed;
                         SetRegionsForCustomTitleBar();
                     }
+                    pageType = typeof(Settings);
                     break;
                 default:
-                    page = Pages.HomePage;
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Visible && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Collapsed;
                         SetRegionsForCustomTitleBar();
                     }
+                    pageType = typeof(Home);
                     break;
             }
-            contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { VerticalOffset = 1000 } };
 
-            _ = contentFrame.Content = page;
-
-            await Task.Delay(500);
-            contentFrame.ContentTransitions = null;
+            _ = contentFrame.Navigate(pageType, null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromBottom });
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
