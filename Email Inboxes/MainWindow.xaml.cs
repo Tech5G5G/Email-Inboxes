@@ -99,51 +99,6 @@ namespace Email_Inboxes
             private static WebView2 calendarWebView;
         }
 
-        public static class Pages
-        {
-            public static Home HomePage
-            {
-                get {  return homePage; }
-                set { homePage = value; }
-            }
-            private static Home homePage = new Home();
-
-            public static Gmail GmailPage
-            {
-                get { return gmailPage; }
-                set { gmailPage = value; }
-            }
-            private static Gmail gmailPage = new Gmail();
-
-            public static iCloud IcloudPage
-            {
-                get { return iCloudPage; }
-                set { iCloudPage = value; }
-            }
-            private static iCloud iCloudPage = new iCloud();
-
-            public static Outlook OutlookPage
-            {
-                get { return outlookPage; }
-                set { outlookPage = value; }
-            }
-            private static Outlook outlookPage = new Outlook();
-
-            public static Proton ProtonPage
-            {
-                get { return protonPage; }
-                set {  protonPage = value; }
-            }
-            private static Proton protonPage = new Proton();
-
-            public static Yahoo YahooPage
-            {
-                get { return yahooPage; }
-                set {  yahooPage = value; }
-            }
-            private static Yahoo yahooPage = new Yahoo();
-        }
-
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         private Microsoft.UI.Windowing.AppWindow m_AppWindow;
