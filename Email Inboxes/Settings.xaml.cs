@@ -20,6 +20,7 @@ using Windows.ApplicationModel.VoiceCommands;
 using Windows.Storage.Pickers;
 using Microsoft.Web.WebView2.Core;
 using System.Threading.Tasks;
+using static Email_Inboxes.MainWindow;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
