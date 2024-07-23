@@ -604,6 +604,9 @@ namespace Email_Inboxes
 
                 MainWindow mw = (MainWindow)((App)Application.Current).m_window;
                 mw.NavItem_Yahoo.Visibility = isYahooEnabled ? Visibility.Visible : Visibility.Collapsed;
+
+                if (!(WebViews.YahooButton == null))
+                    WebViews.YahooButton.Visibility = isYahooEnabled ? Visibility.Visible : Visibility.Collapsed;
             }
         }
 
