@@ -120,54 +120,44 @@ namespace Email_Inboxes
         }
 
         //All below changes the selected nvSample item with a different animation
-        private async void SettingsCard_Click_1(object sender, RoutedEventArgs e)
+        private void SettingsCard_Click_1(object sender, RoutedEventArgs e)
         {
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Proton");
             mw.nvSample.SelectedItem = item;
-            mw.contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { HorizontalOffset = 1000, VerticalOffset = 0 } };
-            await Task.Delay(500);
-            mw.contentFrame.ContentTransitions = null;
+            mw.contentFrame.Navigate(typeof(Proton), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
         }
 
-        private async void SettingsCard_Click_2(object sender, RoutedEventArgs e)
+        private void SettingsCard_Click_2(object sender, RoutedEventArgs e)
         {
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_iCloud");
             mw.nvSample.SelectedItem = item;
-            mw.contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { HorizontalOffset = 1000, VerticalOffset = 0 } };
-            await Task.Delay(500);
-            mw.contentFrame.ContentTransitions = null;
+            mw.contentFrame.Navigate(typeof(iCloud), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
         }
 
-        private async void SettingsCard_Click_3(object sender, RoutedEventArgs e)
+        private void SettingsCard_Click_3(object sender, RoutedEventArgs e)
         {
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Gmail");
             mw.nvSample.SelectedItem = item;
-            mw.contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { HorizontalOffset = 1000, VerticalOffset = 0 } };
-            await Task.Delay(500);
-            mw.contentFrame.ContentTransitions = null;
+            mw.contentFrame.Navigate(typeof(Gmail), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
         }
 
-        private async void OutlookNavigate(object sender, RoutedEventArgs e)
+        private void OutlookNavigate(object sender, RoutedEventArgs e)
         {
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Outlook");
             mw.nvSample.SelectedItem = item;
-            mw.contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { HorizontalOffset = 1000, VerticalOffset = 0 } };
-            await Task.Delay(500);
-            mw.contentFrame.ContentTransitions = null;
+            mw.contentFrame.Navigate(typeof(Outlook), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
         }
 
-        private async void YahooNavigate(object sender, RoutedEventArgs e)
+        private void YahooNavigate(object sender, RoutedEventArgs e)
         {
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Yahoo");
             mw.nvSample.SelectedItem = item;
-            mw.contentFrame.ContentTransitions = new TransitionCollection { new ContentThemeTransition() { HorizontalOffset = 1000, VerticalOffset = 0 } };
-            await Task.Delay(500);
-            mw.contentFrame.ContentTransitions = null;
+            mw.contentFrame.Navigate(typeof(Yahoo), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
         }
     }
 }
