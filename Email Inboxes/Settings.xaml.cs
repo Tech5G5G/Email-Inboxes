@@ -333,11 +333,31 @@ namespace Email_Inboxes
                 MainWindow mw = (MainWindow)((App)Application.Current).m_window;
                 if (IsOutlookEnabled)
                 {
-                    mw.NavItem_Outlook.Visibility = (string)localSettings.Values[App.Settings.OutlookAppType] == "Website" ? Visibility.Visible : Visibility.Collapsed;
+                    if ((string)localSettings.Values[App.Settings.OutlookAppType] == "Website" || (string)localSettings.Values[App.Settings.OutlookAppType] == "Business website")
+                    {
+                        mw.NavItem_Outlook.Visibility = Visibility.Visible;
+                        if (!(WebViews.OutlookPageButton == null && WebViews.OutlookAppButton == null))
+                        {
+                            WebViews.OutlookPageButton.Visibility = Visibility.Visible;
+                            WebViews.OutlookAppButton.Visibility = Visibility.Collapsed;
                 }
+
+                    }
                 else
                 {
                     mw.NavItem_Outlook.Visibility = Visibility.Collapsed;
+                        if (!(WebViews.OutlookPageButton == null && WebViews.OutlookAppButton == null))
+                        {
+                            WebViews.OutlookPageButton.Visibility = Visibility.Collapsed;
+                            WebViews.OutlookAppButton.Visibility = Visibility.Visible;
+                }
+            }
+        }
+                else
+                {
+                    mw.NavItem_Outlook.Visibility = Visibility.Collapsed;
+                    if (!(WebViews.OutlookPageButton == null && WebViews.OutlookAppButton == null))
+                        WebViews.OutlookAppButton.Visibility = WebViews.OutlookPageButton.Visibility = Visibility.Collapsed;
                 }
             }
         }
@@ -409,25 +429,42 @@ namespace Email_Inboxes
                     mw.NavItem_Outlook.Visibility = outlookAppType == "Website" || outlookAppType == "Business website" ? Visibility.Visible : Visibility.Collapsed;
                     ExePathCard.Visibility = outlookAppType == "Website" || outlookAppType == "Business website" ? Visibility.Collapsed : Visibility.Visible;
 
-                    //Refreshes the OutlookPage to reflect changes
-                    if (outlookAppType == "Website" || outlookAppType == "Business website")
+                    //Refreshes the OutlookWebView to reflect changes
+                    if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
                     {
-                        MainWindow.Pages.HomePage.HomeWebView.Close();
-                        MainWindow.Pages.HomePage.CalendarWebView.Close();
-                        MainWindow.Pages.HomePage = new Home();
-                        MainWindow.Pages.OutlookPage.OutlookWebView.Close();
-                        MainWindow.Pages.OutlookPage = new Outlook();
+                        if (outlookAppType == "Website")
+                        {
+                            if (!(WebViews.OutlookPageButton == null && WebViews.OutlookAppButton == null))
+                            {
+                                WebViews.OutlookPageButton.Visibility = Visibility.Visible;
+                                WebViews.OutlookAppButton.Visibility = Visibility.Collapsed;
+                            }
+                            if (!(WebViews.OutlookWebView == null))
+                                WebViews.OutlookWebView.Source = new Uri("https://outlook.live.com");
+                        }
+                        else if (outlookAppType == "Business website")
+                        {
+                            if (!(WebViews.OutlookPageButton == null && WebViews.OutlookAppButton == null))
+                            {
+                                WebViews.OutlookPageButton.Visibility = Visibility.Visible;
+                                WebViews.OutlookAppButton.Visibility = Visibility.Collapsed;
+                            }
+                            if (!(WebViews.OutlookWebView == null))
+                                WebViews.OutlookWebView.Source = new Uri("https://outlook.office.com");
                     }
                     else
                     {
-                        MainWindow.Pages.HomePage.HomeWebView.Close();
-                        MainWindow.Pages.HomePage.CalendarWebView.Close();
-                        MainWindow.Pages.HomePage = new Home();
+                            if (!(WebViews.OutlookPageButton == null && WebViews.OutlookAppButton == null))
+                            {
+                                WebViews.OutlookPageButton.Visibility = Visibility.Collapsed;
+                                WebViews.OutlookAppButton.Visibility = Visibility.Visible;
+                            }
                     }
                 }
                 else
                 {
-                    mw.NavItem_Outlook.Visibility = Visibility.Collapsed;
+                        mw.NavItem_Outlook.Visibility = WebViews.OutlookPageButton.Visibility = WebViews.OutlookAppButton.Visibility = Visibility.Collapsed;
+                    }
                 }
             }
         }
