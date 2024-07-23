@@ -622,12 +622,19 @@ namespace Email_Inboxes
 
         private async void ClearWebViewCache(object sender, RoutedEventArgs e)
         {
+            clearCacheButton.IsEnabled = false;
+            cacheProgressRing.Visibility = Visibility.Visible;
+
             WebView2 webView2 = new WebView2() { Source = new Uri("https://www.example.com") };
             await Task.Delay(100);
             CoreWebView2Profile profile = webView2.CoreWebView2.Profile;
             CoreWebView2BrowsingDataKinds dataKinds = (CoreWebView2BrowsingDataKinds.DiskCache | CoreWebView2BrowsingDataKinds.CacheStorage | CoreWebView2BrowsingDataKinds.IndexedDb | CoreWebView2BrowsingDataKinds.WebSql | CoreWebView2BrowsingDataKinds.FileSystems);
             await profile.ClearBrowsingDataAsync(dataKinds);
             webView2.Close();
+
+            await Task.Delay(1000);
+            clearCacheButton.IsEnabled = true;
+            cacheProgressRing.Visibility = Visibility.Collapsed;
         }
 
         private void MakeSettingsChangeable()
