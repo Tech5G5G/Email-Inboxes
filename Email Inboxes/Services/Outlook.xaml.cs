@@ -40,6 +40,13 @@ namespace Email_Inboxes
         {
             this.InitializeComponent();
 
+            //Creates OutlookWebView and sets the content of the page to it
+            if (WebViews.OutlookWebView == null)
+            {
+                WebViews.OutlookWebView = new WebView2();
+            }
+            this.Content = WebViews.OutlookWebView;
+
             //Runs method CoreWebView2Intitialized once the title suggests is done 
             OutlookWebView.CoreWebView2Initialized += CoreWebView2Initialized;
 

@@ -32,6 +32,13 @@ namespace Email_Inboxes.Services
         {
             this.InitializeComponent();
 
+            //Creates YahooWebView and sets the content of the page to it
+            if (WebViews.YahooWebView == null)
+            {
+                WebViews.YahooWebView = new WebView2() { Source = new Uri("https://mail.yahoo.com") };
+            }
+            this.Content = WebViews.YahooWebView;
+
             //Runs method CoreWebView2Intitialized once the title suggests is done 
             YahooWebView.CoreWebView2Initialized += CoreWebView2Initialized;
         }

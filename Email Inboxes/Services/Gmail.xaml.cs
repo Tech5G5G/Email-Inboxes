@@ -31,6 +31,13 @@ namespace Email_Inboxes
         {
             this.InitializeComponent();
 
+            //Creates GmailWebView and sets the content of the page to it
+            if (WebViews.GmailWebView == null)
+            {
+                WebViews.GmailWebView = new WebView2() { Source = new Uri("https://mail.google.com/mail/u/0/") };
+            }
+            this.Content = WebViews.GmailWebView;
+
             //Runs method CoreWebView2Intitialized once the title suggests is done 
             GmailWebView.CoreWebView2Initialized += CoreWebView2Initialized;
         }

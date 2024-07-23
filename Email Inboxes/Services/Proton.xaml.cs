@@ -31,6 +31,13 @@ namespace Email_Inboxes
         {
             this.InitializeComponent();
 
+            //Creates ProtonWebView and sets the content of the page to it
+            if (WebViews.ProtonWebView == null)
+            {
+                WebViews.ProtonWebView= new WebView2() { Source = new Uri("https://mail.proton.me/") };
+            }
+            this.Content = WebViews.ProtonWebView;
+
             //Runs method CoreWebView2Intitialized once the title suggests is done 
             ProtonWebView.CoreWebView2Initialized += CoreWebView2Initialized;
         }

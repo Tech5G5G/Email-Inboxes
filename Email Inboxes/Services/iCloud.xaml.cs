@@ -31,6 +31,13 @@ namespace Email_Inboxes
         {
             this.InitializeComponent();
 
+            //Creates IcloudWebView and sets the content of the page to it
+            if (WebViews.IcloudWebView == null)
+            {
+                WebViews.IcloudWebView = new WebView2() { Source = new Uri("https://www.icloud.com/mail") };
+            }
+            this.Content = WebViews.IcloudWebView;
+
             //Runs method CoreWebView2Intitialized once the title suggests is done 
             IcloudWebView.CoreWebView2Initialized += CoreWebView2Initialized;
         }
