@@ -50,6 +50,25 @@ namespace Email_Inboxes
 
             if (WebViews.CalendarView == null)
                 WebViews.CalendarView = new CalendarView() { CornerRadius = new CornerRadius(8), HorizontalAlignment = HorizontalAlignment.Stretch, VerticalAlignment = VerticalAlignment.Stretch, Height = 500, Margin = new Thickness(25, 0, 25, 25) };
+
+            if (WebViews.OutlookPageButton == null)
+                WebViews.OutlookPageButton = OutlookPageButton;
+
+            if (WebViews.OutlookAppButton == null)
+                WebViews.OutlookAppButton = OutlookAppButton;
+
+            if (WebViews.GmailButton == null)
+                WebViews.GmailButton = GmailButton;
+
+            if (WebViews.YahooButton == null)
+                WebViews.YahooButton = YahooButton;
+
+            if (WebViews.IcloudButton == null)
+                WebViews.IcloudButton = iCloudButton;
+
+            if (WebViews.ProtonButton == null)
+                WebViews.ProtonButton = ProtonButton;
+
             homeItems.Children.Add(WebViews.CalendarWebView);
             homeItems.Children.Add(WebViews.CalendarView);
             homeItems.Children.Add(WebViews.ToDoWebView);
