@@ -265,7 +265,7 @@ namespace Email_Inboxes
             //Only allows settings to be changed once the settings page has completely loaded in
             if (App.Settings.SettingsChangable)
             {
-                //Saves the calendar service name and URL
+                //Saves the calendar service name & URL and updates the home page
                 string CalendarServiceName = (CalendarService.SelectedItem as ComboBoxItem).Content.ToString();
                 string CalendarServiceUrl = "disabled";
 
@@ -273,28 +273,50 @@ namespace Email_Inboxes
                 {
                     case "Apple Calendar":
                         CalendarServiceUrl = "https://www.icloud.com/calendar/";
+                        if (!(WebViews.CalendarWebView == null))
+                        {
+                            WebViews.CalendarWebView.Visibility = Visibility.Visible;
+                            WebViews.CalendarWebView.Source = new Uri(CalendarServiceUrl);
+                            WebViews.CalendarView.Visibility = Visibility.Collapsed;
+                        }
                         break;
                     case "Outlook Calendar":
                         CalendarServiceUrl = "https://outlook.live.com/calendar/";
+                        if (!(WebViews.CalendarWebView == null))
+                        {
+                            WebViews.CalendarWebView.Visibility = Visibility.Visible;
+                            WebViews.CalendarWebView.Source = new Uri(CalendarServiceUrl);
+                            WebViews.CalendarView.Visibility = Visibility.Collapsed;
+                        }
                         break;
                     case "Google Calendar":
-                        CalendarServiceUrl = "https://calendar.google.com/";
+                        if (!(WebViews.CalendarWebView == null))
+                        {
+                            WebViews.CalendarWebView.Visibility = Visibility.Visible;
+                            WebViews.CalendarWebView.Source = new Uri(CalendarServiceUrl);
+                            WebViews.CalendarView.Visibility = Visibility.Collapsed;
+                        }
                         break;
                     case "Basic Calendar":
                         CalendarServiceUrl = "basiccalendar";
+                        if (!(WebViews.CalendarWebView == null))
+                        {
+                            WebViews.CalendarWebView.Visibility = Visibility.Collapsed;
+                            WebViews.CalendarView.Visibility = Visibility.Visible;
+                        }
                         break;
                     case "Disabled":
                         CalendarServiceUrl = "disabled";
+                        if (!(WebViews.CalendarWebView == null))
+                        {
+                            WebViews.CalendarWebView.Visibility = Visibility.Collapsed;
+                            WebViews.CalendarView.Visibility = Visibility.Collapsed;
+                        }
                         break;
                 }
 
                 localSettings.Values[App.Settings.CalendarServiceName] = CalendarServiceName;
                 localSettings.Values[App.Settings.CalendarServiceUrl] = CalendarServiceUrl;
-
-                //Refreshes home page to relfect changes
-                MainWindow.Pages.HomePage.HomeWebView.Close();
-                MainWindow.Pages.HomePage.CalendarWebView.Close();
-                MainWindow.Pages.HomePage = new Home();
             }
         }
 
