@@ -15,7 +15,7 @@
         <StackPanel x:Name="homeItems">
             <TextBlock Text="Home" FontSize="28" FontFamily="Segoe UI Variable Display" FontWeight="SemiBold" Margin="25,25,25,0"/>
             <ScrollView VerticalScrollMode="Disabled" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto" Margin="0,0,0,15">
-                <StackPanel Margin="0,5,0,10" Orientation="Horizontal">
+                <StackPanel Margin="0,5,0,10" Orientation="Horizontal" x:Name="inboxButtons">
                     <Rectangle Fill="Transparent" Height="10" Width="10"/>
                     <ItemsControl Margin="15,15,0,0" x:Name="OutlookPageButton">
                         <ItemsControl.ItemsPanel>
