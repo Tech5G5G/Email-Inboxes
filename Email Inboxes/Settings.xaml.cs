@@ -383,6 +383,9 @@ namespace Email_Inboxes
 
                 MainWindow mw = (MainWindow)((App)Application.Current).m_window;
                 mw.NavItem_Gmail.Visibility = IsGmailEnabled ? Visibility.Visible : Visibility.Collapsed;
+
+                if (!(WebViews.GmailButton == null))
+                    WebViews.GmailButton.Visibility = IsGmailEnabled ? Visibility.Visible : Visibility.Collapsed;
             }
         }
 
