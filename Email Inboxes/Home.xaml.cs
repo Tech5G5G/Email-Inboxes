@@ -42,6 +42,18 @@ namespace Email_Inboxes
         {
             this.InitializeComponent();
 
+            if (WebViews.CalendarWebView == null)
+                WebViews.CalendarWebView = new WebView2() { HorizontalAlignment = HorizontalAlignment.Stretch, VerticalAlignment = VerticalAlignment.Stretch, Height = 500, Margin = new Thickness(25,0,25,25) };
+
+            if (WebViews.ToDoWebView == null)
+                WebViews.ToDoWebView = new WebView2() { HorizontalAlignment = HorizontalAlignment.Stretch, VerticalAlignment = VerticalAlignment.Stretch, Height = 500, Margin = new Thickness(25, 0, 25, 25) };
+
+            if (WebViews.CalendarView == null)
+                WebViews.CalendarView = new CalendarView() { CornerRadius = new CornerRadius(8), HorizontalAlignment = HorizontalAlignment.Stretch, VerticalAlignment = VerticalAlignment.Stretch, Height = 500, Margin = new Thickness(25, 0, 25, 25) };
+            homeItems.Children.Add(WebViews.CalendarWebView);
+            homeItems.Children.Add(WebViews.CalendarView);
+            homeItems.Children.Add(WebViews.ToDoWebView);
+
             //Shows or hides the WebView that shows the user selected to do app/service
             string ToDoServiceUrl = (string)localSettings.Values[App.Settings.ToDoServiceUrl];
             if (ToDoServiceUrl == "disabled") HomeWebView.Visibility = Visibility.Collapsed;
