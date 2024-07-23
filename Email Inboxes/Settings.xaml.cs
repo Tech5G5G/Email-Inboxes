@@ -400,6 +400,9 @@ namespace Email_Inboxes
 
                 MainWindow mw = (MainWindow)((App)Application.Current).m_window;
                 mw.NavItem_iCloud.Visibility = IsiCloudEnabled ? Visibility.Visible : Visibility.Collapsed;
+
+                if (!(WebViews.IcloudButton == null))
+                    WebViews.IcloudButton.Visibility = IsiCloudEnabled ? Visibility.Visible : Visibility.Collapsed;
             }
         }
 
