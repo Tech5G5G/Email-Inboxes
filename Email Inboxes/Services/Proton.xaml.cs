@@ -14,6 +14,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using static Email_Inboxes.MainWindow;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -39,16 +40,16 @@ namespace Email_Inboxes
             this.Content = WebViews.ProtonWebView;
 
             //Runs method CoreWebView2Intitialized once the title suggests is done 
-            ProtonWebView.CoreWebView2Initialized += CoreWebView2Initialized;
+            WebViews.ProtonWebView.CoreWebView2Initialized += CoreWebView2Initialized;
         }
 
         private void CoreWebView2Initialized(WebView2 sender, CoreWebView2InitializedEventArgs args)
         {
             //Allows links to be opened in the default browser
-            ProtonWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
+            WebViews.ProtonWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
 
             //Enables navigation buttons based on page navigation status
-            ProtonWebView.CoreWebView2.SourceChanged += SourceChanged;
+            WebViews.ProtonWebView.CoreWebView2.SourceChanged += SourceChanged;
         }
 
         private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
@@ -56,8 +57,8 @@ namespace Email_Inboxes
             NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
             if (selectedItem.Name == "NavItem_Proton")
             {
-                mw.BackButton.IsEnabled = ProtonWebView.CanGoBack;
-                mw.ForwardButton.IsEnabled = ProtonWebView.CanGoForward;
+                mw.BackButton.IsEnabled = WebViews.ProtonWebView.CanGoBack;
+                mw.ForwardButton.IsEnabled = WebViews.ProtonWebView.CanGoForward;
             }
         }
 
@@ -67,7 +68,7 @@ namespace Email_Inboxes
             if (args.Uri.Contains("https://mail.proton.me"))
             {
                 args.Handled = true;
-                ProtonWebView.Source = new Uri(args.Uri);
+                WebViews.ProtonWebView.Source = new Uri(args.Uri);
             }
             else
             {

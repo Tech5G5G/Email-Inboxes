@@ -14,6 +14,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using static Email_Inboxes.MainWindow;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -39,16 +40,16 @@ namespace Email_Inboxes
             this.Content = WebViews.IcloudWebView;
 
             //Runs method CoreWebView2Intitialized once the title suggests is done 
-            IcloudWebView.CoreWebView2Initialized += CoreWebView2Initialized;
+            WebViews.IcloudWebView.CoreWebView2Initialized += CoreWebView2Initialized;
         }
 
         private void CoreWebView2Initialized(WebView2 sender, CoreWebView2InitializedEventArgs args)
         {
             //Allows links to be opened in the default browser
-            IcloudWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
+            WebViews.IcloudWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
 
             //Enables navigation buttons based on page navigation status
-            IcloudWebView.CoreWebView2.SourceChanged += SourceChanged;
+            WebViews.IcloudWebView.CoreWebView2.SourceChanged += SourceChanged;
         }
 
         private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
@@ -56,8 +57,8 @@ namespace Email_Inboxes
             NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
             if (selectedItem.Name == "NavItem_iCloud")
             {
-                mw.BackButton.IsEnabled = IcloudWebView.CanGoBack;
-                mw.ForwardButton.IsEnabled = IcloudWebView.CanGoForward;
+                mw.BackButton.IsEnabled = WebViews.IcloudWebView.CanGoBack;
+                mw.ForwardButton.IsEnabled = WebViews.IcloudWebView.CanGoForward;
             }
         }
 
@@ -67,7 +68,7 @@ namespace Email_Inboxes
             if (args.Uri.Contains("https://www.icloud.com/mail") || args.Uri.Contains("https://icloud.com/mail"))
             {
                 args.Handled = true;
-                IcloudWebView.Source = new Uri(args.Uri);
+                WebViews.IcloudWebView.Source = new Uri(args.Uri);
             }
             else
             {

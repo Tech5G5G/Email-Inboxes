@@ -48,7 +48,7 @@ namespace Email_Inboxes
             this.Content = WebViews.OutlookWebView;
 
             //Runs method CoreWebView2Intitialized once the title suggests is done 
-            OutlookWebView.CoreWebView2Initialized += CoreWebView2Initialized;
+            WebViews.OutlookWebView.CoreWebView2Initialized += CoreWebView2Initialized;
 
             //Sets the source of OutlookWebView depending on the user's setting
             string outlookWebViewSource = "https://https://outlook.live.com";
@@ -57,16 +57,16 @@ namespace Email_Inboxes
             else
                 outlookWebViewSource = "https://outlook.office.com";
 
-            OutlookWebView.Source = new Uri(outlookWebViewSource);
+            WebViews.OutlookWebView.Source = new Uri(outlookWebViewSource);
         }
 
         private void CoreWebView2Initialized(WebView2 sender, CoreWebView2InitializedEventArgs args)
         {
             //Allows links to be opened in the default browser
-            OutlookWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
+            WebViews.OutlookWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
 
             //Enables navigation buttons based on page navigation status
-            OutlookWebView.CoreWebView2.SourceChanged += SourceChanged;
+            WebViews.OutlookWebView.CoreWebView2.SourceChanged += SourceChanged;
         }
 
         private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
@@ -74,8 +74,8 @@ namespace Email_Inboxes
             NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
             if (selectedItem.Name == "NavItem_Outlook")
             {
-                mw.BackButton.IsEnabled = OutlookWebView.CanGoBack;
-                mw.ForwardButton.IsEnabled = OutlookWebView.CanGoForward;
+                mw.BackButton.IsEnabled = WebViews.OutlookWebView.CanGoBack;
+                mw.ForwardButton.IsEnabled = WebViews.OutlookWebView.CanGoForward;
             }
         }
 
@@ -85,7 +85,7 @@ namespace Email_Inboxes
             if (args.Uri.Contains("https://outlook.live.com") || args.Uri.Contains("https://outlook.office.com") || args.Uri.Contains("https://go.microsoft.com"))
             {
                 args.Handled = true;
-                OutlookWebView.Source = new Uri(args.Uri);
+                WebViews.OutlookWebView.Source = new Uri(args.Uri);
             }
             else
             {

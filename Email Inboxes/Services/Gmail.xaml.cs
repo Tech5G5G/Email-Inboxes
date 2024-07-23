@@ -14,6 +14,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System.Diagnostics;
 using Microsoft.Web.WebView2.Core;
+using static Email_Inboxes.MainWindow;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -39,16 +40,16 @@ namespace Email_Inboxes
             this.Content = WebViews.GmailWebView;
 
             //Runs method CoreWebView2Intitialized once the title suggests is done 
-            GmailWebView.CoreWebView2Initialized += CoreWebView2Initialized;
+            WebViews.GmailWebView.CoreWebView2Initialized += CoreWebView2Initialized;
         }
 
         private void CoreWebView2Initialized(WebView2 sender, CoreWebView2InitializedEventArgs args)
         {
             //Allows links to be opened in the default browser
-            GmailWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
+            WebViews.GmailWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
 
             //Enables navigation buttons based on page navigation status
-            GmailWebView.CoreWebView2.SourceChanged += SourceChanged;
+            WebViews.GmailWebView.CoreWebView2.SourceChanged += SourceChanged;
         }
 
         private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
@@ -56,8 +57,8 @@ namespace Email_Inboxes
             NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
             if (selectedItem.Name == "NavItem_Gmail")
             {
-                mw.BackButton.IsEnabled = GmailWebView.CanGoBack;
-                mw.ForwardButton.IsEnabled = GmailWebView.CanGoForward;
+                mw.BackButton.IsEnabled = WebViews.GmailWebView.CanGoBack;
+                mw.ForwardButton.IsEnabled = WebViews.GmailWebView.CanGoForward;
             }
         }
 
@@ -67,7 +68,7 @@ namespace Email_Inboxes
             if (args.Uri.Contains("https://mail.google.com") || args.Uri.Contains("https://www.gmail.com"))
             {
                 args.Handled = true;
-                GmailWebView.Source = new Uri(args.Uri);
+                WebViews.GmailWebView.Source = new Uri(args.Uri);
             }
             else
             {

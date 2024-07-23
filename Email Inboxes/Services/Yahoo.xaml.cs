@@ -40,16 +40,16 @@ namespace Email_Inboxes.Services
             this.Content = WebViews.YahooWebView;
 
             //Runs method CoreWebView2Intitialized once the title suggests is done 
-            YahooWebView.CoreWebView2Initialized += CoreWebView2Initialized;
+            WebViews.YahooWebView.CoreWebView2Initialized += CoreWebView2Initialized;
         }
 
         private void CoreWebView2Initialized(WebView2 sender, CoreWebView2InitializedEventArgs args)
         {
             //Allows links to be opened in the default browser
-            YahooWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
+            WebViews.YahooWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
 
             //Enables navigation buttons based on page navigation status
-            YahooWebView.CoreWebView2.SourceChanged += SourceChanged;
+            WebViews.YahooWebView.CoreWebView2.SourceChanged += SourceChanged;
         }
 
         private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
@@ -57,8 +57,8 @@ namespace Email_Inboxes.Services
             NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
             if (selectedItem.Name == "NavItem_Yahoo")
             {
-                mw.BackButton.IsEnabled = YahooWebView.CanGoBack;
-                mw.ForwardButton.IsEnabled = YahooWebView.CanGoForward;
+                mw.BackButton.IsEnabled = WebViews.YahooWebView.CanGoBack;
+                mw.ForwardButton.IsEnabled = WebViews.YahooWebView.CanGoForward;
             }
         }
 
@@ -68,7 +68,7 @@ namespace Email_Inboxes.Services
             if (args.Uri.Contains("https://mail.yahoo.com"))
             {
                 args.Handled = true;
-                YahooWebView.Source = new Uri(args.Uri);
+                WebViews.YahooWebView.Source = new Uri(args.Uri);
             }
             else
             {
