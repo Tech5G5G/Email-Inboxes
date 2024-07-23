@@ -97,6 +97,57 @@ namespace Email_Inboxes
                 set { calendarWebView = value; }
             }
             private static WebView2 calendarWebView;
+
+
+            public static CalendarView CalendarView
+            {
+                get { return calendarView; }
+                set { calendarView = value; }
+            }
+            private static CalendarView calendarView;
+
+
+            public static ItemsControl OutlookPageButton
+            {
+                get { return outlookPageButton; }
+                set { outlookPageButton = value; }
+            }
+            private static ItemsControl outlookPageButton;
+
+            public static ItemsControl OutlookAppButton
+            {
+                get { return outlookAppButton; }
+                set { outlookAppButton = value; }
+            }
+            private static ItemsControl outlookAppButton;
+
+            public static ItemsControl GmailButton
+            {
+                get { return gmailButton; }
+                set { gmailButton = value; }
+            }
+            private static ItemsControl gmailButton;
+
+            public static ItemsControl YahooButton
+            {
+                get { return yahooButton; }
+                set { yahooButton = value; }
+            }
+            private static ItemsControl yahooButton;
+
+            public static ItemsControl IcloudButton
+            {
+                get { return iCloudButton; }
+                set { iCloudButton = value; }
+        }
+            private static ItemsControl iCloudButton;
+
+            public static ItemsControl ProtonButton
+            {
+                get { return protonButton; }
+                set { protonButton = value; }
+            }
+            private static ItemsControl protonButton;
         }
 
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
