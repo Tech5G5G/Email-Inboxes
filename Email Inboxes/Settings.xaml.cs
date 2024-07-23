@@ -417,6 +417,9 @@ namespace Email_Inboxes
 
                 MainWindow mw = (MainWindow)((App)Application.Current).m_window;
                 mw.NavItem_Proton.Visibility = IsProtonEnabled ? Visibility.Visible : Visibility.Collapsed;
+
+                if (!(WebViews.ProtonButton == null))
+                    WebViews.ProtonButton.Visibility = IsProtonEnabled ? Visibility.Visible : Visibility.Collapsed;
             }
         }
 
