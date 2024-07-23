@@ -192,7 +192,7 @@ namespace Email_Inboxes
             //Only allows settings to be changed once the settings page has completely loaded in
             if (App.Settings.SettingsChangable)
             {
-                //Saves the to do service name and URL
+                //Saves the to do service name & URL and updates the home page
                 string ToDoServiceName = (ToDoService.SelectedItem as ComboBoxItem).Content.ToString();
                 string ToDoServiceUrl = "disabled";
 
@@ -200,34 +200,63 @@ namespace Email_Inboxes
                 {
                     case "Apple Reminders":
                         ToDoServiceUrl = "https://icloud.com/reminders";
+                        if (!(WebViews.ToDoWebView == null))
+                        {
+                            WebViews.ToDoWebView.Source = new Uri(ToDoServiceUrl);
+                            WebViews.ToDoWebView.Visibility = Visibility.Visible;
+                        }
                         break;
                     case "Todoist":
                         ToDoServiceUrl = "https://todoist.com";
+                        if (!(WebViews.ToDoWebView == null))
+                        {
+                            WebViews.ToDoWebView.Source = new Uri(ToDoServiceUrl);
+                            WebViews.ToDoWebView.Visibility = Visibility.Visible;
+                        }
                         break;
                     case "TickTick":
                         ToDoServiceUrl = "https://ticktick.com";
+                        if (!(WebViews.ToDoWebView == null))
+                        {
+                            WebViews.ToDoWebView.Source = new Uri(ToDoServiceUrl);
+                            WebViews.ToDoWebView.Visibility = Visibility.Visible;
+                        }
                         break;
                     case "Microsoft To Do":
                         ToDoServiceUrl = "https://to-do.live.com";
+                        if (!(WebViews.ToDoWebView == null))
+                        {
+                            WebViews.ToDoWebView.Source = new Uri(ToDoServiceUrl);
+                            WebViews.ToDoWebView.Visibility = Visibility.Visible;
+                        }
                         break;
                     case "Google Tasks":
                         ToDoServiceUrl = "https://tasks.google.com";
+                        if (!(WebViews.ToDoWebView == null))
+                        {
+                            WebViews.ToDoWebView.Source = new Uri(ToDoServiceUrl);
+                            WebViews.ToDoWebView.Visibility = Visibility.Visible;
+                        }
                         break;
                     case "Any.do":
                         ToDoServiceUrl = "https://any.do";
+                        if (!(WebViews.ToDoWebView == null))
+                        {
+                            WebViews.ToDoWebView.Source = new Uri(ToDoServiceUrl);
+                            WebViews.ToDoWebView.Visibility = Visibility.Visible;
+                        }
                         break;
                     case "Disabled":
                         ToDoServiceUrl = "disabled";
+                        if (!(WebViews.ToDoWebView == null))
+                        {
+                            WebViews.ToDoWebView.Visibility = Visibility.Collapsed;
+                        }
                         break;
                 }
 
                 localSettings.Values[App.Settings.ToDoServiceName] = ToDoServiceName;
                 localSettings.Values[App.Settings.ToDoServiceUrl] = ToDoServiceUrl;
-
-                //Refreshes home page to relfect changes
-                MainWindow.Pages.HomePage.HomeWebView.Close();
-                MainWindow.Pages.HomePage.CalendarWebView.Close();
-                MainWindow.Pages.HomePage = new Home();
             }
         }
 
