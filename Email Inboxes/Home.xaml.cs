@@ -75,25 +75,25 @@ namespace Email_Inboxes
 
             //Shows or hides the WebView that shows the user selected to do app/service
             string ToDoServiceUrl = (string)localSettings.Values[App.Settings.ToDoServiceUrl];
-            if (ToDoServiceUrl == "disabled") HomeWebView.Visibility = Visibility.Collapsed;
-            else HomeWebView.Source = new Uri(ToDoServiceUrl);
+            if (ToDoServiceUrl == "disabled") WebViews.ToDoWebView.Visibility = Visibility.Collapsed;
+            else WebViews.ToDoWebView.Source = new Uri(ToDoServiceUrl);
 
             //Shows or hides the user selected calendar app/service
             string CalendarServiceUrl = (string)localSettings.Values[App.Settings.CalendarServiceUrl];
             if (CalendarServiceUrl == "disabled")
             {
-                CalendarWebView.Visibility = Visibility.Collapsed;
-                calendarView.Visibility = Visibility.Collapsed;
+                WebViews.CalendarWebView.Visibility = Visibility.Collapsed;
+                WebViews.CalendarView.Visibility = Visibility.Collapsed;
             }
             else if (CalendarServiceUrl == "basiccalendar")
             {
-                CalendarWebView.Visibility = Visibility.Collapsed;
-                calendarView.Visibility = Visibility.Visible;
+                WebViews.CalendarWebView.Visibility = Visibility.Collapsed;
+                WebViews.CalendarView.Visibility = Visibility.Visible;
             }
             else
             {
-                CalendarWebView.Source = new Uri(CalendarServiceUrl);
-                calendarView.Visibility = Visibility.Collapsed;
+                WebViews.CalendarWebView.Source = new Uri(CalendarServiceUrl);
+                WebViews.CalendarView.Visibility = Visibility.Collapsed;
             }
 
             //Shows or hides the card of the related service depending on the user's settings
