@@ -5,7 +5,7 @@
 	<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/></a></p>
 
 <p align='center'>
-  <img height='500' src='https://github.com/Tech5G5G/Email-Inboxes/raw/master/Email%20Inboxes%20Showcase.png'>
+  <img height='500' src='https://github.com/Tech5G5G/Email-Inboxes/blob/master/Display.png?raw=true'>
 </p>
 
 ## Supports
