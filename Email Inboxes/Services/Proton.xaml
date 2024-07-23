@@ -7,19 +7,6 @@
     xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-
-        <controls:WebView2 x:Name="ProtonWebView" x:FieldModifier="public" Grid.Row="1" Grid.ColumnSpan="2"
-Source="https://mail.proton.me/" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-    </Grid>
+    mc:Ignorable="d"
+    NavigationCacheMode="Required">
 </Page>
