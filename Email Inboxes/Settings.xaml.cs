@@ -340,19 +340,19 @@ namespace Email_Inboxes
                         {
                             WebViews.OutlookPageButton.Visibility = Visibility.Visible;
                             WebViews.OutlookAppButton.Visibility = Visibility.Collapsed;
-                }
+                        }
 
                     }
-                else
-                {
-                    mw.NavItem_Outlook.Visibility = Visibility.Collapsed;
+                    else
+                    {
+                        mw.NavItem_Outlook.Visibility = Visibility.Collapsed;
                         if (!(WebViews.OutlookPageButton == null && WebViews.OutlookAppButton == null))
                         {
                             WebViews.OutlookPageButton.Visibility = Visibility.Collapsed;
                             WebViews.OutlookAppButton.Visibility = Visibility.Visible;
+                        }
+                    }
                 }
-            }
-        }
                 else
                 {
                     mw.NavItem_Outlook.Visibility = Visibility.Collapsed;
@@ -438,7 +438,6 @@ namespace Email_Inboxes
                     mw.NavItem_Outlook.Visibility = outlookAppType == "Website" || outlookAppType == "Business website" ? Visibility.Visible : Visibility.Collapsed;
                     ExePathCard.Visibility = outlookAppType == "Website" || outlookAppType == "Business website" ? Visibility.Collapsed : Visibility.Visible;
 
-                    //Refreshes the OutlookWebView to reflect changes
                     if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
                     {
                         if (outlookAppType == "Website")
@@ -460,18 +459,18 @@ namespace Email_Inboxes
                             }
                             if (!(WebViews.OutlookWebView == null))
                                 WebViews.OutlookWebView.Source = new Uri("https://outlook.office.com");
-                    }
-                    else
-                    {
+                        }
+                        else
+                        {
                             if (!(WebViews.OutlookPageButton == null && WebViews.OutlookAppButton == null))
                             {
                                 WebViews.OutlookPageButton.Visibility = Visibility.Collapsed;
                                 WebViews.OutlookAppButton.Visibility = Visibility.Visible;
                             }
+                        }
                     }
-                }
-                else
-                {
+                    else
+                    {
                         mw.NavItem_Outlook.Visibility = WebViews.OutlookPageButton.Visibility = WebViews.OutlookAppButton.Visibility = Visibility.Collapsed;
                     }
                 }
@@ -579,9 +578,7 @@ namespace Email_Inboxes
             var openPicker = new FileOpenPicker();
 
             var window = (MainWindow)((App)Application.Current).m_window;
-
             var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
-
             WinRT.Interop.InitializeWithWindow.Initialize(openPicker, hWnd);
 
             openPicker.ViewMode = PickerViewMode.List;
@@ -622,9 +619,11 @@ namespace Email_Inboxes
 
         private async void ClearWebViewCache(object sender, RoutedEventArgs e)
         {
+            //Shows and disables UI elements
             clearCacheButton.IsEnabled = false;
             cacheProgressRing.Visibility = Visibility.Visible;
 
+            //Generates a new WebView & and clears its profile cache
             WebView2 webView2 = new WebView2() { Source = new Uri("https://www.example.com") };
             await Task.Delay(100);
             CoreWebView2Profile profile = webView2.CoreWebView2.Profile;
@@ -632,6 +631,7 @@ namespace Email_Inboxes
             await profile.ClearBrowsingDataAsync(dataKinds);
             webView2.Close();
 
+            //Hides and reenables UI elements
             await Task.Delay(1000);
             clearCacheButton.IsEnabled = true;
             cacheProgressRing.Visibility = Visibility.Collapsed;
