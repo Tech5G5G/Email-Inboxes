@@ -116,9 +116,6 @@
                     <Rectangle Fill="Transparent" Height="10" Width="25"/>
                 </StackPanel>
             </ScrollView>
-            <CalendarView x:Name="calendarView" Grid.Row="1" CornerRadius="8" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="500" Margin="25,0,25,25"/>
-            <controls:WebView2 x:Name="CalendarWebView" x:FieldModifier="public" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="500" Margin="25,0,25,25"/>
-            <controls:WebView2 x:Name="HomeWebView" x:FieldModifier="public" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="500" Margin="25,0,25,25"/>
         </StackPanel>
     </ScrollView>
 </Page>
