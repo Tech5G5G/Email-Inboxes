@@ -415,6 +415,21 @@ namespace Email_Inboxes
                     }
                     break;
             }
+
+            Activated += MainWindow_Activated;
+        }
+
+        private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
+        {
+            //Changes the foreground of the AppTitle depending on the WindowActivationState
+            if (args.WindowActivationState == WindowActivationState.Deactivated)
+            {
+                AppTitle.Foreground = (SolidColorBrush)App.Current.Resources["WindowCaptionForegroundDisabled"];
+            }
+            else
+            {
+                AppTitle.Foreground = (SolidColorBrush)App.Current.Resources["WindowCaptionForeground"];
+            }
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
