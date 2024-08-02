@@ -574,5 +574,27 @@ namespace Email_Inboxes
                     break;
             }
         }
+
+        private void AppTitleBar_ActualThemeChanged(FrameworkElement sender, object args)
+        {
+            var currentTheme = sender.ActualTheme;
+
+            AppTitle.Foreground = (SolidColorBrush)App.Current.Resources["WindowCaptionForeground"];
+
+            if (currentTheme == ElementTheme.Light)
+            {
+                this.AppWindow.TitleBar.ButtonForegroundColor = Colors.Black;
+                this.AppWindow.TitleBar.ButtonHoverForegroundColor = Colors.Black;
+                this.AppWindow.TitleBar.InactiveForegroundColor = ((SolidColorBrush)App.Current.Resources["WindowCaptionForegroundDisabled"]).Color;
+                this.AppWindow.TitleBar.ButtonPressedForegroundColor = Colors.Black;
+            }
+            else if (currentTheme == ElementTheme.Dark)
+            {
+                this.AppWindow.TitleBar.ButtonForegroundColor = Colors.White;
+                this.AppWindow.TitleBar.ButtonHoverForegroundColor = Colors.White;
+                this.AppWindow.TitleBar.InactiveForegroundColor = ((SolidColorBrush)App.Current.Resources["WindowCaptionForegroundDisabled"]).Color;
+                this.AppWindow.TitleBar.ButtonPressedForegroundColor = Colors.White;
+            }
+        }
     }
 }
