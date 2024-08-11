@@ -10,7 +10,7 @@ xmlns:ui="using:CommunityToolkit.WinUI"
 xmlns:controls="using:CommunityToolkit.WinUI.Controls"
 mc:Ignorable="d">
 
-    <ScrollView VerticalScrollBarVisibility="Auto">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Spacing="4" BorderThickness="25">
             <TextBlock Text="Settings" Style="{StaticResource TitleTextBlockStyle}" Margin="0,0,0,18"/>
 
@@ -165,5 +165,5 @@ mc:Ignorable="d">
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
         </StackPanel>
-    </ScrollView>
+    </ScrollViewer>
 </Page>
