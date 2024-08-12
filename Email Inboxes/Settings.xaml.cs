@@ -632,7 +632,6 @@ namespace Email_Inboxes
             webView2.Close();
 
             //Hides and reenables UI elements
-            await Task.Delay(1000);
             clearCacheButton.IsEnabled = true;
             cacheProgressRing.Visibility = Visibility.Collapsed;
         }
