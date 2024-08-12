@@ -26,6 +26,9 @@ using WinRT;
 using System.Threading.Tasks;
 using static Email_Inboxes.MainWindow;
 using Email_Inboxes.Services;
+using Windows.Devices.Enumeration;
+using System.Numerics;
+using Microsoft.UI.Composition;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
@@ -158,6 +161,64 @@ namespace Email_Inboxes
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Yahoo");
             mw.nvSample.SelectedItem = item;
             mw.contentFrame.Navigate(typeof(Yahoo), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
+        }
+
+        private void inboxButtonsSV_ScrollRight(object sender, RoutedEventArgs e)
+        {
+            //Scrolls 200px to the right
+            double toScroll = inboxButtonsSV.HorizontalOffset + 200;
+            inboxButtonsSV.ChangeView(toScroll, null, null);
+        }
+
+        private void inboxButtonsSV_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            ScrollViewer inboxButtonsSV = sender as ScrollViewer;
+
+            scrollRightButton.Opacity = inboxButtonsSV.HorizontalOffset == inboxButtonsSV.ScrollableWidth ? 0 : 1;
+
+            scrollLeftButton.Opacity = inboxButtonsSV.HorizontalOffset == 0 ? 0 : 1;
+        }
+
+        private void inboxButtonsSV_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        {
+            ScrollViewer inboxButtonsSV = sender as ScrollViewer;
+
+            scrollRightButton.Opacity = inboxButtonsSV.HorizontalOffset == inboxButtonsSV.ScrollableWidth ? 0 : 1;
+
+            scrollLeftButton.Opacity = inboxButtonsSV.HorizontalOffset == 0 ? 0 : 1;
+        }
+
+        private void inboxButtonsSV_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            scrollRightButton.Opacity = inboxButtonsSV.HorizontalOffset == inboxButtonsSV.ScrollableWidth ? 0 : 1;
+
+            scrollLeftButton.Opacity = inboxButtonsSV.HorizontalOffset == 0 ? 0 : 1;
+        }
+
+        private void inboxButtonsSV_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            scrollRightButton.Opacity = scrollLeftButton.Opacity = 0;
+        }
+
+        private void scrollLeftButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Scrolls 200px to the left
+            double toScroll = inboxButtonsSV.HorizontalOffset + -200;
+            var scrollable = inboxButtonsSV.ChangeView(toScroll, null, null);
+        }
+
+        private void scrollRightButton_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            scrollRightButton.Opacity = inboxButtonsSV.HorizontalOffset == inboxButtonsSV.ScrollableWidth ? 0 : 1;
+
+            scrollLeftButton.Opacity = inboxButtonsSV.HorizontalOffset == 0 ? 0 : 1;
+        }
+
+        private void scrollLeftButton_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            scrollRightButton.Opacity = inboxButtonsSV.HorizontalOffset == inboxButtonsSV.ScrollableWidth ? 0 : 1;
+
+            scrollLeftButton.Opacity = inboxButtonsSV.HorizontalOffset == 0 ? 0 : 1;
         }
     }
 }
