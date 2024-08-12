@@ -19,7 +19,6 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Email_Inboxes;
-using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
 using Windows.UI.Popups;
 using Windows.UI.ApplicationSettings;
@@ -154,6 +153,8 @@ namespace Email_Inboxes
 
         private Microsoft.UI.Windowing.AppWindow m_AppWindow;
 
+        private OverlappedPresenter presenter;
+
         private Microsoft.UI.Windowing.AppWindow GetAppWindowForCurrentWindow ()
         {
             IntPtr hWnd = WindowNative.GetWindowHandle(this);
@@ -164,12 +165,17 @@ namespace Email_Inboxes
         public MainWindow()
         {
             this.InitializeComponent();
+
             ExtendsContentIntoTitleBar = true;
-            m_AppWindow = GetAppWindowForCurrentWindow();
             Title = $"Email Inboxes";
             SetTitleBar(AppTitleBar);
+
+            m_AppWindow = GetAppWindowForCurrentWindow();
             m_AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
             m_AppWindow.SetIcon("Mail.ico");
+            presenter = m_AppWindow.Presenter as OverlappedPresenter;
+
+
 
             //Sets the backdrop of the window based on the user's preference
             SystemBackdrop backdropToSet = null;
@@ -595,6 +601,14 @@ namespace Email_Inboxes
                 this.AppWindow.TitleBar.InactiveForegroundColor = ((SolidColorBrush)App.Current.Resources["WindowCaptionForegroundDisabled"]).Color;
                 this.AppWindow.TitleBar.ButtonPressedForegroundColor = Colors.White;
             }
+        }
+
+        private void mainwindow_SizeChanged(object sender, WindowSizeChangedEventArgs args)
+        {
+            OverlappedPresenterState windowState = presenter.State;
+
+            if (windowState != OverlappedPresenterState.Minimized)
+                localSettings.Values[App.Settings.WindowState] = windowState;
         }
     }
 }
