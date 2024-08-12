@@ -175,6 +175,7 @@ namespace Email_Inboxes
             m_AppWindow.SetIcon("Mail.ico");
             presenter = m_AppWindow.Presenter as OverlappedPresenter;
 
+            //Reads value of WindowState and decides whether to maximize the window
             if (Enum.Parse<OverlappedPresenterState>((string)localSettings.Values[App.Settings.WindowState]) == OverlappedPresenterState.Maximized)
                 presenter.Maximize();
 
@@ -608,6 +609,7 @@ namespace Email_Inboxes
         {
             if (presenter is not null)
             {
+                //Gets & saves window state
                 OverlappedPresenterState windowState = presenter.State;
 
                 if (windowState != OverlappedPresenterState.Minimized)
