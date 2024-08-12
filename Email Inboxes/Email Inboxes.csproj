@@ -34,7 +34,9 @@
     <None Remove="App.xaml" />
     <None Remove="Assets\Email-Inboxes-Icons.otf" />
     <None Remove="Assets\SplashScreen.scale-200.png" />
+    <None Remove="Assets\Square150x150Logo.scale-100.png" />
     <None Remove="Assets\Square44x44Logo.scale-200.png" />
+    <None Remove="Assets\Square44x44Logo.scale-400.png" />
     <None Remove="desktop.ini" />
     <None Remove="First Boot Window\CommandBarVisibility.xaml" />
     <None Remove="First Boot Window\CustomHome.xaml" />
