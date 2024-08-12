@@ -1,4 +1,5 @@
 using Email_Inboxes;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -58,6 +59,7 @@ namespace Email_Inboxes
             public const string PaneDisplayMode = "PaneDisplayMode";
             public const string FirstBootScreenPassed = "FirstBootScreenPassed";
             public const string VersionNumber = "VersionNumber";
+            public const string WindowState = "WindowState";
             public static bool SettingsChangable { get; set; }
         }
 
@@ -126,6 +128,9 @@ namespace Email_Inboxes
 
             if (!localSettings.Values.ContainsKey(Settings.PaneDisplayMode))
                 localSettings.Values[Settings.PaneDisplayMode] = "Auto";
+
+            if (!localSettings.Values.ContainsKey(Settings.WindowState))
+                localSettings.Values[Settings.WindowState] = OverlappedPresenterState.Restored;
 
             //Backwards compatibility code that updates the values of Home, iCloud, Gmail, Proton, & Outlook Enabled from strings to booleans & sets YahooEnabled and FirstBootScreenPassed to true
             if (localSettings.Values[Settings.HomeEnabled] is string)
