@@ -175,7 +175,8 @@ namespace Email_Inboxes
             m_AppWindow.SetIcon("Mail.ico");
             presenter = m_AppWindow.Presenter as OverlappedPresenter;
 
-
+            if (Enum.Parse<OverlappedPresenterState>((string)localSettings.Values[App.Settings.WindowState]) == OverlappedPresenterState.Maximized)
+                presenter.Maximize();
 
             //Sets the backdrop of the window based on the user's preference
             SystemBackdrop backdropToSet = null;
@@ -607,9 +608,9 @@ namespace Email_Inboxes
         {
             if (presenter is not null)
             {
-            OverlappedPresenterState windowState = presenter.State;
+                OverlappedPresenterState windowState = presenter.State;
 
-            if (windowState != OverlappedPresenterState.Minimized)
+                if (windowState != OverlappedPresenterState.Minimized)
                     localSettings.Values[App.Settings.WindowState] = windowState.ToString();
             }
         }
