@@ -130,7 +130,7 @@ namespace Email_Inboxes
                 localSettings.Values[Settings.PaneDisplayMode] = "Auto";
 
             if (!localSettings.Values.ContainsKey(Settings.WindowState))
-                localSettings.Values[Settings.WindowState] = OverlappedPresenterState.Restored;
+                localSettings.Values[Settings.WindowState] = OverlappedPresenterState.Restored.ToString();
 
             //Backwards compatibility code that updates the values of Home, iCloud, Gmail, Proton, & Outlook Enabled from strings to booleans & sets YahooEnabled and FirstBootScreenPassed to true
             if (localSettings.Values[Settings.HomeEnabled] is string)

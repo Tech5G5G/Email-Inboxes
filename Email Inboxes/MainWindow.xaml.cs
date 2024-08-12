@@ -605,10 +605,13 @@ namespace Email_Inboxes
 
         private void mainwindow_SizeChanged(object sender, WindowSizeChangedEventArgs args)
         {
+            if (presenter is not null)
+            {
             OverlappedPresenterState windowState = presenter.State;
 
             if (windowState != OverlappedPresenterState.Minimized)
-                localSettings.Values[App.Settings.WindowState] = windowState;
+                    localSettings.Values[App.Settings.WindowState] = windowState.ToString();
+            }
         }
     }
 }
