@@ -31,8 +31,8 @@
             <Rectangle Fill="{ThemeResource LayerOnMicaBaseAltFillColorSecondaryBrush}" RadiusX="8" RadiusY="8" Height="500"  Margin="0,48,0,0" Width="400" VerticalAlignment="Top"/>
             <StackPanel Margin="8,57,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
                 <Button Background="Transparent" BorderBrush="Transparent" Height="50" Width="50" CornerRadius="4">
-                    <FontIcon Glyph="&#xE700;" FontSize="20"/>
-                </Button>
+                        <FontIcon Glyph="&#xE700;" FontSize="20" />
+                    </Button>
                 <Image Width="20" Margin="10,0,0,0" Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" />
                 <TextBlock
                     x:Name="AppTitle"
@@ -41,12 +41,20 @@
                     Style="{StaticResource CaptionTextBlockStyle}"
                     FontSize="16"
                     Text="Email Inboxes" />
-                <Button Background="Transparent" Margin="10,0,0,0" BorderBrush="Transparent" Height="50" CornerRadius="4">
-                    <StackPanel Orientation="Horizontal">
-                        <FontIcon Glyph="&#xE80F;" FontSize="20"/>
-                        <TextBlock Text="Home" Margin="8,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="17"/>
-                    </StackPanel>
-                </Button>
+                <StackPanel Orientation="Horizontal" Spacing="8" Margin="10,0,0,0">
+                    <Button Background="Transparent" BorderBrush="Transparent" Height="50" CornerRadius="4">
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xE80F;" FontSize="20"/>
+                            <TextBlock Text="Home" Margin="8,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="17"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent" Height="50" CornerRadius="4">
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xE72C;" FontSize="20"/>
+                            <TextBlock Text="Refresh" Margin="8,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="17"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </Grid>
