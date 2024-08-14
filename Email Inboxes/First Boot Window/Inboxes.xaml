@@ -42,7 +42,7 @@
                     FontSize="32"
                     Text="Email Inboxes" />
             </StackPanel>
-            <ScrollView Margin="16,182,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" CornerRadius="0">
+            <ScrollViewer Margin="16,182,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" CornerRadius="0">
                 <StackPanel>
                     <ToggleButton Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal" Margin="18,0,0,0">
@@ -76,7 +76,7 @@
                     </ToggleButton>
                     <Rectangle Height="16" Fill="Transparent"/>
                 </StackPanel>
-            </ScrollView>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>
