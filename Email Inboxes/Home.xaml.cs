@@ -163,6 +163,7 @@ namespace Email_Inboxes
             mw.contentFrame.Navigate(typeof(Yahoo), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
         }
 
+        //Methods that make the inboxButtonsSV scroll buttons work
         private void inboxButtonsSV_ScrollRight(object sender, RoutedEventArgs e)
         {
             //Scrolls 200px to the right
