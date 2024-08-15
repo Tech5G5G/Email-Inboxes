@@ -106,47 +106,47 @@ namespace Email_Inboxes
             private static CalendarView calendarView;
 
 
-            public static ItemsControl OutlookPageButton
+            public static InboxButton OutlookPageButton
             {
                 get { return outlookPageButton; }
                 set { outlookPageButton = value; }
             }
-            private static ItemsControl outlookPageButton;
+            private static InboxButton outlookPageButton;
 
-            public static ItemsControl OutlookAppButton
+            public static InboxButton OutlookAppButton
             {
                 get { return outlookAppButton; }
                 set { outlookAppButton = value; }
             }
-            private static ItemsControl outlookAppButton;
+            private static InboxButton outlookAppButton;
 
-            public static ItemsControl GmailButton
+            public static InboxButton GmailButton
             {
                 get { return gmailButton; }
                 set { gmailButton = value; }
             }
-            private static ItemsControl gmailButton;
+            private static InboxButton gmailButton;
 
-            public static ItemsControl YahooButton
+            public static InboxButton YahooButton
             {
                 get { return yahooButton; }
                 set { yahooButton = value; }
             }
-            private static ItemsControl yahooButton;
+            private static InboxButton yahooButton;
 
-            public static ItemsControl IcloudButton
+            public static InboxButton IcloudButton
             {
                 get { return iCloudButton; }
                 set { iCloudButton = value; }
             }
-            private static ItemsControl iCloudButton;
+            private static InboxButton iCloudButton;
 
-            public static ItemsControl ProtonButton
+            public static InboxButton ProtonButton
             {
                 get { return protonButton; }
                 set { protonButton = value; }
             }
-            private static ItemsControl protonButton;
+            private static InboxButton protonButton;
         }
 
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
