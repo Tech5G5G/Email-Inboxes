@@ -10,9 +10,11 @@ using Microsoft.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Shapes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.Json;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Appointments;
@@ -21,12 +23,94 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Services.TargetedContent;
 using Windows.Storage;
+using WinRT;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
 namespace Email_Inboxes
 {
+    public sealed class InboxButton : Control
+    {
+        public InboxButton()
+        {
+            this.DefaultStyleKey = typeof(InboxButton);
+        }
+
+        public event RoutedEventHandler Click;
+
+        private Button ButtonControl { get; set; }
+
+        private FontIcon HeaderIcon { get; set; }
+
+        protected override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+
+            if (ButtonControl is not null)
+            {
+                ButtonControl.Click -= ButtonControl_Click;
+            }
+
+            if (GetTemplateChild(nameof(ButtonControl)) is Button button)
+            {
+                ButtonControl = button;
+                ButtonControl.Click += ButtonControl_Click;
+            }
+
+            if (GetTemplateChild(nameof(HeaderIcon)) is FontIcon fontIcon)
+            {
+                HeaderIcon = fontIcon;
+                HeaderIcon.FontFamily = this.IconFontFamily;
+            }
+        }
+
+        private void ButtonControl_Click(object sender, RoutedEventArgs e)
+        {
+            Click?.Invoke(this, e);
+        }
+
+        public string Header
+        {
+            get { return (string)GetValue(HeaderProperty); }
+            set { SetValue(HeaderProperty, value); }
+        }
+
+        public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register("Header", typeof(string), typeof(InboxButton), new PropertyMetadata(string.Empty));
+
+        public string Icon
+        {
+            get { return (string)GetValue(IconProperty); }
+            set { SetValue(IconProperty, value); }
+        }
+
+        public static readonly DependencyProperty IconProperty = DependencyProperty.Register("Icon", typeof(string), typeof(InboxButton), new PropertyMetadata(string.Empty));
+
+        public FontFamily IconFontFamily
+        {
+            get { return (FontFamily)GetValue(IconFontFamilyProperty); }
+            set { SetValue(IconFontFamilyProperty, value); }
+        }
+
+        public static readonly DependencyProperty IconFontFamilyProperty = DependencyProperty.Register("IconFontFamily", typeof(FontFamily), typeof(InboxButton), new PropertyMetadata((FontFamily)App.Current.Resources["SymbolThemeFontFamily"]));
+
+        public string Description
+        {
+            get { return (string)GetValue(DescriptionProperty); }
+            set { SetValue(DescriptionProperty, value); }
+        }
+        
+        public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register("Description", typeof(string), typeof(InboxButton), new PropertyMetadata(string.Empty));
+
+        public string ActionIcon
+        {
+            get { return (string)GetValue(ActionIconProperty); }
+            set { SetValue(ActionIconProperty, value); }
+        }
+
+        public static readonly DependencyProperty ActionIconProperty = DependencyProperty.Register("ActionIcon", typeof(string), typeof(InboxButton), new PropertyMetadata(string.Empty));
+    }
+
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>

@@ -11,6 +11,22 @@
                 <!-- Other merged dictionaries here -->
             </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="CustomIcons">/Assets/Email-Inboxes-Icons.otf#Email-Inboxes-Icons</FontFamily>
+            <Style TargetType="local:InboxButton">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="local:InboxButton">
+                            <Grid>
+                                <Rectangle Opacity="1" Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Width="200" Height="225" HorizontalAlignment="Left" RadiusX="8" RadiusY="8" Margin="0,0,0,0" Stroke="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" StrokeThickness="1"/>
+                                <FontIcon x:Name="HeaderIcon" Glyph="{TemplateBinding Icon}" FontSize="50" Margin="25,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <TextBlock Text="{TemplateBinding Header}" HorizontalAlignment="Left" FontFamily="Segoe UI Variable Display" FontWeight="Normal" FontSize="20" Margin="25,90,0,0"/>
+                                <TextBlock Text="{TemplateBinding Description}" HorizontalAlignment="Left" FontFamily="Segoe UI Variable" FontWeight="Normal" FontSize="12" Foreground="{ThemeResource TextFillColorSecondary}" Margin="25,120,0,0"/>
+                                <FontIcon Glyph="{TemplateBinding ActionIcon}" FontSize="16" Margin="155,180,0,0"/>
+                                <Button x:Name="ButtonControl" Height="225" Width="200" BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Left" CornerRadius="8" Margin="0,0,0,0"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
