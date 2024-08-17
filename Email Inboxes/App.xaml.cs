@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.Json;
 using Windows.ApplicationModel;
@@ -21,6 +22,7 @@ using Windows.ApplicationModel.Appointments;
 using Windows.Devices.Bluetooth.Advertisement;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Graphics;
 using Windows.Services.TargetedContent;
 using Windows.Storage;
 using WinRT;
@@ -99,7 +101,7 @@ namespace Email_Inboxes
             get { return (string)GetValue(DescriptionProperty); }
             set { SetValue(DescriptionProperty, value); }
         }
-        
+
         public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register("Description", typeof(string), typeof(InboxButton), new PropertyMetadata(string.Empty));
 
         public string ActionIcon
@@ -239,13 +241,55 @@ namespace Email_Inboxes
             }
             else
             {
-                //If not, it creates and activates FirstBootWindow
+                //If not, it DllImports a method to get the window Dpi
+                [DllImport("User32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+                static extern uint GetDpiForWindow(IntPtr hwnd);
+
+                //Then it creates and activates FirstBootWindow
                 firstBootWindow = new FirstBootWindow();
+
                 var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(firstBootWindow);
                 Microsoft.UI.WindowId windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
                 Microsoft.UI.Windowing.AppWindow appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
                 if (appWindow is not null)
                 {
+                    double scale;
+                    uint dpi = GetDpiForWindow(hWnd);
+                    switch (dpi)
+                    {
+                        case 90:
+                            scale = 1;
+                            break;
+                        case 120:
+                            scale = 1.25;
+                            break;
+                        case 144:
+                            scale = 1.5;
+                            break;
+                        case 168:
+                            scale = 1.75;
+                            break;
+                        case 192:
+                            scale = 2;
+                            break;
+                        case 216:
+                            scale = 2.25;
+                            break;
+                        case 240:
+                            scale = 2.5;
+                            break;
+                        case 288:
+                            scale = 3;
+                            break;
+                        default:
+                            scale = (double)dpi / 100;
+                            break;
+                    }
+                    var newSize = new SizeInt32();
+                    newSize.Width = (int)(960 * scale);
+                    newSize.Height = (int)(648 * scale);
+                    appWindow.Resize(newSize);
+
                     Microsoft.UI.Windowing.DisplayArea displayArea = Microsoft.UI.Windowing.DisplayArea.GetFromWindowId(windowId, Microsoft.UI.Windowing.DisplayAreaFallback.Nearest);
                     if (displayArea is not null)
                     {
@@ -255,8 +299,8 @@ namespace Email_Inboxes
                         appWindow.Move(CenteredPosition);
                     }
                 }
-                firstBootWindow.Activate();
             }
+            firstBootWindow.Activate();
         }
 
         public Window m_window;
