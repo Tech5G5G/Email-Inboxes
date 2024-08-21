@@ -39,6 +39,14 @@ namespace Email_Inboxes.First_Boot_Window
             FirstBootWindow fbw = (FirstBootWindow)((App)Application.Current).firstBootWindow;
             fbw.FirstBootFrame.Navigate(typeof(CommandBarVisibility), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
         }
+
+        private void OutlookToggle_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleButton outlookToggle = sender as ToggleButton;
+
+            moreOutlookOptions.Visibility = (bool)outlookToggle.IsChecked ? Visibility.Visible : Visibility.Collapsed;
+            FirstBootWindow.SettingsCache.OutlookEnabled = (bool)outlookToggle.IsChecked;
+        }
         }
     }
 }
