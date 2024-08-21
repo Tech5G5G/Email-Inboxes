@@ -51,6 +51,32 @@
                         <StackPanel Orientation="Horizontal" Margin="18,0,0,0">
                             <FontIcon Glyph="&#xE902;" FontFamily="{StaticResource CustomIcons}" FontSize="40"/>
                             <TextBlock Text="Outlook" Margin="34,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="34"/>
+                            <Button x:Name="moreOutlookOptions" Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}" Visibility="Collapsed" Margin="80,0,0,0" BorderThickness="0" Background="Transparent" Content="{ui:FontIcon Glyph=&#xE712;}" Height="42" Width="42">
+                                <Button.Resources>
+                                    <SolidColorBrush x:Key="ButtonForegroundPressed" Color="{ThemeResource TextOnAccentFillColorSecondary}" />
+                                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="{ThemeResource TextOnAccentFillColorPrimary}" />
+                                </Button.Resources>
+                                <Button.Flyout>
+                                    <Flyout>
+                                        <StackPanel Spacing="4">
+                                            <controls:SettingsCard Header="App type" Description="Use the Outlook website, business website or desktop app (exe)" x:Name="appTypeCard">
+                                                <ComboBox x:Name="OutlookAppType" SelectionChanged="OutlookAppType_SelectionChanged">
+                                                    <ComboBoxItem Content="Website"/>
+                                                    <ComboBoxItem Content="Business website"/>
+                                                    <ComboBoxItem Content="exe"/>
+                                                </ComboBox>
+                                            </controls:SettingsCard>
+                                            <controls:SettingsCard ContentAlignment="Left" Visibility="Collapsed" x:Name="ExePathCard">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBox Width="283" PlaceholderText="Outlook executable location" x:Name="ExePath"/>
+                                                    <Button Content="{ui:FontIcon Glyph=&#xE8E5;}" Margin="8,0,0,0" x:Name="openExePathFilePicker" Click="OpenExePathFilePicker_Click" />
+                                                    <Button Content="{ui:FontIcon Glyph=&#xE74E;}" Margin="8,0,0,0" x:Name="SaveExePath" Click="SaveExePath_Click" />
+                                                </StackPanel>
+                                            </controls:SettingsCard>
+                                        </StackPanel>
+                                    </Flyout>
+                                </Button.Flyout>
+                            </Button>
                         </StackPanel>
                     </ToggleButton>
                     <ToggleButton Margin="0,16,0,0" Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
