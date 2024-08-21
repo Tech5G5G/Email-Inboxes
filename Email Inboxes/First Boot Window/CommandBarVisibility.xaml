@@ -47,7 +47,7 @@
                     Style="{StaticResource CaptionTextBlockStyle}"
                     FontSize="16"
                     Text="Email Inboxes" />
-                <StackPanel Orientation="Horizontal" Spacing="8" Margin="10,0,0,0">
+                <StackPanel Orientation="Horizontal" Spacing="8" Margin="10,0,0,0" x:Name="commandBarVisual">
                     <Button Background="Transparent" BorderBrush="Transparent" Height="50" CornerRadius="4">
                         <StackPanel Orientation="Horizontal">
                             <FontIcon Glyph="&#xE80F;" FontSize="20"/>
