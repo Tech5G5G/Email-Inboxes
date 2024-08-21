@@ -37,8 +37,8 @@
             <Rectangle Fill="{ThemeResource LayerOnMicaBaseAltFillColorSecondaryBrush}" RadiusX="8" RadiusY="8" Height="500" Margin="0,48,0,0" Width="400" VerticalAlignment="Top" Stroke="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" StrokeThickness="1" />
             <StackPanel Margin="8,57,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
                 <Button Background="Transparent" BorderBrush="Transparent" Height="50" Width="50" CornerRadius="4">
-                        <FontIcon Glyph="&#xE700;" FontSize="20" />
-                    </Button>
+                    <FontIcon Glyph="&#xE700;" FontSize="20" />
+                </Button>
                 <Image Width="20" Margin="10,0,0,0" Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" />
                 <TextBlock
                     x:Name="AppTitle"
@@ -62,6 +62,9 @@
                     </Button>
                 </StackPanel>
             </StackPanel>
+            <ToggleButton VerticalAlignment="Bottom" Margin="0,0,0,170" HorizontalAlignment="Center" CornerRadius="8" IsChecked="True" Click="ToggleButton_Click">
+                <TextBlock FontSize="40" Text="On" />
+            </ToggleButton>
         </Grid>
     </Grid>
 </Page>
