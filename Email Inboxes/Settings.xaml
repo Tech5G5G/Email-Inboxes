@@ -89,7 +89,7 @@ mc:Ignorable="d">
                 </ComboBox>
             </controls:SettingsCard>
             <controls:SettingsCard Description="Choose how to display the navigation view pane"
-                                 Header="Pane Display Mode"
+                                 Header="Pane display mode"
                                  HeaderIcon="{ui:FontIcon Glyph=&#xE90C;}">
                 <ComboBox x:Name="PaneDisplayMode" SelectionChanged="PaneDisplayMode_SelectionChanged" x:FieldModifier="public" PlaceholderText="Display Mode">
                     <ComboBoxItem Content="Auto"/>

@@ -21,6 +21,7 @@ using Windows.Storage.Pickers;
 using Microsoft.Web.WebView2.Core;
 using System.Threading.Tasks;
 using static Email_Inboxes.MainWindow;
+using Windows.Graphics;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -290,6 +291,7 @@ namespace Email_Inboxes
                         }
                         break;
                     case "Google Calendar":
+                        CalendarServiceUrl = "https://calendar.google.com";
                         if (!(WebViews.CalendarWebView == null))
                         {
                             WebViews.CalendarWebView.Visibility = Visibility.Visible;
