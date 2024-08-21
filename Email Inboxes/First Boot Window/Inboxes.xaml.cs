@@ -47,6 +47,11 @@ namespace Email_Inboxes.First_Boot_Window
             moreOutlookOptions.Visibility = (bool)outlookToggle.IsChecked ? Visibility.Visible : Visibility.Collapsed;
             FirstBootWindow.SettingsCache.OutlookEnabled = (bool)outlookToggle.IsChecked;
         }
+
+        private void SaveExePath_Click(object sender, RoutedEventArgs e)
+        {
+            FirstBootWindow.SettingsCache.OutlookExePath = ExePath.Text;
+        }
         }
     }
 }
