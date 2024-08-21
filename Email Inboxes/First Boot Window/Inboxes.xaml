@@ -18,8 +18,8 @@
             <TextBlock Text="Choose which inboxes to enable and show around the app" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
         </StackPanel>
         <StackPanel BorderThickness="48" Width="429" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-            <Button Content="{ui:FontIcon Glyph=&#xE72B;}" IsEnabled="False"/>
-            <Button Margin="8,0,0,0" Style="{ThemeResource AccentButtonStyle}" Click="NextClick">
+            <Button Content="{ui:FontIcon Glyph=&#xE72B;}" IsEnabled="False" />
+            <Button Margin="8,0,0,0" Style="{ThemeResource AccentButtonStyle}" ToolTipService.ToolTip="Next (Alt+Right)" Click="NextClick">
                 <StackPanel Orientation="Horizontal">
                     <FontIcon Glyph="&#xE72A;"/>
                     <TextBlock Margin="8,0,0,0" Text="Next"/>
