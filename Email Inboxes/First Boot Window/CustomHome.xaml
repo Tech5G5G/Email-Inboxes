@@ -18,12 +18,18 @@
             <TextBlock Text="Change settings related to the home page" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
         </StackPanel>
         <StackPanel BorderThickness="48" Width="429" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-            <Button Content="{ui:FontIcon Glyph=&#xE72B;}" Click="BackClick"/>
-            <Button Margin="8,0,0,0" Style="{ThemeResource AccentButtonStyle}" Click="NextClick">
+            <Button Content="{ui:FontIcon Glyph=&#xE72B;}" ToolTipService.ToolTip="Back (Alt+Left)" Click="BackClick">
+                <Button.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Menu" Key="Left" />
+                </Button.KeyboardAccelerators>
+            </Button>
                 <StackPanel Orientation="Horizontal">
                     <FontIcon Glyph="&#xE72A;"/>
                     <TextBlock Margin="8,0,0,0" Text="Next"/>
                 </StackPanel>
+                <Button.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Menu" Key="Right" />
+                </Button.KeyboardAccelerators>
             </Button>
         </StackPanel>
         <StackPanel BorderThickness="48" Width="429" VerticalAlignment="Top" HorizontalAlignment="Right">

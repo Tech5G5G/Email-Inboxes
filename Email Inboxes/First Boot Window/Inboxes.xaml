@@ -24,6 +24,9 @@
                     <FontIcon Glyph="&#xE72A;"/>
                     <TextBlock Margin="8,0,0,0" Text="Next"/>
                 </StackPanel>
+                <Button.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Menu" Key="Right" />
+                </Button.KeyboardAccelerators>
             </Button>
         </StackPanel>
         <Grid Width="385" HorizontalAlignment="Right">
