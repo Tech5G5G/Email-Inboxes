@@ -36,14 +36,14 @@ namespace Email_Inboxes
                 get { return StartupPage; }
                 set { StartupPage = value; }
             }
-            private static string startupPage;
+            private static string startupPage = "Home";
 
             public static bool HomeEnabled
             {
                 get { return homeEnabled; }
                 set { homeEnabled = value; }
             }
-            private static bool homeEnabled;
+            private static bool homeEnabled = true;
 
             public static bool OutlookEnabled
             {
@@ -85,63 +85,63 @@ namespace Email_Inboxes
                 get { return commandBarEnabled; }
                 set { commandBarEnabled = value; }
             }
-            private static bool commandBarEnabled;
+            private static bool commandBarEnabled = true;
 
             public static string OutlookAppType
             {
                 get { return outlookAppType; }
                 set { outlookAppType = value; }
             }
-            private static string outlookAppType;
+            private static string outlookAppType = "Website";
 
             public static string ToDoServiceName
             {
                 get { return toDoServiceName; }
                 set { toDoServiceName = value; }
             }
-            private static string toDoServiceName;
+            private static string toDoServiceName = "Disabled";
 
             public static string CalendarServiceName
             {
                 get { return calendarServiceName; }
                 set { calendarServiceName = value; }
             }
-            private static string calendarServiceName;
+            private static string calendarServiceName = "Disabled";
 
             public static string ToDoServiceUrl
             {
                 get { return toDoServiceUrl; }
                 set { toDoServiceUrl = value; }
             }
-            private static string toDoServiceUrl;
+            private static string toDoServiceUrl = "disabled";
 
             public static string CalendarServiceUrl
             {
                 get { return calendarServiceUrl; }
                 set { calendarServiceUrl = value; }
             }
-            private static string calendarServiceUrl;
+            private static string calendarServiceUrl = "disabled";
 
             public static string OutlookExePath
             {
                 get { return outlookExePath; }
                 set { outlookExePath = value; }
             }
-            private static string outlookExePath;
+            private static string outlookExePath = @"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE";
 
             public static string Backdrop
             {
                 get { return backdrop; }
                 set { backdrop = value; }
             }
-            private static string backdrop;
+            private static string backdrop = "Mica";
 
             public static string PaneDisplayMode
             {
                 get { return paneDisplayMode; }
                 set { paneDisplayMode = value; }
             }
-            private static string paneDisplayMode;
+            private static string paneDisplayMode = "Auto";
         }
             
         OverlappedPresenter presenter;
