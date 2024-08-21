@@ -52,6 +52,23 @@ namespace Email_Inboxes.First_Boot_Window
         {
             FirstBootWindow.SettingsCache.OutlookExePath = ExePath.Text;
         }
+
+        private async void OpenExePathFilePicker_Click(object sender, RoutedEventArgs e)
+        {
+            var openPicker = new FileOpenPicker();
+
+            var window = (FirstBootWindow)((App)Application.Current).firstBootWindow;
+            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
+            WinRT.Interop.InitializeWithWindow.Initialize(openPicker, hWnd);
+
+            openPicker.ViewMode = PickerViewMode.List;
+            openPicker.SuggestedStartLocation = PickerLocationId.ComputerFolder;
+            openPicker.FileTypeFilter.Add(".exe");
+
+            var file = await openPicker.PickSingleFileAsync();
+            if (file != null)
+                ExePath.Text = file.Path;
+        }
         }
     }
 }
