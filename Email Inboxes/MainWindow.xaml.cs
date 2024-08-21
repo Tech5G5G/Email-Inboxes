@@ -153,13 +153,6 @@ namespace Email_Inboxes
 
         private OverlappedPresenter presenter;
 
-        private Microsoft.UI.Windowing.AppWindow GetAppWindowForCurrentWindow ()
-        {
-            IntPtr hWnd = WindowNative.GetWindowHandle(this);
-            WindowId wndId = Win32Interop.GetWindowIdFromWindow(hWnd);
-            return Microsoft.UI.Windowing.AppWindow.GetFromWindowId(wndId);
-        }
-
         public MainWindow()
         {
             this.InitializeComponent();
