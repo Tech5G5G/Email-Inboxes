@@ -40,6 +40,12 @@ namespace Email_Inboxes.First_Boot_Window
             FirstBootWindow fbw = (FirstBootWindow)((App)Application.Current).firstBootWindow;
             fbw.FirstBootFrame.Navigate(typeof(CommandBarVisibility), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromLeft });
         }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleButton homeButton = sender as ToggleButton;
+            FirstBootWindow.SettingsCache.HomeEnabled = (bool)homeButton.IsChecked;
+        }
         }
     }
 }
