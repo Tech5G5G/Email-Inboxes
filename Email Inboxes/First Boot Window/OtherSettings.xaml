@@ -16,7 +16,7 @@
             <TextBlock Text="You have finished setting up" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
             <TextBlock Text="Email Inboxes" Style="{ThemeResource TitleLargeTextBlockStyle}" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
         </StackPanel>
-        <StackPanel BorderThickness="48" Width="429" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+        <StackPanel BorderThickness="48" Spacing="8" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
             <Button Content="{ui:FontIcon Glyph=&#xE72B;}" ToolTipService.ToolTip="Back (Alt+Left)" Click="BackClick">
                 <Button.KeyboardAccelerators>
                     <KeyboardAccelerator Modifiers="Menu" Key="Left" />
@@ -30,6 +30,7 @@
                     <KeyboardAccelerator Modifiers="Menu" Key="Right" />
                 </Button.KeyboardAccelerators>
             </Button>
+        </StackPanel>
         </StackPanel>
         <StackPanel BorderThickness="48" Width="429" VerticalAlignment="Top" HorizontalAlignment="Right">
             <controls:SettingsCard Header="Home page visibility" Description="Enable or disable the home page" HeaderIcon="{ui:FontIcon Glyph=&#xE80F;}">
