@@ -12,10 +12,9 @@
     NavigationCacheMode="Enabled">
 
     <Grid>
-        <StackPanel Margin="0,40,0,0" BorderThickness="48" Width="429" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <TextBlock Text="3 out of 3" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
-            <TextBlock Text="Change more settings" Style="{ThemeResource TitleLargeTextBlockStyle}"/>
-            <TextBlock Text="These settings include command bar visibility, window backdrop, and more" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
+        <StackPanel BorderThickness="48" Height="123" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock Text="You have finished setting up" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+            <TextBlock Text="Email Inboxes" Style="{ThemeResource TitleLargeTextBlockStyle}" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
         </StackPanel>
         <StackPanel BorderThickness="48" Width="429" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
             <Button Content="{ui:FontIcon Glyph=&#xE72B;}" ToolTipService.ToolTip="Back (Alt+Left)" Click="BackClick">
