@@ -47,7 +47,7 @@
             </StackPanel>
             <ScrollViewer Margin="16,182,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" CornerRadius="0">
                 <StackPanel>
-                    <ToggleButton Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
+                    <ToggleButton Click="OutlookToggle_Click" Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal" Margin="18,0,0,0">
                             <FontIcon Glyph="&#xE902;" FontFamily="{StaticResource CustomIcons}" FontSize="40"/>
                             <TextBlock Text="Outlook" Margin="34,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="34"/>
