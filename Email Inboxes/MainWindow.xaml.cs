@@ -161,10 +161,9 @@ namespace Email_Inboxes
             Title = $"Email Inboxes";
             SetTitleBar(AppTitleBar);
 
-            m_AppWindow = GetAppWindowForCurrentWindow();
-            m_AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
-            m_AppWindow.SetIcon("Mail.ico");
-            presenter = m_AppWindow.Presenter as OverlappedPresenter;
+            AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
+            AppWindow.SetIcon("Mail.ico");
+            presenter = AppWindow.Presenter as OverlappedPresenter;
 
             //Reads value of WindowState and decides whether to maximize the window
             if (Enum.Parse<OverlappedPresenterState>((string)localSettings.Values[App.Settings.WindowState]) == OverlappedPresenterState.Maximized)
