@@ -13,7 +13,7 @@
 
     <Grid>
         <StackPanel Margin="0,40,0,0" BorderThickness="48" Width="429" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <TextBlock Text="2 out of 3" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
+            <TextBlock Text="3 out of 6" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
             <TextBlock Text="Customize your home" Style="{ThemeResource TitleLargeTextBlockStyle}"/>
             <TextBlock Text="Change settings related to the home page" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
         </StackPanel>
