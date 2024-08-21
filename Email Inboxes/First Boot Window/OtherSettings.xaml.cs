@@ -71,7 +71,7 @@ namespace Email_Inboxes.First_Boot_Window
         private void BackClick(object sender, RoutedEventArgs e)
         {
             FirstBootWindow fbw = (FirstBootWindow)((App)Application.Current).firstBootWindow;
-            fbw.FirstBootFrame.Navigate(typeof(CustomHome), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromLeft });
+            fbw.FirstBootFrame.Navigate(typeof(StartupPage), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromLeft });
         }
     }
 }
