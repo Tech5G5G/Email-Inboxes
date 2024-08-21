@@ -9,7 +9,6 @@
     xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     xmlns:ui="using:CommunityToolkit.WinUI"
     mc:Ignorable="d">
-    NavigationCacheMode="Enabled">
 
     <Grid>
         <StackPanel BorderThickness="48" Height="123" VerticalAlignment="Top" HorizontalAlignment="Center">
@@ -66,7 +65,7 @@
                         <StackPanel Orientation="Horizontal" Margin="3,0,0,3">
                             <FontIcon Glyph="&#xE902;" FontFamily="{StaticResource CustomIcons}" FontSize="20"/>
                             <TextBlock Text="Outlook" Margin="17,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="17"/>
-        </StackPanel>
+                        </StackPanel>
                     </Button>
                     <Button x:Name="gmailButton" Height="50" CornerRadius="4" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal" Margin="3,0,0,3">
@@ -93,7 +92,7 @@
                         </StackPanel>
                     </Button>
                 </StackPanel>
-        </StackPanel>
-    </Grid>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
