@@ -143,8 +143,6 @@ namespace Email_Inboxes
             }
             private static string paneDisplayMode = "Auto";
         }
-            
-        OverlappedPresenter presenter;
 
         public FirstBootWindow()
         {
