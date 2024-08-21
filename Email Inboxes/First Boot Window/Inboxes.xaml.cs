@@ -69,6 +69,14 @@ namespace Email_Inboxes.First_Boot_Window
             if (file != null)
                 ExePath.Text = file.Path;
         }
+
+        private void OutlookAppType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string outlookAppType = (OutlookAppType.SelectedItem as ComboBoxItem).Content.ToString();
+            FirstBootWindow.SettingsCache.OutlookAppType = outlookAppType;
+
+            ExePathCard.Visibility = outlookAppType == "exe" ? Visibility.Visible : Visibility.Collapsed;
+        }
         }
     }
 }
