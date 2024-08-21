@@ -23,6 +23,7 @@
                     <KeyboardAccelerator Modifiers="Menu" Key="Left" />
                 </Button.KeyboardAccelerators>
             </Button>
+            <Button Margin="8,0,0,0" Style="{ThemeResource AccentButtonStyle}" ToolTipService.ToolTip="Next (Alt+Right)" Click="NextClick">
                 <StackPanel Orientation="Horizontal">
                     <FontIcon Glyph="&#xE72A;"/>
                     <TextBlock Margin="8,0,0,0" Text="Next"/>
