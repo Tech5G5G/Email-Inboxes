@@ -31,6 +31,12 @@ namespace Email_Inboxes.First_Boot_Window
         public OtherSettings()
         {
             this.InitializeComponent();
+
+            outlookButton.Visibility = FirstBootWindow.SettingsCache.OutlookEnabled ? Visibility.Visible : Visibility.Collapsed;
+            gmailButton.Visibility = FirstBootWindow.SettingsCache.GmailEnabled ? Visibility.Visible : Visibility.Collapsed;
+            yahooButton.Visibility = FirstBootWindow.SettingsCache.YahooEnabled ? Visibility.Visible : Visibility.Collapsed;
+            iCloudButton.Visibility = FirstBootWindow.SettingsCache.IcloudEnabled ? Visibility.Visible : Visibility.Collapsed;
+            protonButton.Visibility = FirstBootWindow.SettingsCache.ProtonEnabled ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void NextClick(object sender, RoutedEventArgs e)
