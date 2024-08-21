@@ -77,6 +77,26 @@ namespace Email_Inboxes.First_Boot_Window
 
             ExePathCard.Visibility = outlookAppType == "exe" ? Visibility.Visible : Visibility.Collapsed;
         }
+
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleButton toggleButton = sender as ToggleButton;
+
+            switch (toggleButton.Name)
+            {
+                case "GmailButton":
+                    FirstBootWindow.SettingsCache.GmailEnabled = (bool)toggleButton.IsChecked;
+                    break;
+                case "YahooButton":
+                    FirstBootWindow.SettingsCache.YahooEnabled = (bool)toggleButton.IsChecked;
+                    break;
+                case "IcloudButton":
+                    FirstBootWindow.SettingsCache.IcloudEnabled = (bool)toggleButton.IsChecked;
+                    break;
+                case "ProtonButton":
+                    FirstBootWindow.SettingsCache.ProtonEnabled = (bool)toggleButton.IsChecked;
+                    break;
+            }
         }
     }
 }
