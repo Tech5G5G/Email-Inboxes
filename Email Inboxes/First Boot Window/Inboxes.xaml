@@ -79,25 +79,25 @@
                             </Button>
                         </StackPanel>
                     </ToggleButton>
-                    <ToggleButton Margin="0,16,0,0" Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
+                    <ToggleButton x:Name="GmailButton" Click="ToggleButton_Click" Margin="0,16,0,0" Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal" Margin="18,0,0,0">
                             <FontIcon Glyph="&#xE900;" FontFamily="{StaticResource CustomIcons}" FontSize="40"/>
                             <TextBlock Text="Gmail" Margin="34,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="34"/>
                         </StackPanel>
                     </ToggleButton>
-                    <ToggleButton Margin="0,16,0,0" Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
+                    <ToggleButton x:Name="YahooButton" Click="ToggleButton_Click" Margin="0,16,0,0" Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal" Margin="18,0,0,0">
                             <FontIcon Glyph="&#xE903;" FontFamily="{StaticResource CustomIcons}" FontSize="40"/>
                             <TextBlock Text="Yahoo Mail" Margin="34,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="34"/>
                         </StackPanel>
                     </ToggleButton>
-                    <ToggleButton Margin="0,16,0,0" Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
+                    <ToggleButton x:Name="IcloudButton" Click="ToggleButton_Click" Margin="0,16,0,0" Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal" Margin="18,0,0,0">
                             <FontIcon Glyph="&#xE753;" FontSize="40"/>
                             <TextBlock Text="iCloud Mail" Margin="34,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="34"/>
                         </StackPanel>
                     </ToggleButton>
-                    <ToggleButton Margin="0,16,0,0" Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
+                    <ToggleButton x:Name="ProtonButton" Click="ToggleButton_Click" Margin="0,16,0,0" Height="100" CornerRadius="8" Width="500" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal" Margin="18,0,0,0">
                             <FontIcon Glyph="&#xE901;" FontFamily="{StaticResource CustomIcons}" FontSize="40"/>
                             <TextBlock Text="Proton Mail" Margin="34,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="34"/>
