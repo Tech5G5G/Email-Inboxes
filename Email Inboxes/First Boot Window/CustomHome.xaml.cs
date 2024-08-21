@@ -46,6 +46,36 @@ namespace Email_Inboxes.First_Boot_Window
             ToggleButton homeButton = sender as ToggleButton;
             FirstBootWindow.SettingsCache.HomeEnabled = (bool)homeButton.IsChecked;
         }
+
+        private void CalendarService_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox calendarService = sender as ComboBox;
+
+            string CalendarServiceName = (calendarService.SelectedItem as ComboBoxItem).Content.ToString();
+            string CalendarServiceUrl = "disabled";
+
+            switch (CalendarServiceName)
+            {
+                case "Apple Calendar":
+                    CalendarServiceUrl = "https://www.icloud.com/calendar/";
+                    break;
+                case "Outlook Calendar":
+                    CalendarServiceUrl = "https://outlook.live.com/calendar/";
+                    break;
+                case "Google Calendar":
+                    CalendarServiceUrl = "https://calendar.google.com";
+                    break;
+                case "Basic Calendar":
+                    CalendarServiceUrl = "basiccalendar";
+                    break;
+                case "Disabled":
+                    CalendarServiceUrl = "disabled";
+                    break;
+            }
+
+            FirstBootWindow.SettingsCache.CalendarServiceName = CalendarServiceName;
+            FirstBootWindow.SettingsCache.CalendarServiceUrl = CalendarServiceUrl;
+        }
         }
     }
 }
