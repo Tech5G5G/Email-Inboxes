@@ -13,7 +13,7 @@
 
     <Grid>
         <StackPanel Margin="0,40,0,0" BorderThickness="48" Width="429" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <TextBlock Text="2 1/2 out of 3" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
+            <TextBlock Text="2 out of 6" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
             <TextBlock Text="Command bar visibility" Style="{ThemeResource TitleLargeTextBlockStyle}"/>
             <TextBlock Text="Enable or disable the command bar, which allows you to control any page" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
         </StackPanel>
