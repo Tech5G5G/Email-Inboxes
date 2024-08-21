@@ -149,7 +149,10 @@ namespace Email_Inboxes
         public FirstBootWindow()
         {
             this.InitializeComponent();
+
+            AppWindow.SetIcon("Mail.ico");
             ExtendsContentIntoTitleBar = true;
+            Title = @"Setup";
 
             OverlappedPresenter presenter = AppWindow.Presenter as OverlappedPresenter;
             presenter.IsMaximizable = false;
