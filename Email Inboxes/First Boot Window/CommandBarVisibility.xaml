@@ -34,8 +34,7 @@
             </Button>
         </StackPanel>
         <Grid Width="385" HorizontalAlignment="Right">
-            <Border BorderBrush="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" BorderThickness="1" CornerRadius="8" Height="500"  Margin="0,48,0,0" Width="400" VerticalAlignment="Top"/>
-            <Rectangle Fill="{ThemeResource LayerOnMicaBaseAltFillColorSecondaryBrush}" RadiusX="8" RadiusY="8" Height="500"  Margin="0,48,0,0" Width="400" VerticalAlignment="Top"/>
+            <Rectangle Fill="{ThemeResource LayerOnMicaBaseAltFillColorSecondaryBrush}" RadiusX="8" RadiusY="8" Height="500" Margin="0,48,0,0" Width="400" VerticalAlignment="Top" Stroke="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" StrokeThickness="1" />
             <StackPanel Margin="8,57,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
                 <Button Background="Transparent" BorderBrush="Transparent" Height="50" Width="50" CornerRadius="4">
                         <FontIcon Glyph="&#xE700;" FontSize="20" />
