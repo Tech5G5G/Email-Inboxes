@@ -41,8 +41,31 @@ namespace Email_Inboxes.First_Boot_Window
 
         private void NextClick(object sender, RoutedEventArgs e)
         {
-            FirstBootWindow fbw = (FirstBootWindow)((App)Application.Current).firstBootWindow;
-            //fbw.FirstBootFrame.Navigate(typeof(OtherSettings), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
+            App app = (App)Application.Current;
+
+            localSettings.Values[App.Settings.FirstBootScreenPassed] = true;
+
+            localSettings.Values[App.Settings.Backdrop] = FirstBootWindow.SettingsCache.Backdrop;
+            localSettings.Values[App.Settings.CalendarServiceName] = FirstBootWindow.SettingsCache.CalendarServiceName;
+            localSettings.Values[App.Settings.CalendarServiceUrl] = FirstBootWindow.SettingsCache.CalendarServiceUrl;
+            localSettings.Values[App.Settings.CommandBarEnabled] = FirstBootWindow.SettingsCache.CommandBarEnabled;
+            localSettings.Values[App.Settings.GmailEnabled] = FirstBootWindow.SettingsCache.GmailEnabled;
+            localSettings.Values[App.Settings.HomeEnabled] = FirstBootWindow.SettingsCache.HomeEnabled;
+            localSettings.Values[App.Settings.iCloudEnabled] = FirstBootWindow.SettingsCache.IcloudEnabled;
+            localSettings.Values[App.Settings.OutlookAppType] = FirstBootWindow.SettingsCache.OutlookAppType;
+            localSettings.Values[App.Settings.OutlookEnabled] = FirstBootWindow.SettingsCache.OutlookEnabled;
+            localSettings.Values[App.Settings.OutlookExePath] = FirstBootWindow.SettingsCache.OutlookExePath;
+            localSettings.Values[App.Settings.PaneDisplayMode] = FirstBootWindow.SettingsCache.PaneDisplayMode;
+            localSettings.Values[App.Settings.ProtonEnabled] = FirstBootWindow.SettingsCache.ProtonEnabled;
+            localSettings.Values[App.Settings.StartupPage] = FirstBootWindow.SettingsCache.StartupPage;
+            localSettings.Values[App.Settings.ToDoServiceName] = FirstBootWindow.SettingsCache.ToDoServiceName;
+            localSettings.Values[App.Settings.ToDoServiceUrl] = FirstBootWindow.SettingsCache.ToDoServiceUrl;
+            localSettings.Values[App.Settings.YahooEnabled] = FirstBootWindow.SettingsCache.YahooEnabled;
+
+            app.m_window = new MainWindow();
+            app.m_window.Activate();
+
+            app.firstBootWindow.Close();
         }
 
         private void BackClick(object sender, RoutedEventArgs e)
