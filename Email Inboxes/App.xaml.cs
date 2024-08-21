@@ -299,8 +299,8 @@ namespace Email_Inboxes
                         appWindow.Move(CenteredPosition);
                     }
                 }
+                firstBootWindow.Activate();
             }
-            firstBootWindow.Activate();
         }
 
         public Window m_window;
