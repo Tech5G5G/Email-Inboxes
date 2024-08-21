@@ -29,6 +29,9 @@ namespace Email_Inboxes.First_Boot_Window
         public Inboxes()
         {
             this.InitializeComponent();
+
+            ExePath.Text = (string)ApplicationData.Current.LocalSettings.Values[App.Settings.OutlookExePath];
+            OutlookAppType.SelectedIndex = 0;
         }
 
         private void NextClick(object sender, RoutedEventArgs e)
