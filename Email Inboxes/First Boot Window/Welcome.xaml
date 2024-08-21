@@ -13,6 +13,11 @@
         <TextBlock Text="Welcome" HorizontalAlignment="Center" Style="{ThemeResource DisplayTextBlockStyle}"/>
         <TextBlock Text="to Email Inboxes" HorizontalAlignment="Center" Style="{ThemeResource TitleTextBlockStyle}"/>
 
-        <Button Content="{ui:FontIcon Glyph=&#xE72A;}" Click="NextPage" HorizontalAlignment="Center" Margin="0,16,0,0"/>
+        <Button Content="{ui:FontIcon Glyph=&#xE72A;}" ToolTipService.ToolTip="Start (Alt+Right)" Click="NextPage" HorizontalAlignment="Center" Margin="0,16,0,0">
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator Modifiers="Menu" Key="Right" />
+                <KeyboardAccelerator Key="Enter" />
+            </Button.KeyboardAccelerators>
+        </Button>
     </StackPanel>
 </Page>
