@@ -157,8 +157,6 @@ namespace Email_Inboxes
             presenter.IsResizable = false;
 
             logoStart.Loaded += StartAnimation;
-
-            FirstBootFrame.Translation += new Vector3(0, 0, 32);
         }
 
         private OverlappedPresenter GetAppWindowAndPresenter()
