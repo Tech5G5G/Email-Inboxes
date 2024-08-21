@@ -151,7 +151,7 @@ namespace Email_Inboxes
             this.InitializeComponent();
             ExtendsContentIntoTitleBar = true;
 
-            presenter = GetAppWindowAndPresenter();
+            OverlappedPresenter presenter = AppWindow.Presenter as OverlappedPresenter;
             presenter.IsMaximizable = false;
             presenter.IsMinimizable = false;
             presenter.IsResizable = false;
