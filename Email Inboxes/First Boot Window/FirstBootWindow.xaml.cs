@@ -159,14 +159,6 @@ namespace Email_Inboxes
             logoStart.Loaded += StartAnimation;
         }
 
-        private OverlappedPresenter GetAppWindowAndPresenter()
-        {
-            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
-            WindowId myWndId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
-            var _apw = AppWindow.GetFromWindowId(myWndId);
-            return _apw.Presenter as OverlappedPresenter;
-        }
-
         private async void StartAnimation(object sender, RoutedEventArgs e)
         {
             await Task.Delay(50);
