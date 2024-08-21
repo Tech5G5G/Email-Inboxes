@@ -33,33 +33,60 @@
                 </Button.KeyboardAccelerators>
             </Button>
         </StackPanel>
-        <StackPanel BorderThickness="48" Width="429" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <controls:SettingsCard Header="Home page visibility" Description="Enable or disable the home page" HeaderIcon="{ui:FontIcon Glyph=&#xE80F;}">
-                <ToggleSwitch x:Name="HomeToggle"/>
-            </controls:SettingsCard>
-            <controls:SettingsCard Description="Choose what calendar app to display"
-                                 Header="Calendar app"
-                                 HeaderIcon="{ui:FontIcon Glyph=&#xE787;}">
-                <ComboBox x:Name="CalendarService" x:FieldModifier="public" PlaceholderText="Service">
-                    <ComboBoxItem Content="Google Calendar"/>
-                    <ComboBoxItem Content="Outlook Calendar"/>
-                    <ComboBoxItem Content="Apple Calendar"/>
-                    <ComboBoxItem Content="Disabled"/>
-                </ComboBox>
-            </controls:SettingsCard>
-            <controls:SettingsCard Description="Choose what to do app to display"
-                                 Header="To do app"
-                                 HeaderIcon="{ui:FontIcon Glyph=&#xEB50;}">
-                <ComboBox x:Name="ToDoService" x:FieldModifier="public" PlaceholderText="Service">
-                    <ComboBoxItem Content="Todoist"/>
-                    <ComboBoxItem Content="TickTick"/>
-                    <ComboBoxItem Content="Microsoft To Do"/>
-                    <ComboBoxItem Content="Apple Reminders"/>
-                    <ComboBoxItem Content="Google Tasks"/>
-                    <ComboBoxItem Content="Any.do"/>
-                    <ComboBoxItem Content="Disabled"/>
-                </ComboBox>
-            </controls:SettingsCard>
-        </StackPanel>
+        <Grid Width="385" HorizontalAlignment="Right">
+            <Rectangle Fill="{ThemeResource LayerOnMicaBaseAltFillColorSecondaryBrush}" RadiusX="8" RadiusY="8" Height="500" Margin="0,48,0,0" Width="400" VerticalAlignment="Top" Stroke="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" StrokeThickness="1" />
+            <StackPanel Margin="8,57,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
+                <Button Background="Transparent" BorderBrush="Transparent" Height="50" Width="50" CornerRadius="4">
+                    <FontIcon Glyph="&#xE700;" FontSize="20" />
+                </Button>
+                <Image Width="20" Margin="10,0,0,0" Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" />
+                <TextBlock
+                    x:Name="AppTitle"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    FontSize="16"
+                    Text="Email Inboxes" />
+                <ToggleButton
+                    IsChecked="True"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    Click="HomeButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <FontIcon Glyph="&#xE80F;" FontSize="19"/>
+                        <TextBlock Text="Home" Margin="8,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="16"/>
+                    </StackPanel>
+                </ToggleButton>
+            </StackPanel>
+            <ScrollViewer x:Name="homePageVisual" Margin="8,115,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <StackPanel Spacing="7">
+                    <Grid>
+                        <Rectangle Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Stroke="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" StrokeThickness="1" Width="378" Height="225" />
+                        <ComboBox SelectionChanged="CalendarService_SelectionChanged" SelectedIndex="4" Header="Calendar app" PlaceholderText="Service" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <ComboBoxItem Content="Google Calendar"/>
+                            <ComboBoxItem Content="Outlook Calendar"/>
+                            <ComboBoxItem Content="Apple Calendar"/>
+                            <ComboBoxItem Content="Basic Calendar"/>
+                            <ComboBoxItem Content="Disabled"/>
+                        </ComboBox>
+                    </Grid>
+                    <Grid>
+                        <Rectangle Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Stroke="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" StrokeThickness="1" Width="378" Height="225" />
+                        <ComboBox SelectionChanged="ToDoService_SelectionChanged" SelectedIndex="6" Header="To do app" PlaceholderText="Service" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <ComboBoxItem Content="Todoist"/>
+                            <ComboBoxItem Content="TickTick"/>
+                            <ComboBoxItem Content="Microsoft To Do"/>
+                            <ComboBoxItem Content="Apple Reminders"/>
+                            <ComboBoxItem Content="Google Tasks"/>
+                            <ComboBoxItem Content="Any.do"/>
+                            <ComboBoxItem Content="Disabled"/>
+                        </ComboBox>
+                    </Grid>
+                    <Rectangle Fill="Transparent" Height="0" />
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Page>
