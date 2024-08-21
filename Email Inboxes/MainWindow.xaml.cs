@@ -151,8 +151,6 @@ namespace Email_Inboxes
 
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
-        private Microsoft.UI.Windowing.AppWindow m_AppWindow;
-
         private OverlappedPresenter presenter;
 
         private Microsoft.UI.Windowing.AppWindow GetAppWindowForCurrentWindow ()
