@@ -76,6 +76,41 @@ namespace Email_Inboxes.First_Boot_Window
             FirstBootWindow.SettingsCache.CalendarServiceName = CalendarServiceName;
             FirstBootWindow.SettingsCache.CalendarServiceUrl = CalendarServiceUrl;
         }
+
+        private void ToDoService_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox toDoService = sender as ComboBox;
+
+            string ToDoServiceName = (toDoService.SelectedItem as ComboBoxItem).Content.ToString();
+            string ToDoServiceUrl = "disabled";
+
+            switch (ToDoServiceName)
+            {
+                case "Apple Reminders":
+                    ToDoServiceUrl = "https://icloud.com/reminders";
+                    break;
+                case "Todoist":
+                    ToDoServiceUrl = "https://todoist.com";
+                    break;
+                case "TickTick":
+                    ToDoServiceUrl = "https://ticktick.com";
+                    break;
+                case "Microsoft To Do":
+                    ToDoServiceUrl = "https://to-do.live.com";
+                    break;
+                case "Google Tasks":
+                    ToDoServiceUrl = "https://tasks.google.com";
+                    break;
+                case "Any.do":
+                    ToDoServiceUrl = "https://any.do";
+                    break;
+                case "Disabled":
+                    ToDoServiceUrl = "disabled";
+                    break;
+            }
+
+            FirstBootWindow.SettingsCache.ToDoServiceName = ToDoServiceName;
+            FirstBootWindow.SettingsCache.ToDoServiceUrl = ToDoServiceUrl;
         }
     }
 }
