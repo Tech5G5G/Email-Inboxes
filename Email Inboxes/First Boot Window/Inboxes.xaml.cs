@@ -37,7 +37,8 @@ namespace Email_Inboxes.First_Boot_Window
         private void NextClick(object sender, RoutedEventArgs e)
         {
             FirstBootWindow fbw = (FirstBootWindow)((App)Application.Current).firstBootWindow;
-            fbw.FirstBootFrame.Navigate(typeof(CustomHome), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
+            fbw.FirstBootFrame.Navigate(typeof(CommandBarVisibility), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
+        }
         }
     }
 }
