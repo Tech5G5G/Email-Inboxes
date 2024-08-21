@@ -26,6 +26,8 @@ namespace Email_Inboxes.First_Boot_Window
     /// </summary>
     public sealed partial class OtherSettings : Page
     {
+        ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
         public OtherSettings()
         {
             this.InitializeComponent();
