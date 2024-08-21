@@ -32,34 +32,68 @@
                 </Button.KeyboardAccelerators>
             </Button>
         </StackPanel>
+        <Grid Margin="0,48,0,0">
+            <Rectangle RadiusX="8" RadiusY="8" Height="300" StrokeThickness="1" Width="722">
+                <Rectangle.Stroke>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="{ThemeResource SystemChromeGrayColor}" Offset="0" />
+                        <GradientStop Color="Transparent" Offset="0.90" />
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="{ThemeResource LayerOnMicaBaseAltFillColorSecondary}" Offset="0.5" />
+                        <GradientStop Color="Transparent" Offset="0.92" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <StackPanel Margin="53,84,0,0" Spacing="8" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <Button x:Name="paneModeSwitchButton" Background="Transparent" BorderBrush="Transparent" Height="50" Width="50" CornerRadius="4">
+                        <FontIcon Glyph="&#xE700;" FontSize="20" />
+                    </Button>
+                    <Image Width="20" Margin="10,0,0,0" Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" />
+                    <TextBlock
+                    x:Name="AppTitle"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    FontSize="16"
+                    Text="Email Inboxes" />
+                </StackPanel>
+                <StackPanel x:Name="topVisual" Spacing="8" Orientation="Horizontal">
+                    <Button x:Name="outlookButton" Height="50" CornerRadius="4" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal" Margin="3,0,0,3">
+                            <FontIcon Glyph="&#xE902;" FontFamily="{StaticResource CustomIcons}" FontSize="20"/>
+                            <TextBlock Text="Outlook" Margin="17,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="17"/>
         </StackPanel>
-        <StackPanel BorderThickness="48" Width="429" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <controls:SettingsCard Header="Home page visibility" Description="Enable or disable the home page" HeaderIcon="{ui:FontIcon Glyph=&#xE80F;}">
-                <ToggleSwitch x:Name="HomeToggle"/>
-            </controls:SettingsCard>
-            <controls:SettingsCard Description="Choose what calendar app to display"
-                                 Header="Calendar app"
-                                 HeaderIcon="{ui:FontIcon Glyph=&#xE787;}">
-                <ComboBox x:Name="CalendarService" x:FieldModifier="public" PlaceholderText="Service">
-                    <ComboBoxItem Content="Google Calendar"/>
-                    <ComboBoxItem Content="Outlook Calendar"/>
-                    <ComboBoxItem Content="Apple Calendar"/>
-                    <ComboBoxItem Content="Disabled"/>
-                </ComboBox>
-            </controls:SettingsCard>
-            <controls:SettingsCard Description="Choose what to do app to display"
-                                 Header="To do app"
-                                 HeaderIcon="{ui:FontIcon Glyph=&#xEB50;}">
-                <ComboBox x:Name="ToDoService" x:FieldModifier="public" PlaceholderText="Service">
-                    <ComboBoxItem Content="Todoist"/>
-                    <ComboBoxItem Content="TickTick"/>
-                    <ComboBoxItem Content="Microsoft To Do"/>
-                    <ComboBoxItem Content="Apple Reminders"/>
-                    <ComboBoxItem Content="Google Tasks"/>
-                    <ComboBoxItem Content="Any.do"/>
-                    <ComboBoxItem Content="Disabled"/>
-                </ComboBox>
-            </controls:SettingsCard>
+                    </Button>
+                    <Button x:Name="gmailButton" Height="50" CornerRadius="4" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal" Margin="3,0,0,3">
+                            <FontIcon Glyph="&#xE900;" FontFamily="{StaticResource CustomIcons}" FontSize="20"/>
+                            <TextBlock Text="Gmail" Margin="17,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="17"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="yahooButton" Height="50" CornerRadius="4" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal" Margin="3,0,0,3">
+                            <FontIcon Glyph="&#xE903;" FontFamily="{StaticResource CustomIcons}" FontSize="20"/>
+                            <TextBlock Text="Yahoo Mail" Margin="17,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="17"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="iCloudButton" Height="50" CornerRadius="4" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal" Margin="3,0,0,3">
+                            <FontIcon Glyph="&#xE753;" FontSize="20"/>
+                            <TextBlock Text="iCloud Mail" Margin="17,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="17"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="protonButton" Height="50" CornerRadius="4" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal" Margin="3,0,0,3">
+                            <FontIcon Glyph="&#xE901;" FontFamily="{StaticResource CustomIcons}" FontSize="20"/>
+                            <TextBlock Text="Proton Mail" Margin="17,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="17"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
         </StackPanel>
+    </Grid>
     </Grid>
 </Page>
