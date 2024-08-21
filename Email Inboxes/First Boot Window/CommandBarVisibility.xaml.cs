@@ -40,6 +40,15 @@ namespace Email_Inboxes.First_Boot_Window
             FirstBootWindow fbw = (FirstBootWindow)((App)Application.Current).firstBootWindow;
             fbw.FirstBootFrame.Navigate(typeof(Inboxes), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromLeft });
         }
+
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleButton toggleButton = sender as ToggleButton;
+            TextBlock text = toggleButton.Content as TextBlock;
+
+            text.Text = (bool)toggleButton.IsChecked ? "On" : "Off";
+            FirstBootWindow.SettingsCache.CommandBarEnabled = (bool)toggleButton.IsChecked;
+            commandBarVisual.Visibility = (bool)toggleButton.IsChecked ? Visibility.Visible : Visibility.Collapsed;
         }
     }
 }
