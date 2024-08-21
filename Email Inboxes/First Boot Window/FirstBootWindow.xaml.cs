@@ -33,8 +33,8 @@ namespace Email_Inboxes
         {
             public static string StartupPage
             {
-                get { return StartupPage; }
-                set { StartupPage = value; }
+                get { return startupPage; }
+                set { startupPage = value; }
             }
             private static string startupPage = "Home";
 
