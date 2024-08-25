@@ -11,6 +11,7 @@
 ## Supports
 * Outlook
 * Gmail
+* Yahoo Mail
 * iCloud Mail
 * Proton Mail
 
