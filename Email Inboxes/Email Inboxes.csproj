@@ -32,14 +32,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="App.xaml" />
-    <None Remove="Assets\Email-Inboxes-Icons.ttf" />
+    <None Remove="Assets\Email-Inboxes-Icons.otf" />
     <None Remove="Assets\SplashScreen.scale-200.png" />
+    <None Remove="Assets\Square150x150Logo.scale-100.png" />
     <None Remove="Assets\Square44x44Logo.scale-200.png" />
+    <None Remove="Assets\Square44x44Logo.scale-400.png" />
+    <None Remove="desktop.ini" />
+    <None Remove="First Boot Window\Backdrop.xaml" />
+    <None Remove="First Boot Window\CommandBarVisibility.xaml" />
+    <None Remove="First Boot Window\CustomHome.xaml" />
+    <None Remove="First Boot Window\Inboxes.xaml" />
+    <None Remove="First Boot Window\OtherSettings.xaml" />
+    <None Remove="First Boot Window\PaneDisplay.xaml" />
+    <None Remove="First Boot Window\StartupPage.xaml" />
+    <None Remove="First Boot Window\Welcome.xaml" />
+    <None Remove="FirstBootWindow.xaml" />
     <None Remove="Gmail.xaml" />
     <None Remove="Home.xaml" />
     <None Remove="iCloud.xaml" />
     <None Remove="Outlook.xaml" />
     <None Remove="Proton.xaml" />
+    <None Remove="Services\Yahoo.xaml" />
     <None Remove="Settings.xaml" />
   </ItemGroup>
 
@@ -49,8 +62,8 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.0.240109" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.4.230913002" />
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.3233" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240627000" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
 
@@ -63,9 +76,34 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
-    <Content Update="Assets\Email-Inboxes-Icons.ttf">
+    <Content Update="Assets\Email-Inboxes-Icons.otf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="First Boot Window\CommandBarVisibility.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="First Boot Window\OtherSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="First Boot Window\CustomHome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="First Boot Window\Inboxes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="FirstBootWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Outlook.xaml">
@@ -102,6 +140,16 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <Page Update="Services\Yahoo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="First Boot Window\Welcome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
 
   <!-- 
     Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution 
@@ -111,4 +159,22 @@
   <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>
+  <ItemGroup>
+    <CustomAdditionalCompileInputs Remove="First Boot Window\Backdrop.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Remove="First Boot Window\Backdrop.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomAdditionalCompileInputs Remove="First Boot Window\PaneDisplay.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Remove="First Boot Window\PaneDisplay.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomAdditionalCompileInputs Remove="First Boot Window\StartupPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Remove="First Boot Window\StartupPage.xaml" />
+  </ItemGroup>
 </Project>

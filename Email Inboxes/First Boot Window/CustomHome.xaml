@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Email_Inboxes.First_Boot_Window.CustomHome"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Email_Inboxes.First_Boot_Window"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    xmlns:ui="using:CommunityToolkit.WinUI"
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled">
+
+    <Grid>
+        <StackPanel Margin="0,40,0,0" BorderThickness="48" Width="429" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="3 out of 6" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
+            <TextBlock Text="Customize your home" Style="{ThemeResource TitleLargeTextBlockStyle}"/>
+            <TextBlock Text="Change settings related to the home page" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
+        </StackPanel>
+        <StackPanel BorderThickness="48" Width="429" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+            <Button Content="{ui:FontIcon Glyph=&#xE72B;}" ToolTipService.ToolTip="Back (Alt+Left)" Click="BackClick">
+                <Button.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Menu" Key="Left" />
+                </Button.KeyboardAccelerators>
+            </Button>
+            <Button Margin="8,0,0,0" Style="{ThemeResource AccentButtonStyle}" ToolTipService.ToolTip="Next (Alt+Right)" Click="NextClick">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xE72A;"/>
+                    <TextBlock Margin="8,0,0,0" Text="Next"/>
+                </StackPanel>
+                <Button.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Menu" Key="Right" />
+                </Button.KeyboardAccelerators>
+            </Button>
+        </StackPanel>
+        <Grid Width="385" HorizontalAlignment="Right">
+            <Rectangle Fill="{ThemeResource LayerOnMicaBaseAltFillColorSecondaryBrush}" RadiusX="8" RadiusY="8" Height="500" Margin="0,48,0,0" Width="400" VerticalAlignment="Top" Stroke="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" StrokeThickness="1" />
+            <StackPanel Margin="8,57,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
+                <Button Background="Transparent" BorderBrush="Transparent" Height="50" Width="50" CornerRadius="4">
+                    <FontIcon Glyph="&#xE700;" FontSize="20" />
+                </Button>
+                <Image Width="20" Margin="10,0,0,0" Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" />
+                <TextBlock
+                    x:Name="AppTitle"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    FontSize="16"
+                    Text="Email Inboxes" />
+                <ToggleButton
+                    IsChecked="True"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    Click="HomeButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <FontIcon Glyph="&#xE80F;" FontSize="19"/>
+                        <TextBlock Text="Home" Margin="8,0,0,0" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="16"/>
+                    </StackPanel>
+                </ToggleButton>
+            </StackPanel>
+            <ScrollViewer x:Name="homePageVisual" Margin="8,115,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <StackPanel Spacing="7">
+                    <Grid>
+                        <Rectangle Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Stroke="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" StrokeThickness="1" Width="378" Height="225" />
+                        <ComboBox SelectionChanged="CalendarService_SelectionChanged" SelectedIndex="4" Header="Calendar app" PlaceholderText="Service" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <ComboBoxItem Content="Google Calendar"/>
+                            <ComboBoxItem Content="Outlook Calendar"/>
+                            <ComboBoxItem Content="Apple Calendar"/>
+                            <ComboBoxItem Content="Basic Calendar"/>
+                            <ComboBoxItem Content="Disabled"/>
+                        </ComboBox>
+                    </Grid>
+                    <Grid>
+                        <Rectangle Fill="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}" Stroke="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" StrokeThickness="1" Width="378" Height="225" />
+                        <ComboBox SelectionChanged="ToDoService_SelectionChanged" SelectedIndex="6" Header="To do app" PlaceholderText="Service" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <ComboBoxItem Content="Todoist"/>
+                            <ComboBoxItem Content="TickTick"/>
+                            <ComboBoxItem Content="Microsoft To Do"/>
+                            <ComboBoxItem Content="Apple Reminders"/>
+                            <ComboBoxItem Content="Google Tasks"/>
+                            <ComboBoxItem Content="Any.do"/>
+                            <ComboBoxItem Content="Disabled"/>
+                        </ComboBox>
+                    </Grid>
+                    <Rectangle Fill="Transparent" Height="0" />
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

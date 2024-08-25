@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Email_Inboxes.First_Boot_Window.Backdrop"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Email_Inboxes.First_Boot_Window"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:CommunityToolkit.WinUI"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    mc:Ignorable="d"
+    NavigationCacheMode="Required">
+
+    <Grid>
+        <StackPanel Margin="0,40,0,0" BorderThickness="48" Width="429" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="5 out of 6" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
+            <TextBlock Text="Window backdrop" Style="{ThemeResource TitleLargeTextBlockStyle}"/>
+            <TextBlock Text="Choose a material to set as the background of the app" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondary}"/>
+        </StackPanel>
+        <StackPanel BorderThickness="48" Width="429" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+            <Button Content="{ui:FontIcon Glyph=&#xE72B;}" ToolTipService.ToolTip="Back (Alt+Left)" Click="BackClick">
+                <Button.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Menu" Key="Left" />
+                </Button.KeyboardAccelerators>
+            </Button>
+            <Button Margin="8,0,0,0" Style="{ThemeResource AccentButtonStyle}" ToolTipService.ToolTip="Next (Alt+Right)" Click="NextClick">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xE72A;"/>
+                    <TextBlock Margin="8,0,0,0" Text="Next"/>
+                </StackPanel>
+                <Button.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Menu" Key="Right" />
+                </Button.KeyboardAccelerators>
+            </Button>
+        </StackPanel>
+        <StackPanel Spacing="24" Width="429" HorizontalAlignment="Right" VerticalAlignment="Center" BorderThickness="48">
+            <controls:SettingsCard Click="Card_Click" IsClickEnabled="True" IsActionIconVisible="False" ContentAlignment="Left" VerticalContentAlignment="Center">
+                <RadioButton x:Name="micaCheck" IsChecked="True" Checked="RadioButton_Checked" Content="Mica" />
+            </controls:SettingsCard>
+            <controls:SettingsCard Click="Card_Click" IsClickEnabled="True" IsActionIconVisible="False" ContentAlignment="Left" VerticalContentAlignment="Center">
+                <RadioButton x:Name="micaAltCheck" Checked="RadioButton_Checked" Content="Mica Alt" />
+            </controls:SettingsCard>
+            <controls:SettingsCard Click="Card_Click" IsClickEnabled="True" IsActionIconVisible="False" ContentAlignment="Left" VerticalContentAlignment="Center">
+                <RadioButton x:Name="acrylicCheck" Checked="RadioButton_Checked" Content="Acrylic" />
+            </controls:SettingsCard>
+        </StackPanel>
+    </Grid>
+</Page>
