@@ -23,6 +23,12 @@ using Windows.Storage;
 using Windows.UI.Notifications;
 using Microsoft.Web.WebView2.Core;
 using WinRT;
+using System.Threading.Tasks;
+using static Email_Inboxes.MainWindow;
+using Email_Inboxes.Services;
+using Windows.Devices.Enumeration;
+using System.Numerics;
+using Microsoft.UI.Composition;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
@@ -39,142 +45,181 @@ namespace Email_Inboxes
         {
             this.InitializeComponent();
 
-            var settingsValues = localSettings.Values;
+            if (WebViews.CalendarWebView == null)
+                WebViews.CalendarWebView = new WebView2() { HorizontalAlignment = HorizontalAlignment.Stretch, VerticalAlignment = VerticalAlignment.Stretch, Height = 500, Margin = new Thickness(25,0,25,25) };
 
-            string ToDoServiceUrl = "disabled";
-            if(localSettings.Values.ContainsKey("ToDoServiceUrl"))
+            if (WebViews.ToDoWebView == null)
+                WebViews.ToDoWebView = new WebView2() { HorizontalAlignment = HorizontalAlignment.Stretch, VerticalAlignment = VerticalAlignment.Stretch, Height = 500, Margin = new Thickness(25, 0, 25, 25) };
+
+            if (WebViews.CalendarView == null)
+                WebViews.CalendarView = new CalendarView() { CornerRadius = new CornerRadius(8), HorizontalAlignment = HorizontalAlignment.Stretch, VerticalAlignment = VerticalAlignment.Stretch, Height = 500, Margin = new Thickness(25, 0, 25, 25) };
+
+            if (WebViews.OutlookPageButton == null)
+                WebViews.OutlookPageButton = OutlookPageButton;
+
+            if (WebViews.OutlookAppButton == null)
+                WebViews.OutlookAppButton = OutlookAppButton;
+
+            if (WebViews.GmailButton == null)
+                WebViews.GmailButton = GmailButton;
+
+            if (WebViews.YahooButton == null)
+                WebViews.YahooButton = YahooButton;
+
+            if (WebViews.IcloudButton == null)
+                WebViews.IcloudButton = iCloudButton;
+
+            if (WebViews.ProtonButton == null)
+                WebViews.ProtonButton = ProtonButton;
+
+            homeItems.Children.Add(WebViews.CalendarWebView);
+            homeItems.Children.Add(WebViews.CalendarView);
+            homeItems.Children.Add(WebViews.ToDoWebView);
+
+            //Shows or hides the WebView that shows the user selected to do app/service
+            string ToDoServiceUrl = (string)localSettings.Values[App.Settings.ToDoServiceUrl];
+            if (ToDoServiceUrl == "disabled") WebViews.ToDoWebView.Visibility = Visibility.Collapsed;
+            else WebViews.ToDoWebView.Source = new Uri(ToDoServiceUrl);
+
+            //Shows or hides the user selected calendar app/service
+            string CalendarServiceUrl = (string)localSettings.Values[App.Settings.CalendarServiceUrl];
+            if (CalendarServiceUrl == "disabled")
             {
-                ToDoServiceUrl = localSettings.Values["ToDoServiceUrl"].ToString();
+                WebViews.CalendarWebView.Visibility = Visibility.Collapsed;
+                WebViews.CalendarView.Visibility = Visibility.Collapsed;
+            }
+            else if (CalendarServiceUrl == "basiccalendar")
+            {
+                WebViews.CalendarWebView.Visibility = Visibility.Collapsed;
+                WebViews.CalendarView.Visibility = Visibility.Visible;
             }
             else
             {
-                localSettings.Values["ToDoServiceUrl"] = "disabled";
+                WebViews.CalendarWebView.Source = new Uri(CalendarServiceUrl);
+                WebViews.CalendarView.Visibility = Visibility.Collapsed;
             }
 
-            switch (ToDoServiceUrl)
+            //Shows or hides the card of the related service depending on the user's settings
+            if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
             {
-                case "disabled":
-                    HomeWebView.Visibility = Visibility.Collapsed;
-                    break;
-                default:
-                    HomeWebView.Source = new Uri(ToDoServiceUrl);
-                    break;
+                string outlookAppType = (string)localSettings.Values[App.Settings.OutlookAppType];
+                OutlookPageButton.Visibility = outlookAppType == "Website" || outlookAppType == "Business website" ? Visibility.Visible : Visibility.Collapsed;
+                OutlookAppButton.Visibility = outlookAppType == "Website" || outlookAppType == "Business website" ? Visibility.Collapsed : Visibility.Visible;
             }
+            else OutlookPageButton.Visibility = OutlookAppButton.Visibility = Visibility.Collapsed;
 
+            GmailButton.Visibility = (bool)localSettings.Values[App.Settings.GmailEnabled] ? Visibility.Visible : Visibility.Collapsed;
 
-            string CalendarServiceUrl = "disabled";
-            if (localSettings.Values.ContainsKey("CalendarServiceUrl"))
-            {
-                CalendarServiceUrl = localSettings.Values["CalendarServiceUrl"].ToString();
-            }
-            else
-            {
-                localSettings.Values["CalendarServiceUrl"] = "disabled";
-            }
+            iCloudButton.Visibility = (bool)localSettings.Values[App.Settings.iCloudEnabled] ? Visibility.Visible : Visibility.Collapsed;
 
-            switch (CalendarServiceUrl)
-            {
-                case "disabled":
-                    CalendarWebView.Visibility = Visibility.Collapsed;
-                    break;
-                default:
-                    CalendarWebView.Source = new Uri(CalendarServiceUrl);
-                    break;
-            }
+            ProtonButton.Visibility = (bool)localSettings.Values[App.Settings.ProtonEnabled] ? Visibility.Visible : Visibility.Collapsed;
 
-            string OutlookEnabled = localSettings.Values["OutlookEnabled"].ToString();
-            string OutlookAppType = localSettings.Values["OutlookAppType"].ToString();
-
-            if (OutlookEnabled is "True")
-            {
-                if (OutlookAppType == "Website")
-                {
-                    OutlookPageButton.Visibility = Visibility.Visible;
-                    OutlookAppButton.Visibility = Visibility.Collapsed;
-                }
-                else
-                {
-                    OutlookPageButton.Visibility = Visibility.Collapsed;
-                    OutlookAppButton.Visibility = Visibility.Visible;
-                }
-            }
-            else
-            {
-                OutlookPageButton.Visibility = Visibility.Collapsed;
-                OutlookAppButton.Visibility = Visibility.Collapsed;
-            }
-
-            string GmailEnabled = localSettings.Values["GmailEnabled"].ToString();
-            if (GmailEnabled is "True")
-            {
-                GmailButton.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                GmailButton.Visibility = Visibility.Collapsed;
-            }
-
-            string iCloudEnabled = localSettings.Values["iCloudEnabled"].ToString();
-            if (iCloudEnabled is "True")
-            {
-                iCloudButton.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                iCloudButton.Visibility = Visibility.Collapsed;
-            }
-
-            string ProtonEnabled = localSettings.Values["ProtonEnabled"].ToString();
-            if (ProtonEnabled is "True")
-            {
-                ProtonButton.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                ProtonButton.Visibility = Visibility.Collapsed;
-            }
+            YahooButton.Visibility = (bool)localSettings.Values[App.Settings.YahooEnabled] ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void SettingsCard_Click(object sender, RoutedEventArgs e)
         {
-            string OutlookExePath = localSettings.Values["OutlookExePath"].ToString();
-            System.Diagnostics.Process.Start(OutlookExePath);
+            Process.Start((string)localSettings.Values[App.Settings.OutlookExePath]);
         }
 
+        //All below changes the selected nvSample item with a different animation
         private void SettingsCard_Click_1(object sender, RoutedEventArgs e)
         {
-            Frame contentFrame = ((App)Application.Current).contentFrame;
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Proton");
             mw.nvSample.SelectedItem = item;
-            Frame.Navigate(typeof(Proton), contentFrame, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+            mw.contentFrame.Navigate(typeof(Proton), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
         }
 
         private void SettingsCard_Click_2(object sender, RoutedEventArgs e)
         {
-            Frame contentFrame = ((App)Application.Current).contentFrame;
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_iCloud");
             mw.nvSample.SelectedItem = item;
-            Frame.Navigate(typeof(iCloud), contentFrame, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+            mw.contentFrame.Navigate(typeof(iCloud), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
         }
 
         private void SettingsCard_Click_3(object sender, RoutedEventArgs e)
         {
-            Frame contentFrame = ((App)Application.Current).contentFrame;
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Gmail");
             mw.nvSample.SelectedItem = item;
-            Frame.Navigate(typeof(Gmail), contentFrame, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+            mw.contentFrame.Navigate(typeof(Gmail), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
         }
 
         private void OutlookNavigate(object sender, RoutedEventArgs e)
         {
-            Frame contentFrame = ((App)Application.Current).contentFrame;
             MainWindow mw = (MainWindow)((App)Application.Current).m_window;
             var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Outlook");
             mw.nvSample.SelectedItem = item;
-            Frame.Navigate(typeof(Outlook), contentFrame, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+            mw.contentFrame.Navigate(typeof(Outlook), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
+        }
+
+        private void YahooNavigate(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = (MainWindow)((App)Application.Current).m_window;
+            var item = mw.nvSample.MenuItems.First(i => ((NavigationViewItem)i).Name == "NavItem_Yahoo");
+            mw.nvSample.SelectedItem = item;
+            mw.contentFrame.Navigate(typeof(Yahoo), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
+        }
+
+        //Methods that make the inboxButtonsSV scroll buttons work
+        private void inboxButtonsSV_ScrollRight(object sender, RoutedEventArgs e)
+        {
+            //Scrolls 200px to the right
+            double toScroll = inboxButtonsSV.HorizontalOffset + 200;
+            inboxButtonsSV.ChangeView(toScroll, null, null);
+        }
+
+        private void inboxButtonsSV_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            ScrollViewer inboxButtonsSV = sender as ScrollViewer;
+
+            scrollRightButton.Opacity = inboxButtonsSV.HorizontalOffset == inboxButtonsSV.ScrollableWidth ? 0 : 1;
+
+            scrollLeftButton.Opacity = inboxButtonsSV.HorizontalOffset == 0 ? 0 : 1;
+        }
+
+        private void inboxButtonsSV_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        {
+            ScrollViewer inboxButtonsSV = sender as ScrollViewer;
+
+            scrollRightButton.Opacity = inboxButtonsSV.HorizontalOffset == inboxButtonsSV.ScrollableWidth ? 0 : 1;
+
+            scrollLeftButton.Opacity = inboxButtonsSV.HorizontalOffset == 0 ? 0 : 1;
+        }
+
+        private void inboxButtonsSV_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            scrollRightButton.Opacity = inboxButtonsSV.HorizontalOffset == inboxButtonsSV.ScrollableWidth ? 0 : 1;
+
+            scrollLeftButton.Opacity = inboxButtonsSV.HorizontalOffset == 0 ? 0 : 1;
+        }
+
+        private void inboxButtonsSV_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            scrollRightButton.Opacity = scrollLeftButton.Opacity = 0;
+        }
+
+        private void scrollLeftButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Scrolls 200px to the left
+            double toScroll = inboxButtonsSV.HorizontalOffset + -200;
+            var scrollable = inboxButtonsSV.ChangeView(toScroll, null, null);
+        }
+
+        private void scrollRightButton_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            scrollRightButton.Opacity = inboxButtonsSV.HorizontalOffset == inboxButtonsSV.ScrollableWidth ? 0 : 1;
+
+            scrollLeftButton.Opacity = inboxButtonsSV.HorizontalOffset == 0 ? 0 : 1;
+        }
+
+        private void scrollLeftButton_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            scrollRightButton.Opacity = inboxButtonsSV.HorizontalOffset == inboxButtonsSV.ScrollableWidth ? 0 : 1;
+
+            scrollLeftButton.Opacity = inboxButtonsSV.HorizontalOffset == 0 ? 0 : 1;
         }
     }
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Email_Inboxes.FirstBootWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Email_Inboxes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:CommunityToolkit.WinUI"
+    mc:Ignorable="d">
+    <Window.SystemBackdrop>
+        <MicaBackdrop/>
+    </Window.SystemBackdrop>
+
+    <Grid>
+        <Border
+            x:Name="AppTitleBar"
+            x:FieldModifier="public"
+            Grid.Column="1"
+            Height="32"
+            Margin="8,0,0,0"
+            VerticalAlignment="Top"
+            AutomationProperties.AutomationId="AppTitleBar"
+            Canvas.ZIndex="1"
+            IsHitTestVisible="True">
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Width="15" x:Name="logoEnd" Source="ms-appx:///Assets/StoreLogo.png" Visibility="Collapsed" />
+            </StackPanel>
+        </Border>
+        <Image Width="150" x:Name="logoMid" Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image Width="25" x:Name="logoStart" Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Frame x:Name="FirstBootFrame" x:FieldModifier="public" Translation="0,0,32" Background="{ThemeResource LayerOnMicaBaseAltFillColorDefault}" CornerRadius="8" Height="498" Width="810" Visibility="Collapsed">
+            <Frame.Shadow>
+                <ThemeShadow />
+            </Frame.Shadow>
+        </Frame>
+    </Grid>
+</Window>
