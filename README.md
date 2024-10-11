@@ -16,10 +16,12 @@
 * Proton Mail
 
 ## Installation
-### Via Microsoft Store
+### Via Microsoft Store (Recommend)
 You can get Email Inboxes through its Microsoft Store page [here](https://apps.microsoft.com/detail/Email%20Inboxes/9mx57pfkf3gc).
 ### Via WinGet
 You can also use Windows' built in package manager to install Email Inboxes. Simply open PowerShell or Command Prompt and type in:
 ```
 winget install 9mx57pfkf3gc
 ```
+### Via MSIX Package
+You can use an MSIX package to install Email Inboxes. Go to the [releases page](https://github.com/Tech5G5G/Email-Inboxes/releases), find the latest version, navigate to the assets section, and download the package that corresponds to your system. Then, open the downloaded file and follow the instructions to install the application.
