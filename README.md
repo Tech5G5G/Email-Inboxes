@@ -23,5 +23,3 @@ You can also use Windows' built in package manager to install Email Inboxes. Sim
 ```
 winget install 9mx57pfkf3gc
 ```
-### Via MSIX Package
-You can use an MSIX package to install Email Inboxes. Go to the [releases page](https://github.com/Tech5G5G/Email-Inboxes/releases), find the latest version, navigate to the assets section, and download the package that corresponds to your system. Then, open the downloaded file and follow the instructions to install the application.
