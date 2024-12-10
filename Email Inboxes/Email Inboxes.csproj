@@ -37,6 +37,7 @@
     <None Remove="Assets\Square150x150Logo.scale-100.png" />
     <None Remove="Assets\Square44x44Logo.scale-200.png" />
     <None Remove="Assets\Square44x44Logo.scale-400.png" />
+    <None Remove="Controls\InboxButton.xaml" />
     <None Remove="desktop.ini" />
     <None Remove="First Boot Window\Backdrop.xaml" />
     <None Remove="First Boot Window\CommandBarVisibility.xaml" />
@@ -176,5 +177,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Remove="First Boot Window\StartupPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\InboxButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 </Project>

@@ -7,7 +7,7 @@
    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
    xmlns:ui="using:CommunityToolkit.WinUI"
-   xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+   xmlns:controls="using:Email_Inboxes.Controls"
    mc:Ignorable="d"
    NavigationCacheMode="Required">
 
@@ -18,12 +18,12 @@
                 <ScrollViewer x:Name="inboxButtonsSV" PointerEntered="inboxButtonsSV_PointerEntered" PointerExited="inboxButtonsSV_PointerExited" ViewChanged="inboxButtonsSV_ViewChanged" SizeChanged="inboxButtonsSV_SizeChanged" VerticalScrollMode="Disabled" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,15">
                     <StackPanel Margin="0,5,0,10" Orientation="Horizontal" x:Name="inboxButtons">
                         <Rectangle Fill="Transparent" Height="10" Width="10"/>
-                        <local:InboxButton x:Name="OutlookPageButton" Margin="15,15,0,0" Icon="&#xE902;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Outlook" Description="Open the Outlook page" Click="OutlookNavigate" />
-                        <local:InboxButton x:Name="OutlookAppButton" Margin="15,15,0,0" Icon="&#xE902;" ActionIcon="&#xE8A7;" IconFontFamily="{StaticResource CustomIcons}" Header="Outlook" Description="Open Outlook" Click="SettingsCard_Click" />
-                        <local:InboxButton x:Name="GmailButton" Margin="15,15,0,0" Icon="&#xE900;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Gmail" Description="Open the Gmail page" Click="SettingsCard_Click_3" />
-                        <local:InboxButton x:Name="YahooButton" Margin="15,15,0,0" Icon="&#xE903;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Yahoo Mail" Description="Open the Yahoo Mail page" Click="YahooNavigate" />
-                        <local:InboxButton x:Name="iCloudButton" Margin="15,15,0,0" Icon="&#xE753;" ActionIcon="&#xE76C;" Header="iCloud Mail" Description="Open the iCloud Mail page" Click="SettingsCard_Click_2" />
-                        <local:InboxButton x:Name="ProtonButton" Margin="15,15,0,0" Icon="&#xE901;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Proton Mail" Description="Open the Proton Mail page" Click="SettingsCard_Click_1" />
+                        <controls:InboxButton x:Name="OutlookPageButton" Margin="15,15,0,0" Icon="&#xE902;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Outlook" Description="Open the Outlook page" Click="OutlookNavigate" />
+                        <controls:InboxButton x:Name="OutlookAppButton" Margin="15,15,0,0" Icon="&#xE902;" ActionIcon="&#xE8A7;" IconFontFamily="{StaticResource CustomIcons}" Header="Outlook" Description="Open Outlook" Click="SettingsCard_Click" />
+                        <controls:InboxButton x:Name="GmailButton" Margin="15,15,0,0" Icon="&#xE900;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Gmail" Description="Open the Gmail page" Click="SettingsCard_Click_3" />
+                        <controls:InboxButton x:Name="YahooButton" Margin="15,15,0,0" Icon="&#xE903;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Yahoo Mail" Description="Open the Yahoo Mail page" Click="YahooNavigate" />
+                        <controls:InboxButton x:Name="iCloudButton" Margin="15,15,0,0" Icon="&#xE753;" ActionIcon="&#xE76C;" Header="iCloud Mail" Description="Open the iCloud Mail page" Click="SettingsCard_Click_2" />
+                        <controls:InboxButton x:Name="ProtonButton" Margin="15,15,0,0" Icon="&#xE901;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Proton Mail" Description="Open the Proton Mail page" Click="SettingsCard_Click_1" />
                         <Rectangle Fill="Transparent" Height="10" Width="25"/>
                     </StackPanel>
                 </ScrollViewer>
