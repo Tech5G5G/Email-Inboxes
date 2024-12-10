@@ -527,7 +527,7 @@ namespace Email_Inboxes
                         break;
                 }
                 MainWindow mw = (MainWindow)((App)Application.Current).m_window;
-                mw.mainwindow.SystemBackdrop = backdropToSet;
+                mw.SystemBackdrop = backdropToSet;
             }
         }
 
