@@ -150,9 +150,7 @@ namespace Email_Inboxes
             private static InboxButton protonButton;
         }
 
-        ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-
-        private OverlappedPresenter presenter;
+        ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
         public MainWindow()
         {
@@ -164,7 +162,20 @@ namespace Email_Inboxes
 
             AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
             AppWindow.SetIcon("Mail.ico");
-            presenter = AppWindow.Presenter as OverlappedPresenter;
+            var presenter = AppWindow.Presenter as OverlappedPresenter;
+
+            //Updates setting value when window size changed
+            this.SizeChanged += (sender, args) =>
+            {
+                if (presenter is not null)
+                {
+                    //Gets & saves window state
+                    OverlappedPresenterState windowState = presenter.State;
+
+                    if (windowState != OverlappedPresenterState.Minimized)
+                        localSettings.Values[App.Settings.WindowState] = windowState.ToString();
+                }
+            };
 
             //Reads value of WindowState and decides whether to maximize the window
             if (Enum.Parse<OverlappedPresenterState>((string)localSettings.Values[App.Settings.WindowState]) == OverlappedPresenterState.Maximized)
@@ -184,7 +195,7 @@ namespace Email_Inboxes
                     backdropToSet = new DesktopAcrylicBackdrop();
                     break;
             }
-            mainwindow.SystemBackdrop = backdropToSet;
+            this.SystemBackdrop = backdropToSet;
 
             //Changes the pane display mode depending on the user's setting for PaneDisplayMode
             var displayModeToSet = NavigationViewPaneDisplayMode.Left;
@@ -245,21 +256,21 @@ namespace Email_Inboxes
         {
             if (CommandBar.Visibility == Visibility.Visible)
             {
-            // Specify the interactive regions of the title bar.
+                // Specify the interactive regions of the title bar.
 
-            double scaleAdjustment = AppTitleBar.XamlRoot.RasterizationScale;
+                double scaleAdjustment = AppTitleBar.XamlRoot.RasterizationScale;
 
-            GeneralTransform transform = CommandBar.TransformToVisual(null);
-            Rect bounds = transform.TransformBounds(new Rect(0, 0,
-                                                             CommandBar.ActualWidth,
-                                                             CommandBar.ActualHeight));
-            Windows.Graphics.RectInt32 commandBarRect = GetRect(bounds, scaleAdjustment);
+                GeneralTransform transform = CommandBar.TransformToVisual(null);
+                Rect bounds = transform.TransformBounds(new Rect(0, 0,
+                                                                 CommandBar.ActualWidth,
+                                                                 CommandBar.ActualHeight));
+                Windows.Graphics.RectInt32 commandBarRect = GetRect(bounds, scaleAdjustment);
 
-            var rectArray = new Windows.Graphics.RectInt32[] { commandBarRect };
+                var rectArray = new Windows.Graphics.RectInt32[] { commandBarRect };
 
-            InputNonClientPointerSource nonClientInputSrc =
-                InputNonClientPointerSource.GetForWindowId(this.AppWindow.Id);
-            nonClientInputSrc.SetRegionRects(NonClientRegionKind.Passthrough, rectArray);
+                InputNonClientPointerSource nonClientInputSrc =
+                    InputNonClientPointerSource.GetForWindowId(this.AppWindow.Id);
+                nonClientInputSrc.SetRegionRects(NonClientRegionKind.Passthrough, rectArray);
             }
             else
             {
@@ -593,18 +604,6 @@ namespace Email_Inboxes
                 this.AppWindow.TitleBar.ButtonHoverForegroundColor = Colors.White;
                 this.AppWindow.TitleBar.InactiveForegroundColor = ((SolidColorBrush)App.Current.Resources["WindowCaptionForegroundDisabled"]).Color;
                 this.AppWindow.TitleBar.ButtonPressedForegroundColor = Colors.White;
-            }
-        }
-
-        private void mainwindow_SizeChanged(object sender, WindowSizeChangedEventArgs args)
-        {
-            if (presenter is not null)
-            {
-                //Gets & saves window state
-                OverlappedPresenterState windowState = presenter.State;
-
-                if (windowState != OverlappedPresenterState.Minimized)
-                    localSettings.Values[App.Settings.WindowState] = windowState.ToString();
             }
         }
     }
