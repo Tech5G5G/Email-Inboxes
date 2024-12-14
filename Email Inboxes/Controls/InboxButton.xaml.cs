@@ -23,42 +23,12 @@ namespace Email_Inboxes.Controls
         public InboxButton()
         {
             this.InitializeComponent();
-
             this.DefaultStyleKey = typeof(InboxButton);
+
+            ButtonControl.Click += (sender, e) => this.Click?.Invoke(sender, e);
         }
 
         public event RoutedEventHandler Click;
-
-        //private Button ButtonControl { get; set; }
-
-        //private FontIcon HeaderIcon { get; set; }
-
-        //protected override void OnApplyTemplate()
-        //{
-        //    base.OnApplyTemplate();
-
-        //    if (ButtonControl is not null)
-        //    {
-        //        ButtonControl.Click -= ButtonControl_Click;
-        //    }
-
-        //    if (GetTemplateChild(nameof(ButtonControl)) is Button button)
-        //    {
-        //        ButtonControl = button;
-        //        ButtonControl.Click += ButtonControl_Click;
-        //    }
-
-        //    if (GetTemplateChild(nameof(HeaderIcon)) is FontIcon fontIcon)
-        //    {
-        //        HeaderIcon = fontIcon;
-        //        HeaderIcon.FontFamily = this.IconFontFamily;
-        //    }
-        //}
-
-        //private void ButtonControl_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Click?.Invoke(this, e);
-        //}
 
         public string Header
         {
