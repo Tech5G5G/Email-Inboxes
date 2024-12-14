@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <RootNamespace>Email_Inboxes</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Platforms>x86;x64;ARM64</Platforms>
-    <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
-    <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
+    <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+    <PublishProfile>win-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
     <EnableMsixTooling>true</EnableMsixTooling>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
@@ -26,6 +26,7 @@
     <Company>$(Authors)</Company>
     <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
     <PackageCertificateKeyFile>Email Inboxes_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <LangVersion>12.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Assets\SmallTile.scale-100.png" />
@@ -62,9 +63,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.0.240109" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240627000" />
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.3233" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
 
@@ -177,6 +175,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Remove="First Boot Window\StartupPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.0.240109" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.756" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240627000" />
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\InboxButton.xaml">
