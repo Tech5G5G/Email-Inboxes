@@ -249,15 +249,6 @@ namespace Email_Inboxes
             );
         }
 
-        private void AppTitleBar_Loaded(object sender, RoutedEventArgs e)
-        {
-            //Hides the CommandBar if it disabled
-            if (!(bool)localSettings.Values[App.Settings.CommandBarEnabled])
-            {
-                CommandBar.Visibility = Visibility.Collapsed;
-                SetRegionsForCustomTitleBar();
-            }
-
             //Changes the selected item of the nvSample NavigationView to the user's selected startup page
             NavigationViewItem navItem_StartupPage = NavItem_Home;
             switch ((string)localSettings.Values[App.Settings.StartupPage])
@@ -288,13 +279,11 @@ namespace Email_Inboxes
             ForwardButton.IsEnabled = BackButton.IsEnabled = false;
         }
 
-        private void AppTitleBar_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (ExtendsContentIntoTitleBar == true)
+        private void Set_PaneDisplayMode(NavigationViewPaneDisplayMode mode)
             {
-                // Update interactive regions if the size of the window changes.
-                SetRegionsForCustomTitleBar();
-            }
+            nvSample.PaneDisplayMode = mode;
+            AppTitleBar.IsPaneToggleButtonVisible = mode != NavigationViewPaneDisplayMode.Top;
+            AppTitleBar.Margin = mode == NavigationViewPaneDisplayMode.Top ? new Thickness(-14, 0, 0, 0) : new Thickness();
         }
 
         private void nvSample_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -384,21 +373,6 @@ namespace Email_Inboxes
                         SetRegionsForCustomTitleBar();
                     }
                     break;
-            }
-
-            Activated += MainWindow_Activated;
-        }
-
-        private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
-        {
-            //Changes the foreground of the AppTitle depending on the WindowActivationState
-            if (args.WindowActivationState == WindowActivationState.Deactivated)
-            {
-                AppTitle.Foreground = (SolidColorBrush)App.Current.Resources["WindowCaptionForegroundDisabled"];
-            }
-            else
-            {
-                AppTitle.Foreground = (SolidColorBrush)App.Current.Resources["WindowCaptionForeground"];
             }
         }
 
@@ -542,28 +516,6 @@ namespace Email_Inboxes
                 case "NavItem_Proton":
                     WebViews.ProtonWebView.CoreWebView2.OpenTaskManagerWindow();
                     break;
-            }
-        }
-
-        private void AppTitleBar_ActualThemeChanged(FrameworkElement sender, object args)
-        {
-            var currentTheme = sender.ActualTheme;
-
-            AppTitle.Foreground = (SolidColorBrush)App.Current.Resources["WindowCaptionForeground"];
-
-            if (currentTheme == ElementTheme.Light)
-            {
-                this.AppWindow.TitleBar.ButtonForegroundColor = Colors.Black;
-                this.AppWindow.TitleBar.ButtonHoverForegroundColor = Colors.Black;
-                this.AppWindow.TitleBar.InactiveForegroundColor = ((SolidColorBrush)App.Current.Resources["WindowCaptionForegroundDisabled"]).Color;
-                this.AppWindow.TitleBar.ButtonPressedForegroundColor = Colors.Black;
-            }
-            else if (currentTheme == ElementTheme.Dark)
-            {
-                this.AppWindow.TitleBar.ButtonForegroundColor = Colors.White;
-                this.AppWindow.TitleBar.ButtonHoverForegroundColor = Colors.White;
-                this.AppWindow.TitleBar.InactiveForegroundColor = ((SolidColorBrush)App.Current.Resources["WindowCaptionForegroundDisabled"]).Color;
-                this.AppWindow.TitleBar.ButtonPressedForegroundColor = Colors.White;
             }
         }
     }
