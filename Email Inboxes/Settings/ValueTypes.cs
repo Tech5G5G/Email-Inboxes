@@ -1,55 +1,100 @@
 ﻿namespace Email_Inboxes.Settings;
 
-namespace Email_Inboxes.Settings
+public class Setting<T>(string key, T defaultValue)
 {
-    public delegate void SettingChangedEventHandler(SettingChangedEventArgs args);
+    static ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
-    public class SettingChangedEventArgs(object newValue)
+    public T Value
     {
-        public object NewValue { get; } = newValue;
-    };
-
-    public enum PageType
-    {
-        Home,
-        Outlook,
-        Gmail,
-        Yahoo,
-        iCloud,
-        Proton
+        get
+        {
+            if (localSettings.Values.TryGetValue(key, out object value))
+                return (T)value;
+            else
+            {
+                localSettings.Values[key] = defaultValue;
+                return defaultValue;
+            }
+        }
+        set
+        {
+            localSettings.Values[key] = value;
+            ValueChanged?.Invoke(this, value);
+        }
     }
 
-    public enum OutlookType
+    public static implicit operator T(Setting<T> setting) => setting.Value;
+
+    public event TypedEventHandler<Setting<T>, T> ValueChanged;
+}
+public class EnumSetting<T>(string key, T defaultValue) where T : Enum
+{
+    static ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+
+    public T Value
     {
-        Website,
-        BusinessWebsite,
-        Desktop
+        get
+        {
+            if (localSettings.Values.TryGetValue(key, out object value))
+                return (T)value;
+            else
+            {
+                localSettings.Values[key] = (int)(object)defaultValue;
+                return defaultValue;
+            }
+        }
+        set
+        {
+            localSettings.Values[key] = (int)(object)value;
+            ValueChanged?.Invoke(this, value);
+        }
     }
 
-    public enum CalendarService
-    {
-        GoogleCalendar,
-        Outlook,
-        AppleCalendar,
-        Basic,
-        None
-    }
+    public static implicit operator T(EnumSetting<T> setting) => setting.Value;
 
-    public enum ToDoService
-    {
-        Todoist,
-        TickTick,
-        MSToDo,
-        AppleReminders,
-        GoogleTasks,
-        AnyDo,
-        None
-    }
+    public event TypedEventHandler<EnumSetting<T>, T> ValueChanged;
+}
 
-    public enum BackdropType
-    {
-        Mica,
-        MicaAlt,
-        Acrylic
-    }
+public enum PageType
+{
+    Home,
+    Outlook,
+    Gmail,
+    Yahoo,
+    iCloud,
+    Proton
+}
+
+public enum OutlookType
+{
+    Website,
+    BusinessWebsite,
+    Desktop
+}
+
+public enum CalendarService
+{
+    GoogleCalendar,
+    Outlook,
+    AppleCalendar,
+    Basic,
+    None
+}
+
+public enum ToDoService
+{
+    Todoist,
+    TickTick,
+    MSToDo,
+    AppleReminders,
+    GoogleTasks,
+    AnyDo,
+    None
+}
+
+public enum BackdropType
+{
+    Mica,
+    MicaAlt,
+    Acrylic
 }
