@@ -39,6 +39,7 @@
     <None Remove="Assets\Square44x44Logo.scale-200.png" />
     <None Remove="Assets\Square44x44Logo.scale-400.png" />
     <None Remove="Controls\InboxButton.xaml" />
+    <None Remove="Controls\TitleBarStyles.xaml" />
     <None Remove="desktop.ini" />
     <None Remove="First Boot Window\Backdrop.xaml" />
     <None Remove="First Boot Window\CommandBarVisibility.xaml" />
@@ -178,6 +179,11 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250401001" />
     <PackageReference Include="WinUIEx" Version="2.5.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\TitleBarStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\InboxButton.xaml">

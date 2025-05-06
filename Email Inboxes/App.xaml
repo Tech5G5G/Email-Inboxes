@@ -8,7 +8,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
-                <!-- Other merged dictionaries here -->
+                <ResourceDictionary Source="ms-appx:///Controls/TitleBarStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="CustomIcons">/Assets/Email-Inboxes-Icons.otf#Email-Inboxes-Icons</FontFamily>
         </ResourceDictionary>
