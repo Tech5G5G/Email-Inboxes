@@ -19,7 +19,7 @@
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppInstallerUri>https://github.com/Tech5G5G/Email-Inboxes</AppInstallerUri>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-    <ApplicationIcon>Mail.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\Mail.ico</ApplicationIcon>
     <PackageIcon></PackageIcon>
     <Title></Title>
     <Copyright></Copyright>
@@ -56,10 +56,6 @@
     <None Remove="Proton.xaml" />
     <None Remove="Services\Yahoo.xaml" />
     <None Remove="Settings.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Mail.ico" />
   </ItemGroup>
 
   <ItemGroup>
