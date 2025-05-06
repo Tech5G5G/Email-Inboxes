@@ -293,84 +293,76 @@ namespace Email_Inboxes
             switch (selectedItem.Name)
             {
                 case "NavItem_Home":
-                    contentFrame.Navigate(typeof(Home), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromBottom });
+                    contentFrame.Navigate(typeof(Home), null, new EntranceNavigationTransitionInfo());
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Visible && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Collapsed;
-                        SetRegionsForCustomTitleBar();
                     }
                     break;
                 case "NavItem_Gmail":
-                    contentFrame.Navigate(typeof(Gmail), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromBottom });
+                    contentFrame.Navigate(typeof(Gmail), null, new EntranceNavigationTransitionInfo());
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Visible;
-                        SetRegionsForCustomTitleBar();
                     }
                     BackButton.IsEnabled = WebViews.GmailWebView.CanGoBack;
                     ForwardButton.IsEnabled = WebViews.GmailWebView.CanGoForward;
                     break;
                 case "NavItem_iCloud":
-                    contentFrame.Navigate(typeof(iCloud), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromBottom });
+                    contentFrame.Navigate(typeof(iCloud), null, new EntranceNavigationTransitionInfo());
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Visible;
-                        SetRegionsForCustomTitleBar();
                     }
                     BackButton.IsEnabled = WebViews.IcloudWebView.CanGoBack;
                     ForwardButton.IsEnabled = WebViews.IcloudWebView.CanGoForward;
                     break;
                 case "NavItem_Proton":
-                    contentFrame.Navigate(typeof(Proton), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromBottom });
+                    contentFrame.Navigate(typeof(Proton), null, new EntranceNavigationTransitionInfo());
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Visible;
-                        SetRegionsForCustomTitleBar();
                     }
                     BackButton.IsEnabled = WebViews.ProtonWebView.CanGoBack;
                     ForwardButton.IsEnabled = WebViews.ProtonWebView.CanGoForward;
                     break;
                 case "NavItem_Outlook":
-                    contentFrame.Navigate(typeof(Outlook), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromBottom });
+                    contentFrame.Navigate(typeof(Outlook), null, new EntranceNavigationTransitionInfo());
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Visible;
-                        SetRegionsForCustomTitleBar();
                     }
                     BackButton.IsEnabled = WebViews.OutlookWebView.CanGoBack;
                     ForwardButton.IsEnabled = WebViews.OutlookWebView.CanGoForward;
                     break;
                 case "NavItem_Yahoo":
-                    contentFrame.Navigate(typeof(Yahoo), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromBottom });
+                    contentFrame.Navigate(typeof(Yahoo), null, new EntranceNavigationTransitionInfo());
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Collapsed && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Visible;
-                        SetRegionsForCustomTitleBar();
                     }
                     BackButton.IsEnabled = WebViews.YahooWebView.CanGoBack;
                     ForwardButton.IsEnabled = WebViews.YahooWebView.CanGoForward;
                     break;
                 case "SettingsItem":
-                    contentFrame.Navigate(typeof(Settings), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromBottom });
+                    contentFrame.Navigate(typeof(SettingsPage), null, new EntranceNavigationTransitionInfo());
                     if (CommandBar.Visibility == Visibility.Visible && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Collapsed;
-                        SetRegionsForCustomTitleBar();
                     }
                     break;
                 default:
-                    contentFrame.Navigate(typeof(Home), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromBottom });
+                    contentFrame.Navigate(typeof(Home), null, new EntranceNavigationTransitionInfo());
                     App.Settings.SettingsChangable = false;
                     if (CommandBar.Visibility == Visibility.Visible && (bool)localSettings.Values[App.Settings.CommandBarEnabled])
                     {
                         CommandBar.Visibility = Visibility.Collapsed;
-                        SetRegionsForCustomTitleBar();
                     }
                     break;
             }
