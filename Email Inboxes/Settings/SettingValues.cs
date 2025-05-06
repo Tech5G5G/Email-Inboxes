@@ -1,12 +1,4 @@
-﻿using Microsoft.UI.Windowing;
-using Microsoft.UI.Xaml.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.Storage;
+﻿namespace Email_Inboxes.Settings;
 
 namespace Email_Inboxes.Settings
 {
