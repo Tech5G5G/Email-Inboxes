@@ -122,8 +122,7 @@ namespace Email_Inboxes
             SetTitleBar(AppTitleBar);
 
             AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
-            AppWindow.SetIcon("Mail.ico");
-            var presenter = AppWindow.Presenter as OverlappedPresenter;
+            AppWindow.SetIcon("Assets/Mail.ico");
 
             //Updates setting value when window size changed
             this.SizeChanged += (sender, args) =>
