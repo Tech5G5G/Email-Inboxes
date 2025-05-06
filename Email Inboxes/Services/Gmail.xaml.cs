@@ -15,6 +15,8 @@ using Microsoft.UI.Xaml.Navigation;
 using System.Diagnostics;
 using Microsoft.Web.WebView2.Core;
 using static Email_Inboxes.MainWindow;
+using Email_Inboxes.Settings;
+using Windows.UI.WebUI;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -30,12 +32,22 @@ namespace Email_Inboxes
 
         public Gmail()
         {
-            this.InitializeComponent();
+            ConstructWebView();
 
+            this.InitializeComponent();
+        }
+
+        private async void ConstructWebView()
+        {
             //Creates GmailWebView and sets the content of the page to it
             if (WebViews.GmailWebView == null)
             {
-                WebViews.GmailWebView = new WebView2() { Source = new Uri("https://mail.google.com/mail/u/0/") };
+                WebViews.GmailWebView = new WebView2();
+                var env = await CoreWebView2Environment.CreateAsync();
+                var options = env.CreateCoreWebView2ControllerOptions();
+                options.ProfileName = "gmailhaha";
+                await WebViews.GmailWebView.EnsureCoreWebView2Async(env, options);
+                WebViews.GmailWebView.Source = new Uri("https://mail.google.com/mail/u/0/");
             }
             this.Content = WebViews.GmailWebView;
 
