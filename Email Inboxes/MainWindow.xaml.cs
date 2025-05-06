@@ -111,176 +111,70 @@ namespace Email_Inboxes
             private static InboxButton protonButton;
         }
 
-        ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+        private ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
         public MainWindow()
         {
             this.InitializeComponent();
 
+            Title = "Email Inboxes";
             ExtendsContentIntoTitleBar = true;
-            Title = $"Email Inboxes";
-            SetTitleBar(AppTitleBar);
 
             AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
             AppWindow.SetIcon("Assets/Mail.ico");
 
+            //Title bar initialization
+            SetTitleBar(AppTitleBar);
+            AppTitleBar.PaneToggleRequested += (sender, args) => nvSample.IsPaneOpen = !nvSample.IsPaneOpen;
+
             //Updates setting value when window size changed
+            var presenter = AppWindow.Presenter as OverlappedPresenter;
             this.SizeChanged += (sender, args) =>
             {
-                if (presenter is not null)
-                {
-                    //Gets & saves window state
-                    OverlappedPresenterState windowState = presenter.State;
+                //If the presenter is null, do not continue with method
+                if (presenter is null)
+                    return;
 
-                    if (windowState != OverlappedPresenterState.Minimized)
-                        localSettings.Values[App.Settings.WindowState] = windowState.ToString();
-                }
+                //Gets & saves window state
+                OverlappedPresenterState windowState = presenter.State;
+                if (windowState != OverlappedPresenterState.Minimized)
+                    SettingValues.WindowState = windowState;
             };
 
             //Reads value of WindowState and decides whether to maximize the window
-            if (Enum.Parse<OverlappedPresenterState>((string)localSettings.Values[App.Settings.WindowState]) == OverlappedPresenterState.Maximized)
+            if (SettingValues.WindowState == OverlappedPresenterState.Maximized)
                 presenter.Maximize();
 
             //Sets the backdrop of the window based on the user's preference
-            SystemBackdrop backdropToSet = null;
-            switch ((string)localSettings.Values[App.Settings.Backdrop])
-            {
-                case "Mica":
-                    backdropToSet = new MicaBackdrop() { Kind = MicaKind.Base };
-                    break;
-                case "Mica Alt":
-                    backdropToSet = new MicaBackdrop() { Kind = MicaKind.BaseAlt };
-                    break;
-                case "Acrylic":
-                    backdropToSet = new DesktopAcrylicBackdrop();
-                    break;
-            }
-            this.SystemBackdrop = backdropToSet;
+            this.SystemBackdrop = SettingValues.Backdrop.ToSystemBackdrop();
+            SettingValues.BackdropChanged += (args) => this.SystemBackdrop = ((BackdropType)args.NewValue).ToSystemBackdrop();
 
             //Changes the pane display mode depending on the user's setting for PaneDisplayMode
-            var displayModeToSet = NavigationViewPaneDisplayMode.Left;
-            switch (localSettings.Values[App.Settings.PaneDisplayMode])
-            {
-                case "Auto":
-                    nvSample.Margin = new Thickness() { Top = 0 };
-                    AppTitleBar.Margin = new Thickness() { Left = 51 };
-                    displayModeToSet = NavigationViewPaneDisplayMode.Auto;
-                    break;
-                case "Left":
-                    nvSample.Margin = new Thickness() { Top = 0 };
-                    AppTitleBar.Margin = new Thickness() { Left = 51 };
-                    displayModeToSet = NavigationViewPaneDisplayMode.Left;
-                    break;
-                case "Compact":
-                    nvSample.Margin = new Thickness() { Top = 0 };
-                    AppTitleBar.Margin = new Thickness() { Left = 51 };
-                    displayModeToSet = NavigationViewPaneDisplayMode.LeftCompact;
-                    break;
-                case "Minimal":
-                    nvSample.Margin = new Thickness() { Top = 0 };
-                    AppTitleBar.Margin = new Thickness() { Left = 51 };
-                    displayModeToSet = NavigationViewPaneDisplayMode.LeftMinimal;
-                    break;
-                case "Top":
-                    nvSample.Margin = new Thickness() { Top = 48 };
-                    AppTitleBar.Margin = new Thickness() { Left = 16 };
-                    displayModeToSet = NavigationViewPaneDisplayMode.Top;
-                    break;
-            }
-            nvSample.PaneDisplayMode = displayModeToSet;
+            Set_PaneDisplayMode(SettingValues.PaneDisplayMode);
+            SettingValues.PaneDisplayModeChanged += (args) => Set_PaneDisplayMode((NavigationViewPaneDisplayMode)args.NewValue);
 
             //Hides or shows the related nvSample NavItem depending on the user's settings
-            if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
-            {
-                string outlookAppType = (string)localSettings.Values[App.Settings.OutlookAppType];
-                NavItem_Outlook.Visibility = (outlookAppType == "Website" || outlookAppType == "Business website") ? Visibility.Visible : Visibility.Collapsed;
-            }
-            else NavItem_Outlook.Visibility = Visibility.Collapsed;
-
-            NavItem_Gmail.Visibility = (bool)localSettings.Values[App.Settings.GmailEnabled] ? Visibility.Visible : Visibility.Collapsed;
-
-            NavItem_iCloud.Visibility = (bool)localSettings.Values[App.Settings.iCloudEnabled] ? Visibility.Visible : Visibility.Collapsed;
-
-            NavItem_Proton.Visibility = (bool)localSettings.Values[App.Settings.ProtonEnabled] ? Visibility.Visible : Visibility.Collapsed;
-
-            NavItem_Home.Visibility = (bool)localSettings.Values[App.Settings.HomeEnabled] ? Visibility.Visible : Visibility.Collapsed;
-
-            NavItem_Yahoo.Visibility = (bool)localSettings.Values[App.Settings.YahooEnabled] ? Visibility.Visible : Visibility.Collapsed;
-
-            //Changes the size of the interactable area in the app title bar
-            AppTitleBar.Loaded += AppTitleBar_Loaded;
-            AppTitleBar.SizeChanged += AppTitleBar_SizeChanged;
-        }
-
-        private void SetRegionsForCustomTitleBar()
-        {
-            if (CommandBar.Visibility == Visibility.Visible)
-            {
-                // Specify the interactive regions of the title bar.
-
-                double scaleAdjustment = AppTitleBar.XamlRoot.RasterizationScale;
-
-                GeneralTransform transform = CommandBar.TransformToVisual(null);
-                Rect bounds = transform.TransformBounds(new Rect(0, 0,
-                                                                 CommandBar.ActualWidth,
-                                                                 CommandBar.ActualHeight));
-                Windows.Graphics.RectInt32 commandBarRect = GetRect(bounds, scaleAdjustment);
-
-                var rectArray = new Windows.Graphics.RectInt32[] { commandBarRect };
-
-                InputNonClientPointerSource nonClientInputSrc =
-                    InputNonClientPointerSource.GetForWindowId(this.AppWindow.Id);
-                nonClientInputSrc.SetRegionRects(NonClientRegionKind.Passthrough, rectArray);
-            }
-            else
-            {
-                InputNonClientPointerSource nonClientInputSrc = InputNonClientPointerSource.GetForWindowId(this.AppWindow.Id);
-                nonClientInputSrc.ClearRegionRects(NonClientRegionKind.Passthrough);
-            }
-        }
-
-        private Windows.Graphics.RectInt32 GetRect(Rect bounds, double scale)
-        {
-            return new Windows.Graphics.RectInt32(
-                _X: (int)Math.Round(bounds.X * scale),
-                _Y: (int)Math.Round(bounds.Y * scale),
-                _Width: (int)Math.Round(bounds.Width * scale),
-                _Height: (int)Math.Round(bounds.Height * scale)
-            );
-        }
+            NavItem_Outlook.Visibility = SettingValues.OutlookEnabled ? SettingValues.OutlookAppType == OutlookType.Desktop ? Visibility.Collapsed : Visibility.Visible : Visibility.Collapsed;
+            NavItem_Home.Visibility = SettingValues.HomeEnabled ? Visibility.Visible : Visibility.Collapsed;
+            NavItem_Gmail.Visibility = SettingValues.GmailEnabled ? Visibility.Visible : Visibility.Collapsed;
+            NavItem_Yahoo.Visibility = SettingValues.YahooEnabled ? Visibility.Visible : Visibility.Collapsed;
+            NavItem_iCloud.Visibility = SettingValues.iCloudEnabled ? Visibility.Visible : Visibility.Collapsed;
+            NavItem_Proton.Visibility = SettingValues.ProtonEnabled ? Visibility.Visible : Visibility.Collapsed;
 
             //Changes the selected item of the nvSample NavigationView to the user's selected startup page
-            NavigationViewItem navItem_StartupPage = NavItem_Home;
-            switch ((string)localSettings.Values[App.Settings.StartupPage])
+            nvSample.SelectedItem = SettingValues.StartupPage switch
             {
-                case "Home":
-                    navItem_StartupPage = NavItem_Home;
-                    break;
-                case "Outlook":
-                    navItem_StartupPage = NavItem_Outlook;
-                    break;
-                case "Gmail":
-                    navItem_StartupPage = NavItem_Gmail;
-                    break;
-                case "Yahoo Mail":
-                    navItem_StartupPage = NavItem_Yahoo;
-                    break;
-                case "iCloud Mail":
-                    navItem_StartupPage = NavItem_iCloud;
-                    break;
-                case "Proton Mail":
-                    navItem_StartupPage = NavItem_Proton;
-                    break;
-            }
-
-            nvSample.SelectedItem = navItem_StartupPage;
-
-            //Makes the forward and back buttons disabled
-            ForwardButton.IsEnabled = BackButton.IsEnabled = false;
+                PageType.Outlook => NavItem_Outlook,
+                PageType.Gmail => NavItem_Gmail,
+                PageType.Yahoo => NavItem_Yahoo,
+                PageType.iCloud => NavItem_iCloud,
+                PageType.Proton => NavItem_Proton,
+                _ => NavItem_Home
+            };
         }
 
         private void Set_PaneDisplayMode(NavigationViewPaneDisplayMode mode)
-            {
+        {
             nvSample.PaneDisplayMode = mode;
             AppTitleBar.IsPaneToggleButtonVisible = mode != NavigationViewPaneDisplayMode.Top;
             AppTitleBar.Margin = mode == NavigationViewPaneDisplayMode.Top ? new Thickness(-14, 0, 0, 0) : new Thickness();
