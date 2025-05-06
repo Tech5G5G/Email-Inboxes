@@ -41,14 +41,14 @@
     <None Remove="Controls\InboxButton.xaml" />
     <None Remove="Controls\TitleBarStyles.xaml" />
     <None Remove="desktop.ini" />
-    <None Remove="First Boot Window\Backdrop.xaml" />
-    <None Remove="First Boot Window\CommandBarVisibility.xaml" />
-    <None Remove="First Boot Window\CustomHome.xaml" />
-    <None Remove="First Boot Window\Inboxes.xaml" />
-    <None Remove="First Boot Window\OtherSettings.xaml" />
-    <None Remove="First Boot Window\PaneDisplay.xaml" />
-    <None Remove="First Boot Window\StartupPage.xaml" />
-    <None Remove="First Boot Window\Welcome.xaml" />
+    <None Remove="OOBE\Backdrop.xaml" />
+    <None Remove="OOBE\CommandBarVisibility.xaml" />
+    <None Remove="OOBE\CustomHome.xaml" />
+    <None Remove="OOBE\Inboxes.xaml" />
+    <None Remove="OOBE\OtherSettings.xaml" />
+    <None Remove="OOBE\PaneDisplay.xaml" />
+    <None Remove="OOBE\StartupPage.xaml" />
+    <None Remove="OOBE\Welcome.xaml" />
     <None Remove="FirstBootWindow.xaml" />
     <None Remove="Gmail.xaml" />
     <None Remove="Home.xaml" />
@@ -156,22 +156,22 @@
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>
   <ItemGroup>
-    <CustomAdditionalCompileInputs Remove="First Boot Window\Backdrop.xaml" />
+    <CustomAdditionalCompileInputs Remove="OOBE\Backdrop.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Remove="First Boot Window\Backdrop.xaml" />
+    <Resource Remove="OOBE\Backdrop.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <CustomAdditionalCompileInputs Remove="First Boot Window\PaneDisplay.xaml" />
+    <CustomAdditionalCompileInputs Remove="OOBE\PaneDisplay.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Remove="First Boot Window\PaneDisplay.xaml" />
+    <Resource Remove="OOBE\PaneDisplay.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <CustomAdditionalCompileInputs Remove="First Boot Window\StartupPage.xaml" />
+    <CustomAdditionalCompileInputs Remove="OOBE\StartupPage.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Remove="First Boot Window\StartupPage.xaml" />
+    <Resource Remove="OOBE\StartupPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.0.240109" />
