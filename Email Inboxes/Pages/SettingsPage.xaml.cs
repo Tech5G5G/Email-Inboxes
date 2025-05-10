@@ -16,34 +16,27 @@ namespace Email_Inboxes.Pages
             ExePath.Text = SettingValues.OutlookExePath;
             SaveExePath.Click += (sender, e) => SettingValues.OutlookExePath.Value = ExePath.Text;
 
-            //Uses combo boxes to display the users preferences
-            ToDoService.SelectedIndex = (int)SettingValues.ToDoService;
-            OutlookAppType.SelectedIndex = (int)SettingValues.OutlookAppType;
-            CalendarService.SelectedIndex = (int)SettingValues.CalendarService;
-            WindowBackdrop.SelectedIndex = (int)SettingValues.Backdrop;
-            StartupPage.SelectedIndex = (int)SettingValues.StartupPage;
-
-            //Switch to determine which pane display mode the user has selected and display it
-            PaneDisplayMode.SelectedIndex = SettingValues.PaneDisplayMode switch
-            {
-                NavigationViewPaneDisplayMode.Auto => 0,
-                NavigationViewPaneDisplayMode.Left => 1,
-                NavigationViewPaneDisplayMode.LeftCompact => 2,
-                NavigationViewPaneDisplayMode.LeftMinimal => 3,
-                NavigationViewPaneDisplayMode.Top => 4,
-                _ => 0
-            };
-
-            //Gets user's service enablement preferences and displays them
-            //Also shows or hides a card depending on the user's setting.
-            HomeToggle.IsOn = SettingValues.HomeEnabled;
-            OutlookToggle.IsOn = ExePathCard.IsEnabled = appTypeCard.IsEnabled = SettingValues.OutlookEnabled;
-            GmailToggle.IsOn = SettingValues.GmailEnabled;
-            yahooToggle.IsOn = SettingValues.YahooEnabled;
-            iCloudToggle.IsOn = SettingValues.iCloudEnabled;
-            ProtonToggle.IsOn = SettingValues.ProtonEnabled;
-            commandBarToggle.IsOn = SettingValues.CommandBarEnabled;
+            //Disables parts of UI depending on the user's settings
+            appTypeCard.IsEnabled = ExePathCard.IsEnabled = OutlookToggle.IsOn;
             ExePathCard.Visibility = SettingValues.OutlookAppType == OutlookType.Desktop ? Visibility.Visible : Visibility.Collapsed;
+
+            //Initialize ToggleSwitches
+            InitializeToggleSwitch(HomeToggle, SettingValues.HomeEnabled);
+            InitializeToggleSwitch(OutlookToggle, SettingValues.OutlookEnabled, () => appTypeCard.IsEnabled = ExePathCard.IsEnabled = OutlookToggle.IsOn);
+            InitializeToggleSwitch(GmailToggle, SettingValues.GmailEnabled);
+            InitializeToggleSwitch(iCloudToggle, SettingValues.iCloudEnabled);
+            InitializeToggleSwitch(ProtonToggle, SettingValues.ProtonEnabled);
+            InitializeToggleSwitch(yahooToggle, SettingValues.YahooEnabled);
+            InitializeToggleSwitch(commandBarToggle, SettingValues.CommandBarEnabled);
+
+            //Initialize ComboBoxes
+            InitializeComboBox(OutlookAppType, SettingValues.OutlookAppType, () => ExePathCard.Visibility = SettingValues.OutlookAppType == OutlookType.Desktop ? Visibility.Visible : Visibility.Collapsed);
+            InitializeComboBox(ToDoService, SettingValues.ToDoService);
+            InitializeComboBox(CalendarService, SettingValues.CalendarService);
+
+            InitializeComboBox(WindowBackdrop, SettingValues.Backdrop);
+            InitializeComboBox(StartupPage, SettingValues.StartupPage);
+            InitializeComboBox(PaneDisplayMode, SettingValues.PaneDisplayMode);
         }
 
         private async void ExePathCard_OpenFilePicker(object sender, RoutedEventArgs e)
@@ -83,62 +76,24 @@ namespace Email_Inboxes.Pages
             cacheProgressRing.Visibility = Visibility.Collapsed;
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private static void InitializeToggleSwitch(ToggleSwitch toggle, Setting<bool> setting, Action action = null)
         {
-            var senderBox = sender as ComboBox;
-            var senderTag = (senderBox.SelectedItem as ComboBoxItem).Tag;
-            switch (senderBox.Name)
+            toggle.IsOn = setting.Value;
+            toggle.Toggled += (s, e) =>
             {
-                case "WindowBackdrop":
-                    SettingValues.Backdrop = (BackdropType)senderTag;
-                    break;
-                case "PaneDisplayMode":
-                    SettingValues.PaneDisplayMode = (NavigationViewPaneDisplayMode)senderTag;
-                    break;
-                case "OutlookAppType":
-                    SettingValues.OutlookAppType = (OutlookType)senderTag;
-                    ExePathCard.Visibility = (OutlookType)senderTag == OutlookType.Desktop ? Visibility.Visible : Visibility.Collapsed;
-                    break;
-                case "StartupPage":
-                    SettingValues.StartupPage = (PageType)senderTag;
-                    break;
-                case "CalendarService":
-                    SettingValues.CalendarService = (CalendarService)senderTag;
-                    break;
-                case "ToDoService":
-                    SettingValues.ToDoService = (ToDoService)senderTag;
-                    break;
-            }
+                setting.Value = toggle.IsOn;
+                action?.Invoke();
+            };
         }
 
-        private void Toggle_Toggled(object sender, RoutedEventArgs e)
+        private static void InitializeComboBox<T>(ComboBox box, EnumSetting<T> setting, Action action = null) where T : Enum
         {
-            var senderToggle = sender as ToggleSwitch;
-            switch (senderToggle.Name)
+            box.SelectedIndex = (int)(object)setting.Value;
+            box.SelectionChanged += (s, e) =>
             {
-                case "HomeToggle":
-                    SettingValues.HomeEnabled = senderToggle.IsOn;
-                    break;
-                case "OutlookToggle":
-                    SettingValues.OutlookEnabled = senderToggle.IsOn;
-                    appTypeCard.IsEnabled = ExePathCard.IsEnabled = senderToggle.IsOn;
-                    break;
-                case "GmailToggle":
-                    SettingValues.GmailEnabled = senderToggle.IsOn;
-                    break;
-                case "yahooToggle":
-                    SettingValues.YahooEnabled = senderToggle.IsOn;
-                    break;
-                case "iCloudToggle":
-                    SettingValues.iCloudEnabled = senderToggle.IsOn;
-                    break;
-                case "ProtonToggle":
-                    SettingValues.ProtonEnabled = senderToggle.IsOn;
-                    break;
-                case "commandBarToggle":
-                    SettingValues.CommandBarEnabled = senderToggle.IsOn;
-                    break;
-            }
+                setting.Value = (T)(object)box.SelectedIndex;
+                action?.Invoke();
+            };
         }
     }
 }
