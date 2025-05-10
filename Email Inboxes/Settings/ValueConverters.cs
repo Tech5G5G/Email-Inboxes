@@ -43,6 +43,8 @@ namespace Email_Inboxes.Settings
             { ToDoService.None, "None" }
         });
 
+        //Update code in SettingValues static constructor
+
         //Update ToDoServiceName -> ToDoService
         //Values:
         //-Todoist
