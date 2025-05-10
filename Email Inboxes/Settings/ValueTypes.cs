@@ -27,6 +27,7 @@ public class Setting<T>(string key, T defaultValue)
 
     public event TypedEventHandler<Setting<T>, T> ValueChanged;
 }
+
 public class EnumSetting<T>(string key, T defaultValue) where T : Enum
 {
     static ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;

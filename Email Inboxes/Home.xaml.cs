@@ -11,7 +11,7 @@ namespace Email_Inboxes
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         public Home()
-        {
+        {   
             this.InitializeComponent();
 
             if (WebViews.CalendarWebView == null)
@@ -41,9 +41,9 @@ namespace Email_Inboxes
             if (WebViews.ProtonButton == null)
                 WebViews.ProtonButton = ProtonButton;
 
-            homeItems.Children.Add(WebViews.CalendarWebView);
-            homeItems.Children.Add(WebViews.CalendarView);
-            homeItems.Children.Add(WebViews.ToDoWebView);
+            //homeItems.Children.Add(WebViews.CalendarWebView);
+            //homeItems.Children.Add(WebViews.CalendarView);
+            //homeItems.Children.Add(WebViews.ToDoWebView);
 
             //Shows or hides the WebView that shows the user selected to do app/service
             string ToDoServiceUrl = (string)localSettings.Values[App.Settings.ToDoServiceUrl];
@@ -71,9 +71,9 @@ namespace Email_Inboxes
             //Shows or hides the card of the related service depending on the user's settings
             if ((bool)localSettings.Values[App.Settings.OutlookEnabled])
             {
-                string outlookAppType = (string)localSettings.Values[App.Settings.OutlookAppType];
-                OutlookPageButton.Visibility = outlookAppType == "Website" || outlookAppType == "Business website" ? Visibility.Visible : Visibility.Collapsed;
-                OutlookAppButton.Visibility = outlookAppType == "Website" || outlookAppType == "Business website" ? Visibility.Collapsed : Visibility.Visible;
+                OutlookType type = SettingValues.OutlookAppType;
+                OutlookPageButton.Visibility = type == OutlookType.Website || type == OutlookType.BusinessWebsite ? Visibility.Visible : Visibility.Collapsed;
+                OutlookAppButton.Visibility = type == OutlookType.Website || type == OutlookType.BusinessWebsite ? Visibility.Collapsed : Visibility.Visible;
             }
             else OutlookPageButton.Visibility = OutlookAppButton.Visibility = Visibility.Collapsed;
 

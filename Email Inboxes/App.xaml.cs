@@ -48,65 +48,65 @@ namespace Email_Inboxes
         /// Invoked when the application is launched.
         /// </summary>
         /// <param name="args">Details about the launch request and process.</param>
-        protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
+        protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
             //Sets the value of SettingsChangable so that settings aren't changable within the application
             Settings.SettingsChangable = false;
 
             //Settings checkers to check if settings exist
-            if (!localSettings.Values.ContainsKey(Settings.HomeEnabled))
-                localSettings.Values[Settings.HomeEnabled] = true;
+            //if (!localSettings.Values.ContainsKey(Settings.HomeEnabled))
+            //    localSettings.Values[Settings.HomeEnabled] = true;
 
-            if (!localSettings.Values.ContainsKey(Settings.iCloudEnabled))
-                localSettings.Values[Settings.iCloudEnabled] = false;
+            //if (!localSettings.Values.ContainsKey(Settings.iCloudEnabled))
+            //    localSettings.Values[Settings.iCloudEnabled] = false;
 
-            if (!localSettings.Values.ContainsKey(Settings.GmailEnabled))
-                localSettings.Values[Settings.GmailEnabled] = false;
+            //if (!localSettings.Values.ContainsKey(Settings.GmailEnabled))
+            //    localSettings.Values[Settings.GmailEnabled] = false;
 
-            if (!localSettings.Values.ContainsKey(Settings.ProtonEnabled))
-                localSettings.Values[Settings.ProtonEnabled] = false;
+            //if (!localSettings.Values.ContainsKey(Settings.ProtonEnabled))
+            //    localSettings.Values[Settings.ProtonEnabled] = false;
 
-            if (!localSettings.Values.ContainsKey(Settings.YahooEnabled))
-                localSettings.Values[Settings.YahooEnabled] = false;
+            //if (!localSettings.Values.ContainsKey(Settings.YahooEnabled))
+            //    localSettings.Values[Settings.YahooEnabled] = false;
 
-            if (!localSettings.Values.ContainsKey(Settings.OutlookEnabled))
-                localSettings.Values[Settings.OutlookEnabled] = false;
+            //if (!localSettings.Values.ContainsKey(Settings.OutlookEnabled))
+            //    localSettings.Values[Settings.OutlookEnabled] = false;
 
-            if (!localSettings.Values.ContainsKey(Settings.CommandBarEnabled))
-                localSettings.Values[Settings.CommandBarEnabled] = true;
+            //if (!localSettings.Values.ContainsKey(Settings.CommandBarEnabled))
+            //    localSettings.Values[Settings.CommandBarEnabled] = true;
 
-            if (!localSettings.Values.ContainsKey(Settings.OutlookAppType))
-                localSettings.Values[Settings.OutlookAppType] = "Website";
+            //if (!localSettings.Values.ContainsKey(Settings.OutlookAppType))
+            //    localSettings.Values[Settings.OutlookAppType] = "Website";
 
-            if (!localSettings.Values.ContainsKey(Settings.ToDoServiceUrl))
-                localSettings.Values[Settings.ToDoServiceUrl] = "disabled";
+            //if (!localSettings.Values.ContainsKey(Settings.ToDoServiceUrl))
+            //    localSettings.Values[Settings.ToDoServiceUrl] = "disabled";
 
-            if (!localSettings.Values.ContainsKey(Settings.ToDoServiceName))
-                localSettings.Values[Settings.ToDoServiceName] = "Disabled";
+            //if (!localSettings.Values.ContainsKey(Settings.ToDoServiceName))
+            //    localSettings.Values[Settings.ToDoServiceName] = "Disabled";
 
-            if (!localSettings.Values.ContainsKey(Settings.CalendarServiceUrl))
-                localSettings.Values[Settings.CalendarServiceUrl] = "disabled";
+            //if (!localSettings.Values.ContainsKey(Settings.CalendarServiceUrl))
+            //    localSettings.Values[Settings.CalendarServiceUrl] = "disabled";
 
-            if (!localSettings.Values.ContainsKey(Settings.CalendarServiceName))
-                localSettings.Values[Settings.CalendarServiceName] = "Disabled";
+            //if (!localSettings.Values.ContainsKey(Settings.CalendarServiceName))
+            //    localSettings.Values[Settings.CalendarServiceName] = "Disabled";
 
-            if (!localSettings.Values.ContainsKey(Settings.StartupPage))
-                localSettings.Values[Settings.StartupPage] = "Home";
+            //if (!localSettings.Values.ContainsKey(Settings.StartupPage))
+            //    localSettings.Values[Settings.StartupPage] = "Home";
 
-            if (!localSettings.Values.ContainsKey(Settings.OutlookExePath))
-                localSettings.Values[Settings.OutlookExePath] = @"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE";
+            //if (!localSettings.Values.ContainsKey(Settings.OutlookExePath))
+            //    localSettings.Values[Settings.OutlookExePath] = @"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE";
 
-            if (!localSettings.Values.ContainsKey(Settings.Backdrop))
-                localSettings.Values[Settings.Backdrop] = "Mica";
+            //if (!localSettings.Values.ContainsKey(Settings.Backdrop))
+            //    localSettings.Values[Settings.Backdrop] = "Mica";
 
-            if (!localSettings.Values.ContainsKey(Settings.FirstBootScreenPassed))
-                localSettings.Values[Settings.FirstBootScreenPassed] = false;
+            //if (!localSettings.Values.ContainsKey(Settings.FirstBootScreenPassed))
+            //    localSettings.Values[Settings.FirstBootScreenPassed] = false;
 
-            if (!localSettings.Values.ContainsKey(Settings.PaneDisplayMode))
-                localSettings.Values[Settings.PaneDisplayMode] = "Auto";
+            //if (!localSettings.Values.ContainsKey(Settings.PaneDisplayMode))
+            //    localSettings.Values[Settings.PaneDisplayMode] = "Auto";
 
-            if (!localSettings.Values.ContainsKey(Settings.WindowState))
-                localSettings.Values[Settings.WindowState] = OverlappedPresenterState.Restored.ToString();
+            //if (!localSettings.Values.ContainsKey(Settings.WindowState))
+            //    localSettings.Values[Settings.WindowState] = OverlappedPresenterState.Restored.ToString();
 
             //Backwards compatibility code that updates the values of Home, iCloud, Gmail, Proton, & Outlook Enabled from strings to booleans & sets YahooEnabled and FirstBootScreenPassed to true
             if (localSettings.Values[Settings.HomeEnabled] is string)
@@ -123,11 +123,11 @@ namespace Email_Inboxes
                 localSettings.Values[Settings.VersionNumber] = "1.3";
 
             //Checks for value of FirstBootScreenPassed
-            if ((bool)localSettings.Values[Settings.FirstBootScreenPassed])
+            if (SettingValues.FirstBootScreenPassed)
             {
                 //If true, it creates & activates the MainWindow
-                m_window = new MainWindow();
-                m_window.Activate();
+                MainWindow = new();
+                MainWindow.Activate();
             }
             else
             {
@@ -193,7 +193,13 @@ namespace Email_Inboxes
             }
         }
 
-        public Window m_window;
+        public static MainWindow MainWindow { get; set; }
+
+        internal Window m_window
+        {
+            get => MainWindow;
+            set => MainWindow = (MainWindow)value;
+        }
 
         public Window firstBootWindow;
     }
