@@ -19,163 +19,162 @@
         <TextBlock Text="Settings" Grid.Row="0" Style="{StaticResource TitleTextBlockStyle}" Margin="36,24" />
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <StackPanel Spacing="4" Margin="36,0,36,36">
-            <StackPanel.ChildrenTransitions>
-                <TransitionCollection>
-                    <RepositionThemeTransition IsStaggeringEnabled="False" />
-                </TransitionCollection>
-            </StackPanel.ChildrenTransitions>
-            
+                <StackPanel.ChildrenTransitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
+                    </TransitionCollection>
+                </StackPanel.ChildrenTransitions>
+
                 <TextBlock Text="Mail services" Style="{ThemeResource BodyStrongTextBlockStyle}" Margin="0,0,0,4"/>
-            <controls:SettingsExpander Header="Outlook" HeaderIcon="{ui:FontIcon FontFamily={StaticResource CustomIcons}, Glyph=&#xE902;}">
-                <StackPanel>
-                    <ToggleSwitch Toggled="Toggle_Toggled" x:Name="OutlookToggle" x:FieldModifier="public"/>
-                </StackPanel>
-                <controls:SettingsExpander.Items>
-                    <controls:SettingsCard Header="App type" Description="Use the Outlook website, business website or desktop app (exe)" x:Name="appTypeCard">
-                        <ComboBox SelectionChanged="ComboBox_SelectionChanged" x:Name="OutlookAppType">
-                            <ComboBoxItem Content="Website" Tag="{m:OutlookType Type=Website}" />
-                            <ComboBoxItem Content="Business website" Tag="{m:OutlookType Type=BusinessWebsite}" />
-                            <ComboBoxItem Content="exe" Tag="{m:OutlookType Type=Desktop}" />
-                        </ComboBox>
-                    </controls:SettingsCard>
-                    <controls:SettingsCard ContentAlignment="Left" x:Name="ExePathCard">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBox PlaceholderText="Outlook executable location" x:Name="ExePath"/>
-                            <Button Content="{ui:FontIcon Glyph=&#xE8E5;}" Margin="8,0,0,0" Click="ExePathCard_OpenFilePicker" />
-                            <Button Content="{ui:FontIcon Glyph=&#xE74E;}" Margin="8,0,0,0" x:Name="SaveExePath"/>
-                        </StackPanel>
-                    </controls:SettingsCard>
-                </controls:SettingsExpander.Items>
-            </controls:SettingsExpander>
-            <controls:SettingsCard Header="Gmail" HeaderIcon="{ui:FontIcon FontFamily={StaticResource CustomIcons}, Glyph=&#xE900;}">
-                <ToggleSwitch x:Name="GmailToggle" Toggled="Toggle_Toggled"/>
-            </controls:SettingsCard>
-            <controls:SettingsCard Header="Yahoo Mail" HeaderIcon="{ui:FontIcon FontFamily={StaticResource CustomIcons}, Glyph=&#xE903;}">
-                <ToggleSwitch x:Name="yahooToggle" Toggled="Toggle_Toggled"/>
-            </controls:SettingsCard>
-            <controls:SettingsCard Header="iCloud Mail" HeaderIcon="{ui:FontIcon Glyph=&#xE753;}">
-                <ToggleSwitch x:Name="iCloudToggle" Toggled="Toggle_Toggled"/>
-            </controls:SettingsCard>
-            <controls:SettingsCard Header="Proton Mail" HeaderIcon="{ui:FontIcon FontFamily={StaticResource CustomIcons}, Glyph=&#xE901;}">
-                <ToggleSwitch x:Name="ProtonToggle" Toggled="Toggle_Toggled"/>
-            </controls:SettingsCard>
+                <controls:SettingsExpander Header="Outlook" HeaderIcon="{ui:FontIcon FontFamily={StaticResource CustomIcons}, Glyph=&#xE902;}">
+                    <StackPanel>
+                        <ToggleSwitch x:Name="OutlookToggle" x:FieldModifier="public"/>
+                    </StackPanel>
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard Header="App type" Description="Use the Outlook website, business website or desktop app (exe)" x:Name="appTypeCard">
+                            <ComboBox x:Name="OutlookAppType">
+                                <x:String>Website</x:String>
+                                <x:String>Business website</x:String>
+                                <x:String>exe</x:String>
+                            </ComboBox>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard ContentAlignment="Left" x:Name="ExePathCard">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox PlaceholderText="Outlook executable location" x:Name="ExePath"/>
+                                <Button Content="{ui:FontIcon Glyph=&#xE8E5;}" Margin="8,0,0,0" Click="ExePathCard_OpenFilePicker" />
+                                <Button Content="{ui:FontIcon Glyph=&#xE74E;}" Margin="8,0,0,0" x:Name="SaveExePath"/>
+                            </StackPanel>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
+                <controls:SettingsCard Header="Gmail" HeaderIcon="{ui:FontIcon FontFamily={StaticResource CustomIcons}, Glyph=&#xE900;}">
+                    <ToggleSwitch x:Name="GmailToggle" />
+                </controls:SettingsCard>
+                <controls:SettingsCard Header="Yahoo Mail" HeaderIcon="{ui:FontIcon FontFamily={StaticResource CustomIcons}, Glyph=&#xE903;}">
+                    <ToggleSwitch x:Name="yahooToggle" />
+                </controls:SettingsCard>
+                <controls:SettingsCard Header="iCloud Mail" HeaderIcon="{ui:FontIcon Glyph=&#xE753;}">
+                    <ToggleSwitch x:Name="iCloudToggle" />
+                </controls:SettingsCard>
+                <controls:SettingsCard Header="Proton Mail" HeaderIcon="{ui:FontIcon FontFamily={StaticResource CustomIcons}, Glyph=&#xE901;}">
+                    <ToggleSwitch x:Name="ProtonToggle" />
+                </controls:SettingsCard>
 
-            <TextBlock Text="Home page" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="14" Margin="2,24,0,4"/>
-            <controls:SettingsCard Header="Home page visibility" Description="Enable or disable the home page" HeaderIcon="{ui:FontIcon Glyph=&#xE80F;}">
-                <ToggleSwitch x:Name="HomeToggle" Toggled="Toggle_Toggled"/>
-            </controls:SettingsCard>
-            <controls:SettingsCard Description="Choose what calendar app to display"
-                                 Header="Calendar app"
-                                 HeaderIcon="{ui:FontIcon Glyph=&#xE787;}">
-                <ComboBox x:Name="CalendarService" SelectionChanged="ComboBox_SelectionChanged" x:FieldModifier="public" PlaceholderText="Service">
-                    <ComboBoxItem Content="Google Calendar" Tag="{m:CalendarService Service=GoogleCalendar}" />
-                    <ComboBoxItem Content="Outlook Calendar" Tag="{m:CalendarService Service=Outlook}" />
-                    <ComboBoxItem Content="Apple Calendar" Tag="{m:CalendarService Service=AppleCalendar}" />
-                    <ComboBoxItem Content="Basic Calendar" Tag="{m:CalendarService Service=Basic}" />
-                    <ComboBoxItem Content="Disabled" Tag="{m:CalendarService Service=None}" />
-                </ComboBox>
-            </controls:SettingsCard>
-            <controls:SettingsCard Description="Choose what to do app to display"
-                                 Header="To do app"
-                                 HeaderIcon="{ui:FontIcon Glyph=&#xEB50;}">
-                <ComboBox x:Name="ToDoService" SelectionChanged="ComboBox_SelectionChanged" x:FieldModifier="public" PlaceholderText="Service">
-                    <ComboBoxItem Content="Todoist" Tag="{m:ToDoService Service=Todoist}" />
-                    <ComboBoxItem Content="TickTick" Tag="{m:ToDoService Service=TickTick}" />
-                    <ComboBoxItem Content="Microsoft To Do" Tag="{m:ToDoService Service=MSToDo}" />
-                    <ComboBoxItem Content="Apple Reminders" Tag="{m:ToDoService Service=AppleReminders}" />
-                    <ComboBoxItem Content="Google Tasks" Tag="{m:ToDoService Service=GoogleTasks}" />
-                    <ComboBoxItem Content="Any.do" Tag="{m:ToDoService Service=AnyDo}" />
-                    <ComboBoxItem Content="Disabled" Tag="{m:ToDoService Service=None}" />
-                </ComboBox>
-            </controls:SettingsCard>
+                <TextBlock Text="Home page" Style="{ThemeResource BodyStrongTextBlockStyle}" Margin="0,24,0,4"/>
+                <controls:SettingsCard Header="Home page visibility" Description="Enable or disable the home page" HeaderIcon="{ui:FontIcon Glyph=&#xE80F;}">
+                    <ToggleSwitch x:Name="HomeToggle" />
+                </controls:SettingsCard>
+                <controls:SettingsCard Header="Calendar app"
+                                       HeaderIcon="{ui:FontIcon Glyph=&#xE787;}"
+                                       Description="Choose what calendar app to display">
+                    <ComboBox x:Name="CalendarService" x:FieldModifier="public" PlaceholderText="Service">
+                        <x:String>Google Calendar</x:String>
+                        <x:String>Outlook Calendar</x:String>
+                        <x:String>Apple Calendar</x:String>
+                        <x:String>Basic Calendar</x:String>
+                        <x:String>Disabled</x:String>
+                    </ComboBox>
+                </controls:SettingsCard>
+                <controls:SettingsCard Header="To do app"
+                                       HeaderIcon="{ui:FontIcon Glyph=&#xEB50;}"
+                                       Description="Choose what to do app to display">
+                    <ComboBox x:Name="ToDoService" x:FieldModifier="public" PlaceholderText="Service">
+                        <x:String>Todoist</x:String>
+                        <x:String>TickTick</x:String>
+                        <x:String>Microsoft To Do</x:String>
+                        <x:String>Apple Reminders</x:String>
+                        <x:String>Google Tasks</x:String>
+                        <x:String>Any.do</x:String>
+                        <x:String>Disabled</x:String>
+                    </ComboBox>
+                </controls:SettingsCard>
 
-            <TextBlock Text="Appearence" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="14" Margin="2,24,0,4"/>
-            <controls:SettingsCard Description="Choose what material to show as the window backdrop"
-                                 Header="Backdrop"
-                                 HeaderIcon="{ui:FontIcon Glyph=&#xE727;}">
-                <ComboBox x:Name="WindowBackdrop" SelectionChanged="ComboBox_SelectionChanged" x:FieldModifier="public" PlaceholderText="Backdrop">
-                    <ComboBoxItem Content="Mica" Tag="{m:BackdropType Backdrop=Mica}" />
-                    <ComboBoxItem Content="Mica Alt" Tag="{m:BackdropType Backdrop=MicaAlt}" />
-                    <ComboBoxItem Content="Acrylic" Tag="{m:BackdropType Backdrop=Acrylic}" />
-                </ComboBox>
-            </controls:SettingsCard>
-            <controls:SettingsCard Description="Choose how to display the navigation view pane"
-                                 Header="Pane display mode"
-                                 HeaderIcon="{ui:FontIcon Glyph=&#xE90C;}">
-                <ComboBox x:Name="PaneDisplayMode" SelectionChanged="ComboBox_SelectionChanged" x:FieldModifier="public" PlaceholderText="Display Mode">
-                    <ComboBoxItem Content="Auto" Tag="{m:PaneDisplayMode Mode=Auto}" />
-                    <ComboBoxItem Content="Left" Tag="{m:PaneDisplayMode Mode=Left}" />
-                    <ComboBoxItem Content="Compact" Tag="{m:PaneDisplayMode Mode=LeftCompact}" />
-                    <ComboBoxItem Content="Minimal" Tag="{m:PaneDisplayMode Mode=LeftMinimal}" />
-                    <ComboBoxItem Content="Top" Tag="{m:PaneDisplayMode Mode=Top}" />
-                </ComboBox>
-            </controls:SettingsCard>
-            
-            <TextBlock Text="Additional options" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="14" Margin="2,24,0,4"/>
-            <controls:SettingsCard Description="Clear unneeded browser cache to reduce app size"
-                                 Header="Clear cache"
-                                 HeaderIcon="{ui:FontIcon Glyph=&#xE7B8;}"
-                                   x:Name="clearCacheCard">
-                <StackPanel Orientation="Horizontal">
-                    <ProgressRing IsActive="True" Margin="0,0,12,0" x:Name="cacheProgressRing" Visibility="Collapsed"/>
-                    <Button Content="Clear cache" Click="ClearWebViewCache" x:Name="clearCacheButton"/>
-                </StackPanel>
-            </controls:SettingsCard>
-            <controls:SettingsCard Description="The command bar allows you to control any page"
-                     Header="Command bar visibility"
-                     HeaderIcon="{ui:FontIcon Glyph=&#xF596;}">
-                <ToggleSwitch Toggled="Toggle_Toggled" x:Name="commandBarToggle"/>
-            </controls:SettingsCard>
-            <controls:SettingsCard Description="Choose what page to display on startup"
-                                 Header="Startup page"
-                                 HeaderIcon="{ui:FontIcon Glyph=&#xE7E8;}">
-                <ComboBox x:Name="StartupPage" SelectionChanged="ComboBox_SelectionChanged" x:FieldModifier="public" PlaceholderText="Page">
-                    <ComboBoxItem Content="Home" Tag="{m:PageType Page=Home}" />
-                    <ComboBoxItem Content="Outlook" Tag="{m:PageType Page=Outlook}" />
-                    <ComboBoxItem Content="Gmail" Tag="{m:PageType Page=Gmail}" />
-                    <ComboBoxItem Content="Yahoo Mail" Tag="{m:PageType Page=Yahoo}" />
-                    <ComboBoxItem Content="iCloud Mail" Tag="{m:PageType Page=iCloud}" />
-                    <ComboBoxItem Content="Proton Mail" Tag="{m:PageType Page=Proton}" />
-                </ComboBox>
-            </controls:SettingsCard>
+                <TextBlock Text="Appearance" Style="{ThemeResource BodyStrongTextBlockStyle}" Margin="0,24,0,4"/>
+                <controls:SettingsCard Header="Backdrop"
+                                       HeaderIcon="{ui:FontIcon Glyph=&#xE727;}"
+                                       Description="Choose what material to show as the window backdrop">
+                    <ComboBox x:Name="WindowBackdrop" x:FieldModifier="public" PlaceholderText="Backdrop">
+                        <x:String>Mica</x:String>
+                        <x:String>Mica Alt</x:String>
+                        <x:String>Acrylic</x:String>
+                    </ComboBox>
+                </controls:SettingsCard>
+                <controls:SettingsCard Header="Pane display mode"
+                                       HeaderIcon="{ui:FontIcon Glyph=&#xE90C;}"
+                                       Description="Choose how to display the navigation view pane">
+                    <ComboBox x:Name="PaneDisplayMode" x:FieldModifier="public" PlaceholderText="Display Mode">
+                        <x:String>Auto</x:String>
+                        <x:String>Left</x:String>
+                        <x:String>Top</x:String>
+                        <x:String>Compact</x:String>
+                        <x:String>Minimal</x:String>
+                    </ComboBox>
+                </controls:SettingsCard>
 
-            <TextBlock Text="Info" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="14" Margin="2,24,0,4"/>
-            <controls:SettingsExpander Description="Icons by Icons8"
-                                 Header="Custom icons information"
-                                 HeaderIcon="{ui:FontIcon Glyph=&#xE946;}">
-                <HyperlinkButton Content="Icons8 Website" NavigateUri="https://icons8.com/"/>
-                <controls:SettingsExpander.Items>
-                    <controls:SettingsCard Header="Outlook Icon">
-                        <HyperlinkButton Content="Outlook Icon by Icons8" NavigateUri="https://icons8.com/icon/sEACKi8zoWLu/microsoft-outlook"/>
-                    </controls:SettingsCard>
-                    <controls:SettingsCard Header="Gmail Icon">
-                        <HyperlinkButton Content="Gmail Icon by Icons8" NavigateUri="https://icons8.com/icon/CTXHIG9M1gwW/gmail"/>
-                    </controls:SettingsCard>
-                    <controls:SettingsCard Header="ProtonMail Icon">
-                        <HyperlinkButton Content="ProtonMail Icon by Icons8" NavigateUri="https://icons8.com/icon/ktp56n4o2SyZ/protonmail"/>
-                    </controls:SettingsCard>
-                    <controls:SettingsCard Header="Yahoo Mail Icon">
-                        <TextBlock Text="Created by Tech5G5G. No icon URL available" Foreground="{ThemeResource AccentAAFillColorSecondaryBrush}"/>
-                    </controls:SettingsCard>
-                </controls:SettingsExpander.Items>
-            </controls:SettingsExpander>
+                <TextBlock Text="Additional options" Style="{ThemeResource BodyStrongTextBlockStyle}" Margin="0,24,0,4"/>
+                <controls:SettingsCard x:Name="clearCacheCard"
+                                       Header="Clear cache"
+                                       HeaderIcon="{ui:FontIcon Glyph=&#xE7B8;}"
+                                       Description="Clear unneeded browser cache to reduce app size">
+                    <StackPanel Orientation="Horizontal" Spacing="16">
+                        <ProgressRing x:Name="cacheProgressRing" Visibility="Collapsed" Height="26" Width="26" VerticalAlignment="Center" />
+                        <Button Content="Clear cache" Click="ClearWebViewCache" x:Name="clearCacheButton" />
+                    </StackPanel>
+                </controls:SettingsCard>
+                <controls:SettingsCard Header="Command bar visibility"
+                                       HeaderIcon="{ui:FontIcon Glyph=&#xF596;}"
+                                       Description="The command bar allows you to control any page">
+                    <ToggleSwitch x:Name="commandBarToggle"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Header="Startup page"
+                                       HeaderIcon="{ui:FontIcon Glyph=&#xE7E8;}"
+                                       Description="Choose what page to display on startup">
+                    <ComboBox x:Name="StartupPage" x:FieldModifier="public" PlaceholderText="Page">
+                        <x:String>Home</x:String>
+                        <x:String>Outlook</x:String>
+                        <x:String>Gmail</x:String>
+                        <x:String>Yahoo Mail</x:String>
+                        <x:String>iCloud Mail</x:String>
+                        <x:String>Proton Mail</x:String>
+                    </ComboBox>
+                </controls:SettingsCard>
 
-            <controls:SettingsExpander Description="©️ 2024 Ignacy Tomczyk"
-                                       Header="Email Inboxes"
-                                       HeaderIcon="{ui:BitmapIcon Source=Assets/StoreLogo.png}">
-                <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-               Text="Version 1.3" />
-                <controls:SettingsExpander.Items>
-                    <controls:SettingsCard Header="What's new">
-                        <HyperlinkButton Content="Version 1.3 on GitHub" NavigateUri="https://github.com/Tech5G5G/Email-Inboxes/releases/tag/v1.3"/>
-                    </controls:SettingsCard>
-                    <controls:SettingsCard Header="GitHub Page">
-                        <HyperlinkButton Content="Tech5G5G/Email-Inboxes" NavigateUri="https://github.com/Tech5G5G/Email-Inboxes/"/>
-                    </controls:SettingsCard>
-                    <controls:SettingsCard Header="Created by Tech5G5G after hours of hard work" Description="Thank you to Łukasz Tomczyk for your support!"/>
-                </controls:SettingsExpander.Items>
-            </controls:SettingsExpander>
-        </StackPanel>
-    </ScrollViewer>
+                <TextBlock Text="About" Style="{ThemeResource BodyStrongTextBlockStyle}" Margin="0,24,0,4"/>
+                <controls:SettingsExpander Header="Custom icons information"
+                                           HeaderIcon="{ui:FontIcon Glyph=&#xE946;}"
+                                           Description="Icons by Icons8">
+                    <HyperlinkButton Content="Icons8 Website" NavigateUri="https://icons8.com/"/>
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard Header="Outlook Icon">
+                            <HyperlinkButton Content="Outlook Icon by Icons8" NavigateUri="https://icons8.com/icon/sEACKi8zoWLu/microsoft-outlook"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Header="Gmail Icon">
+                            <HyperlinkButton Content="Gmail Icon by Icons8" NavigateUri="https://icons8.com/icon/CTXHIG9M1gwW/gmail"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Header="ProtonMail Icon">
+                            <HyperlinkButton Content="ProtonMail Icon by Icons8" NavigateUri="https://icons8.com/icon/ktp56n4o2SyZ/protonmail"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Header="Yahoo Mail Icon">
+                            <TextBlock Text="Created by Tech5G5G. No icon URL available" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
+
+                <controls:SettingsExpander Header="Email Inboxes"
+                                           HeaderIcon="{ui:BitmapIcon Source=Assets/StoreLogo.png}"
+                                           Description="©️ 2024 Ignacy Tomczyk">
+                    <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}" Text="Version 1.4" />
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard Header="What's new">
+                            <HyperlinkButton Content="Version 1.4 on GitHub" NavigateUri="https://github.com/Tech5G5G/Email-Inboxes/releases/tag/v1.4"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Header="GitHub Page">
+                            <HyperlinkButton Content="Tech5G5G/Email-Inboxes" NavigateUri="https://github.com/Tech5G5G/Email-Inboxes/"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Header="Created by Tech5G5G after hours of hard work" Description="Thank you to Łukasz Tomczyk for your support!"/>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
