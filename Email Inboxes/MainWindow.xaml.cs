@@ -117,6 +117,8 @@ namespace Email_Inboxes
         {
             this.InitializeComponent();
 
+            Content = new WebView();
+
             Title = "Email Inboxes";
             ExtendsContentIntoTitleBar = true;
 
@@ -129,7 +131,7 @@ namespace Email_Inboxes
 
             //Updates setting value when window size changed
             var presenter = AppWindow.Presenter as OverlappedPresenter;
-            this.SizeChanged += (sender, args) =>
+            SizeChanged += (sender, args) =>
             {
                 //If the presenter is null, do not continue with method
                 if (presenter is null)
@@ -138,7 +140,7 @@ namespace Email_Inboxes
                 //Gets & saves window state
                 OverlappedPresenterState windowState = presenter.State;
                 if (windowState != OverlappedPresenterState.Minimized)
-                    SettingValues.WindowState = windowState;
+                    SettingValues.WindowState.Value = windowState;
             };
 
             //Reads value of WindowState and decides whether to maximize the window
@@ -146,12 +148,12 @@ namespace Email_Inboxes
                 presenter.Maximize();
 
             //Sets the backdrop of the window based on the user's preference
-            this.SystemBackdrop = SettingValues.Backdrop.ToSystemBackdrop();
-            SettingValues.BackdropChanged += (args) => this.SystemBackdrop = ((BackdropType)args.NewValue).ToSystemBackdrop();
+            SystemBackdrop = SettingValues.Backdrop.Value.ToSystemBackdrop();
+            SettingValues.Backdrop.ValueChanged += (s, e) => SystemBackdrop = e.ToSystemBackdrop();
 
             //Changes the pane display mode depending on the user's setting for PaneDisplayMode
             Set_PaneDisplayMode(SettingValues.PaneDisplayMode);
-            SettingValues.PaneDisplayModeChanged += (args) => Set_PaneDisplayMode((NavigationViewPaneDisplayMode)args.NewValue);
+            SettingValues.PaneDisplayMode.ValueChanged += (s, e) => Set_PaneDisplayMode(e);
 
             //Hides or shows the related nvSample NavItem depending on the user's settings
             NavItem_Outlook.Visibility = SettingValues.OutlookEnabled ? SettingValues.OutlookAppType == OutlookType.Desktop ? Visibility.Collapsed : Visibility.Visible : Visibility.Collapsed;
@@ -162,7 +164,7 @@ namespace Email_Inboxes
             NavItem_Proton.Visibility = SettingValues.ProtonEnabled ? Visibility.Visible : Visibility.Collapsed;
 
             //Changes the selected item of the nvSample NavigationView to the user's selected startup page
-            nvSample.SelectedItem = SettingValues.StartupPage switch
+            nvSample.SelectedItem = SettingValues.StartupPage.Value switch
             {
                 PageType.Outlook => NavItem_Outlook,
                 PageType.Gmail => NavItem_Gmail,

@@ -14,7 +14,7 @@ namespace Email_Inboxes.Pages
 
             //Initialize Outlook ExePath textbox and button
             ExePath.Text = SettingValues.OutlookExePath;
-            SaveExePath.Click += (sender, e) => SettingValues.OutlookExePath = ExePath.Text;
+            SaveExePath.Click += (sender, e) => SettingValues.OutlookExePath.Value = ExePath.Text;
 
             //Uses combo boxes to display the users preferences
             ToDoService.SelectedIndex = (int)SettingValues.ToDoService;
