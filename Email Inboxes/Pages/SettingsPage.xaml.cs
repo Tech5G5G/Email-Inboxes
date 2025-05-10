@@ -41,18 +41,18 @@ namespace Email_Inboxes.Pages
 
         private async void ExePathCard_OpenFilePicker(object sender, RoutedEventArgs e)
         {
-            //Creates FileOpenPicker
-            var openPicker = new FileOpenPicker() { ViewMode = PickerViewMode.List, SuggestedStartLocation = PickerLocationId.ComputerFolder };
-            openPicker.FileTypeFilter.Add(".exe");
-
-            //Initializes WinRT Interop
-            var window = (MainWindow)((App)Application.Current).m_window;
-            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
-            WinRT.Interop.InitializeWithWindow.Initialize(openPicker, hWnd);
+            //Creates picker
+            var openPicker = new FileOpenPicker
+            {
+                ViewMode = PickerViewMode.List,
+                SuggestedStartLocation = PickerLocationId.ComputerFolder,
+                FileTypeFilter = { ".exe" }
+            };
+            WinRT.Interop.InitializeWithWindow.Initialize(openPicker, App.MainWindow.GetWindowHandle());
 
             //Requests for file to be chosen
-            var file = await openPicker.PickSingleFileAsync();
-            ExePath.Text = file != null ? file.Path : ExePath.Text;
+            if (await openPicker.PickSingleFileAsync() is StorageFile file)
+                ExePath.Text = file.Path;
         }
 
         private async void ClearWebViewCache(object sender, RoutedEventArgs e)
