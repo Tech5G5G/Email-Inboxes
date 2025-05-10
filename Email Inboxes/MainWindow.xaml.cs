@@ -363,48 +363,48 @@ namespace Email_Inboxes
 
         private void DevToolsButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationViewItem selectedItem = (NavigationViewItem)nvSample.SelectedItem;
-            switch (selectedItem.Name)
-            {
-                case "NavItem_Outlook":
-                    WebViews.OutlookWebView.CoreWebView2.OpenDevToolsWindow();
-                    break;
-                case "NavItem_Gmail":
-                    WebViews.GmailWebView.CoreWebView2.OpenDevToolsWindow();
-                    break;
-                case "NavItem_Yahoo":
-                    WebViews.YahooWebView.CoreWebView2.OpenDevToolsWindow();
-                    break;
-                case "NavItem_iCloud":
-                    WebViews.IcloudWebView.CoreWebView2.OpenDevToolsWindow();
-                    break;
-                case "NavItem_Proton":
-                    WebViews.ProtonWebView.CoreWebView2.OpenDevToolsWindow();
-                    break;
-            }
+            //NavigationViewItem selectedItem = (NavigationViewItem)nvSample.SelectedItem;
+            //switch (selectedItem.Name)
+            //{
+            //    case "NavItem_Outlook":
+            //        WebViews.OutlookWebView.CoreWebView2.OpenDevToolsWindow();
+            //        break;
+            //    case "NavItem_Gmail":
+            //        WebViews.GmailWebView.CoreWebView2.OpenDevToolsWindow();
+            //        break;
+            //    case "NavItem_Yahoo":
+            //        WebViews.YahooWebView.CoreWebView2.OpenDevToolsWindow();
+            //        break;
+            //    case "NavItem_iCloud":
+            //        WebViews.IcloudWebView.CoreWebView2.OpenDevToolsWindow();
+            //        break;
+            //    case "NavItem_Proton":
+            //        WebViews.ProtonWebView.CoreWebView2.OpenDevToolsWindow();
+            //        break;
+            //}
         }
 
         private void TaskManagerButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationViewItem selectedItem = (NavigationViewItem)nvSample.SelectedItem;
-            switch (selectedItem.Name)
-            {
-                case "NavItem_Outlook":
-                    WebViews.OutlookWebView.CoreWebView2.OpenTaskManagerWindow();
-                    break;
-                case "NavItem_Gmail":
-                    WebViews.GmailWebView.CoreWebView2.OpenTaskManagerWindow();
-                    break;
-                case "NavItem_Yahoo":
-                    WebViews.YahooWebView.CoreWebView2.OpenTaskManagerWindow();
-                    break;
-                case "NavItem_iCloud":
-                    WebViews.IcloudWebView.CoreWebView2.OpenTaskManagerWindow();
-                    break;
-                case "NavItem_Proton":
-                    WebViews.ProtonWebView.CoreWebView2.OpenTaskManagerWindow();
-                    break;
-            }
+            //NavigationViewItem selectedItem = (NavigationViewItem)nvSample.SelectedItem;
+            //switch (selectedItem.Name)
+            //{
+            //    case "NavItem_Outlook":
+            //        WebViews.OutlookWebView.CoreWebView2.OpenTaskManagerWindow();
+            //        break;
+            //    case "NavItem_Gmail":
+            //        WebViews.GmailWebView.CoreWebView2.OpenTaskManagerWindow();
+            //        break;
+            //    case "NavItem_Yahoo":
+            //        WebViews.YahooWebView.CoreWebView2.OpenTaskManagerWindow();
+            //        break;
+            //    case "NavItem_iCloud":
+            //        WebViews.IcloudWebView.CoreWebView2.OpenTaskManagerWindow();
+            //        break;
+            //    case "NavItem_Proton":
+            //        WebViews.ProtonWebView.CoreWebView2.OpenTaskManagerWindow();
+            //        break;
+            //}
         }
     }
 }

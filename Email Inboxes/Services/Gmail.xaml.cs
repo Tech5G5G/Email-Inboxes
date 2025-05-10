@@ -34,17 +34,17 @@ namespace Email_Inboxes
             this.InitializeComponent();
         }
 
-        private async void ConstructWebView()
+        private /*async*/ void ConstructWebView()
         {
             //Creates GmailWebView and sets the content of the page to it
             if (WebViews.GmailWebView == null)
             {
-                WebViews.GmailWebView = new WebView2();
-                var env = await CoreWebView2Environment.CreateAsync();
-                var options = env.CreateCoreWebView2ControllerOptions();
-                options.ProfileName = "gmailhaha";
-                await WebViews.GmailWebView.EnsureCoreWebView2Async(env, options);
-                WebViews.GmailWebView.Source = new Uri("https://mail.google.com/mail/u/0/");
+                WebViews.GmailWebView = new() { DefaultBackgroundColor = Microsoft.UI.Colors.Transparent };
+                //var env = await CoreWebView2Environment.CreateAsync();
+                //var options = env.CreateCoreWebView2ControllerOptions();
+                //options.ProfileName = "gmailhaha";
+                //await WebViews.GmailWebView.EnsureCoreWebView2Async(env, options);
+                WebViews.GmailWebView.Source = new Uri("https://www.google.com");
             }
             this.Content = WebViews.GmailWebView;
 
@@ -55,35 +55,35 @@ namespace Email_Inboxes
         private void CoreWebView2Initialized(WebView2 sender, CoreWebView2InitializedEventArgs args)
         {
             //Allows links to be opened in the default browser
-            WebViews.GmailWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
+            //WebViews.GmailWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
 
             //Enables navigation buttons based on page navigation status
-            WebViews.GmailWebView.CoreWebView2.SourceChanged += SourceChanged;
+            //WebViews.GmailWebView.CoreWebView2.SourceChanged += SourceChanged;
         }
 
-        private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
-        {
-            NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
-            if (selectedItem.Name == "NavItem_Gmail")
-            {
-                mw.BackButton.IsEnabled = WebViews.GmailWebView.CanGoBack;
-                mw.ForwardButton.IsEnabled = WebViews.GmailWebView.CanGoForward;
-            }
-        }
+        //private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
+        //{
+        //    NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
+        //    if (selectedItem.Name == "NavItem_Gmail")
+        //    {
+        //        mw.BackButton.IsEnabled = WebViews.GmailWebView.CanGoBack;
+        //        mw.ForwardButton.IsEnabled = WebViews.GmailWebView.CanGoForward;
+        //    }
+        //}
 
-        private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
-        {
-            //If link isn't a Outlook URL, it opens it in an external browser
-            if (args.Uri.Contains("https://mail.google.com") || args.Uri.Contains("https://www.gmail.com"))
-            {
-                args.Handled = true;
-                WebViews.GmailWebView.Source = new Uri(args.Uri);
-            }
-            else
-            {
-                args.Handled = true;
-                Process.Start(new ProcessStartInfo(args.Uri) { UseShellExecute = true });
-            }
-        }
+        //private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
+        //{
+        //    //If link isn't a Outlook URL, it opens it in an external browser
+        //    if (args.Uri.Contains("https://mail.google.com") || args.Uri.Contains("https://www.gmail.com"))
+        //    {
+        //        args.Handled = true;
+        //        WebViews.GmailWebView.Source = new Uri(args.Uri);
+        //    }
+        //    else
+        //    {
+        //        args.Handled = true;
+        //        Process.Start(new ProcessStartInfo(args.Uri) { UseShellExecute = true });
+        //    }
+        //}
     }
 }

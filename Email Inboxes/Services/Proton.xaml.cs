@@ -47,35 +47,35 @@ namespace Email_Inboxes
         private void CoreWebView2Initialized(WebView2 sender, CoreWebView2InitializedEventArgs args)
         {
             //Allows links to be opened in the default browser
-            WebViews.ProtonWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
+            //WebViews.ProtonWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
 
             //Enables navigation buttons based on page navigation status
-            WebViews.ProtonWebView.CoreWebView2.SourceChanged += SourceChanged;
+            //WebViews.ProtonWebView.CoreWebView2.SourceChanged += SourceChanged;
         }
 
-        private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
-        {
-            NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
-            if (selectedItem.Name == "NavItem_Proton")
-            {
-                mw.BackButton.IsEnabled = WebViews.ProtonWebView.CanGoBack;
-                mw.ForwardButton.IsEnabled = WebViews.ProtonWebView.CanGoForward;
-            }
-        }
+        //private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
+        //{
+        //    NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
+        //    if (selectedItem.Name == "NavItem_Proton")
+        //    {
+        //        mw.BackButton.IsEnabled = WebViews.ProtonWebView.CanGoBack;
+        //        mw.ForwardButton.IsEnabled = WebViews.ProtonWebView.CanGoForward;
+        //    }
+        //}
 
-        private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
-        {
-            //If link isn't a Outlook URL, it opens it in an external browser
-            if (args.Uri.Contains("https://mail.proton.me"))
-            {
-                args.Handled = true;
-                WebViews.ProtonWebView.Source = new Uri(args.Uri);
-            }
-            else
-            {
-                args.Handled = true;
-                Process.Start(new ProcessStartInfo(args.Uri) { UseShellExecute = true });
-            }
-        }
+        //private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
+        //{
+        //    //If link isn't a Outlook URL, it opens it in an external browser
+        //    if (args.Uri.Contains("https://mail.proton.me"))
+        //    {
+        //        args.Handled = true;
+        //        WebViews.ProtonWebView.Source = new Uri(args.Uri);
+        //    }
+        //    else
+        //    {
+        //        args.Handled = true;
+        //        Process.Start(new ProcessStartInfo(args.Uri) { UseShellExecute = true });
+        //    }
+        //}
     }
 }

@@ -47,35 +47,35 @@ namespace Email_Inboxes.Services
         private void CoreWebView2Initialized(WebView2 sender, CoreWebView2InitializedEventArgs args)
         {
             //Allows links to be opened in the default browser
-            WebViews.YahooWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
+            //WebViews.YahooWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
 
             //Enables navigation buttons based on page navigation status
-            WebViews.YahooWebView.CoreWebView2.SourceChanged += SourceChanged;
+            //WebViews.YahooWebView.CoreWebView2.SourceChanged += SourceChanged;
         }
 
-        private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
-        {
-            NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
-            if (selectedItem.Name == "NavItem_Yahoo")
-            {
-                mw.BackButton.IsEnabled = WebViews.YahooWebView.CanGoBack;
-                mw.ForwardButton.IsEnabled = WebViews.YahooWebView.CanGoForward;
-            }
-        }
+        //private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
+        //{
+        //    NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
+        //    if (selectedItem.Name == "NavItem_Yahoo")
+        //    {
+        //        mw.BackButton.IsEnabled = WebViews.YahooWebView.CanGoBack;
+        //        mw.ForwardButton.IsEnabled = WebViews.YahooWebView.CanGoForward;
+        //    }
+        //}
 
-        private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
-        {
-            //If link isn't a Outlook URL, it opens it in an external browser
-            if (args.Uri.Contains("https://mail.yahoo.com"))
-            {
-                args.Handled = true;
-                WebViews.YahooWebView.Source = new Uri(args.Uri);
-            }
-            else
-            {
-                args.Handled = true;
-                Process.Start(new ProcessStartInfo(args.Uri) { UseShellExecute = true });
-            }
-        }
+        //private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
+        //{
+        //    //If link isn't a Outlook URL, it opens it in an external browser
+        //    if (args.Uri.Contains("https://mail.yahoo.com"))
+        //    {
+        //        args.Handled = true;
+        //        WebViews.YahooWebView.Source = new Uri(args.Uri);
+        //    }
+        //    else
+        //    {
+        //        args.Handled = true;
+        //        Process.Start(new ProcessStartInfo(args.Uri) { UseShellExecute = true });
+        //    }
+        //}
     }
 }

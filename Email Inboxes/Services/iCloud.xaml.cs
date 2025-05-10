@@ -47,35 +47,35 @@ namespace Email_Inboxes
         private void CoreWebView2Initialized(WebView2 sender, CoreWebView2InitializedEventArgs args)
         {
             //Allows links to be opened in the default browser
-            WebViews.IcloudWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
+            //WebViews.IcloudWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
 
             //Enables navigation buttons based on page navigation status
-            WebViews.IcloudWebView.CoreWebView2.SourceChanged += SourceChanged;
+            //WebViews.IcloudWebView.CoreWebView2.SourceChanged += SourceChanged;
         }
 
-        private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
-        {
-            NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
-            if (selectedItem.Name == "NavItem_iCloud")
-            {
-                mw.BackButton.IsEnabled = WebViews.IcloudWebView.CanGoBack;
-                mw.ForwardButton.IsEnabled = WebViews.IcloudWebView.CanGoForward;
-            }
-        }
+        //private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
+        //{
+        //    NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
+        //    if (selectedItem.Name == "NavItem_iCloud")
+        //    {
+        //        mw.BackButton.IsEnabled = WebViews.IcloudWebView.CanGoBack;
+        //        mw.ForwardButton.IsEnabled = WebViews.IcloudWebView.CanGoForward;
+        //    }
+        //}
 
-        private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
-        {
-            //If link isn't a Outlook URL, it opens it in an external browser
-            if (args.Uri.Contains("https://www.icloud.com/mail") || args.Uri.Contains("https://icloud.com/mail"))
-            {
-                args.Handled = true;
-                WebViews.IcloudWebView.Source = new Uri(args.Uri);
-            }
-            else
-            {
-                args.Handled = true;
-                Process.Start(new ProcessStartInfo(args.Uri) { UseShellExecute = true });
-            }
-        }
+        //private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
+        //{
+        //    //If link isn't a Outlook URL, it opens it in an external browser
+        //    if (args.Uri.Contains("https://www.icloud.com/mail") || args.Uri.Contains("https://icloud.com/mail"))
+        //    {
+        //        args.Handled = true;
+        //        WebViews.IcloudWebView.Source = new Uri(args.Uri);
+        //    }
+        //    else
+        //    {
+        //        args.Handled = true;
+        //        Process.Start(new ProcessStartInfo(args.Uri) { UseShellExecute = true });
+        //    }
+        //}
     }
 }

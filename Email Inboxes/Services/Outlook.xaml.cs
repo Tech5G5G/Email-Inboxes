@@ -53,7 +53,7 @@ namespace Email_Inboxes
 
             //Sets the source of OutlookWebView depending on the user's setting
             string outlookWebViewSource = "https://https://outlook.live.com";
-            if ((string)localSettings.Values[App.Settings.OutlookAppType] == "Website")
+            if (SettingValues.OutlookAppType == OutlookType.Website)
                 outlookWebViewSource = "https://outlook.live.com";
             else
                 outlookWebViewSource = "https://outlook.office.com";
@@ -64,35 +64,35 @@ namespace Email_Inboxes
         private void CoreWebView2Initialized(WebView2 sender, CoreWebView2InitializedEventArgs args)
         {
             //Allows links to be opened in the default browser
-            WebViews.OutlookWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
+            //WebViews.OutlookWebView.CoreWebView2.NewWindowRequested += NewWindowRequested;
 
             //Enables navigation buttons based on page navigation status
-            WebViews.OutlookWebView.CoreWebView2.SourceChanged += SourceChanged;
+            //WebViews.OutlookWebView.CoreWebView2.SourceChanged += SourceChanged;
         }
 
-        private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
-        {
-            NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
-            if (selectedItem.Name == "NavItem_Outlook")
-            {
-                mw.BackButton.IsEnabled = WebViews.OutlookWebView.CanGoBack;
-                mw.ForwardButton.IsEnabled = WebViews.OutlookWebView.CanGoForward;
-            }
-        }
+        //private void SourceChanged(CoreWebView2 sender, CoreWebView2SourceChangedEventArgs args)
+        //{
+        //    NavigationViewItem selectedItem = (NavigationViewItem)mw.nvSample.SelectedItem;
+        //    if (selectedItem.Name == "NavItem_Outlook")
+        //    {
+        //        mw.BackButton.IsEnabled = WebViews.OutlookWebView.CanGoBack;
+        //        mw.ForwardButton.IsEnabled = WebViews.OutlookWebView.CanGoForward;
+        //    }
+        //}
 
-        private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
-        {
-            //If link isn't a Outlook URL, it opens it in an external browser
-            if (args.Uri.Contains("https://outlook.live.com") || args.Uri.Contains("https://outlook.office.com") || args.Uri.Contains("https://go.microsoft.com"))
-            {
-                args.Handled = true;
-                WebViews.OutlookWebView.Source = new Uri(args.Uri);
-            }
-            else
-            {
-                args.Handled = true;
-                Process.Start(new ProcessStartInfo(args.Uri) { UseShellExecute = true });
-            }
-        }
+        //private void NewWindowRequested(CoreWebView2 sender, CoreWebView2NewWindowRequestedEventArgs args)
+        //{
+        //    //If link isn't a Outlook URL, it opens it in an external browser
+        //    if (args.Uri.Contains("https://outlook.live.com") || args.Uri.Contains("https://outlook.office.com") || args.Uri.Contains("https://go.microsoft.com"))
+        //    {
+        //        args.Handled = true;
+        //        WebViews.OutlookWebView.Source = new Uri(args.Uri);
+        //    }
+        //    else
+        //    {
+        //        args.Handled = true;
+        //        Process.Start(new ProcessStartInfo(args.Uri) { UseShellExecute = true });
+        //    }
+        //}
     }
 }
