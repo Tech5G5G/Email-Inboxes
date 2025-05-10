@@ -1,5 +1,6 @@
 using Windows.Storage.Pickers;
 using Microsoft.Web.WebView2.Core;
+using WinUIEx;
 
 namespace Email_Inboxes.Pages
 {
@@ -62,14 +63,17 @@ namespace Email_Inboxes.Pages
             cacheProgressRing.Visibility = Visibility.Visible;
 
             //Generates a new WebView
-            WebView2 webView2 = new WebView2();
-            await webView2.EnsureCoreWebView2Async();
+            WebView2 webView = new();
+            await webView.EnsureCoreWebView2Async();
 
             //Clears the profile cache and closes the WebView
-            CoreWebView2Profile profile = webView2.CoreWebView2.Profile;
-            CoreWebView2BrowsingDataKinds dataKinds = CoreWebView2BrowsingDataKinds.DiskCache | CoreWebView2BrowsingDataKinds.CacheStorage | CoreWebView2BrowsingDataKinds.IndexedDb | CoreWebView2BrowsingDataKinds.WebSql | CoreWebView2BrowsingDataKinds.FileSystems;
-            await profile.ClearBrowsingDataAsync(dataKinds);
-            webView2.Close();
+            //await webView.CoreWebView2.Profile.ClearBrowsingDataAsync(
+            //    CoreWebView2BrowsingDataKinds.DiskCache |
+            //    CoreWebView2BrowsingDataKinds.CacheStorage |
+            //    CoreWebView2BrowsingDataKinds.IndexedDb |
+            //    CoreWebView2BrowsingDataKinds.WebSql |
+            //    CoreWebView2BrowsingDataKinds.FileSystems);
+            //webView.Close();
 
             //Hides and reenables UI elements
             clearCacheButton.IsEnabled = true;
