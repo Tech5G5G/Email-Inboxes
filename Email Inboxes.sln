@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email Inboxes", "Email Inboxes\Email Inboxes.csproj", "{D6C99F68-BB45-4987-B3C3-77BEC282E2E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebViewHost", "WebViewHost\WebViewHost.csproj", "{2A45737B-B8B4-44F8-BE51-8AC59C4F8653}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM64 = Debug|ARM64
@@ -33,6 +35,18 @@ Global
 		{D6C99F68-BB45-4987-B3C3-77BEC282E2E0}.Release|x86.ActiveCfg = Release|x86
 		{D6C99F68-BB45-4987-B3C3-77BEC282E2E0}.Release|x86.Build.0 = Release|x86
 		{D6C99F68-BB45-4987-B3C3-77BEC282E2E0}.Release|x86.Deploy.0 = Release|x86
+		{2A45737B-B8B4-44F8-BE51-8AC59C4F8653}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{2A45737B-B8B4-44F8-BE51-8AC59C4F8653}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{2A45737B-B8B4-44F8-BE51-8AC59C4F8653}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2A45737B-B8B4-44F8-BE51-8AC59C4F8653}.Debug|x64.Build.0 = Debug|Any CPU
+		{2A45737B-B8B4-44F8-BE51-8AC59C4F8653}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2A45737B-B8B4-44F8-BE51-8AC59C4F8653}.Debug|x86.Build.0 = Debug|Any CPU
+		{2A45737B-B8B4-44F8-BE51-8AC59C4F8653}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{2A45737B-B8B4-44F8-BE51-8AC59C4F8653}.Release|ARM64.Build.0 = Release|Any CPU
+		{2A45737B-B8B4-44F8-BE51-8AC59C4F8653}.Release|x64.ActiveCfg = Release|Any CPU
+		{2A45737B-B8B4-44F8-BE51-8AC59C4F8653}.Release|x64.Build.0 = Release|Any CPU
+		{2A45737B-B8B4-44F8-BE51-8AC59C4F8653}.Release|x86.ActiveCfg = Release|Any CPU
+		{2A45737B-B8B4-44F8-BE51-8AC59C4F8653}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
