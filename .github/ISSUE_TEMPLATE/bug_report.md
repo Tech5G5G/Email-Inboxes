@@ -22,7 +22,7 @@ If applicable, add screenshots to help explain your problem.
 **Specifications:**
  - OS: [e.g. Windows 11 Home, Windows 10 Pro]
  - Version: [XXXXX.XXXX]
- - CPU: [e. g. Intel, AMD]
+ - CPU: [e.g. Intel, AMD]
 
 **Additional context**
 Add any other context about the problem here.
