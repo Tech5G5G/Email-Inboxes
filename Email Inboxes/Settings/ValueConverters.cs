@@ -6,22 +6,10 @@ namespace Email_Inboxes.Settings
     {
         public static SystemBackdrop ToSystemBackdrop(this BackdropType type) => type switch
         {
-            BackdropType.MicaAlt => new MicaBackdrop() { Kind = MicaKind.BaseAlt },
+            BackdropType.MicaAlt => new MicaBackdrop { Kind = MicaKind.BaseAlt },
             BackdropType.Acrylic => new DesktopAcrylicBackdrop(),
-            _ => new MicaBackdrop() { Kind = MicaKind.Base }
+            _ => new MicaBackdrop { Kind = MicaKind.Base }
         };
-
-        public static TitleBarSpacingResult FindSpacing(this NavigationViewPaneDisplayMode mode) => mode switch
-        {
-            NavigationViewPaneDisplayMode.Top => new TitleBarSpacingResult(new Thickness() { Top = 48 }, new Thickness() { Left = 16 }),
-            _ => new TitleBarSpacingResult(new Thickness(), new Thickness { Left = 51 })
-        };
-
-        public readonly struct TitleBarSpacingResult(Thickness nvMargin, Thickness titleBarMargin)
-        {
-            public Thickness NavigationViewMargin { get; } = nvMargin;
-            public Thickness TitleBarMargin { get; } = titleBarMargin;
-        }
 
         public static ReadOnlyDictionary<CalendarService, string> CalendarServiceUris { get; } = new(new Dictionary<CalendarService, string>()
         {
