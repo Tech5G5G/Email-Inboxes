@@ -44,12 +44,12 @@ namespace Email_Inboxes
                 //var options = env.CreateCoreWebView2ControllerOptions();
                 //options.ProfileName = "gmailhaha";
                 //await WebViews.GmailWebView.EnsureCoreWebView2Async(env, options);
-                WebViews.GmailWebView.Source = new Uri("https://www.google.com");
+                //WebViews.GmailWebView.Source = new Uri("https://www.google.com");
             }
-            this.Content = WebViews.GmailWebView;
+            //this.Content = WebViews.GmailWebView;
 
             //Runs method CoreWebView2Intitialized once the title suggests is done 
-            WebViews.GmailWebView.CoreWebView2Initialized += CoreWebView2Initialized;
+            //WebViews.GmailWebView.CoreWebView2Initialized += CoreWebView2Initialized;
         }
 
         private void CoreWebView2Initialized(WebView2 sender, CoreWebView2InitializedEventArgs args)

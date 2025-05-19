@@ -1,63 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-   x:Class="Email_Inboxes.Home"
-   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-   xmlns:local="using:Email_Inboxes"
-   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-   xmlns:ui="using:CommunityToolkit.WinUI"
-   xmlns:controls="using:Email_Inboxes.Controls"
-   mc:Ignorable="d"
-   NavigationCacheMode="Required">
+    x:Class="Email_Inboxes.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Email_Inboxes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:CommunityToolkit.WinUI"
+    xmlns:web="using:WebView3"
+    xmlns:controls="using:Email_Inboxes.Controls"
+    mc:Ignorable="d"
+    NavigationCacheMode="Required">
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel x:Name="homeItems">
-            <TextBlock Text="Home" Style="{StaticResource TitleTextBlockStyle}" Margin="25,25,25,0"/>
-            <Grid>
-                <ScrollViewer x:Name="inboxButtonsSV" PointerEntered="inboxButtonsSV_PointerEntered" PointerExited="inboxButtonsSV_PointerExited" ViewChanged="inboxButtonsSV_ViewChanged" SizeChanged="inboxButtonsSV_SizeChanged" VerticalScrollMode="Disabled" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,15">
-                    <StackPanel Margin="0,5,0,10" Orientation="Horizontal" x:Name="inboxButtons">
-                        <Rectangle Fill="Transparent" Height="10" Width="10"/>
-                        <controls:InboxButton x:Name="OutlookPageButton" Margin="15,15,0,0" Icon="&#xE902;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Outlook" Description="Open the Outlook page" Click="OutlookNavigate" />
-                        <controls:InboxButton x:Name="OutlookAppButton" Margin="15,15,0,0" Icon="&#xE902;" ActionIcon="&#xE8A7;" IconFontFamily="{StaticResource CustomIcons}" Header="Outlook" Description="Open Outlook" Click="SettingsCard_Click" />
-                        <controls:InboxButton x:Name="GmailButton" Margin="15,15,0,0" Icon="&#xE900;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Gmail" Description="Open the Gmail page" Click="SettingsCard_Click_3" />
-                        <controls:InboxButton x:Name="YahooButton" Margin="15,15,0,0" Icon="&#xE903;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Yahoo Mail" Description="Open the Yahoo Mail page" Click="YahooNavigate" />
-                        <controls:InboxButton x:Name="iCloudButton" Margin="15,15,0,0" Icon="&#xE753;" ActionIcon="&#xE76C;" Header="iCloud Mail" Description="Open the iCloud Mail page" Click="SettingsCard_Click_2" />
-                        <controls:InboxButton x:Name="ProtonButton" Margin="15,15,0,0" Icon="&#xE901;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Proton Mail" Description="Open the Proton Mail page" Click="SettingsCard_Click_1" />
-                        <Rectangle Fill="Transparent" Height="10" Width="25"/>
-                    </StackPanel>
-                </ScrollViewer>
-                <Button Content="{ui:FontIcon FontSize=15, Glyph=&#xF08F;}" Translation="0, 0, 32" BorderThickness="0" Margin="8" Height="35" Width="35" CornerRadius="17.5" x:Name="scrollRightButton" PointerEntered="scrollRightButton_PointerEntered" Click="inboxButtonsSV_ScrollRight" Opacity="0" HorizontalAlignment="Right">
-                    <Button.Shadow>
-                        <ThemeShadow />
-                    </Button.Shadow>
-                    <Button.Resources>
-                        <AcrylicBrush x:Key="ButtonBackgroundPointerOver" TintOpacity="0.4" TintColor="{ThemeResource SolidBackgroundFillColorBase}" FallbackColor="{ThemeResource SolidBackgroundFillColorBase}" />
-                        <AcrylicBrush x:Key="ButtonBackgroundPressed" TintOpacity="0.2" TintColor="{ThemeResource SolidBackgroundFillColorBase}" FallbackColor="{ThemeResource SolidBackgroundFillColorBase}" />
-                    </Button.Resources>
-                    <Button.Background>
-                        <AcrylicBrush TintOpacity="0" TintColor="#FF000000" FallbackColor="{ThemeResource SolidBackgroundFillColorBase}" />
-                    </Button.Background>
-                    <Button.OpacityTransition>
-                        <ScalarTransition />
-                    </Button.OpacityTransition>
-                </Button>
-                <Button Content="{ui:FontIcon FontSize=15, Glyph=&#xF08D;}" Translation="0, 0, 32" BorderThickness="0" Margin="8" Height="35" Width="35" CornerRadius="17.5" x:Name="scrollLeftButton" PointerEntered="scrollLeftButton_PointerEntered" Click="scrollLeftButton_Click" Opacity="0" HorizontalAlignment="Left">
-                    <Button.Shadow>
-                        <ThemeShadow />
-                    </Button.Shadow>
-                    <Button.Resources>
-                        <AcrylicBrush x:Key="ButtonBackgroundPointerOver" TintOpacity="0.4" TintColor="{ThemeResource SolidBackgroundFillColorBase}" FallbackColor="{ThemeResource SolidBackgroundFillColorBase}" />
-                        <AcrylicBrush x:Key="ButtonBackgroundPressed" TintOpacity="0.2" TintColor="{ThemeResource SolidBackgroundFillColorBase}" FallbackColor="{ThemeResource SolidBackgroundFillColorBase}" />
-                    </Button.Resources>
-                    <Button.Background>
-                        <AcrylicBrush TintOpacity="0" TintColor="#FF000000" FallbackColor="{ThemeResource SolidBackgroundFillColorBase}" />
-                    </Button.Background>
-                    <Button.OpacityTransition>
-                        <ScalarTransition />
-                    </Button.OpacityTransition>
-                </Button>
-            </Grid>
-        </StackPanel>
-    </ScrollViewer>
+    <Grid>
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>-->
+        <!--<TextBlock Text="Home" Grid.Row="0" Style="{StaticResource TitleTextBlockStyle}" Margin="36,24,36,12" />-->
+        <ScrollViewer>
+            <StackPanel Margin="0,0,8,8" Spacing="8">
+                <Grid>
+                    <ScrollViewer x:Name="inboxButtonsSV" PointerEntered="inboxButtonsSV_PointerEntered" PointerExited="inboxButtonsSV_PointerExited" ViewChanged="inboxButtonsSV_ViewChanged" SizeChanged="inboxButtonsSV_SizeChanged" VerticalScrollMode="Disabled" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,0">
+                        <StackPanel Spacing="8" Orientation="Horizontal" x:Name="inboxButtons">
+                            <controls:InboxButton x:Name="OutlookPageButton" Icon="&#xE902;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Outlook" Description="Open the Outlook page" Click="OutlookNavigate" />
+                            <controls:InboxButton x:Name="OutlookAppButton" Icon="&#xE902;" ActionIcon="&#xE8A7;" IconFontFamily="{StaticResource CustomIcons}" Header="Outlook" Description="Open Outlook" Click="SettingsCard_Click" />
+                            <controls:InboxButton x:Name="GmailButton" Icon="&#xE900;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Gmail" Description="Open the Gmail page" Click="SettingsCard_Click_3" />
+                            <controls:InboxButton x:Name="YahooButton" Icon="&#xE903;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Yahoo Mail" Description="Open the Yahoo Mail page" Click="YahooNavigate" />
+                            <controls:InboxButton x:Name="iCloudButton" Icon="&#xE753;" ActionIcon="&#xE76C;" Header="iCloud Mail" Description="Open the iCloud Mail page" Click="SettingsCard_Click_2" />
+                            <controls:InboxButton x:Name="ProtonButton" Icon="&#xE901;" ActionIcon="&#xE76C;" IconFontFamily="{StaticResource CustomIcons}" Header="Proton Mail" Description="Open the Proton Mail page" Click="SettingsCard_Click_1" />
+                        </StackPanel>
+                    </ScrollViewer>
+                    <Button Content="{ui:FontIcon FontSize=15, Glyph=&#xF08F;}" Translation="0,0,32" BorderThickness="0" Margin="8" Height="35" Width="35" CornerRadius="17.5" x:Name="scrollRightButton" PointerEntered="scrollRightButton_PointerEntered" Click="inboxButtonsSV_ScrollRight" Opacity="0" HorizontalAlignment="Right">
+                        <Button.Shadow>
+                            <ThemeShadow />
+                        </Button.Shadow>
+                        <Button.Resources>
+                            <AcrylicBrush x:Key="ButtonBackgroundPointerOver" TintOpacity="0.4" TintColor="{ThemeResource SolidBackgroundFillColorBase}" FallbackColor="{ThemeResource SolidBackgroundFillColorBase}" />
+                            <AcrylicBrush x:Key="ButtonBackgroundPressed" TintOpacity="0.2" TintColor="{ThemeResource SolidBackgroundFillColorBase}" FallbackColor="{ThemeResource SolidBackgroundFillColorBase}" />
+                        </Button.Resources>
+                        <Button.Background>
+                            <AcrylicBrush TintOpacity="0" TintColor="#FF000000" FallbackColor="{ThemeResource SolidBackgroundFillColorBase}" />
+                        </Button.Background>
+                        <Button.OpacityTransition>
+                            <ScalarTransition />
+                        </Button.OpacityTransition>
+                    </Button>
+                    <Button Content="{ui:FontIcon FontSize=15, Glyph=&#xF08D;}" Translation="0,0,32" BorderThickness="0" Margin="8" Height="35" Width="35" CornerRadius="17.5" x:Name="scrollLeftButton" PointerEntered="scrollLeftButton_PointerEntered" Click="scrollLeftButton_Click" Opacity="0" HorizontalAlignment="Left">
+                        <Button.Shadow>
+                            <ThemeShadow />
+                        </Button.Shadow>
+                        <Button.Resources>
+                            <AcrylicBrush x:Key="ButtonBackgroundPointerOver" TintOpacity="0.4" TintColor="{ThemeResource SolidBackgroundFillColorBase}" FallbackColor="{ThemeResource SolidBackgroundFillColorBase}" />
+                            <AcrylicBrush x:Key="ButtonBackgroundPressed" TintOpacity="0.2" TintColor="{ThemeResource SolidBackgroundFillColorBase}" FallbackColor="{ThemeResource SolidBackgroundFillColorBase}" />
+                        </Button.Resources>
+                        <Button.Background>
+                            <AcrylicBrush TintOpacity="0" TintColor="#FF000000" FallbackColor="{ThemeResource SolidBackgroundFillColorBase}" />
+                        </Button.Background>
+                        <Button.OpacityTransition>
+                            <ScalarTransition />
+                        </Button.OpacityTransition>
+                    </Button>
+                </Grid>
+                <Grid CornerRadius="8" BorderBrush="{ThemeResource CardStrokeColorDefault}" BorderThickness="1">
+                    <Rectangle Fill="{ThemeResource CardBackgroundFillColorDefault}" RadiusX="8" RadiusY="8" />
+                    <CalendarView HorizontalAlignment="Stretch" Height="500" CornerRadius="8" BorderBrush="Transparent" Background="Transparent" />
+                </Grid>
+                <Grid CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefault}" BorderBrush="{ThemeResource CardStrokeColorDefault}" BorderThickness="1" Height="500">
+                    <!--<web:WebView x:Name="webView" Source="https://www.google.com" CornerRadius="12" />-->
+                    <!--<WebView2 x:Name="webView" Source="edge://history" />-->
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
 </Page>
