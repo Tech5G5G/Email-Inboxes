@@ -174,21 +174,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.0.240109" />
-	  <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3240.44">
-		  <IncludeAssets>compile</IncludeAssets>
-		  <PrivateAssets>all</PrivateAssets>
-	  </PackageReference>
+	<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3240.44" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
 	<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250401001" />
     <PackageReference Include="WinUIEx" Version="2.5.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebViewHost\WebViewHost.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.Web.WebView2.Core.Projection">
-      <HintPath>..\..\..\..\.nuget\packages\microsoft.web.webview2\1.0.3240.44\lib_manual\net8.0-windows10.0.17763.0\Microsoft.Web.WebView2.Core.Projection.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\WebView3\WebView3.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\TitleBarStyles.xaml">
