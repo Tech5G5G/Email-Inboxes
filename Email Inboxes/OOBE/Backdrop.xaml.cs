@@ -59,11 +59,11 @@ namespace Email_Inboxes.First_Boot_Window
             switch (checkedItem)
             {
                 case "Mica":
-                    fbw.SystemBackdrop = new MicaBackdrop();
+                    fbw.SystemBackdrop = new Microsoft.UI.Xaml.Media.MicaBackdrop();
                     micaAltCheck.IsChecked = acrylicCheck.IsChecked = false;
                     break;
                 case "Mica Alt":
-                    fbw.SystemBackdrop = new MicaBackdrop() { Kind = Microsoft.UI.Composition.SystemBackdrops.MicaKind.BaseAlt };
+                    fbw.SystemBackdrop = new Microsoft.UI.Xaml.Media.MicaBackdrop() { Kind = Microsoft.UI.Composition.SystemBackdrops.MicaKind.BaseAlt };
                     micaCheck.IsChecked = acrylicCheck.IsChecked = false;
                     break;
                 case "Acrylic":

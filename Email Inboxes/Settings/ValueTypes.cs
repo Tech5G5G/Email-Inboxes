@@ -96,6 +96,6 @@ public enum ToDoService
 public enum BackdropType
 {
     Mica,
-    MicaAlt,
-    Acrylic
+    Acrylic,
+    Transparent
 }

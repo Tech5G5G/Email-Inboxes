@@ -6,9 +6,10 @@ namespace Email_Inboxes.Settings
     {
         public static SystemBackdrop ToSystemBackdrop(this BackdropType type) => type switch
         {
-            BackdropType.MicaAlt => new MicaBackdrop { Kind = MicaKind.BaseAlt },
-            BackdropType.Acrylic => new DesktopAcrylicBackdrop(),
-            _ => new MicaBackdrop { Kind = MicaKind.Base }
+            //BackdropType.MicaAlt => new Media.MicaBackdrop { Kind = MicaKind.BaseAlt },
+            BackdropType.Acrylic => new AcrylicBackdrop(),
+            BackdropType.Transparent => new WinUIEx.TransparentTintBackdrop(),
+            _ => new Media.MicaBackdrop { Kind = MicaKind.Base }
         };
 
         public static ReadOnlyDictionary<CalendarService, string> CalendarServiceUris { get; } = new(new Dictionary<CalendarService, string>()
@@ -32,6 +33,7 @@ namespace Email_Inboxes.Settings
         });
 
         //Update code in SettingValues static constructor
+        //Use VersionNumber setting (check if doesn't exist, equal to "1.3" or 1.4f)
 
         //Update ToDoServiceName -> ToDoService
         //Values:
