@@ -4,8 +4,6 @@ public class SettingValues
 {
     #region Services
 
-    public static Setting<bool> HomeEnabled { get; } = new(nameof(HomeEnabled), true);
-
     public static Setting<bool> GmailEnabled { get; } = new(nameof(GmailEnabled), false);
 
     public static Setting<bool> iCloudEnabled { get; } = new(nameof(iCloudEnabled), false);
@@ -24,11 +22,11 @@ public class SettingValues
 
     #region Home
 
+    public static Setting<bool> HomeEnabled { get; } = new(nameof(HomeEnabled), true);
+
     public static EnumSetting<CalendarService> CalendarService { get; } = new(nameof(CalendarService), Settings.CalendarService.None);
 
     public static EnumSetting<ToDoService> ToDoService { get; } = new(nameof(ToDoService), Settings.ToDoService.None);
-
-    public static Setting<bool> CommandBarEnabled { get; } = new(nameof(CommandBarEnabled), true);
 
     #endregion
 
@@ -36,9 +34,21 @@ public class SettingValues
 
     public static EnumSetting<PageType> StartupPage { get; } = new(nameof(StartupPage), PageType.Home);
 
+    public static EnumSetting<NavigationViewPaneDisplayMode> PaneDisplayMode { get; } = new(nameof(PaneDisplayMode), NavigationViewPaneDisplayMode.Auto);
+
+    #endregion
+
+    #region Backdrop
+
     public static EnumSetting<BackdropType> Backdrop { get; } = new(nameof(Backdrop), BackdropType.Mica);
 
-    public static EnumSetting<NavigationViewPaneDisplayMode> PaneDisplayMode { get; } = new(nameof(PaneDisplayMode), NavigationViewPaneDisplayMode.Auto);
+    public static Setting<bool> ExtendBackdrop { get; } = new(nameof(ExtendBackdrop), false);
+
+    public static Setting<int> BackdropKind { get; } = new(nameof(BackdropKind), default);
+
+    public static Setting<string> BackdropTint { get; } = new(nameof(BackdropTint), "#00000000");
+
+    public static Setting<float> BackdropLuminosity { get; } = new(nameof(BackdropLuminosity), default);
 
     #endregion
 
@@ -47,6 +57,10 @@ public class SettingValues
     public static Setting<bool> FirstBootScreenPassed { get; } = new(nameof(FirstBootScreenPassed), false);
 
     public static EnumSetting<OverlappedPresenterState> WindowState { get; } = new(nameof(WindowState), OverlappedPresenterState.Restored);
+
+    public static Setting<float> VersionNumber { get; } = new(nameof(VersionNumber), 1.4f);
+
+    public static Setting<bool> CommandBarEnabled { get; } = new(nameof(CommandBarEnabled), true);
 
     #endregion
 }
