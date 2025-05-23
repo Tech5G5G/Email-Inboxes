@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="Email_Inboxes.Controls.ButtonedScrollViewer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Email_Inboxes.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:CommunityToolkit.WinUI"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="ScrollButtonGridStyle" TargetType="Grid">
+            <Setter Property="Width" Value="35" />
+            <Setter Property="Height" Value="35" />
+            <Setter Property="CornerRadius" Value="17.5" />
+            <Setter Property="Margin" Value="8" />
+            <Setter Property="Shadow">
+                <Setter.Value>
+                    <ThemeShadow />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ScrollButtonStyle" TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Width" Value="35" />
+            <Setter Property="Height" Value="35" />
+            <Setter Property="CornerRadius" Value="17.5" />
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid>
+        <ScrollViewer x:Name="view" Content="{x:Bind Content}"
+                      HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled"
+                      HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled"
+                      ViewChanged="OnViewChanged" PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
+        <Grid x:Name="leftButton" Style="{ThemeResource ScrollButtonGridStyle}" Translation="0,0,32" HorizontalAlignment="Left" Opacity="0" PointerEntered="OnPointerEntered">
+            <Ellipse Fill="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            <FontIcon FontSize="12" Glyph="&#xEDD9;" />
+            <Button Style="{ThemeResource ScrollButtonStyle}" Click="ScrollLeft" />
+            <Grid.OpacityTransition>
+                <ScalarTransition />
+            </Grid.OpacityTransition>
+        </Grid>
+        <Grid x:Name="rightButton" Style="{ThemeResource ScrollButtonGridStyle}" Translation="0,0,32" HorizontalAlignment="Right" Opacity="0" PointerEntered="OnPointerEntered">
+            <Ellipse Fill="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            <FontIcon FontSize="12" Glyph="&#xEDDA;" />
+            <Button Style="{ThemeResource ScrollButtonStyle}" Click="ScrollRight" />
+            <Grid.OpacityTransition>
+                <ScalarTransition />
+            </Grid.OpacityTransition>
+        </Grid>
+    </Grid>
+</UserControl>
