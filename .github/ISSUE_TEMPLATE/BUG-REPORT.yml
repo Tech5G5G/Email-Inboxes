@@ -11,7 +11,7 @@ body:
       options:
         - label: This is not a duplicate of another issue
           required: true
-        - label: This is not an feature/background removal request
+        - label: This is not an feature request
           required: true
   - type: textarea
     attributes:
